@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAP - Technical Assessment Portal | Learning Management System</title>
+    <meta name="description" content="TAP (Technical Assessment Portal) - Advanced Learning Management System with comprehensive workforce analytics, employment equity management, academy courses, and business intelligence reporting.">
+    <meta name="keywords" content="learning management system, LMS, technical assessment, workforce analytics, employment equity, online courses, business intelligence, dashboard, e-learning, training portal">
+    <meta name="author" content="TAP Systems">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="TAP - Technical Assessment Portal | LMS">
+    <meta property="og:description" content="Advanced Learning Management System with workforce analytics, employment equity management, and comprehensive course library.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="./Images/Logo.png">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TAP - Technical Assessment Portal">
+    <meta name="twitter:description" content="Advanced Learning Management System with workforce analytics and employment equity management.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="./Documents/tap-text-styles.css">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./Images/Logo.png">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "TAP - Technical Assessment Portal",
+        "url": "https://tap-lms.com",
+        "description": "Advanced Learning Management System with workforce analytics, employment equity management, and comprehensive course library.",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://tap-lms.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="#home" class="nav-logo">
+                    <img src="./Images/Logo.png" alt="TAP Logo" width="40" height="40">
+                    <span>TAP</span>
+                </a>
+                
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="#features" class="nav-link">Features</a></li>
+                        <li class="nav-item"><a href="#solutions" class="nav-link">Solutions</a></li>
+                        <li class="nav-item"><a href="#academy" class="nav-link">Academy</a></li>
+                        <li class="nav-item"><a href="#pricing" class="nav-link">Pricing</a></li>
+                        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-actions">
+                    <a href="#login" class="btn btn-outline">Login</a>
+                    <a href="#signup" class="btn btn-primary">Get Started</a>
+                </div>
+                
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="hamburger"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <p class="kicker">Advanced Learning Management System</p>
+                        <h1 class="hero-title">Transform Your Organization with <span class="text-gradient">TAP</span></h1>
+                        <p class="lead">Technical Assessment Portal - The comprehensive LMS solution featuring workforce analytics, employment equity management, business intelligence reporting, and a complete academy ecosystem.</p>
+                        <div class="hero-actions">
+                            <a href="#signup" class="btn btn-primary btn-large">Start Free Trial</a>
+                            <a href="#demo" class="btn btn-outline btn-large">Request Demo</a>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="stat">
+                                <h3>50,000+</h3>
+                                <p>Active Learners</p>
+                            </div>
+                            <div class="stat">
+                                <h3>1,200+</h3>
+                                <p>Courses Available</p>
+                            </div>
+                            <div class="stat">
+                                <h3>98%</h3>
+                                <p>Satisfaction Rate</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <div class="dashboard-preview">
+                            <div class="dashboard-header">
+                                <div class="dashboard-nav">
+                                    <div class="nav-dot"></div>
+                                    <div class="nav-dot"></div>
+                                    <div class="nav-dot"></div>
+                                </div>
+                            </div>
+                            <div class="dashboard-content">
+                                <div class="chart-container">
+                                    <div class="chart-bar" style="height: 60%"></div>
+                                    <div class="chart-bar" style="height: 80%"></div>
+                                    <div class="chart-bar" style="height: 45%"></div>
+                                    <div class="chart-bar" style="height: 90%"></div>
+                                </div>
+                                <div class="metrics-grid">
+                                    <div class="metric-card">
+                                        <div class="metric-value">124</div>
+                                        <div class="metric-label">Courses</div>
+                                    </div>
+                                    <div class="metric-card">
+                                        <div class="metric-value">89%</div>
+                                        <div class="metric-label">Complete</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <p class="kicker">Comprehensive Platform</p>
+                    <h2>Everything You Need in One Platform</h2>
+                    <p class="lead">TAP combines learning management, workforce analytics, and business intelligence into a single, powerful solution.</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                            </svg>
+                        </div>
+                        <h3>Interactive Dashboards</h3>
+                        <p>Comprehensive BI reporting with DevExpress Dashboard components, real-time analytics, and customizable widgets for data visualization.</p>
+                        <ul>
+                            <li>Real-time data visualization</li>
+                            <li>Customizable dashboard widgets</li>
+                            <li>Advanced filtering and sorting</li>
+                            <li>Export to PDF, Excel, CSV</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <h3>Employment Equity Management</h3>
+                        <p>Complete employment equity planning, workforce analysis, barrier identification, and compliance reporting system.</p>
+                        <ul>
+                            <li>Workforce profile management</li>
+                            <li>Barrier analysis and reporting</li>
+                            <li>Occupational level tracking</li>
+                            <li>Compliance notifications</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                            </svg>
+                        </div>
+                        <h3>Academy Learning System</h3>
+                        <p>Full-featured learning management with course library, assessments, student profiles, analytics, and payment processing.</p>
+                        <ul>
+                            <li>1,200+ courses available</li>
+                            <li>Advanced assessment system</li>
+                            <li>Student progress tracking</li>
+                            <li>Certificate generation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                            </svg>
+                        </div>
+                        <h3>Team Management</h3>
+                        <p>Comprehensive team collaboration tools with leaderboards, course assignments, performance tracking, and member management.</p>
+                        <ul>
+                            <li>Team creation and editing</li>
+                            <li>Performance leaderboards</li>
+                            <li>Predefined course assignments</li>
+                            <li>Collaboration tools</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V7h10v2z"/>
+                            </svg>
+                        </div>
+                        <h3>E-Commerce Integration</h3>
+                        <p>Complete shopping cart, payment processing, billing management, and transaction history for course purchases.</p>
+                        <ul>
+                            <li>Shopping cart management</li>
+                            <li>Secure payment processing</li>
+                            <li>Invoice generation</li>
+                            <li>Payment history tracking</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                            </svg>
+                        </div>
+                        <h3>White Labeling</h3>
+                        <p>Customize the platform with your brand including themes, banners, broadcasts, and complete visual identity customization.</p>
+                        <ul>
+                            <li>Custom theme configuration</li>
+                            <li>Brand logo integration</li>
+                            <li>Custom banner management</li>
+                            <li>Personalized messaging</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solutions Section -->
+        <section id="solutions" class="solutions">
+            <div class="container">
+                <div class="section-header">
+                    <p class="kicker">Industry Solutions</p>
+                    <h2>Tailored for Your Industry</h2>
+                    <p class="lead">TAP adapts to various industries with specialized features and compliance requirements.</p>
+                </div>
+                
+                <div class="solutions-grid">
+                    <div class="solution-card">
+                        <h3>Corporate Training</h3>
+                        <p>Employee development, workforce analytics, and compliance management for large organizations.</p>
+                        <div class="solution-features">
+                            <span>Workforce Profile Management</span>
+                            <span>Employment Equity Compliance</span>
+                            <span>Advanced Analytics</span>
+                        </div>
+                    </div>
+                    
+                    <div class="solution-card">
+                        <h3>Educational Institutions</h3>
+                        <p>Complete academy system with student management, assessments, and performance tracking.</p>
+                        <div class="solution-features">
+                            <span>Student Profiles</span>
+                            <span>Assessment Management</span>
+                            <span>Progress Tracking</span>
+                        </div>
+                    </div>
+                    
+                    <div class="solution-card">
+                        <h3>Compliance & Reporting</h3>
+                        <p>Specialized tools for employment equity, workforce analysis, and regulatory compliance.</p>
+                        <div class="solution-features">
+                            <span>Compliance Reporting</span>
+                            <span>Barrier Analysis</span>
+                            <span>Automated Notifications</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Academy Section -->
+        <section id="academy" class="academy">
+            <div class="container">
+                <div class="academy-content">
+                    <div class="academy-text">
+                        <p class="kicker">TAP Academy</p>
+                        <h2>Comprehensive Learning Ecosystem</h2>
+                        <p class="lead">Access over 1,200 courses with advanced assessment systems, student profiles, and detailed analytics.</p>
+                        
+                        <div class="academy-features">
+                            <div class="academy-feature">
+                                <h4>Course Library</h4>
+                                <p>Extensive catalog with advanced filtering by tags, type, level, price, and duration.</p>
+                            </div>
+                            <div class="academy-feature">
+                                <h4>Assessment System</h4>
+                                <p>Comprehensive testing and evaluation with automated scoring and certificate generation.</p>
+                            </div>
+                            <div class="academy-feature">
+                                <h4>Student Analytics</h4>
+                                <p>Detailed progress tracking, performance analytics, and personalized learning paths.</p>
+                            </div>
+                        </div>
+                        
+                        <a href="#signup" class="btn btn-primary">Explore Academy</a>
+                    </div>
+                    <div class="academy-visual">
+                        <div class="course-cards">
+                            <div class="course-card">
+                                <div class="course-header">React Development</div>
+                                <div class="course-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 75%"></div>
+                                    </div>
+                                    <span>75% Complete</span>
+                                </div>
+                            </div>
+                            <div class="course-card">
+                                <div class="course-header">Data Analytics</div>
+                                <div class="course-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 45%"></div>
+                                    </div>
+                                    <span>45% Complete</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="pricing">
+            <div class="container">
+                <div class="section-header">
+                    <p class="kicker">Flexible Pricing</p>
+                    <h2>Choose Your Plan</h2>
+                    <p class="lead">Scalable pricing options to fit organizations of any size.</p>
+                </div>
+                
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>Starter</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">29</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <p>Perfect for small teams getting started</p>
+                        <ul class="pricing-features">
+                            <li>Up to 50 users</li>
+                            <li>Basic dashboard</li>
+                            <li>Course library access</li>
+                            <li>Email support</li>
+                        </ul>
+                        <a href="#signup" class="btn btn-outline">Get Started</a>
+                    </div>
+                    
+                    <div class="pricing-card featured">
+                        <div class="popular-badge">Most Popular</div>
+                        <h3>Professional</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">99</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <p>Advanced features for growing organizations</p>
+                        <ul class="pricing-features">
+                            <li>Up to 500 users</li>
+                            <li>Advanced analytics</li>
+                            <li>Employment equity tools</li>
+                            <li>Team management</li>
+                            <li>Priority support</li>
+                        </ul>
+                        <a href="#signup" class="btn btn-primary">Get Started</a>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <h3>Enterprise</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">299</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <p>Complete solution for large enterprises</p>
+                        <ul class="pricing-features">
+                            <li>Unlimited users</li>
+                            <li>White labeling</li>
+                            <li>Custom integrations</li>
+                            <li>Dedicated support</li>
+                            <li>Advanced reporting</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline">Contact Sales</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="contact-content">
+                    <div class="contact-text">
+                        <p class="kicker">Get In Touch</p>
+                        <h2>Ready to Transform Your Organization?</h2>
+                        <p class="lead">Contact our team to learn more about TAP and schedule a personalized demo.</p>
+                        
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <strong>Email:</strong>
+                                <a href="mailto:hello@tap-lms.com">hello@tap-lms.com</a>
+                            </div>
+                            <div class="contact-item">
+                                <strong>Phone:</strong>
+                                <a href="tel:+1234567890">+1 (234) 567-8900</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company</label>
+                            <input type="text" id="company" name="company" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#home" class="footer-logo">
+                        <img src="./Images/Logo.png" alt="TAP Logo" width="32" height="32">
+                        <span>TAP</span>
+                    </a>
+                    <p>Technical Assessment Portal - Transforming organizations through advanced learning management and workforce analytics.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Platform</h4>
+                        <ul>
+                            <li><a href="#features">Dashboard</a></li>
+                            <li><a href="#academy">Academy</a></li>
+                            <li><a href="#solutions">Analytics</a></li>
+                            <li><a href="#features">Teams</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Solutions</h4>
+                        <ul>
+                            <li><a href="#solutions">Corporate Training</a></li>
+                            <li><a href="#solutions">Employment Equity</a></li>
+                            <li><a href="#solutions">Education</a></li>
+                            <li><a href="#solutions">Compliance</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="#help">Documentation</a></li>
+                            <li><a href="#support">Support</a></li>
+                            <li><a href="#api">API</a></li>
+                            <li><a href="#status">Status</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#careers">Careers</a></li>
+                            <li><a href="#privacy">Privacy Policy</a></li>
+                            <li><a href="#terms">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 TAP Systems. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#twitter" aria-label="Twitter">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                        </svg>
+                    </a>
+                    <a href="#linkedin" aria-label="LinkedIn">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                            <rect x="2" y="9" width="4" height="12"/>
+                            <circle cx="4" cy="4" r="2"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
