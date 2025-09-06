@@ -26,7 +26,7 @@ The TAP LMS website is designed as a comprehensive single-page application showc
 **Content Focus**:
 - Hero title: "Transform Your Organization with TAP"
 - Value proposition highlighting comprehensive LMS solution
-- Key statistics (50,000+ learners, 1,200+ courses, 98% satisfaction)
+- Key statistics (50,000+ learners, 300+ courses, 98% satisfaction)
 - Call-to-action buttons for trial and demo
 
 **SEO Elements**:
@@ -70,7 +70,7 @@ The TAP LMS website is designed as a comprehensive single-page application showc
 
 3. **Academy Learning System**
    - Keywords: Course library, assessments, student profiles, certificates
-   - Features: 1,200+ courses, progress tracking, analytics
+   - Features: 300+ courses, progress tracking, analytics
 
 4. **Team Management**
    - Keywords: Collaboration tools, leaderboards, performance tracking
@@ -130,7 +130,7 @@ The TAP LMS website is designed as a comprehensive single-page application showc
 - Student analytics
 
 **Secondary Keywords**:
-- 1,200+ courses
+- 300+ courses
 - Advanced filtering
 - Certificate generation
 - Progress tracking

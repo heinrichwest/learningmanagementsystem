@@ -1,0 +1,154 @@
+
+/* TAP-inspired Text Styling Sheet
+   --------------------------------------------------
+   How to use:
+   1) Add Google Fonts to your <head>:
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+   2) Include this CSS after your reset/framework.
+   3) Wrap long-form content in a .prose container for perfect measure.
+*/
+
+/* ---------- Root & Tokens ---------- */
+:root {
+  /* Fonts */
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  --font-display: "Poppins", var(--font-sans);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  /* Typography rhythm */
+  --text-max-width: 72ch;
+  --leading-loose: 1.75;
+  --leading-normal: 1.6;
+  --leading-tight: 1.25;
+
+  /* Colors (set to generic, update to match your brand) */
+  --bg: #ffffff;
+  --bg-soft: #f7f8fb;
+  --text: #111827;
+  --text-muted: #6b7280;
+  --link: #2559e4;
+  --link-hover: #1636a8;
+  --accent: #6d28d9;
+  --border: #e5e7eb;
+  --code-bg: #f3f4f6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b0f1a;
+    --bg-soft: #0f1526;
+    --text: #e5e7eb;
+    --text-muted: #a1a1aa;
+    --link: #7aa2ff;
+    --link-hover: #a9c3ff;
+    --accent: #a78bfa;
+    --border: #1f2937;
+    --code-bg: #0f172a;
+  }
+}
+
+/* ---------- Base ---------- */
+html { font-size: 100%; }
+body {
+  margin: 0;
+  color: var(--text);
+  background: var(--bg);
+  font-family: var(--font-sans);
+  line-height: var(--leading-normal);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.prose {
+  max-width: var(--text-max-width);
+}
+
+:where(p, ul, ol, blockquote, pre, table, img, figure) {
+  margin-block: 1rem;
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+  color: var(--text);
+  margin: 2rem 0 0.75rem 0;
+  line-height: var(--leading-tight);
+  font-family: var(--font-display);
+  letter-spacing: -0.015em;
+}
+
+/* ---------- Responsive Type Scale (fluid using clamp) ---------- */
+h1 { font-weight: 700; font-size: clamp(2rem, 2.5vw + 1rem, 3.25rem); }
+h2 { font-weight: 700; font-size: clamp(1.625rem, 1.6vw + 1rem, 2.5rem); }
+h3 { font-weight: 700; font-size: clamp(1.375rem, 1.2vw + 0.9rem, 2rem); }
+h4 { font-weight: 600; font-size: clamp(1.125rem, 0.6vw + 0.9rem, 1.5rem); }
+h5 { font-weight: 600; font-size: clamp(1rem, 0.4vw + 0.85rem, 1.25rem); }
+h6 { font-weight: 600; font-size: 1rem; letter-spacing: 0.01em; }
+
+p { font-size: 1rem; }
+.lead { font-size: clamp(1.125rem, 0.6vw + 1rem, 1.375rem); color: var(--text-muted); line-height: var(--leading-loose); }
+.small { font-size: 0.875rem; }
+.caption { font-size: 0.8125rem; color: var(--text-muted); }
+.kicker { font: 600 0.75rem/1 var(--font-sans); letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+
+/* ---------- Links ---------- */
+a { color: var(--link); text-decoration: none; }
+a:hover, a:focus { color: var(--link-hover); text-decoration: underline; text-underline-offset: 3px; }
+a:focus-visible { outline: 2px dashed var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+/* ---------- Lists ---------- */
+ul, ol { padding-inline-start: 1.25rem; }
+li { margin-block: 0.35rem; }
+ol { list-style: decimal; }
+ul { list-style: disc; }
+
+/* ---------- Quotes ---------- */
+blockquote {
+  padding: 0.75rem 1rem;
+  border-left: 4px solid var(--accent);
+  background: var(--bg-soft);
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ---------- Code ---------- */
+code, pre { font-family: var(--font-mono); }
+pre {
+  padding: 1rem;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  overflow: auto;
+}
+code {
+  background: var(--code-bg);
+  padding: 0.15em 0.35em;
+  border-radius: 0.35rem;
+  border: 1px solid var(--border);
+}
+
+/* ---------- Tables ---------- */
+table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+th, td { padding: 0.75rem; border: 1px solid var(--border); }
+th { text-align: left; font-weight: 600; background: var(--bg-soft); }
+
+/* ---------- Utilities ---------- */
+.text-muted { color: var(--text-muted); }
+.text-center { text-align: center; }
+.text-gradient {
+  background-image: linear-gradient(90deg, var(--link), var(--accent));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.max-w-prose { max-width: var(--text-max-width); }
+.nowrap { white-space: nowrap; }
+
+/* ---------- Vertical rhythm helpers ---------- */
+:where(h1, h2, h3, h4, h5, h6) + :where(p, ul, ol) { margin-top: 0.25rem; }
+p + p { margin-top: 0.75rem; }
+
+/* ---------- Print tweaks ---------- */
+@media print {
+  a { text-decoration: none; color: black; }
+  .text-gradient { color: black; background: none; -webkit-background-clip: initial; background-clip: initial; }
+}

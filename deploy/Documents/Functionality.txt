@@ -1,0 +1,587 @@
+================================================================================
+                    BLAZER FUNCTIONALITY DOCUMENTATION
+          TAP (Technical Assessment Portal) - Web Application
+================================================================================
+
+OVERVIEW
+--------
+This document provides a comprehensive guide to all Blazer-like functionality 
+in the TAP system. While not a traditional Blazor application, this React-based 
+system uses DevExpress Dashboard components to provide business intelligence and 
+reporting capabilities similar to Blazer platforms.
+
+================================================================================
+1. ARCHITECTURE OVERVIEW
+================================================================================
+
+Technology Stack:
+-----------------
+- Frontend Framework: React 18.3.1 with TypeScript
+- UI Components: Ant Design 5.19.4
+- Dashboard/BI Components: DevExpress Dashboard React 23.2.5
+- State Management: Redux Toolkit with Redux Persist
+- Data Fetching: Tanstack React Query 5.45.0
+- Routing: React Router DOM 6.20.0
+- Styling: Tailwind CSS 3.4.4
+- Charts: Chart.js 4.4.3, @ant-design/charts 2.1.1
+- Internationalization: i18next
+
+Application Structure:
+---------------------
+src/
+├── modules/
+│   ├── auth/          - Authentication and authorization
+│   ├── core/          - Core utilities and shared components
+│   ├── features/      - Main application features
+│   └── PublicPages/   - Public-facing pages
+├── services/          - API integration services
+├── store/             - Redux store configuration
+└── constants/         - Application constants
+
+================================================================================
+2. MAIN DASHBOARD AND REPORTING FEATURES
+================================================================================
+
+2.1 Dashboard Module (/dashboard)
+----------------------------------
+Location: src/modules/features/dashboard/
+Purpose: Main dashboard providing overview and widgets
+
+Components:
+- Dashboard.tsx: Main dashboard container
+- BannerSlider: Rotating banner display for corporate users
+- BroadcastWidget: Corporate broadcast messages
+- MarketingWidget: Marketing content for non-corporate users
+- NotificationWidget: System notifications display
+- LeaderBoardWidget: Top performers leaderboard
+
+Features:
+- Role-based widget display (Corporate vs Regular users)
+- Real-time notification system
+- Paginated data loading
+- Responsive grid layout
+
+API Endpoints:
+- GET /api/dashboard/GetNotifications
+- POST /api/dashboard/MarkNotifactionAsRead
+- GET /api/dashboard/GetMarketingList
+- GET /api/dashboard/GetLeaderList
+- GET /api/dashboard/GetClientBroadcast
+
+2.2 Dashboard Reporting Module (/reporting/dashboard)
+------------------------------------------------------
+Location: src/modules/features/DashboardReporting/
+Purpose: Advanced BI reporting with DevExpress Dashboard
+
+Key Components:
+- DashboardBuilder.tsx: Main dashboard builder component
+- DashboardControl: DevExpress dashboard control integration
+- Extensions:
+  * DeleteDashboardExtension: Delete dashboard functionality
+  * SaveAsDashboardExtension: Save as new dashboard
+  * AssignDashboardExtension: Assign dashboards to users
+  * EmailSubscribeExtension: Email subscription for reports
+
+Features:
+- Interactive dashboard designer/viewer modes
+- Super admin access controls
+- Custom widget options (Grid, Chart items)
+- Dashboard persistence and management
+- Report scheduling capabilities
+- Email subscription system
+
+Working Modes:
+- Viewer Mode: View-only access for regular users
+- Designer Mode: Full editing for super admins
+
+Dashboard Configuration:
+- Endpoint: Configured via REACT_APP_DASHBOARD_URL
+- Initial Dashboard ID: "12" (hardcoded default)
+- Authentication: Bearer token from Redux store
+
+2.3 Map Reporting Module
+------------------------
+Location: src/modules/features/DashboardReporting/containers/MapReportingContainer/
+Purpose: Geographic data visualization and reporting
+
+Components:
+- MapReporting.tsx: Main map visualization component
+- MapReportingContainer: Container for map logic
+
+================================================================================
+3. EMPLOYMENT EQUITY MODULE
+================================================================================
+
+Location: src/modules/features/EmploymentEquity/
+Purpose: Comprehensive employment equity management and reporting
+
+3.1 Main Features:
+-----------------
+- Employment Equity Plans
+- Workforce Analysis
+- Barrier Analysis
+- Occupational Level Management
+- Compliance Reporting
+
+3.2 Sub-Modules:
+---------------
+
+Plan Configuration:
+- Path: /ee-plan-configuration
+- Components:
+  * EEPlanConfigurationPage
+  * ComplianceNotification
+  * ContactAConsultantModal
+  * EEPlanIndustryList
+- Features:
+  * Industry plan selection
+  * Configuration validation
+  * Consultant contact system
+
+Workforce Analysis:
+- Path: /workforce-analysis
+- Components:
+  * WorkforceAnalysisPage
+  * EEAnalysisReport
+  * EEOccupationalLevel
+  * AnalysisFindingsTable
+- Features:
+  * Barrier confirmation workflows
+  * Occupational level analysis
+  * Analysis findings reporting
+
+3.3 API Services:
+----------------
+- GET /api/EntityPlan/GetInitialData
+- POST /api/EntityPlan/Create
+- GET /api/EntityPlan/GetIndustryPlans
+- GET /api/EntityPlan/ValidateConfiguration
+- POST /api/EntityPlan/ContactToConsultant
+
+================================================================================
+4. WORKFORCE PROFILE MODULE
+================================================================================
+
+Location: src/modules/features/WorkforceProfile/
+Purpose: Employee and workforce management
+
+Features:
+- User Management Tab
+- Bulk Upload functionality
+- Individual Employee Addition
+- Employee profile management
+- Workforce analytics
+
+Pages:
+- WorkforceProfilePage: Main workforce management
+- BulkUploadPage: Bulk employee data import
+- IndividualEmployeeAddPage: Single employee addition
+
+API Endpoints:
+- Base: /api/WorkforceProfile/
+- Equity Profile: /api/EquityWorkforceProfile/
+- Payroll: /api/EquityWorkforceProfilePayroll/
+- History: /api/EquityWorkforceProfileEmploymentHistory
+
+================================================================================
+5. ACADEMY MODULE
+================================================================================
+
+Location: src/modules/features/Academy/
+Purpose: Learning management system integration
+
+Features:
+- Academy Dashboard
+- Student Profiles
+- Subject Management
+- Assessment System
+- Analytics and Reporting
+- Payment History
+
+Pages:
+- AcademyPage: Main academy portal
+- AcademyDashboardPage: Academy overview dashboard
+- StudentProfilePage: Individual student profiles
+- AcademySubjectPage: Subject management
+- AcademyAssessmentPage: Assessment management
+- AcademyAssessmentScorePage: Score tracking
+- AnalyticsPage: Academy analytics
+- AcademyCheckout: Course purchase flow
+- AcademyPaymentHistoryPage: Payment tracking
+
+================================================================================
+6. TEAMS MODULE
+================================================================================
+
+Location: src/modules/features/Teams/
+Purpose: Team management and collaboration
+
+Features:
+- Team creation and editing
+- Team member management
+- Team leaderboards
+- Predefined course assignments
+- Team performance tracking
+
+Pages:
+- TeamsListPage: List all teams
+- TeamDetailPage: Individual team details
+- CreateTeamPage: New team creation
+- EditTeamPage: Team modification
+- TeamLeaderboardPage: Performance rankings
+- AddPredefinedCoursePage: Course assignment
+
+API Endpoints:
+- Base: /api/teams/
+- Members: /api/TeamMember/
+- Leaderboard: /api/TeamLeaderboard
+- GET /GetTeamLeaderboardList
+- GET /GetTop3TeamLeaderboard
+- GET /DownloadTeamLeaderboardExcel
+
+================================================================================
+7. COURSE MANAGEMENT MODULES
+================================================================================
+
+7.1 Course Library
+-----------------
+Location: src/modules/features/CourseLibrary/
+Purpose: Browse and search available courses
+
+Features:
+- Course catalog
+- Advanced filtering (tags, type, level, price, duration)
+- Bundle management
+- Wishlist functionality
+
+API Services:
+- GET /api/Course/GetStoreData
+- GET /api/Course/GetCourseBundle
+- POST /api/Course/UpdateUserWishList
+
+7.2 My Courses
+--------------
+Location: src/modules/features/MyCourseDetails/
+Purpose: Manage enrolled courses
+
+Features:
+- Course progress tracking
+- Certificate generation
+- Course ratings
+- Personal deadlines
+- Course abandonment/retake
+
+API Services:
+- GET /api/Course/GetMyCourses
+- POST /api/Course/AbandonCourse
+- POST /api/Course/ExtendExpiry
+- POST /api/Course/UpdateRating
+
+7.3 Course Details
+-----------------
+Location: src/modules/features/CoursesDetails/
+Purpose: Detailed course information and enrollment
+
+================================================================================
+8. BUDDIES MODULE
+================================================================================
+
+Location: src/modules/features/Buddies/
+Purpose: Peer support and mentorship system
+
+Components Structure:
+- containers/: Business logic containers
+- presentation/: UI components
+- services/: API integration
+- hooks/: Custom React hooks
+- models/: Data models and types
+
+================================================================================
+9. SHOPPING AND PAYMENT MODULES
+================================================================================
+
+9.1 Shopping Cart
+----------------
+Location: src/modules/features/MyShoppingCart/
+Purpose: E-commerce functionality for course purchases
+
+Features:
+- Cart management
+- Checkout process
+- Item selection
+- Cart clearing
+
+API Endpoints:
+- GET /api/Shopping/GetShoppingCart
+- POST /api/Shopping/Addtocart
+- DELETE /api/Shopping/DeleteItem
+- POST /api/Shopping/ClearCart
+
+9.2 Payment Module
+-----------------
+Location: src/modules/features/PaymentModule/
+Purpose: Payment processing and history
+
+Pages:
+- PaymentSuccessPage: Success confirmation
+- PaymentCancelPage: Cancellation handling
+
+API Services:
+- POST /api/Payment/makePaymentTransaction
+- POST /api/Payment/SaveTransactionDetail
+- GET /api/Payment/GetPaymentHistory
+
+9.3 Billing Details
+------------------
+Location: src/modules/features/BillingDetails/
+Purpose: Invoice and billing management
+
+Features:
+- Payment history view
+- Invoice generation
+- Transaction details
+
+================================================================================
+10. USER PROFILE AND SETTINGS
+================================================================================
+
+10.1 My Profile
+--------------
+Location: src/modules/features/MyProfile/
+Purpose: User profile management
+
+Features:
+- Personal information update
+- Document management
+- CV generation
+- Email settings
+- Password management
+
+API Endpoints:
+- GET /api/user/UserDetail
+- POST /api/user/updateUserProfile
+- POST /api/user/changeUserPassword
+- GET /api/user/DownloadUserCV
+
+10.2 Settings Module
+-------------------
+Location: src/modules/features/Settings/
+Purpose: Application settings management
+
+================================================================================
+11. WHITE LABELING MODULE
+================================================================================
+
+Location: src/modules/features/WhiteLabeling/
+Purpose: Customization and theming capabilities
+
+Services:
+- banners.services.ts: Banner management
+- broadcasts.services.ts: Broadcast configuration
+
+Features:
+- Theme customization
+- Banner management
+- Broadcast messaging
+- Brand customization
+
+================================================================================
+12. DATA OPERATIONS AND QUERIES
+================================================================================
+
+12.1 Database Integration Pattern:
+----------------------------------
+- Axios interceptors for API calls
+- Bearer token authentication
+- Centralized error handling
+- Request/response interceptors
+
+12.2 Common Query Patterns:
+--------------------------
+- Pagination: page and pageSize parameters
+- Filtering: Multiple filter types per module
+- Sorting: Built into DevExpress components
+- Search: Text-based and tag-based
+
+12.3 Data Caching:
+-----------------
+- React Query for server state
+- Redux Persist for client state
+- Session storage for temporary data
+
+================================================================================
+13. NAVIGATION AND ROUTING
+================================================================================
+
+Main Navigation Structure:
+-------------------------
+/                           - Landing page
+/login                      - Authentication
+/signup                     - Registration
+/dashboard                  - Main dashboard
+/reporting/dashboard        - BI Dashboard
+/teams                      - Team management
+/my-teams                   - User's teams
+/academy                    - Academy portal
+/store                      - Course library
+/my-courses                 - Enrolled courses
+/workforce-profile          - Employee management
+/employment-equity          - EE management
+/ee-plan-configuration      - EE planning
+/workforce-analysis         - Workforce analytics
+/my-profile                 - User profile
+/settings                   - Application settings
+/help-support              - Help center
+/about-us                  - About page
+
+Protected Routes:
+----------------
+- ProtectRoute component for authentication
+- Role-based access control
+- Permission-based feature flags
+
+================================================================================
+14. FORMS AND INPUT HANDLING
+================================================================================
+
+Common Form Patterns:
+--------------------
+- Ant Design Form components
+- Formik integration for complex forms
+- Custom validation rules
+- Multi-step forms
+- File upload handling
+
+Form Features:
+-------------
+- Auto-save drafts
+- Field dependencies
+- Conditional rendering
+- Dynamic field addition
+- Bulk data import
+
+================================================================================
+15. REPORTING AND VISUALIZATION
+================================================================================
+
+15.1 Chart Types:
+----------------
+- Bar charts (Chart.js)
+- Line charts
+- Pie charts
+- Area charts
+- Custom DevExpress visualizations
+
+15.2 Report Generation:
+----------------------
+- PDF export (jspdf)
+- Excel export
+- CSV download (react-csv)
+- Scheduled reports
+- Email distribution
+
+15.3 Data Tables:
+----------------
+- Tanstack React Table
+- DevExtreme DataGrid
+- Ant Design Tables
+- Virtualization for large datasets
+
+================================================================================
+16. INTEGRATION POINTS
+================================================================================
+
+16.1 External Services:
+----------------------
+- Moodle LMS integration
+- Payment gateway integration
+- Email service integration
+- WhatsApp course delivery
+
+16.2 API Gateway:
+----------------
+- Environment-based configuration
+- Dynamic endpoint resolution
+- Health check endpoints
+- Token refresh mechanism
+
+16.3 Authentication:
+-------------------
+- JWT token management
+- Refresh token flow
+- OTP validation
+- Password reset flow
+
+================================================================================
+17. SPECIAL FEATURES
+================================================================================
+
+17.1 Notification System:
+-------------------------
+- Real-time notifications
+- Mark as read functionality
+- Notification categories
+- Push notification support
+
+17.2 Multi-language Support:
+----------------------------
+- i18next integration
+- Language detection
+- Dynamic translation loading
+- RTL support preparation
+
+17.3 Offline Capabilities:
+--------------------------
+- Service worker integration
+- Offline data caching
+- Sync on reconnection
+
+17.4 Performance Optimization:
+------------------------------
+- Code splitting
+- Lazy loading
+- Image optimization
+- Bundle size optimization
+
+================================================================================
+18. SECURITY FEATURES
+================================================================================
+
+- Bearer token authentication
+- API request signing
+- XSS protection
+- CORS configuration
+- Input validation
+- File upload restrictions
+- Rate limiting preparation
+
+================================================================================
+19. DEPLOYMENT AND CONFIGURATION
+================================================================================
+
+Environment Variables:
+---------------------
+- REACT_APP_API_URL: API base URL
+- REACT_APP_DASHBOARD_URL: Dashboard service URL
+- Environment-specific configs (.env, .env.prod, .env.staging)
+
+Build Configurations:
+--------------------
+- Development build
+- Production build
+- Staging build
+- Version management
+
+================================================================================
+20. MAINTENANCE AND MONITORING
+================================================================================
+
+- Error boundary implementation
+- Logging infrastructure
+- Performance monitoring
+- User activity tracking
+- Health check endpoints
+
+================================================================================
+END OF DOCUMENT
+================================================================================
