@@ -1,468 +1,20 @@
-// TAP LMS Website JavaScript
+// Course Page Generator Script
+const fs = require('fs');
+const path = require('path');
 
-// DOM Content Loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all functionality
-    initNavigation();
-    initSmoothScrolling();
-    initAnimations();
-    initFormHandling();
-    initMobileMenu();
-    initCourseNavigation();
-});
-
-// Navigation functionality
-function initNavigation() {
-    const navbar = document.querySelector('.header');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    // Header scroll effect
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-            navbar.style.boxShadow = '0 4px 6px -1px rgb(0 0 0 / 0.1)';
-        } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-            navbar.style.boxShadow = 'none';
-        }
-    });
-    
-    // Active navigation link
-    function updateActiveNavLink() {
-        const currentSection = getCurrentSection();
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${currentSection}`) {
-                link.classList.add('active');
-            }
-        });
-    }
-    
-    // Get current section based on scroll position
-    function getCurrentSection() {
-        const sections = document.querySelectorAll('section[id]');
-        let currentSection = 'home';
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 200;
-            const sectionBottom = sectionTop + section.offsetHeight;
-            
-            if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
-                currentSection = section.getAttribute('id');
-            }
-        });
-        
-        return currentSection;
-    }
-    
-    // Update active link on scroll
-    window.addEventListener('scroll', updateActiveNavLink);
-    updateActiveNavLink();
-}
-
-// Smooth scrolling for navigation links
-function initSmoothScrolling() {
-    const navLinks = document.querySelectorAll('a[href^="#"]');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80; // Account for fixed header
-                
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-                
-                // Close mobile menu if open
-                closeMobileMenu();
-            }
-        });
-    });
-}
-
-// Animation on scroll
-function initAnimations() {
-    const animatedElements = document.querySelectorAll('.feature-card, .solution-card, .pricing-card, .academy-feature');
-    
-    // Intersection Observer for animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-    
-    // Observe all animated elements
-    animatedElements.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(30px)';
-        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(element);
-    });
-    
-    // Counter animation for hero stats
-    animateCounters();
-}
-
-// Counter animation for statistics
-function animateCounters() {
-    const counters = document.querySelectorAll('.stat h3');
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const target = entry.target;
-                const finalValue = target.textContent;
-                const numericValue = parseInt(finalValue.replace(/[^0-9]/g, ''));
-                
-                if (!isNaN(numericValue)) {
-                    animateCounter(target, numericValue, finalValue);
-                }
-                
-                observer.unobserve(target);
-            }
-        });
-    });
-    
-    counters.forEach(counter => {
-        observer.observe(counter);
-    });
-}
-
-function animateCounter(element, target, originalText) {
-    let current = 0;
-    const increment = target / 100;
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-            element.textContent = originalText;
-            clearInterval(timer);
-        } else {
-            const suffix = originalText.includes('+') ? '+' : originalText.includes('%') ? '%' : '';
-            element.textContent = Math.floor(current).toLocaleString() + suffix;
-        }
-    }, 20);
-}
-
-// Form handling
-function initFormHandling() {
-    const contactForm = document.querySelector('.contact-form');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // Validate form
-            if (validateForm(data)) {
-                // Simulate form submission
-                submitForm(data);
-            }
-        });
-    }
-}
-
-function validateForm(data) {
-    const errors = [];
-    
-    if (!data.name || data.name.trim().length < 2) {
-        errors.push('Name must be at least 2 characters long');
-    }
-    
-    if (!data.email || !isValidEmail(data.email)) {
-        errors.push('Please enter a valid email address');
-    }
-    
-    if (!data.company || data.company.trim().length < 2) {
-        errors.push('Company name must be at least 2 characters long');
-    }
-    
-    if (!data.message || data.message.trim().length < 10) {
-        errors.push('Message must be at least 10 characters long');
-    }
-    
-    if (errors.length > 0) {
-        showFormErrors(errors);
-        return false;
-    }
-    
-    return true;
-}
-
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
-
-function showFormErrors(errors) {
-    // Remove existing error messages
-    const existingErrors = document.querySelectorAll('.form-error');
-    existingErrors.forEach(error => error.remove());
-    
-    // Create error container
-    const errorContainer = document.createElement('div');
-    errorContainer.className = 'form-error';
-    errorContainer.style.cssText = `
-        background: #fee2e2;
-        border: 1px solid #fecaca;
-        color: #dc2626;
-        padding: 1rem;
-        border-radius: 0.5rem;
-        margin-bottom: 1rem;
-    `;
-    
-    const errorList = document.createElement('ul');
-    errorList.style.cssText = 'margin: 0; padding-left: 1.5rem;';
-    
-    errors.forEach(error => {
-        const errorItem = document.createElement('li');
-        errorItem.textContent = error;
-        errorList.appendChild(errorItem);
-    });
-    
-    errorContainer.appendChild(errorList);
-    
-    // Insert error container at the top of the form
-    const form = document.querySelector('.contact-form');
-    form.insertBefore(errorContainer, form.firstChild);
-    
-    // Scroll to error
-    errorContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
-}
-
-function submitForm(data) {
-    // Show loading state
-    const submitButton = document.querySelector('.contact-form button[type="submit"]');
-    const originalText = submitButton.textContent;
-    submitButton.textContent = 'Sending...';
-    submitButton.disabled = true;
-    
-    // Simulate API call
-    setTimeout(() => {
-        // Show success message
-        showFormSuccess();
-        
-        // Reset form
-        document.querySelector('.contact-form').reset();
-        
-        // Reset button
-        submitButton.textContent = originalText;
-        submitButton.disabled = false;
-        
-        // Log form data (in real application, this would be sent to server)
-        console.log('Form submitted with data:', data);
-    }, 2000);
-}
-
-function showFormSuccess() {
-    // Remove existing messages
-    const existingMessages = document.querySelectorAll('.form-error, .form-success');
-    existingMessages.forEach(message => message.remove());
-    
-    // Create success message
-    const successContainer = document.createElement('div');
-    successContainer.className = 'form-success';
-    successContainer.style.cssText = `
-        background: #dcfce7;
-        border: 1px solid #bbf7d0;
-        color: #15803d;
-        padding: 1rem;
-        border-radius: 0.5rem;
-        margin-bottom: 1rem;
-        text-align: center;
-    `;
-    
-    successContainer.innerHTML = `
-        <strong>Thank you for your message!</strong><br>
-        We'll get back to you within 24 hours.
-    `;
-    
-    // Insert success message at the top of the form
-    const form = document.querySelector('.contact-form');
-    form.insertBefore(successContainer, form.firstChild);
-    
-    // Remove success message after 5 seconds
-    setTimeout(() => {
-        if (successContainer.parentNode) {
-            successContainer.remove();
-        }
-    }, 5000);
-}
-
-// Mobile menu functionality
-function initMobileMenu() {
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    if (navToggle && navMenu) {
-        navToggle.addEventListener('click', function() {
-            toggleMobileMenu();
-        });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
-                closeMobileMenu();
-            }
-        });
-        
-        // Close menu on window resize
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768) {
-                closeMobileMenu();
-            }
-        });
-    }
-}
-
-function toggleMobileMenu() {
-    const navMenu = document.querySelector('.nav-menu');
-    const navToggle = document.querySelector('.nav-toggle');
-    const hamburger = navToggle.querySelector('.hamburger');
-    
-    navMenu.classList.toggle('active');
-    navToggle.classList.toggle('active');
-    
-    // Animate hamburger
-    if (navMenu.classList.contains('active')) {
-        hamburger.style.transform = 'rotate(45deg)';
-        // Add mobile menu styles
-        navMenu.style.cssText = `
-            display: flex;
-            position: fixed;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: white;
-            border-top: 1px solid #e5e7eb;
-            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-            z-index: 1000;
-            animation: slideDown 0.3s ease-out;
-        `;
-        
-        navMenu.querySelector('.nav-list').style.cssText = `
-            flex-direction: column;
-            padding: 2rem 1rem;
-            width: 100%;
-        `;
-    } else {
-        hamburger.style.transform = 'rotate(0deg)';
-        navMenu.style.display = 'none';
-    }
-}
-
-function closeMobileMenu() {
-    const navMenu = document.querySelector('.nav-menu');
-    const navToggle = document.querySelector('.nav-toggle');
-    const hamburger = navToggle.querySelector('.hamburger');
-    
-    navMenu.classList.remove('active');
-    navToggle.classList.remove('active');
-    hamburger.style.transform = 'rotate(0deg)';
-    
-    // Reset styles for desktop
-    if (window.innerWidth > 768) {
-        navMenu.style.cssText = '';
-        navMenu.querySelector('.nav-list').style.cssText = '';
-    }
-}
-
-// Utility functions
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-function throttle(func, limit) {
-    let inThrottle;
-    return function() {
-        const args = arguments;
-        const context = this;
-        if (!inThrottle) {
-            func.apply(context, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
-        }
-    };
-}
-
-// Performance optimizations
-const debouncedScroll = debounce(() => {
-    // Scroll-based animations
-}, 100);
-
-const throttledScroll = throttle(() => {
-    // Navigation updates
-}, 100);
-
-window.addEventListener('scroll', debouncedScroll);
-window.addEventListener('scroll', throttledScroll);
-
-// Add CSS animation keyframes
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideDown {
-        from {
-            opacity: 0;
-            transform: translateY(-10px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
-    .nav-link.active {
-        color: var(--primary-color);
-    }
-    
-    .nav-link.active::after {
-        transform: scaleX(1);
-    }
-`;
-document.head.appendChild(style);
-
-// Error handling
-window.addEventListener('error', function(e) {
-    console.error('JavaScript error:', e.error);
-});
-
-// Course Data Structure
+// Complete course data from script.js
 const courseData = {
     computer: {
         title: "Computer Courses",
         description: "Master essential computer skills with our comprehensive Microsoft Office suite and technology courses.",
+        icon: "💻",
         courses: [
             {
                 title: "Introduction to Computers",
                 description: "This course explains what a computer is and what it does, looking at the different elements of a computer, including the hardware and software components. You will learn the basic functions of a computer, how to hold and operate a mouse and a keyboard, how to open and close programs and documents, and many more exciting features.",
                 level: "Basic",
-                duration: "12 hours",
+                duration: "3 hours",
+                keywords: "introduction to computers, computer basics, hardware software, input devices, output devices, internet basics, computer ergonomics, basic computer course, computer training",
                 units: [
                     {
                         title: "Unit 1: Introduction to computers",
@@ -494,7 +46,8 @@ const courseData = {
                 title: "Basic Microsoft Word",
                 description: "This course introduces the basic functionality of Microsoft Word and its ability to produce professional documents. You will acquire important techniques to create, edit and format your document content with ease.",
                 level: "Basic",
-                duration: "16 hours",
+                duration: "3 hours",
+                keywords: "microsoft word training, word processing, document creation, text formatting, basic word course, microsoft office training",
                 units: [
                     {
                         title: "Unit 1: Getting started",
@@ -530,7 +83,8 @@ const courseData = {
                 title: "Intermediate Microsoft Word",
                 description: "The intermediate course offers a more in-depth look at Microsoft Word and its functions. The course shows you how to work with tables and charts. You will also learn how to change the style of a document, and work with pictures and graphics.",
                 level: "Intermediate",
-                duration: "20 hours",
+                duration: "3 hours",
+                keywords: "intermediate word training, word tables charts, word styles themes, word images graphics, word templates mail merge, advanced word processing",
                 units: [
                     {
                         title: "Unit 1: Working with tables and charts",
@@ -566,7 +120,8 @@ const courseData = {
                 title: "Advanced Microsoft Word",
                 description: "The advanced phase of our Word training takes you into a more in-depth world of the diverse ability and full functionality of the Microsoft Word program. We demonstrate advanced user techniques to position you ahead of the rest.",
                 level: "Advanced",
-                duration: "24 hours",
+                duration: "3 hours",
+                keywords: "advanced word training, word collaboration, word references citations, word security macros, advanced word features, word document management",
                 units: [
                     {
                         title: "Unit 1: Collaborating on documents",
@@ -594,7 +149,8 @@ const courseData = {
                 title: "Basic Microsoft Excel",
                 description: "The online basic Microsoft Excel course is designed for those who are unfamiliar with basic formulas and formatting, such as the 'plus and minus' functions. This course helps if the Excel screen is still a scary environment in general.",
                 level: "Basic",
-                duration: "16 hours",
+                duration: "3 hours",
+                keywords: "basic excel training, excel formulas, excel formatting, excel spreadsheets, microsoft office excel, excel basics course",
                 units: [
                     {
                         title: "Unit 1: Getting started",
@@ -634,7 +190,8 @@ const courseData = {
                 title: "Intermediate Microsoft Excel",
                 description: "The Intermediate Microsoft Excel course is for those who understand the basics of Excel and are familiar with the Excel screen, formatting and basic formulas. You will explore basic Vlookups and pivot tables to ensure that you understand the more advanced formulas and functions of MS Excel.",
                 level: "Intermediate",
-                duration: "20 hours",
+                duration: "3 hours",
+                keywords: "intermediate excel, excel vlookup, excel pivot tables, excel charts, excel advanced formulas, excel data analysis",
                 units: [
                     {
                         title: "Unit 1: Calculating data with advanced formulas",
@@ -686,7 +243,8 @@ const courseData = {
                 title: "Advanced Microsoft Excel",
                 description: "Master advanced Excel features including complex functions, macros, and sophisticated data analysis tools.",
                 level: "Advanced",
-                duration: "32 hours",
+                duration: "3 hours",
+                keywords: "advanced excel, excel macros, excel complex formulas, excel data analysis, excel pivot tables advanced, excel VBA, excel financial functions",
                 units: [
                     {
                         title: "Unit 1: Formula basics",
@@ -730,7 +288,8 @@ const courseData = {
                 title: "Basic Microsoft PowerPoint",
                 description: "From A-Z, you will be equipped to create effective presentations while making the most of shortcut keys and methods to ensure maximum utility of Microsoft PowerPoint.",
                 level: "Basic",
-                duration: "12 hours",
+                duration: "3 hours",
+                keywords: "powerpoint training, presentation skills, slide design, powerpoint basics, microsoft office powerpoint, presentation software",
                 units: [
                     {
                         title: "Unit 1: Getting started with PowerPoint",
@@ -778,7 +337,8 @@ const courseData = {
                 title: "Advanced Microsoft PowerPoint",
                 description: "In today's corporate environment it is vital that your presentations are original, powerful and effective. In this course, we take you through the advanced features of PowerPoint to give you the tools to win your audience over.",
                 level: "Advanced",
-                duration: "20 hours",
+                duration: "3 hours",
+                keywords: "advanced powerpoint, powerpoint tables graphs, powerpoint smartart, powerpoint multimedia, powerpoint templates masters, powerpoint automation",
                 units: [
                     {
                         title: "Unit 1: Tables",
@@ -830,7 +390,8 @@ const courseData = {
                 title: "Basic Microsoft Access",
                 description: "This course explains how a database works and goes on to explore its components. Microsoft Access is an easy-to-use information management tool employed to create customisable database applications.",
                 level: "Basic",
-                duration: "24 hours",
+                duration: "3 hours",
+                keywords: "microsoft access training, database basics, access database, access tables queries, access forms reports, database management",
                 units: [
                     {
                         title: "Unit 1: Introduction",
@@ -862,7 +423,8 @@ const courseData = {
                 title: "Microsoft Outlook",
                 description: "Microsoft Outlook is a communication software program used for email, calendar and task management. In this course, you will learn how to organise your inbox and simplify your life.",
                 level: "Intermediate",
-                duration: "16 hours",
+                duration: "3 hours",
+                keywords: "microsoft outlook training, email management, outlook calendar, outlook contacts, outlook tasks, email organization, outlook productivity",
                 units: [
                     {
                         title: "Unit 1: Electronic mail",
@@ -894,7 +456,8 @@ const courseData = {
                 title: "Microsoft Visual Basic for Excel",
                 description: "Visual Basic is programming in Excel. Although the course is different from the run-of-the-mill formulas, advanced Excel knowledge is required. On the first day, you will become familiar with the various functions, while on the second day you will take part in 'practicals'.",
                 level: "Advanced",
-                duration: "28 hours",
+                duration: "3 hours",
+                keywords: "excel vba programming, visual basic excel, excel macros programming, excel automation, vba coding, excel development",
                 units: [
                     {
                         title: "Unit 1: VBA coding – where to start",
@@ -938,7 +501,8 @@ const courseData = {
                 title: "Financial Modelling",
                 description: "While there is a lot of value in mastering the basic and intermediate array of functions offered by Microsoft Excel, for some, simply automating the day-to-day arithmetic functions involved in a simple balance sheet will not be enough to meet the financial accounting needs of a large company.",
                 level: "Advanced",
-                duration: "24 hours",
+                duration: "3 hours",
+                keywords: "financial modelling excel, financial reporting, excel pivot tables advanced, excel reconciliation, cash flow modelling, amortisation tables",
                 units: [
                     {
                         title: "Unit 1: Creating reports from multiple sources",
@@ -979,12 +543,14 @@ const courseData = {
     leadership: {
         title: "Leadership Courses",
         description: "Develop your leadership capabilities with courses on management, strategy, and team building.",
+        icon: "👥",
         courses: [
             {
                 title: "Leadership Theories",
                 description: "This course discusses the traits and behaviours that individuals can adopt to boost their own leadership abilities. It also helps you understand what makes leaders act the way they do.",
                 level: "Intermediate",
-                duration: "16 hours",
+                duration: "3 hours",
+                keywords: "leadership theories, transformational leadership, leadership development, leadership styles, management training, leadership skills, supervisory leadership",
                 units: [
                     {
                         title: "Unit 1: Concept of supervisory leadership",
@@ -1004,7 +570,8 @@ const courseData = {
                 title: "Communication Skills",
                 description: "Communication is the giving, receiving or exchange of information, opinions or ideas through writing, speech or visual means so that the material communicated is completely understood.",
                 level: "Basic",
-                duration: "12 hours",
+                duration: "3 hours",
+                keywords: "communication skills, business communication, presentation skills, report writing, meeting management, oral communication",
                 units: [
                     {
                         title: "Unit 1: Introduction to communication",
@@ -1028,7 +595,8 @@ const courseData = {
                 title: "Building Teams",
                 description: "Many people tend to assume groups and teams are the same. In reality, the two are very different. In this course, you will look at the theory of teams and the role of teams in the workplace, the types and importance of teams, as well as the qualities of a good team.",
                 level: "Intermediate",
-                duration: "18 hours",
+                duration: "3 hours",
+                keywords: "team building, team dynamics, team leadership, team development, group management, team effectiveness, teamwork skills",
                 units: [
                     {
                         title: "Unit 1: Theory of teams and its role in workplace",
@@ -1056,7 +624,8 @@ const courseData = {
                 title: "Performance Management",
                 description: "To accomplish multiple goals set in performance appraisals, most organisations are leaning towards a continuous programme of performance management. This is important to both the professional success of an organisation and the personal advancement of its employees.",
                 level: "Advanced",
-                duration: "20 hours",
+                duration: "3 hours",
+                keywords: "performance management, performance appraisal, performance review, employee performance, performance standards, feedback techniques",
                 units: [
                     {
                         title: "Unit 1: Formulation",
@@ -1076,7 +645,8 @@ const courseData = {
                 title: "Change Management",
                 description: "Change is a constant in many of our lives. All around us technologies, processes, people, ideas and methods often change, affecting the way we perform daily tasks and live our lives. Change management entails thoughtful planning and sensitive implementation.",
                 level: "Advanced",
-                duration: "22 hours",
+                duration: "3 hours",
+                keywords: "change management, organizational change, change process, change models, change resistance, change agents, business transformation",
                 units: [
                     {
                         title: "Unit 1: Concept of change",
@@ -1100,7 +670,8 @@ const courseData = {
                 title: "Project Planning",
                 description: "In society, almost everything you do can be described as project management. From buying weekly groceries to organising a family get-together, project management skills are involved. The government also depends on the success of its projects and/or private projects in order to deliver services to the public.",
                 level: "Intermediate",
-                duration: "20 hours",
+                duration: "3 hours",
+                keywords: "project management, project planning, project scope, project implementation, gantt charts, project evaluation, work breakdown structure",
                 units: [
                     {
                         title: "Unit 1: Selecting a work-based project for a unit",
@@ -1128,7 +699,8 @@ const courseData = {
                 title: "Emotional Intelligence",
                 description: "Emotional intelligence is the ability to understand and manage your own emotions and those of the people around you. People with a high degree of emotional intelligence know what they are feeling, what their emotions mean and how these emotions can affect other people.",
                 level: "Intermediate",
-                duration: "16 hours",
+                duration: "3 hours",
+                keywords: "emotional intelligence, EQ, interpersonal skills, self-awareness, emotional management, feedback techniques, workplace emotions",
                 units: [
                     {
                         title: "Unit 1: Introduction to emotional intelligence",
@@ -1152,7 +724,8 @@ const courseData = {
                 title: "Decision-Making",
                 description: "Decision-making is a key skill in any organisation and is especially important if you want to be an effective leader. Whether you are deciding which person to recruit, which supplier to use or which strategy to follow, the ability to make good decisions is fundamental.",
                 level: "Intermediate",
-                duration: "14 hours",
+                duration: "3 hours",
+                keywords: "decision making, critical thinking, analytical skills, problem solving, stakeholder engagement, solution evaluation",
                 units: [
                     {
                         title: "Unit 1: Application of critical and analytical skills in analysing an issue",
@@ -1176,7 +749,8 @@ const courseData = {
                 title: "Conflict Management",
                 description: "Conflict in the workplace can be a normal part of doing business. When properly managed, it can be beneficial as it fosters an environment of healthy competition. However, conflict may also have a detrimental effect.",
                 level: "Intermediate",
-                duration: "16 hours",
+                duration: "3 hours",
+                keywords: "conflict management, workplace conflict, conflict resolution, personality conflicts, conflict strategies, labour relations",
                 units: [
                     {
                         title: "Unit 1: Main sources of conflict",
@@ -1200,7 +774,8 @@ const courseData = {
                 title: "Coaching",
                 description: "This course is intended for those who need to select and coach first line managers. It is important to select a first line manager who has the potential to grow into an identified role. It is crucial to know the Key Performance Areas (KPAs) and the Key Result Areas (KRAs) before filling a position.",
                 level: "Advanced",
-                duration: "18 hours",
+                duration: "3 hours",
+                keywords: "coaching skills, management coaching, first line manager selection, coaching process, performance coaching, leadership development",
                 units: [
                     {
                         title: "Unit 1: Selecting a first line manager",
@@ -1224,7 +799,8 @@ const courseData = {
                 title: "Talent Management",
                 description: "Organisations are made up of people: people creating value through proven business processes, innovation, customer service, sales and many other important activities. As an organisation strives to meet its business goals, it must make sure that it has a continuous and integrated process for recruiting, training, managing, supporting and compensating these people.",
                 level: "Advanced",
-                duration: "20 hours",
+                duration: "3 hours",
+                keywords: "talent management, training needs analysis, skills development, career development, learning programmes, people development",
                 units: [
                     {
                         title: "Unit 1: Conducting a training needs analysis",
@@ -1248,7 +824,8 @@ const courseData = {
                 title: "Empower Team Members",
                 description: "The success of any project depends on the contribution of every member in the team, but some teams work better together than others. When members of a team have a sense of ownership and believe that their contributions are valued, they feel motivated to contribute their optimum effort.",
                 level: "Intermediate",
-                duration: "16 hours",
+                duration: "3 hours",
+                keywords: "team empowerment, team member performance, delegation skills, team participation, decision making, team development",
                 units: [
                     {
                         title: "Unit 1: Recognising team member performance",
@@ -1272,7 +849,8 @@ const courseData = {
                 title: "Risk Management",
                 description: "This course starts by exploring the concept of risk and the factors that can constitute risks, i.e., legislation affecting business operations in South Africa, health risks and a few others. It looks at organisational policies and procedures as the strategic link between a company's vision and its day-to-day operations.",
                 level: "Advanced",
-                duration: "24 hours",
+                duration: "3 hours",
+                keywords: "risk management, risk assessment, risk identification, contingency planning, operational risks, financial risks, risk mitigation",
                 units: [
                     {
                         title: "Unit 1: Understanding risk",
@@ -1296,7 +874,8 @@ const courseData = {
                 title: "Innovation",
                 description: "This course provides an overview of the whole innovation process, from developing a plan for creating an environment conducive to innovation, through to the creative thinking process. The first section covers the concept of innovation, culture for innovation, interpreting and analysing findings and identifying areas for improvement.",
                 level: "Advanced",
-                duration: "18 hours",
+                duration: "3 hours",
+                keywords: "innovation management, creative thinking, innovation culture, innovation planning, creativity techniques, innovation implementation",
                 units: [
                     {
                         title: "Unit 1: Assessing a unit for innovation opportunities",
@@ -1320,7 +899,8 @@ const courseData = {
                 title: "Operational Planning",
                 description: "An operational plan is a highly detailed plan that provides a clear picture of how a team or a department will contribute to the achievement of the organisation's goals. It maps out the day-to-day tasks required to run a business.",
                 level: "Intermediate",
-                duration: "20 hours",
+                duration: "3 hours",
+                keywords: "operational planning, strategic planning, operational strategy, performance management, business planning, operational implementation",
                 units: [
                     {
                         title: "Unit 1: Developing an operational strategy for a unit",
@@ -1344,7 +924,8 @@ const courseData = {
                 title: "Finance for Non-Financial Managers",
                 description: "This course enables you to understand your company's financials. It addresses everything from basic accounting terminology and processes, budgeting and ethics, to understanding and working with the various accounting documents.",
                 level: "Intermediate",
-                duration: "24 hours",
+                duration: "3 hours",
+                keywords: "finance for managers, financial management, accounting basics, balance sheet, income statement, financial analysis, budgeting",
                 units: [
                     {
                         title: "Unit 1&2: What is finance?",
@@ -1380,7 +961,8 @@ const courseData = {
                 title: "Knowledge Management",
                 description: "In today's economy, learning and knowledge have become key success factors for international competitiveness with the result that intangible resources have become vitally important. Organisations have seen the competitive battlefield shift from tangible resources to intangible resources where elements like knowledge and the ability to manage it play a crucial role in business success.",
                 level: "Advanced",
-                duration: "18 hours",
+                duration: "3 hours",
+                keywords: "knowledge management, knowledge economy, organizational learning, knowledge systems, information management, knowledge sharing",
                 units: [
                     {
                         title: "Unit 1: Concepts and components of knowledge management",
@@ -1400,7 +982,8 @@ const courseData = {
                 title: "Workplace Relations",
                 description: "In today's working environment, it is only individuals with excellent interpersonal skills who rise to the top in their personal effectiveness and organisational growth. This is because interpersonal skills enable employees to successfully navigate the dynamic and challenging workplace environment.",
                 level: "Intermediate",
-                duration: "16 hours",
+                duration: "3 hours",
+                keywords: "workplace relations, interpersonal skills, networking, stakeholder management, team communication, conflict resolution",
                 units: [
                     {
                         title: "Unit 1: Networking in the workplace",
@@ -1424,7 +1007,8 @@ const courseData = {
                 title: "Business Ethics",
                 description: "This course explores the relationship and conflict between values, ethics and organisational culture. The first unit also covers the impact of organisational values and culture on organisations. In business, you have to answer to many different people: customers, shareholders and clients.",
                 level: "Basic",
-                duration: "12 hours",
+                duration: "3 hours",
+                keywords: "business ethics, corporate governance, organizational values, ethical practices, corporate culture, compliance, ethical decision making",
                 units: [
                     {
                         title: "Unit 1: Ethics, values and culture",
@@ -1448,7 +1032,8 @@ const courseData = {
                 title: "Diversity",
                 description: "The world's increasing globalisation requires more interaction among people from diverse cultures, beliefs and backgrounds than ever before. People no longer live and work in an insular marketplace; they are now part of a worldwide economy with competition coming from nearly every continent.",
                 level: "Intermediate",
-                duration: "14 hours",
+                duration: "3 hours",
+                keywords: "diversity management, workplace diversity, cultural diversity, inclusion, cross-cultural communication, diversity benefits",
                 units: [
                     {
                         title: "Unit 1: Diversity in the workplace",
@@ -1472,7 +1057,8 @@ const courseData = {
                 title: "Recruitment Process",
                 description: "Nothing saves you more time and money than recruiting the correct person first time around. As a manager or business owner, you require certain skills to match the right person to the right job. This course will provide you with the knowledge to find the right candidate for the job.",
                 level: "Intermediate",
-                duration: "18 hours",
+                duration: "3 hours",
+                keywords: "recruitment process, candidate selection, job specifications, interview skills, recruitment planning, staff selection",
                 units: [
                     {
                         title: "Unit 1: Planning and preparing for recruitment and selection",
@@ -1492,7 +1078,8 @@ const courseData = {
                 title: "Promoting a Learning Culture",
                 description: "In this course, you will discover how to start evaluating the learning culture of an organisation. Doing this will help you pinpoint what kind of learning culture you currently have, identify gaps and ascertain your organisation's readiness for change.",
                 level: "Advanced",
-                duration: "16 hours",
+                duration: "3 hours",
+                keywords: "learning culture, organizational learning, learning strategies, skills development, learning evaluation, training culture",
                 units: [
                     {
                         title: "Unit 1: Status of a learning culture within an organisation",
@@ -1512,7 +1099,8 @@ const courseData = {
                 title: "Mathematical Analysis",
                 description: "The application of mathematical analysis to financial information is a process that starts with data collection. The first section of this course deals with the appropriate data collection method, collecting financial and demographic information and ultimately, recording this data.",
                 level: "Advanced",
-                duration: "20 hours",
+                duration: "3 hours",
+                keywords: "mathematical analysis, data collection, statistical analysis, financial analysis, demographic analysis, data representation",
                 units: [
                     {
                         title: "Unit 1: Collecting and organising data using mathematical techniques",
@@ -1532,7 +1120,8 @@ const courseData = {
                 title: "Brand Mix Elements",
                 description: "Branding is one of the most important aspects of any business, be it large or small, retail or business-to-business (B2B). An effective brand strategy gives you a major edge in increasingly competitive markets. What exactly does 'branding' mean? How does it affect a business like yours?",
                 level: "Intermediate",
-                duration: "16 hours",
+                duration: "3 hours",
+                keywords: "branding, brand management, brand strategy, brand elements, brand familiarity, brand development, marketing branding",
                 units: [
                     {
                         title: "Unit 1: Factors influencing branding",
@@ -1549,12 +1138,14 @@ const courseData = {
     "soft-skills": {
         title: "Soft Skills Courses",
         description: "Enhance your professional effectiveness with courses on communication, time management, and personal development.",
+        icon: "🎯",
         courses: [
             {
                 title: "Time Management",
                 description: "Time management is the process of planning and controlling how much time you spend on specific activities. Good time management enables you to complete more in a shorter period, lowers stress and leads to career success.",
                 level: "Basic",
-                duration: "12 hours",
+                duration: "3 hours",
+                keywords: "time management, productivity, personal effectiveness, goal setting, time thieves, focus management, planning skills, workplace efficiency",
                 units: [
                     {
                         title: "Unit 1: Time thieves and control factors",
@@ -1586,7 +1177,8 @@ const courseData = {
                 title: "Stress Management",
                 description: "Stress management is about taking charge of your lifestyle, thoughts, emotions and the way you deal with problems. No matter how stressful your life seems to be, there are always steps you can take to relieve the burden and regain control.",
                 level: "Intermediate",
-                duration: "14 hours",
+                duration: "3 hours",
+                keywords: "stress management, stress relief, emotional wellness, mental health, stress control, workplace stress, stress techniques",
                 units: [
                     {
                         title: "Unit 1: Awareness of real and imagined stress",
@@ -1622,7 +1214,8 @@ const courseData = {
                 title: "Negotiation Skills",
                 description: "Negotiation skills are a desirable asset for all employees. Negotiation can be defined as a situation where two parties or groups of individuals disagree on a solution and then come together and reach an agreement that is acceptable to both.",
                 level: "Intermediate",
-                duration: "16 hours",
+                duration: "3 hours",
+                keywords: "negotiation skills, negotiation techniques, conflict resolution, business negotiation, negotiation process, communication skills",
                 units: [
                     {
                         title: "Unit 1: Understanding negotiation",
@@ -1646,7 +1239,8 @@ const courseData = {
                 title: "Customer Satisfaction",
                 description: "Customer satisfaction is a measurement of how products and services supplied by a company meet or surpass customer expectations. With this online course, you will learn how to build customer loyalty, how to satisfy the nine essential needs of customers, and how your company's values, knowledge and attitude determines your behaviour.",
                 level: "Basic",
-                duration: "12 hours",
+                duration: "3 hours",
+                keywords: "customer satisfaction, customer service, customer loyalty, customer needs, customer relations, service excellence",
                 units: [
                     {
                         title: "Unit 1: Building customer loyalty foundations",
@@ -1670,7 +1264,8 @@ const courseData = {
                 title: "Personal Development",
                 description: "During this personal development course, you will learn how to improve your personal objectives and be more successful. You will also learn the importance of building a brand, the three categories of the primacy effect and what impact it might have on your audience.",
                 level: "Intermediate",
-                duration: "16 hours",
+                duration: "3 hours",
+                keywords: "personal development, leadership development, personal branding, mentoring, self improvement, career development",
                 units: [
                     {
                         title: "Unit 1: Building me a brand",
@@ -1694,7 +1289,8 @@ const courseData = {
                 title: "Sales",
                 description: "Sales training can help aspiring salespeople to develop and practise the skills they need to succeed and increase their confidence level. Proper sales training is important for a number of reasons. This course explores these reasons as well as assists you in developing successful selling skills and reaching sales targets.",
                 level: "Basic",
-                duration: "18 hours",
+                duration: "3 hours",
+                keywords: "sales training, sales skills, sales process, sales techniques, customer prospecting, sales cycle, selling skills",
                 units: [
                     {
                         title: "Unit 1: Introduction to sales",
@@ -1718,397 +1314,451 @@ const courseData = {
     }
 };
 
-// Course Navigation Functionality
-function initCourseNavigation() {
-    console.log('Initializing course navigation...');
-    
-    const categoryCards = document.querySelectorAll('.category-card');
-    const courseListing = document.getElementById('course-listing');
-    const courseDetail = document.getElementById('course-detail');
-    const categoriesView = document.getElementById('categories-view');
-    const backToCategoriesBtn = document.getElementById('back-to-categories');
-    const backToCoursesBtn = document.getElementById('back-to-courses');
-    const categoryTitle = document.getElementById('category-title');
-    const coursesGrid = document.getElementById('courses-grid');
-    const courseDetailContent = document.getElementById('course-detail-content');
-    
-    console.log('Found category cards:', categoryCards.length);
-    console.log('Course section exists:', !!document.getElementById('courses'));
-    console.log('Categories view exists:', !!categoriesView);
-    console.log('Course data loaded:', !!courseData);
-
-    let currentCategory = null;
-
-    // Category card click handlers
-    categoryCards.forEach(card => {
-        console.log('Adding click listener to card:', card);
-        card.addEventListener('click', function() {
-            const category = this.dataset.category;
-            console.log('Category clicked:', category);
-            showCourseList(category);
-        });
-    });
-
-    // Back to categories button
-    backToCategoriesBtn.addEventListener('click', function() {
-        showCategories();
-    });
-
-    // Back to courses button
-    backToCoursesBtn.addEventListener('click', function() {
-        showCourseList(currentCategory);
-    });
-
-    function showCourseList(category) {
-        currentCategory = category;
-        const categoryData = courseData[category];
-        
-        // Hide other views
-        categoriesView.style.display = 'none';
-        courseDetail.style.display = 'none';
-        
-        // Update category title
-        categoryTitle.textContent = categoryData.title;
-        
-        // Generate course cards
-        coursesGrid.innerHTML = '';
-        categoryData.courses.forEach((course, index) => {
-            const courseCard = createCourseCard(course, category, index);
-            coursesGrid.appendChild(courseCard);
-        });
-        
-        // Show course listing
-        courseListing.style.display = 'block';
-        
-        // Scroll to courses section
-        document.getElementById('courses').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    function showCourseDetail(category, courseIndex) {
-        const course = courseData[category].courses[courseIndex];
-        
-        // Hide other views
-        categoriesView.style.display = 'none';
-        courseListing.style.display = 'none';
-        
-        // Generate course detail content
-        courseDetailContent.innerHTML = createCourseDetail(course);
-        
-        // Show course detail
-        courseDetail.style.display = 'block';
-        
-        // Scroll to courses section
-        document.getElementById('courses').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    function showCategories() {
-        // Hide other views
-        courseListing.style.display = 'none';
-        courseDetail.style.display = 'none';
-        
-        // Show categories
-        categoriesView.style.display = 'block';
-        
-        // Scroll to courses section
-        document.getElementById('courses').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    function createCourseCard(course, category, index) {
-        const card = document.createElement('div');
-        card.className = 'course-card';
-        card.addEventListener('click', () => showCourseDetail(category, index));
-        
-        const levelColor = getLevelColor(course.level);
-        const courseIcon = getCourseIcon(category);
-        
-        card.innerHTML = `
-            <div class="course-banner">${courseIcon}</div>
-            <div class="course-info">
-                <h4>${course.title}</h4>
-                <p>${course.description}</p>
-                <div class="course-meta">
-                    <span class="course-duration">${course.duration}</span>
-                    <span class="course-level" style="background-color: ${levelColor}">${course.level}</span>
-                </div>
-            </div>
-        `;
-        
-        return card;
-    }
-
-    function createCourseDetail(course) {
-        const courseIcon = getCourseIcon(currentCategory);
-        
-        return `
-            <div class="course-detail-banner">${courseIcon}</div>
-            <h1>${course.title}</h1>
-            <div class="course-description">${course.description}</div>
-            <div class="course-meta">
-                <span class="course-duration">Duration: ${course.duration}</span>
-                <span class="course-level" style="background-color: ${getLevelColor(course.level)}; color: white; margin-left: 1rem;">${course.level}</span>
-            </div>
-            <div class="course-outline">
-                <h3>Course Outline</h3>
-                ${course.units.map((unit, index) => {
-                    // Handle both old format (string) and new format (object)
-                    if (typeof unit === 'string') {
-                        return `
-                            <div class="unit">
-                                <div class="unit-header">
-                                    <h4>${unit}</h4>
-                                </div>
-                            </div>
-                        `;
-                    } else {
-                        return `
-                            <div class="unit">
-                                <div class="unit-header" onclick="toggleUnit(this)">
-                                    <h4>${unit.title}</h4>
-                                    <span class="unit-toggle">+</span>
-                                </div>
-                                <div class="unit-content">
-                                    <ul class="unit-topics">
-                                        ${unit.topics.map(topic => `<li>${topic}</li>`).join('')}
-                                    </ul>
-                                </div>
-                            </div>
-                        `;
-                    }
-                }).join('')}
-            </div>
-        `;
-    }
-
-    function getLevelColor(level) {
-        switch(level) {
-            case 'Basic': return '#10b981';
-            case 'Intermediate': return '#f59e0b';
-            case 'Advanced': return '#ef4444';
-            default: return '#6b7280';
-        }
-    }
-
-    function getCourseIcon(category) {
-        switch(category) {
-            case 'computer': return '💻';
-            case 'leadership': return '👥';
-            case 'soft-skills': return '🎯';
-            default: return '📚';
-        }
-    }
-}
-
-// Load Course Category for Individual Pages
-function loadCourseCategory(category) {
-    const gridId = category + '-courses-grid';
-    const grid = document.getElementById(gridId);
-    
-    if (!grid || !courseData[category]) {
-        console.log('Grid or category data not found:', gridId, !!courseData[category]);
-        return;
-    }
-    
-    const categoryData = courseData[category];
-    grid.innerHTML = '';
-    
-    categoryData.courses.forEach((course, index) => {
-        const courseCard = createCourseCardStandalone(course, category, index);
-        grid.appendChild(courseCard);
-    });
-}
-
-function createCourseCardStandalone(course, category, index) {
-    const card = document.createElement('div');
-    card.className = 'course-card';
-    
-    const levelColor = getLevelColor(course.level);
-    const courseIcon = getCourseIcon(category);
-    
-    // Create URL slug for course page
-    const courseSlug = course.title.toLowerCase()
+// Function to create URL-friendly slug
+function createSlug(title) {
+    return title.toLowerCase()
         .replace(/[^a-z0-9\s-]/g, '')
         .replace(/\s+/g, '-')
         .replace(/-+/g, '-')
         .trim();
-    
-    // Link to individual course page
-    card.addEventListener('click', () => {
-        window.location.href = `individual/${category}-${courseSlug}.html`;
-    });
-    
-    card.innerHTML = `
-        <div class="course-banner">${courseIcon}</div>
-        <div class="course-info">
-            <h4>${course.title}</h4>
-            <p>${course.description}</p>
-            <div class="course-meta">
-                <span class="course-duration">${course.duration}</span>
-                <span class="course-level" style="background-color: ${levelColor}">${course.level}</span>
-            </div>
-        </div>
-    `;
-    
-    return card;
 }
 
-// Standalone helper functions for multi-page use
-function getLevelColor(level) {
+// Function to get level CSS class
+function getLevelClass(level) {
     switch(level) {
-        case 'Basic': return '#10b981';
-        case 'Intermediate': return '#f59e0b';
-        case 'Advanced': return '#ef4444';
-        default: return '#6b7280';
+        case 'Basic': return 'level-basic';
+        case 'Intermediate': return 'level-intermediate';
+        case 'Advanced': return 'level-advanced';
+        default: return 'level-basic';
     }
 }
 
-function getCourseIcon(category) {
-    switch(category) {
-        case 'computer': return '💻';
-        case 'leadership': return '👥';
-        case 'soft-skills': return '🎯';
-        default: return '📚';
-    }
-}
-
-// Unit Toggle Functionality
-function toggleUnit(unitHeader) {
-    const unit = unitHeader.parentElement;
-    const content = unit.querySelector('.unit-content');
-    const toggle = unitHeader.querySelector('.unit-toggle');
+// Function to generate benefits based on course content
+function generateCourseBenefits(course, category) {
+    const benefits = [];
     
-    if (content.classList.contains('expanded')) {
-        content.classList.remove('expanded');
-        toggle.classList.remove('expanded');
-        toggle.textContent = '+';
-    } else {
-        content.classList.add('expanded');
-        toggle.classList.add('expanded');
-        toggle.textContent = '−';
-    }
-}
-
-// Lightbox functionality
-function initLightbox() {
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImage = lightbox?.querySelector('.lightbox-image');
-    const lightboxTitle = lightbox?.querySelector('.lightbox-title');
-    const lightboxDescription = lightbox?.querySelector('.lightbox-description');
-    const lightboxClose = lightbox?.querySelector('.lightbox-close');
-    
-    // If lightbox elements don't exist, return early
-    if (!lightbox || !lightboxImage || !lightboxTitle || !lightboxDescription || !lightboxClose) {
-        return;
-    }
-    
-    // Find all images with lightbox data attribute
-    const lightboxImages = document.querySelectorAll('img[data-lightbox="true"]');
-    
-    // Add click event listeners to all lightbox images
-    lightboxImages.forEach(img => {
-        img.addEventListener('click', function(e) {
-            e.preventDefault();
-            openLightbox(this);
-        });
-        
-        // Add keyboard support
-        img.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                openLightbox(this);
+    if (category === 'computer') {
+        if (course.title.includes('Excel')) {
+            if (course.level === 'Basic') {
+                benefits.push('Master Excel interface and basic functions', 'Create and format professional spreadsheets', 'Use formulas for calculations and data analysis', 'Print and manage workbooks effectively');
+            } else if (course.level === 'Intermediate') {
+                benefits.push('Use advanced formulas and functions', 'Create pivot tables for data analysis', 'Design charts and graphs for presentations', 'Apply conditional formatting and data validation');
+            } else {
+                benefits.push('Master complex Excel formulas and functions', 'Create sophisticated pivot tables and dashboards', 'Use VLOOKUP, INDEX, MATCH for advanced data analysis', 'Implement VBA programming for automation');
             }
+        } else if (course.title.includes('Word')) {
+            if (course.level === 'Basic') {
+                benefits.push('Create and edit professional documents', 'Format text and paragraphs effectively', 'Insert tables, images, and graphics', 'Use templates for consistent formatting');
+            } else if (course.level === 'Intermediate') {
+                benefits.push('Work with advanced tables and charts', 'Apply styles and themes for professional look', 'Use mail merge for bulk communications', 'Create templates and manage document versions');
+            } else {
+                benefits.push('Collaborate on documents with track changes', 'Create professional references and citations', 'Manage long documents with indexes and TOCs', 'Secure documents and create macros');
+            }
+        } else if (course.title.includes('PowerPoint')) {
+            if (course.level === 'Basic') {
+                benefits.push('Create engaging slide presentations', 'Apply themes and design principles', 'Insert multimedia content effectively', 'Present with confidence using slide tools');
+            } else {
+                benefits.push('Create advanced graphics and SmartArt', 'Build interactive presentations', 'Use multimedia and animation effectively', 'Design professional templates and masters');
+            }
+        } else if (course.title.includes('Access')) {
+            benefits.push('Design and create database structures', 'Build forms for data entry and editing', 'Create queries for data analysis', 'Generate professional reports from data');
+        } else if (course.title.includes('Outlook')) {
+            benefits.push('Manage email efficiently and professionally', 'Organize calendar and schedule meetings', 'Create and manage contacts database', 'Use tasks and categories for productivity');
+        } else if (course.title.includes('Introduction to Computers')) {
+            benefits.push('Understand computer hardware and software', 'Navigate operating systems confidently', 'Use input and output devices effectively', 'Apply internet and networking concepts');
+        } else if (course.title.includes('Visual Basic')) {
+            benefits.push('Program VBA macros for Excel automation', 'Create user forms for data input', 'Use loops and conditional statements', 'Debug and protect VBA code effectively');
+        } else if (course.title.includes('Financial Modelling')) {
+            benefits.push('Build comprehensive financial models', 'Create automated reporting systems', 'Perform advanced reconciliations', 'Design cash flow and amortization models');
+        }
+    } else if (category === 'leadership') {
+        if (course.title.includes('Leadership')) {
+            benefits.push('Understand different leadership theories and styles', 'Develop transformational leadership skills', 'Apply servant leadership principles', 'Create leadership development strategies');
+        } else if (course.title.includes('Communication')) {
+            benefits.push('Improve business communication skills', 'Master presentation and public speaking', 'Write effective business reports', 'Chair meetings professionally');
+        } else if (course.title.includes('Team')) {
+            benefits.push('Build and develop high-performing teams', 'Understand team dynamics and stages', 'Resolve conflicts within teams', 'Delegate effectively and empower team members');
+        } else if (course.title.includes('Performance Management')) {
+            benefits.push('Develop performance standards and metrics', 'Conduct effective performance reviews', 'Provide constructive feedback', 'Create performance improvement plans');
+        } else if (course.title.includes('Change Management')) {
+            benefits.push('Apply change management models', 'Manage resistance to change', 'Develop change implementation strategies', 'Lead organizational transformation');
+        } else if (course.title.includes('Project')) {
+            benefits.push('Plan and scope projects effectively', 'Create work breakdown structures', 'Develop project timelines and budgets', 'Monitor and evaluate project progress');
+        } else if (course.title.includes('Emotional Intelligence')) {
+            benefits.push('Develop self-awareness and emotional control', 'Improve interpersonal relationships', 'Give and receive feedback effectively', 'Apply EQ in workplace situations');
+        } else if (course.title.includes('Decision')) {
+            benefits.push('Apply critical thinking to problem analysis', 'Engage stakeholders in decision-making', 'Evaluate solutions systematically', 'Communicate decisions effectively');
+        } else if (course.title.includes('Conflict')) {
+            benefits.push('Identify sources of workplace conflict', 'Apply conflict resolution techniques', 'Develop conflict management strategies', 'Create policies for conflict prevention');
+        } else if (course.title.includes('Coaching')) {
+            benefits.push('Select and assess management candidates', 'Plan and conduct coaching sessions', 'Monitor coaching effectiveness', 'Develop coaching strategies and skills');
+        } else if (course.title.includes('Talent')) {
+            benefits.push('Conduct training needs analysis', 'Design people development plans', 'Implement learning interventions', 'Evaluate training effectiveness');
+        } else if (course.title.includes('Risk')) {
+            benefits.push('Identify and assess business risks', 'Develop risk mitigation strategies', 'Create contingency planning processes', 'Implement risk management systems');
+        } else if (course.title.includes('Innovation')) {
+            benefits.push('Assess innovation opportunities', 'Apply creativity techniques', 'Create innovation-friendly environments', 'Implement innovation processes');
+        } else if (course.title.includes('Operational')) {
+            benefits.push('Develop operational strategies', 'Create detailed operational plans', 'Monitor operational performance', 'Align operations with organizational goals');
+        } else if (course.title.includes('Finance for Non-Financial')) {
+            benefits.push('Understand financial statements', 'Interpret balance sheets and income statements', 'Make informed financial decisions', 'Apply basic accounting principles');
+        } else if (course.title.includes('Knowledge')) {
+            benefits.push('Assess knowledge management systems', 'Develop knowledge sharing strategies', 'Create knowledge management plans', 'Implement organizational learning');
+        } else if (course.title.includes('Workplace Relations')) {
+            benefits.push('Build effective workplace networks', 'Establish constructive manager relationships', 'Resolve workplace conflicts', 'Improve team communication');
+        } else if (course.title.includes('Ethics')) {
+            benefits.push('Apply ethical principles in business', 'Understand corporate governance', 'Assess organizational values', 'Strengthen ethical practices');
+        } else if (course.title.includes('Diversity')) {
+            benefits.push('Understand workplace diversity benefits', 'Manage diverse teams effectively', 'Overcome communication barriers', 'Create inclusive work environments');
+        } else if (course.title.includes('Recruitment')) {
+            benefits.push('Plan effective recruitment processes', 'Develop selection criteria and methods', 'Conduct professional interviews', 'Make informed hiring decisions');
+        } else if (course.title.includes('Learning Culture')) {
+            benefits.push('Evaluate organizational learning culture', 'Develop learning promotion strategies', 'Implement learning initiatives', 'Measure learning culture impact');
+        } else if (course.title.includes('Mathematical')) {
+            benefits.push('Collect and organize data effectively', 'Apply statistical analysis techniques', 'Create data visualizations', 'Interpret economic relationships');
+        } else if (course.title.includes('Brand')) {
+            benefits.push('Understand branding fundamentals', 'Develop brand strategies', 'Apply brand mix elements', 'Create effective brand names');
+        }
+    } else if (category === 'soft-skills') {
+        if (course.title.includes('Time Management')) {
+            benefits.push('Identify and eliminate time wasters', 'Apply focus management techniques', 'Set and achieve personal goals', 'Use productivity tools effectively');
+        } else if (course.title.includes('Stress')) {
+            benefits.push('Recognize stress triggers and patterns', 'Apply stress control techniques', 'Manage emotional wellness', 'Develop healthy coping strategies');
+        } else if (course.title.includes('Negotiation')) {
+            benefits.push('Understand negotiation fundamentals', 'Overcome negotiation barriers', 'Apply successful negotiation techniques', 'Plan and conduct negotiations');
+        } else if (course.title.includes('Customer')) {
+            benefits.push('Build customer loyalty foundations', 'Understand customer needs and expectations', 'Handle difficult customer situations', 'Apply service excellence principles');
+        } else if (course.title.includes('Personal Development')) {
+            benefits.push('Build your personal brand', 'Develop leadership qualities', 'Apply effective mentoring techniques', 'Enhance communication skills');
+        } else if (course.title.includes('Sales')) {
+            benefits.push('Master the sales process', 'Qualify prospects effectively', 'Build customer relationships', 'Close deals successfully');
+        }
+    }
+    
+    // Default benefits if none matched
+    if (benefits.length === 0) {
+        course.units.slice(0, 4).forEach(unit => {
+            benefits.push(`Master ${unit.title.replace('Unit \\d+: ', '').toLowerCase()}`);
         });
-        
-        // Make images focusable
-        img.setAttribute('tabindex', '0');
-        img.setAttribute('role', 'button');
-        img.setAttribute('aria-label', 'Click to view full size image');
-    });
-    
-    function openLightbox(imgElement) {
-        const src = imgElement.getAttribute('src');
-        const title = imgElement.getAttribute('data-title') || imgElement.getAttribute('alt') || 'Image';
-        const description = imgElement.getAttribute('data-description') || '';
-        
-        lightboxImage.src = src;
-        lightboxImage.alt = title;
-        lightboxTitle.textContent = title;
-        lightboxDescription.textContent = description;
-        
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        
-        // Focus management
-        lightboxClose.focus();
-        
-        // Trap focus within lightbox
-        trapFocus(lightbox);
     }
     
-    function closeLightbox() {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = '';
-        
-        // Return focus to the image that opened the lightbox
-        const activeImage = document.querySelector('img[data-lightbox="true"]:focus');
-        if (activeImage) {
-            activeImage.focus();
-        }
-    }
+    return benefits;
+}
+
+// Function to get related courses
+function getRelatedCourses(currentCourse, category, categoryData) {
+    const relatedCourses = [];
+    const currentTitle = currentCourse.title;
     
-    // Close lightbox when clicking close button
-    lightboxClose.addEventListener('click', closeLightbox);
-    
-    // Close lightbox when clicking background
-    lightbox.addEventListener('click', function(e) {
-        if (e.target === lightbox) {
-            closeLightbox();
-        }
-    });
-    
-    // Close lightbox with Escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-            closeLightbox();
-        }
-    });
-    
-    // Prevent closing when clicking on lightbox content
-    const lightboxContent = lightbox.querySelector('.lightbox-content');
-    if (lightboxContent) {
-        lightboxContent.addEventListener('click', function(e) {
-            e.stopPropagation();
-        });
-    }
-    
-    // Focus trap function
-    function trapFocus(element) {
-        const focusableElements = element.querySelectorAll(
-            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-        );
-        const firstFocusableElement = focusableElements[0];
-        const lastFocusableElement = focusableElements[focusableElements.length - 1];
-        
-        element.addEventListener('keydown', function(e) {
-            if (e.key === 'Tab') {
-                if (e.shiftKey) {
-                    if (document.activeElement === firstFocusableElement) {
-                        lastFocusableElement.focus();
-                        e.preventDefault();
-                    }
-                } else {
-                    if (document.activeElement === lastFocusableElement) {
-                        firstFocusableElement.focus();
-                        e.preventDefault();
-                    }
+    // For Microsoft Office courses, suggest other levels of same software
+    if (currentTitle.includes('Microsoft')) {
+        const softwareName = currentTitle.match(/(Word|Excel|PowerPoint|Access|Outlook|Visual Basic)/)?.[1];
+        if (softwareName) {
+            categoryData.courses.forEach(course => {
+                if (course.title.includes(softwareName) && course.title !== currentTitle) {
+                    relatedCourses.push(course);
                 }
+            });
+        }
+    }
+    
+    // If we don't have enough related courses, add courses of similar level
+    if (relatedCourses.length < 3) {
+        categoryData.courses.forEach(course => {
+            if (course.level === currentCourse.level && 
+                course.title !== currentTitle && 
+                !relatedCourses.some(rc => rc.title === course.title)) {
+                relatedCourses.push(course);
             }
         });
     }
+    
+    // If still not enough, add any other courses from the category
+    if (relatedCourses.length < 3) {
+        categoryData.courses.forEach(course => {
+            if (course.title !== currentTitle && 
+                !relatedCourses.some(rc => rc.title === course.title)) {
+                relatedCourses.push(course);
+            }
+        });
+    }
+    
+    return relatedCourses.slice(0, 3);
 }
 
-// Initialize lightbox when DOM is loaded
-document.addEventListener('DOMContentLoaded', initLightbox);
+// Function to generate course page HTML
+function generateCoursePageHTML(course, category, categoryData) {
+    const slug = createSlug(course.title);
+    const categorySlug = category.replace('-', ' ');
+    const levelClass = getLevelClass(course.level);
+    const benefits = generateCourseBenefits(course, category);
+    const relatedCourses = getRelatedCourses(course, category, categoryData);
+    
+    return `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${course.title} | ${categoryData.title.replace(' Courses', '')} Training Course | TAP</title>
+    <meta name="description" content="${course.description}">
+    <meta name="keywords" content="${course.keywords || ''}">
+    <meta name="author" content="TAP Systems">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="${course.title} | ${categoryData.title.replace(' Courses', '')} Training Course | TAP">
+    <meta property="og:description" content="${course.description}">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="../../Images/Logo.png">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${course.title} | ${categoryData.title.replace(' Courses', '')} Training Course">
+    <meta name="twitter:description" content="${course.description}">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../Documents/tap-text-styles.css">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../course-page.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../../Images/Logo.png">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "${course.title}",
+        "description": "${course.description}",
+        "provider": {
+            "@type": "Organization",
+            "name": "TAP - Technical Assessment Portal"
+        },
+        "educationalLevel": "${course.level}",
+        "timeRequired": "PT${course.duration.replace(' hours', 'H')}",
+        "courseMode": "online",
+        "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": "online"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="../../index.html" class="nav-logo">
+                    <img src="../../Images/Logo.png" alt="TAP Logo" width="40" height="40">
+                    <span>TAP</span>
+                </a>
+                
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="../../features.html" class="nav-link">Features</a></li>
+                        <li class="nav-item"><a href="../../solutions.html" class="nav-link">Solutions</a></li>
+                        <li class="nav-item"><a href="../../courses.html" class="nav-link">Courses</a></li>
+                        <li class="nav-item"><a href="../../index.html#academy" class="nav-link">Academy</a></li>
+                        <li class="nav-item"><a href="../../pricing.html" class="nav-link">Pricing</a></li>
+                        <li class="nav-item"><a href="../../contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-actions">
+                    <a href="#login" class="btn btn-outline">Login</a>
+                    <a href="#signup" class="btn btn-primary">Get Started</a>
+                </div>
+                
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="hamburger"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-// Console welcome message
-console.log('%c🚀 TAP - Technical Assessment Portal', 'font-size: 16px; font-weight: bold; color: #2563eb;');
-console.log('%c Built with modern web technologies', 'color: #6b7280;');
+    <!-- Main Content -->
+    <main>
+        <!-- Breadcrumb -->
+        <section class="breadcrumb-section">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <a href="../../index.html">Home</a>
+                    <span class="separator">></span>
+                    <a href="../../courses.html">Courses</a>
+                    <span class="separator">></span>
+                    <a href="../${category}-courses.html">${categoryData.title}</a>
+                    <span class="separator">></span>
+                    <span class="current">${course.title}</span>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Course Hero Section -->
+        <section class="course-hero">
+            <div class="container">
+                <div class="course-hero-content">
+                    <div class="course-category">
+                        <span class="category-icon">${categoryData.icon}</span>
+                        <span>${categoryData.title}</span>
+                    </div>
+                    <h1 class="course-title">${course.title}</h1>
+                    <p class="course-description">${course.description}</p>
+                    <div class="course-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">Level:</span>
+                            <span class="meta-value ${levelClass}">${course.level}</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Duration:</span>
+                            <span class="meta-value">${course.duration}</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Units:</span>
+                            <span class="meta-value">${course.units.length} units</span>
+                        </div>
+                    </div>
+                    <div class="course-actions">
+                        <a href="#enroll" class="btn btn-primary btn-large">Enroll Now</a>
+                        <a href="#contact" class="btn btn-outline btn-large">Request Info</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Details -->
+        <section class="course-details">
+            <div class="container">
+                <div class="course-content">
+                    <div class="course-main">
+                        <div class="course-benefits">
+                            <h2>What You'll Learn</h2>
+                            <ul class="benefits-list">
+                                ${benefits.map(benefit => `<li>${benefit}</li>`).join('')}
+                            </ul>
+                        </div>
+                        
+                        <div class="course-outline">
+                            <h2>Course Outline</h2>
+                            <div class="units-list">
+                                ${course.units.map(unit => `
+                                <div class="unit-item">
+                                    <div class="unit-header" onclick="toggleUnit(this)">
+                                        <h3>${unit.title}</h3>
+                                        <span class="unit-toggle">+</span>
+                                    </div>
+                                    <div class="unit-content">
+                                        <ul class="unit-topics">
+                                            ${unit.topics.map(topic => `<li>${topic}</li>`).join('')}
+                                        </ul>
+                                    </div>
+                                </div>`).join('')}
+                            </div>
+                        </div>
+                        
+                        <div class="course-cta">
+                            <h2>Ready to Get Started?</h2>
+                            <p>Join thousands of professionals who have enhanced their skills with our comprehensive training programs.</p>
+                            <div class="cta-buttons">
+                                <a href="#enroll" class="btn btn-primary btn-large">Enroll Now</a>
+                                <a href="#contact" class="btn btn-outline btn-large">Request Information</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-sidebar">
+                        <div class="enrollment-card">
+                            <h3>Ready to Start?</h3>
+                            <p>Join thousands of learners and advance your skills today.</p>
+                            <a href="#enroll" class="btn btn-primary btn-full">Enroll Now</a>
+                        </div>
+
+                        <div class="related-courses">
+                            <h3>Related ${categoryData.title}</h3>
+                            ${relatedCourses.map(relatedCourse => {
+                                const relatedSlug = createSlug(relatedCourse.title);
+                                const relatedLevelClass = getLevelClass(relatedCourse.level);
+                                return `
+                                <div class="related-course-item">
+                                    <h4><a href="${category}-${relatedSlug}.html">${relatedCourse.title}</a></h4>
+                                    <span class="course-level ${relatedLevelClass}">${relatedCourse.level}</span>
+                                </div>`;
+                            }).join('')}
+                            <div class="course-category-link">
+                                <a href="../${category}-courses.html">View All ${categoryData.title}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="../../script.js"></script>
+    <script>
+        // Unit Toggle Functionality
+        function toggleUnit(unitHeader) {
+            const unitItem = unitHeader.parentElement;
+            const content = unitItem.querySelector('.unit-content');
+            const toggle = unitHeader.querySelector('.unit-toggle');
+            
+            if (content.classList.contains('expanded')) {
+                content.classList.remove('expanded');
+                toggle.textContent = '+';
+                unitItem.classList.remove('expanded');
+            } else {
+                content.classList.add('expanded');
+                toggle.textContent = '−';
+                unitItem.classList.add('expanded');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('${course.title} course page loaded');
+        });
+    </script>
+</body>
+</html>`;
+}
+
+// Generate all course pages
+function generateAllCoursePages() {
+    let generatedFiles = [];
+    
+    Object.keys(courseData).forEach(category => {
+        const categoryData = courseData[category];
+        
+        categoryData.courses.forEach(course => {
+            const slug = createSlug(course.title);
+            const filename = `${category}-${slug}.html`;
+            const filepath = path.join('./courses/individual', filename);
+            
+            try {
+                const html = generateCoursePageHTML(course, category, categoryData);
+                fs.writeFileSync(filepath, html, 'utf8');
+                generatedFiles.push(filename);
+                console.log(`✅ Generated: ${filename}`);
+            } catch (error) {
+                console.error(`❌ Failed to generate ${filename}:`, error.message);
+            }
+        });
+    });
+    
+    return generatedFiles;
+}
+
+// Run the generator
+if (require.main === module) {
+    console.log('🚀 Generating course pages...');
+    const files = generateAllCoursePages();
+    console.log(`\n✅ Successfully generated ${files.length} course pages!`);
+    console.log('Files created:', files);
+}
+
+module.exports = { generateAllCoursePages, createSlug };
