@@ -1,0 +1,10 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Hoverbox
+
+append variables 
+	- var pageTitle = 'Hoverbox';
+	
+block component
+	.row 
+		+HoverboxExample
+		+ChangeImage

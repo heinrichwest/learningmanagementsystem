@@ -1,0 +1,63 @@
+mixin Contact(title)
+	+Section&attributes(attributes)#contact
+		if title
+			.row
+				.col.text-center.mb-4(data-zanim-timeline!={} data-zanim-trigger="scroll")
+					.overflow-hidden
+						h2.fs-md-5(data-zanim-xs!={'duration': 1.5, 'delay': 0})=title
+					.overflow-hidden
+						p.fs--1.text-uppercase.text-black.ls-1.mb-0(data-zanim-xs!={'duration': 1.5, 'delay': 0.1}) we are happy to listen from you anytime
+					.overflow-hidden
+						hr.hr-short.border-black(data-zanim-xs!={'duration': 1.5, 'delay': 0.2})
+		.row.justify-content-center
+			.col-lg-6.mb-5.mb-lg-0.d-flex.flex-column.justify-content-between
+				.row
+					.col-12
+						h5.mb-3 Connect With Us
+					.col-auto.mb-2.mb-sm-0(style="width: 190px")
+						.row
+							.col-1
+								span.fas.fa-location-arrow.text-700
+							.col.px-2
+								p.mb-1.text-700
+									strong #{name} Studio
+
+								p.mb-0.text-600
+									| 590, Castro St,
+									br
+									| United States
+					.col-auto(style="width: 205px")
+						.row.mb-2.mb-sm-1
+							.col-1
+								span.fas.fa-phone.me-2.text-700 
+							.col.px-2
+								a(href="tel:526853300").text-600 526 853 300 
+								br
+								a(href="tel:526853300").text-600 478 484 500 
+						.row
+							.col-1
+								span.fas.fa-envelope.me-2.text-700
+							.col.px-2
+								a(href="mailto:contact@reign.com").text-600 contact@reign.com
+
+
+				.googlemap.rounded.data-map.mt-4(data-latlng='48.8583701,2.2922873,17' data-scrollwheel='false' data-icon=`${CWD}assets/img/map-marker.png` data-zoom='17' data-theme='Default' style="min-height: 14.63rem;")
+					.marker-content.py-3
+						h5 Eiffel Tower
+						p
+							| Gustave Eiffel's iconic, wrought-iron 1889 tower,
+							br
+							|  with steps and elevators to observation decks.
+
+			.col-lg-6
+				h5.mb-3 Feel free to drop us a line!
+				form.zform.text-left(method="post")
+					input(type="hidden" name="to" value="username@domain.extension")
+					.form-group.mb-3
+						input.fs-0.form-control(type="text" placeholder="Your Name" required)
+					.form-group.mb-3
+						input.fs-0.form-control(type="email" placeholder="Email Address" required)
+					.form-group.mb-3
+						textarea.fs-0.form-control.contact-message(rows=8 placeholder="Type your message here" required)
+					.zform-feedback.d-grid
+						button(type="submit").btn.btn-dark.hvr-sweep-top Give us a shot

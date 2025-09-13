@@ -1,0 +1,53 @@
+extends Layout
+include ../mixins/common/Logo
+include ../mixins/common/PreFooter
+include ../mixins/common/Footer
+include ../mixins/common/SectionHeader
+include ../mixins/common/Member
+include ../mixins/Variables
+include ../mixins/navbar/Navbar
+
+append headScripts
+  script(src=`${CWD}vendors/overlayscrollbars/OverlayScrollbars.min.js`)
+
+append styles
+  link(rel='preconnect' href='https://fonts.googleapis.com')
+  link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+  link(href='https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;900&family=Roboto:wght@100;300;400;500;700;900&display=swap' rel='stylesheet')
+
+prepend styles
+  //- link(href=`${CWD}vendors/loaders.css/loaders.min.css` rel="stylesheet")
+
+prepend scripts
+  script(src=`${CWD}vendors/fontawesome/all.min.js`)
+  script(src=`${CWD}vendors/lodash/lodash.min.js`)
+
+  //- Gsap CSS
+  script(src=`${CWD}vendors/imagesloaded/imagesloaded.pkgd.min.js`)
+  script(src=`${CWD}vendors/gsap/gsap.js`)
+  script(src=`${CWD}vendors/gsap/customEase.js`)
+
+block beforeMainContent
+  if(Navbar)
+    +Navbar
+
+block mainContent
+  #preloader.preloader(data-preloader)
+    .preloader-wrapper.big.active(data-preloader)
+      .spinner-layer.spinner-white-only
+        .circle-clipper.left
+          .circle
+        .gap-patch
+          .circle
+        .circle-clipper.right
+          .circle
+block afterMainContent
+  = '\n\n'
+  //===============================================
+  //    Footer
+  //===============================================
+  if(preFooter)
+    +PreFooter
+  +Footer
+  a(href="#top").btn-back-to-top
+    img(src=`${CWD}assets/img/line-icons/upload-arrow.svg`, width="8" alt="")

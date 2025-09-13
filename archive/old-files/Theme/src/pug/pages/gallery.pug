@@ -1,0 +1,124 @@
+extends ../layouts/LayoutTheme
+include ../mixins/headers/HeaderClassic
+
+
+append variables
+	-
+		var galleries= [
+			{
+				id:'collapse-1',
+				image:'g1.jpg',
+				title:'GILLIAN WEARING',
+				text:'Since the beginning of her career, Gillian Wearing has drawn from techniques of theatre, reality television, and fly-on-the-wall documentary-making to construct narratives that explore personal fantasies and confessions, individual traumas, cultural histories.',
+				next:'collapse-2',
+				prev:'!',
+			},
+			{
+				id:'collapse-2',
+				image:'g2.jpg',
+				title:'CATHERINE OPIE',
+				text:'Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.',
+				next:'collapse-3',
+				prev:'collapse-1',
+			},
+			{
+				id:'collapse-3',
+				image:'g3.jpg',
+				title:'CHRISTOPHER WOOL',
+				text:'Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.',
+				next:'collapse-4',
+				prev:'collapse-2',
+			},
+			{
+				id:'collapse-4',
+				image:'g4.jpg',
+				title:'CHRISTOPHER WOOL',
+				text:'Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.',
+				next:'collapse-5',
+				prev:'collapse-3',
+			},
+			{
+				id:'collapse-5',
+				image:'g5.jpg',
+				title:'CHRISTOPHER WOOL',
+				text:'Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.',
+				next:'collapse-6',
+				prev:'collapse-4',
+			},
+			{
+				id:'collapse-6',
+				image:'g6.jpg',
+				title:'CHRISTOPHER WOOL',
+				text:'Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.',
+				next:'collapse-7',
+				prev:'collapse-5',
+			},
+			{
+				id:'collapse-7',
+				image:'g7.jpg',
+				title:'CHRISTOPHER WOOL',
+				text:'Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.',
+				next:'collapse-8',
+				prev:'collapse-6',
+			},
+			{
+				id:'collapse-8',
+				image:'g8.jpg',
+				title:'CHRISTOPHER WOOL',
+				text:'Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.',
+				next:'collapse-9',
+				prev:'collapse-7',
+			}, 
+			{
+				id:'collapse-9',
+				image:'g9.jpg',
+				title:'CHRISTOPHER WOOL',
+				text:'Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.',
+				next:'!',
+				prev:'collapse-8',
+			},
+		];
+
+
+prepend styles
+
+prepend scripts
+
+mixin Gallery(config)
+	.col-12.col-sm-6.col-lg-4.thumbnail-grid-item
+		img(src=`${CWD}assets/img/gallery/${config.image}` alt="" data-bs-toggle='collapse'  data-bs-target=`#${config.id}` aria-expanded='false' aria-controls=`${config.id}`).thumbnail-gridder
+		.position-absolute.start-0
+			.collapse.thumbnail-grid-content( data-bs-parent="#selector" id=`${config.id}`)
+				.card.card-body.border-0.bg-100.m-1.px-4
+					+GalleryContent(config)
+
+mixin GalleryContent(config)
+	.row.align-items-center
+		.thumbnail-grid-navigation
+			a(href="#!").thumbnail-close
+				i.fas.fa-times
+			a(href='#!' data-grid-target=`#${config.prev}` data-thumbnail-grid-nav).thumbnail-grid-nav.prev
+				i.fas.fa-angle-left
+			a(href='#!' data-grid-target=`#${config.next}` data-thumbnail-grid-nav).thumbnail-grid-nav.next
+				i.fas.fa-angle-right
+		.col-7
+			.d-none.d-lg-block.p-0
+				img(src=`${CWD}assets/img/gallery/${config.image}` alt="").w-100.img-fluid.rounded
+		.col-lg-5
+			h5.ls-1=config.title
+			p=config.text
+			a(href="#!").btn.btn-outline-dark.btn-sm.hvr-sweep-top.hover-color-white.mt-2 Visit Website
+
+append mainContent
+	+HeaderClassic('Gallery')
+	+Section
+		.row.g-2.position-relative.thumbnail-grid-container#selector
+			+Gallery(galleries[0])
+			+Gallery(galleries[1])
+			+Gallery(galleries[2])
+			+Gallery(galleries[3])
+			+Gallery(galleries[4])
+			+Gallery(galleries[5])
+			+Gallery(galleries[6])
+			+Gallery(galleries[7])
+			+Gallery(galleries[8])

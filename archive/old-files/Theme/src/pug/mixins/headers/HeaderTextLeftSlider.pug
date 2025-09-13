@@ -1,0 +1,31 @@
+mixin HeaderTextLeftSlider
+	section.py-0.overflow-hidden
+		.swiper.theme-slider(data-swiper!={
+			autoplay: true,
+			loopedSlides: 5,
+			loop: true,
+			slideToClickedSlide: true,
+		})
+			.swiper-wrapper
+				.swiper-slide
+					img(src=`${CWD}assets/img/headers/header-2.jpg` alt="image").header-slider
+					
+					.header-overlay(data-zanim-timeline!={delay: 0.1})
+						.container
+							+HeaderContent('Take a breath', `Take every chance you get in life, because <br class="d-none d-sm-block"> some things only happen once`).align-items-center.vh-100
+							+HeaderIndicatorDown
+				.swiper-slide
+					img(src=`${CWD}assets/img/headers/header-8.jpg` alt="image").header-slider
+					.header-overlay(data-zanim-timeline!={delay: 0.1})
+						.container
+							+HeaderContent('We are awesome',` that's how we live life <br class="d-block d-md-none"> fullest`).align-items-center.vh-100
+							+HeaderIndicatorDown
+				.swiper-slide  
+					img(src=`${CWD}assets/img/headers/header-10.jpg` alt="image").header-slider
+					.header-overlay(data-zanim-timeline!={delay: 0.1})
+						.container
+							+HeaderContent('Future is here',`Take action and be a <br class="d-block d-md-none"> part of it`).align-items-center.vh-100
+							+HeaderIndicatorDown
+			.swiper-nav
+				.swiper-button-prev
+				.swiper-button-next

@@ -1,0 +1,379 @@
+append variables
+  - var title = 'R E ! G N';
+  - var theme = `${name}-${version}`;
+  - var bootstrapVersion = '5.1';
+  - var attrsMain = { id:'top',class: 'main' };
+  - var attrsLayout = { class: 'container', 'data-layout': 'container' }
+  - var colors = ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'];
+  - var grays = ['black', 1100, 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100, 'white'];
+  - var colorsAll = colors.concat(grays);
+  -
+    var themeColor =  {
+      primary: '#007bff',
+      secondary: '#7f7f7f',
+      success: '#28a745',
+      info: '#17a2b8',
+      warning: '#ffc107',
+      danger: '#dc3545',
+      light: '#fafafa',
+      dark: '#000000',
+    }
+
+  - var footer = true;
+  - var pathName = (locals.filename || locals.history[0]).split('\\').join('/').split('src/pug/').pop().split('.pug').shift();
+  - var pageTree = pathName.split('/');
+  - var CWD = pageTree.slice(1).map(() => '../').join('');
+  - var preFooter = true;
+  -
+    var headers = [
+      'one-page', 
+      'static-classic',
+      'slider-header', 
+      'slider-classic',
+      'text-left-header',
+      'text-left-classic',
+      'text-left-slider',
+      'text-left-classic-slider',
+      'typed-text-header',
+      'typed-text-classic',
+      'video-background',
+      'video-classic', 
+      'gradient-background',
+      'gradient-classic'
+    ]
+  -
+    var sitemap = [
+      {
+        name: "Home",
+        pages: [
+          {
+            name: "one page",
+            path: "homes/one-page"
+          },
+          {
+            name: "Static Header",
+            path: "homes/header-static"
+          },
+          {
+            name: "Static Classic",
+            path: "homes/static-classic"
+          },
+          {
+            name: "Slider Header",
+            path: "homes/slider-header"
+          },
+          {
+            name: "Slider Classic",
+            path: "homes/slider-classic"
+          },
+          {
+            name: "Text Left Header",
+            path: "homes/text-left-header"
+          },
+          {
+            name: "Text Left Classic",
+            path: "homes/text-left-classic"
+          },
+          {
+            name: "Typed Text Header",
+            path: "homes/typed-text-header"
+          },
+          {
+            name: "Typed Text Classic",
+            path: "homes/typed-text-classic"
+          },
+          {
+            name: "Text Left Slider",
+            path: "homes/text-left-slider"
+          },
+          {
+            name: "Text Left Slider",
+            path: "homes/text-left-slider"
+          },
+          {
+            name: "Text Left Classic Slider",
+            path: "homes/text-left-classic-slider"
+          },
+          {
+            name: "Video Background",
+            path: "homes/video-background"
+          },
+          {
+            name: "Video Classic",
+            path: "homes/video-classic"
+          },
+          {
+            name: "Gradient Background",
+            path: "homes/gradient-background"
+          },
+          {
+            name: "Gradient Classic",
+            path: "homes/gradient-classic"
+          }
+        ]
+      },
+      {
+        name: "Pages",
+        pages: [
+          {
+            name: "About",
+            path: "pages/about"
+          },
+          {
+            name: "services",
+            path: "pages/service"
+          },
+          {
+            name: "pricing",
+            path: "pages/pricing"
+          },
+          {
+            name: "gallery",
+            path: "pages/gallery"
+          },
+          {
+            name: "faq",
+            path: "pages/faq"
+          },
+          {
+            name: "contact",
+            path: "pages/contact"
+          },
+          {
+            name: "404 Page",
+            path: "pages/404"
+          },
+          {
+            name: "starter",
+            path: "pages/starter"
+          },
+          {
+            name: "work",
+            path: "pages/work"
+          },
+          {
+            name: "work alt",
+            path: "pages/work-alt"
+          },
+          {
+            name: "work wide",
+            path: "pages/work-wide"
+          },
+          {
+            name: "work single",
+            path: "pages/work-single"
+          },
+          {
+            name: "blog",
+            path: "pages/blog"
+          },
+          {
+            name: "blog grid",
+            path: "pages/blog-grid"
+          },
+          {
+            name: "single post",
+            path: "pages/single-post"
+          },
+        ]
+      },
+      
+      {
+        name: "Components",
+        pages: [
+          {
+            name: "Accordion",
+            path: "components/accordion"
+          },
+          {
+            name: "Alerts",
+            path: "components/alerts"
+          },
+          {
+            name: "backgrounds",
+            path: "components/backgrounds"
+          },
+          {
+            name: "badges",
+            path: "components/badges"
+          },
+          {
+            name: "borders",
+            path: "components/borders"
+          },
+          {
+            name: "Buttons",
+            path: "components/buttons"
+          },
+          {
+            name: "cards",
+            path: "components/cards"
+          },
+          {
+            name: "carousel",
+            path: "components/carousel"
+          },
+          {
+            name: "colors",
+            path: "components/colors"
+          },
+          {
+            name: "collapse",
+            path: "components/collapse"
+          },
+          {
+            name: "countup",
+            path: "components/countup"
+          },
+          {
+            name: "dropdowns",
+            path: "components/dropdowns"
+          },
+          {
+            name: "filter",
+            path: "components/filter"
+          },
+          {
+            name: "forms",
+            path: "components/forms"
+          },
+          {
+            name: "google Map",
+            path: "components/googlemap"
+          },
+          {
+            name: "grid",
+            path: "components/grid"
+          },
+          {
+            name: "Thumb Grid",
+            path: "components/thumbnail-grid"
+          },
+          {
+            name: "hoverbox",
+            path: "components/hoverbox"
+          },
+          {
+            name: "hover dir",
+            path: "components/hover-dir"
+          },
+          {
+            name: "icons",
+            path: "components/icons"
+          },
+          {
+            name: "inline player",
+            path: "components/inline-player"
+          },
+          {
+            name: "lightbox",
+            path: "components/lightbox"
+          },
+          {
+            name: "list group",
+            path: "components/list-group"
+          },
+          {
+            name: "masonary",
+            path: "components/masonary"
+          },
+          {
+            name: "modal",
+            path: "components/modal"
+          },
+          {
+            name: "navs & tabs",
+            path: "components/navs-tabs"
+          },
+          {
+            name: "navbar",
+            path: "components/navbar"
+          },
+          {
+            name: "progressbar",
+            path: "components/progressbar"
+          },
+          {
+            name: "remodal",
+            path: "components/remodal"
+          },
+          {
+            name: "scrollspy",
+            path: "components/scrollspy"
+          },
+          {
+            name: "sizing",
+            path: "components/sizing"
+          },
+          {
+            name: "smtpjs",
+            path: "components/smtpjs"
+          },
+          {
+            name: "spacing",
+            path: "components/spacing"
+          },
+          {
+            name: "swiper",
+            path: "components/swiper"
+          },
+          {
+            name: "tables",
+            path: "components/tables"
+          },
+          {
+            name: "tooltips",
+            path: "components/tooltips"
+          },
+          {
+            name: "typed text",
+            path: "components/typed-text"
+          },
+          {
+            name: "Typography",
+            path: "components/typography"
+          },
+          {
+            name: "zanimation",
+            path: "components/zanimation"
+          },
+          
+        ]
+      },
+      {
+        name: "Docs",
+        pages: [
+          {
+            name: "Getting Started",
+            path: "docs/getting-started"
+          },
+          {
+            name: "File Structure",
+            path: "docs/file-structure"
+          },
+          {
+            name: "Customization",
+            path: "docs/customization"
+          },
+          {
+            name: "Gulp",
+            path: "docs/gulp"
+          },
+          {
+            name: "RTL",
+            path: "docs/rtl"
+          },
+          {
+            name: "Plugins",
+            path: "docs/plugins"
+          },
+          {
+            name: "Changelog",
+            path: "docs/changelog"
+          },
+
+        ]
+      },
+
+    ];
+

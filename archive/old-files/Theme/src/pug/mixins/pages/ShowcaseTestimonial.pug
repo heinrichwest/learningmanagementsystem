@@ -1,0 +1,32 @@
+mixin TestimonialContent(config)
+  .px-2
+    p.font-base.mt-4.mt-md-0!=config.des
+    .row.g-0.justify-content-between.align-items-center
+      .col-12.col-md.mb-3.mb-md-0
+        h4.fw-normal.mb-0.fs-1.ls-1!=config.name
+        p.fs--1.text-uppercase.text-500.mb-0.ls-3=config.title
+      .col-12.col-md-5.d-flex.justify-content-md-end.justify-content-center
+        
+        span.me-1 (5 out of 5)
+        div.text-warning
+          span.fas.fa-star
+          span.fas.fa-star
+          span.fas.fa-star
+          span.fas.fa-star
+          span.fas.fa-star
+
+mixin ShowcaseTestimonial
+  +Section({
+    image: `${CWD}assets/img/backgrounds/showcase-testimonial.jpg`,
+    className: "overlay",
+  }).testimonial.bg-300
+    .row.justify-content-center
+      .col-12.col-sm-10.col-lg-8.text-center.text-md-start.px-3.px-sm-0
+        .rounded-3.px-sm-4.px-md-6.py-5.mt-5.bg-white
+          .quote.showcase-quote
+          .rounded-circle.avatar-showcase-testimonial.overflow-hidden JB
+          +TestimonialContent({
+            des: `This is an extremely extensive template - the only limiting factor is your imagination - and - you don't get your themes featured on this site unless they are top notch. There are so many ways to put together a unique experience with this kit you'll be busy for days.`, 
+            name: "John Bradley", 
+            title: "Client, ThemeWagon Inc."
+          })

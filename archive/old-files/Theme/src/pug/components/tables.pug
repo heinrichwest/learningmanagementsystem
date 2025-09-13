@@ -1,0 +1,20 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Tables
+include ../mixins/common/ComponentLink
+
+append variables 
+	- var pageTitle = 'Tables';
+
+block component
+	+ComponentLink({
+		text:'For detail documentation. ',
+		linkText: 'View Tables on Bootstrap',
+		link: `https://getbootstrap.com/docs/${bootstrapVersion}/content/tables/`
+	})
+	.row.g-0
+		+TableSimpleExample
+		+TableDarkExample
+		+TableHeaderDark
+		+TableHeaderLight
+		+TableStriped
+		+TableHover

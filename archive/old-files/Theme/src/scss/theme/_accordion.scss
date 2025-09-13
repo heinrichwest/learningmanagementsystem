@@ -1,0 +1,35 @@
+/* -------------------------------------------------------------------------- */
+/*                                  Accordion                                 */
+/* -------------------------------------------------------------------------- */
+
+.accordion-button {
+	text-transform: uppercase;
+	font-family: $font-family-sans-serif;
+  &:not(.collapsed) {
+    &::before {
+      background-image: escape-svg($accordion-button-active-icon);
+      transform: $accordion-icon-transform;
+    }
+  }
+
+  // Accordion icon
+  &::after {
+    display: none;
+  }
+  &::before {
+    flex-shrink: 0;
+    width: $accordion-icon-width;
+    height: $accordion-icon-width;
+    content: "";
+    background-image: escape-svg($accordion-button-icon);
+    background-repeat: no-repeat;
+    background-size: $accordion-icon-width;
+    @include transition($accordion-icon-transition);
+    margin-right: 1rem;
+  }
+  // Remove accordion header box shadow
+  &:not(.collapsed) {
+    box-shadow: none; 
+  }
+
+}

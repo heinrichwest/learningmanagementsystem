@@ -1,0 +1,18 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/GoogleMap
+include ../mixins/common/BlockHeader
+include ../mixins/common/CodePreviewBlock
+
+prepend scripts
+  script(src!=`https://maps.googleapis.com/maps/api/js?key=${APIGmap}&callback=initMap` async)
+
+append variables 
+  - var pageTitle = 'Google Map';
+
+block component
+  +Section.py-0 
+    +GoogleMap 
+    +MapColorSchemesDemo
+    +Example
+
+

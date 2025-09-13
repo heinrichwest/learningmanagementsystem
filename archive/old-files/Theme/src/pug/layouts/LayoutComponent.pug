@@ -1,0 +1,33 @@
+extends LayoutTheme
+include ../mixins/navbar/NavbarComponent
+include ../mixins/common/Card
+
+append variables
+  - var preFooter = false;
+
+prepend styles
+  link(href=`${CWD}vendors/prism/prism.css`, rel='stylesheet')
+
+prepend scripts
+  script(src=`${CWD}vendors/prism/prism.js`)
+
+    
+append mainContent
+  +Section({
+    image: `${CWD}assets/img/headers/header-9.jpg`,
+    className: 'overlay parallax',
+  },'container-fluid').text-center.overflow-hidden.py-0
+    .header-overlay
+    .row.position-relative.flex-center.pt-10.pb-7
+      .col-lg-4
+        .header-text
+          h1.display-3.text-white.fs-4.fs-md-5 #{pageTitle || 'Component'}
+          p.text-uppercase.text-400.ls-3.mt-2 #{pageDes || 'These modular elements can be readily used and customized in every layout across pages.'}
+  
+  +Section.pt-0.pb-5
+    .row.justify-content-between
+      .d-none.d-lg-block.col-auto.mb-5
+        .sticky-sidebar.mt-6
+          +NavbarComponent
+      .col-lg-9.py-6
+        block component

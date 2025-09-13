@@ -1,0 +1,28 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Buttons
+include ../mixins/common/ComponentLink
+
+append variables 
+  - var pageTitle = 'Buttons';
+  
+block component
+  +ComponentLink({
+		text:'For detail documentation. ',
+		linkText: 'View Buttons on Bootstrap ',
+		link: `https://getbootstrap.com/docs/${bootstrapVersion}/components/buttons/`
+	})
+  .mb-6 
+    +SolidButton
+    +OutlineButtons
+    +HoverEffects
+    +ButtonSizes
+    +IconButtons
+    +ButtonCapsule
+    +ButtonGroupDescription
+    +ButtonGroupBasic
+    +ButtonToolbar
+    +ButtonToolbarInputGroup
+    +Sizing
+    +VerticalVariation
+    +VerticalVariationWithDropDowns
+

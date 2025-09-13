@@ -1,0 +1,196 @@
+mixin BorderDoc
+	p The classes are named using the format 
+		code border-{side}
+		|  for 
+		code xs
+		|  and 
+		code border-{breakpoint}-{side}
+		|  for 
+		code sm
+		| , 
+		code md
+		| , 
+		code lg
+		| ,  
+		code xl
+		| , and 
+		code xxl
+		| .
+	p
+		| Where
+		em  side
+		|  is one of:
+	ul
+		li
+			code top
+			|  - for classes that set style for 
+			code border-top
+		li
+			code bottom
+			|  - for  classes that set style for 
+			code border-bottom
+		li
+			code left
+			|  - for  classes that set style for 
+			code border-start
+		li
+			code right
+			|  - for  classes that set style for 
+			code border-right
+		li
+			code x
+			|  - for classes that set both
+			code *-left
+			|  and 
+			code *-right
+		li
+			code y
+			|  - for classes that set both
+			code *-top
+			|  and 
+			code *-bottom
+		li
+			| blank - for classes that set the
+			code border
+			|  style on all 4 side of the element.
+
+	p.mb-0 Use border utilities to quickly style the
+		code border
+		|  of an element. Great for images, buttons, or any other element.
+
+mixin BorderAdditive
+	h5.mt-4 Examples for additive borders
+	+ComponentCard.p-4
+		.component-example
+			span.border
+			= '\n'
+			span.border-top
+			= '\n'
+			span.border-end
+			= '\n'
+			span.border-bottom
+			= '\n'
+			span.border-start
+			= '\n'
+
+
+mixin BorderSubtractive
+	p.mt-3
+		| For removing border, the classes are named using the format
+		code border-{side}-0
+		|  for
+		code xs
+		|  and
+		code border-{breakpoint}-{side}-0
+		|  for
+		code  sm
+		| ,
+		code  md
+		| , 
+		code lg
+		|  and
+		code  xl
+		| .
+	p
+		| Where
+		em  side
+		|  is same as documented before.
+	h5.mt-4 Examples for subtractive borders
+	+ComponentCard
+		.component-example
+			= '\n'
+			span.border.border-0
+			= '\n'
+			span.border.border-top-0
+			= '\n'
+			span.border.border-end-0
+			= '\n'
+			span.border.border-bottom-0
+			= '\n'
+			span.border.border-lg-start-0
+			= '\n'
+
+mixin DashedBorders
+	h4.mt-6 Border style
+	p
+		| For the dashed border, the classes are named using the format,
+		code  border-dashed-{side}
+		|  for
+		code  xs
+		|  	and
+		code  border-{breakpoint}-dashed-{side}
+		|  	for
+		code  sm
+		| ,
+		code  md
+		| ,
+		code  lg
+		|  and
+		code  xl
+		| .
+	p
+		| Where
+		em  side
+		|  is same as documented before.
+
+	h5.mt-4 Dashed borders
+	+ComponentCard
+		.component-example
+			span.border-dashed
+			= '\n'
+			span.border-dashed-top
+			= '\n'
+			span.border-sm-dashed-end
+			= '\n'
+			span.border-dashed-bottom
+			= '\n'
+			span.border-dashed-start
+			= '\n'
+
+mixin BorderColorWidth
+	p Border color set as 
+		code currentColor
+		|  and border width 
+		code 1px
+		| . Modifier can be used to change border color and width. The modifier classes for color are named using the format 
+		code border-{color}
+		|  and for width 
+		code border-2x
+		| .
+	p
+		| Where
+		em  color
+		|  is one of: 
+		each val in colorsAll
+			code #{val}
+			| , 
+
+	h5.mt-4 Examples
+	+ComponentCard
+		.component-example
+			each val in colorsAll
+				= '\n'
+				span.border(class=`border-${val} text-${val}`)=val
+				= '\n'
+			span.border.border-2x 2x
+		= '\n'	
+
+mixin BorderRounded
+	h5.mt-4 Border-radius
+	+ComponentCard
+		.component-example
+			= '\n'
+			span.border.rounded .rounded
+			= '\n'
+			span.border.rounded-top .rounded-top
+			= '\n'
+			span.border.rounded-end .rounded-end
+			= '\n'
+			span.border.rounded-bottom .rounded-bottom
+			= '\n'
+			span.border.rounded-start .rounded-start
+			= '\n'
+			span.border.rounded-circle .rounded-circle
+			= '\n'
+			span.border.rounded-pill(style='width:150px; height:75px;') .rounded-pill
+			= '\n'

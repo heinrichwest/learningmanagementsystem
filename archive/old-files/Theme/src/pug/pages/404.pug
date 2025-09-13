@@ -1,0 +1,21 @@
+extends ../layouts/LayoutTheme
+
+append variables
+  - var Navbar = false;
+
+append mainContent
+  +Section('container-fluid h-100').p-0
+    .row.justify-content-center(data-zanim-timeline!={} data-zanim-trigger='scroll')
+      .col-xl-10
+        .row.vh-lg-100.align-items-center
+          .col-lg-6.text-center(data-zanim-xs!={"from": {"opacity": 0, "x": 30}, "to": {"opacity": 1,"x": 0}, "duration": 1.5, "delay": 0.3})
+            img(src=`${CWD}assets/img/illustration/404.jpg`, alt="").w-75.w-md-50.w-lg-100.mt-5.mt-lg-0
+          .col-lg-6.text-center.text-lg-start
+            .overflow-hidden
+              h3.fw-medium.mb-1.mt-5.mt-lg-0(data-zanim-xs!={'duration': 1.5, 'delay': 0}) OOPS! LOOKS LIKE YOU'RE LOST.
+            .overflow-hidden
+              p.mb-2(data-zanim-xs!={'duration': 1.5, 'delay': 0.1}) Please go back and try to find it again
+            .overflow-hidden
+              h2.display-2.fs-8.fw-bold.font-base.mb-4(data-zanim-xs!={'duration': 1.5, 'delay': 0.2}) 404
+            div(data-zanim-xs!={"from":{"opacity":0,"y":30},"to":{"opacity":1,"y":0},"duration":1.5,"delay":0.3})
+              a(href=`${CWD}index.html`).btn.btn-sm.btn-outline-dark.hvr-sweep-top.hover-color-white Go Home

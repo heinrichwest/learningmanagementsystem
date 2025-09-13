@@ -1,0 +1,66 @@
+mixin  Smtpjs
+  h3 Smtpjs
+  p
+    | Using 
+    code Smtpjs 
+    | you will be able to directly send email using client-side javascript without any server-level configurations.
+    
+  a(href='https://smtpjs.com/' target='_blank') Full Documentation     
+  p.mt-3 You can also specify where to send the data via an hidden input:
+  p.fw-bold.font-sans-serif.mb-0 How to configure and use Gmail SMTP to send emails from Javascript?
+  p In case you are planning to use Gmail's SMTP to send mails, then make sure you have properly configured the below settings:
+  p.fw-bold.font-sans-serif.mb-0 Allowed access in Gmail for less secure apps: 
+  p To use Gmail SMTP you'll need to allow access for less secure apps from google account settings. Turning the below 
+    a(href='https://myaccount.google.com/lesssecureapps', target='_blank') settings
+    |&nbsp;off will allow your Javascript to connect to Gmail.
+
+  p.fw-bold.font-sans-serif.mb-0 Disabled 2-step factor authentication
+  p As you're going to connect to Gmail remotely using a program, so 2-step factor authentication should be disabled. Click 
+    a(href="https://myaccount.google.com/security", target='_blank') here 
+    |to learn more on how to disable 2FA
+  p.fw-bold.font-sans-serif.mb-3 Once, the above settings are done, your Google SMTP server configurations would look something like this  
+  ul
+    li
+      code MTP Server/Hostname: smtp.gmail.com
+    li
+      code MTP Username: [Your Gmail Address]
+    li
+      code SMTP password: [Your Gmail Password]
+    li
+      code SMTP Port: 587
+    li
+      code TLS/SSL: Required
+
+  p If you are using gulp based workflow, Open form-processor.js and update your smtp credential
+  Pre 
+    code.lang-js.
+      window.Email.send({
+        Host: "smtp.mailtrap.io",
+        Username: "Your User Name ",
+        Password: "Your Password",
+        To: formData.email,
+        From: "you@isp.com",
+        Subject: "This is the subject",
+        Body: `And this is the body`
+        })   
+  p.mt-3 If you are not using gulp based workflow, Open 
+    code src\js\form-processor.js 
+    |find formInit method then update your smtp credential   
+    
+  p.mt-3.mb-5 See the sample code under the form bellow for better understanding.
+  +ComponentCard
+    form(data-form onsubmit="return false")
+      label.form-label.text-700.mt-4.mb-3(for='inputName1')
+        i.fas.fa-user.me-2
+        | NAME
+      input.form-control.mt-0#inputName1(type='text' name='name')
+      label.form-label.text-700.mt-4.mb-3(for='inputEmail') 
+        i.fas.fa-envelope.me-2
+        |YOUR EMAIL
+      input.form-control.mt-0#inputEmail(type='email' name='email') 
+      label.form-label.text-700.mt-4.mb-3(for='validationTextarea1') 
+        i.fas.fa-pen.me-2
+        |MESSAGE
+      textarea.form-control.is-invalid.border-400#validationTextarea1.mt-0(placeholder='Message' rows="6" cols="50" required name='message')  
+      button.btn.btn-primary.w-100.mt-3(type='submit') Send
+      .feedback.mt-2

@@ -1,0 +1,47 @@
+mixin SimpleCollapseExample 
+	h5 Collapse Example
+	+ComponentCard
+		p
+			= '\n'
+			a.btn.btn-dark(data-bs-toggle='collapse' href='#collapseExample' role='button' aria-expanded='false' aria-controls='collapseExample')
+				| Link with href
+
+			button.btn.btn-dark(type='button' data-bs-toggle='collapse' data-bs-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample').
+				Button with data-bs-target
+
+		.collapse#collapseExample
+			.card.card-body
+				= '\n'
+				| Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+
+mixin HorizontalCollapseExample 
+	h5.mt-4 Horizontal Collapse 
+	+ComponentCard
+		p
+			= '\n'
+			button.btn.btn-dark(type='button' data-bs-toggle='collapse' data-bs-target='#collapseWidthExample' aria-expanded='false' aria-controls='collapseWidthExample')
+				|	Toggle width collapse		
+		div(style='min-height: 120px;')
+			.collapse.collapse-horizontal#collapseWidthExample
+				.card.card-body(style='width: 300px;')
+					= '\n'
+					| This is some placeholder content for a horizontal collapse. It's hidden by default and shown when triggered.
+
+mixin MultipleTargetsExample 
+	h5.mt-4 Multiple targets
+	+ComponentCard
+		p
+			a.btn.btn-dark(data-bs-toggle='collapse' href='#multiCollapseExample1' role='button' aria-expanded='false' aria-controls='multiCollapseExample1') Toggle first element
+			button.btn.btn-dark(type='button' data-bs-toggle='collapse' data-bs-target='#multiCollapseExample2' aria-expanded='false' aria-controls='multiCollapseExample2') Toggle second element
+			button.btn.btn-dark(type='button' data-bs-toggle='collapse' data-bs-target='.multi-collapse' aria-expanded='false' aria-controls='multiCollapseExample1 multiCollapseExample2') Toggle both elements
+		.row
+			.col
+				div(style='min-height: 7.5rem;')
+					.collapse.multi-collapse#multiCollapseExample1
+						.card.card-body(style='width: 18.75rem;')
+							| Some placeholder content for the first collapse component of this multi-collapse example.		
+			.col
+				div(style='min-height: 7.5rem;')
+					.collapse.multi-collapse#multiCollapseExample2
+						.card.card-body(style='width: 18.75rem;')
+							| Some placeholder content for the second collapse component of this multi-collapse example.

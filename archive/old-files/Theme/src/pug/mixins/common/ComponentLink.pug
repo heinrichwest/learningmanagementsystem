@@ -1,0 +1,4 @@
+mixin ComponentLink(config={})
+  p&attributes(attributes)=config.text 
+    a(href=`${config.link}` target="_blank").font-sans-serif.fw-medium=config.linkText
+      span.fas.fa-angle-right.opacity-75

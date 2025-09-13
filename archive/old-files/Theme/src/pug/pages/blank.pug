@@ -1,0 +1,12 @@
+extends ../layouts/LayoutTheme
+include ../mixins/pages/Blank
+
+block beforeMainContent
+  //- +TopBar
+  +Navbar
+
+append mainContent
+  +Blank
+
+block afterMainContent
+  +Footer

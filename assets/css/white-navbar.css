@@ -1,0 +1,101 @@
+.navbar-theme {
+  background-color: #ffffff !important;
+}
+
+/* Slightly increase brand logo size in navbar */
+.navbar-theme .navbar-brand img {
+  width: 56px !important;
+  height: 56px !important;
+}
+
+/* Ensure dropdown menus are readable on light navbar */
+.navbar-theme .dropdown-menu {
+  background-color: #ffffff !important;
+  color: #212529 !important;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.08);
+}
+
+.navbar-theme .dropdown-item {
+  color: #212529 !important;
+}
+
+.navbar-theme .dropdown-item:hover,
+.navbar-theme .dropdown-item:focus {
+  background-color: #f8f9fa !important;
+  color: #0d6efd !important;
+}
+
+/* Make courses dropdown wider to prevent overlap */
+@media (min-width: 992px) {
+  .navbar-theme .dropdown-pages {
+    min-width: 54rem !important;
+  }
+}
+
+/* Allow long course names to wrap cleanly */
+.navbar-theme .dropdown-pages .nav-link {
+  white-space: normal !important;
+}
+
+/* --- Tile Features on homepage --- */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.feature-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.feature-card {
+  height: 100%;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 20px 18px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border-color: rgba(13, 110, 253, 0.35);
+}
+
+.feature-card h3 {
+  font-size: 1.05rem;
+  margin: 0 0 10px 0;
+  color: #111827; /* gray-900 */
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+}
+
+.feature-list li {
+  position: relative;
+  padding-left: 22px;
+  margin: 8px 0;
+  color: #4b5563; /* gray-600 */
+}
+
+.feature-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #198754; /* success */
+  font-weight: 700;
+}
+
+/* Five-per-row category tiles on large screens */
+@media (min-width: 1200px) {
+  #portfolio .col-five { flex: 0 0 20%; max-width: 20%; }
+}

@@ -1,0 +1,103 @@
+mixin Navbar
+  -
+    function chunkArray(arr, chunkSize){
+      var R = [];
+      for (var i=0,len=arr.length; i<len; i+=chunkSize)
+        R.push(arr.slice(i,i+chunkSize));
+      return R;
+    }
+  - var pages = chunkArray(sitemap[1].pages,5)
+  - var components = chunkArray(sitemap[2].pages,11)
+
+  nav.navbar.navbar-expand-lg.navbar-dark.navbar-theme.fixed-top.p-0(data-navbar-on-scroll)
+    .container
+      a.navbar-brand.fw-normal.ls-2(href=`${CWD}index.html`)
+        | RE
+        span.navbar-brand-i !
+        | GN  
+      button.navbar-toggler.p-0(type='button' data-bs-toggle='collapse' data-bs-target='#primaryNavbarCollapse' aria-controls='primaryNavbarCollapse' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+  
+      #primaryNavbarCollapse.collapse.navbar-collapse
+        ul.navbar-nav.ms-auto
+          li.nav-item.dropdown
+            a.nav-link.dropdown-toggle#navbarDropdownMenuLink1(href='#', data-bs-toggle='dropdown-on-hover', aria-haspopup='true', aria-expanded='false')
+              span.nav-link-text
+                +cleanText('home')
+            .dropdown-menu.dropdown-menu-end.py-0.overflow-hidden(aria-labelledby='navbarDropdownMenuLink1')
+              a(href=`${CWD}homes/one-page.html`).dropdown-item
+                +cleanText('one-page')
+              a(href=`${CWD}homes/header-static.html`).dropdown-item
+                +cleanText('static-header')
+              a(href=`${CWD}homes/static-classic.html`).dropdown-item
+                +cleanText('static-classic')
+              a(href=`${CWD}homes/slider-header.html`).dropdown-item
+                +cleanText('slider-header')
+              a(href=`${CWD}homes/slider-classic.html`).dropdown-item
+                +cleanText('slider-classic')
+              a(href=`${CWD}homes/text-left-header.html`).dropdown-item
+                +cleanText('text-left-header')
+              a(href=`${CWD}homes/text-left-classic.html`).dropdown-item
+                +cleanText('text-left-classic')
+              a(href=`${CWD}homes/typed-text-header.html`).dropdown-item
+                +cleanText('typed-text-header')
+              a(href=`${CWD}homes/typed-text-classic.html`).dropdown-item
+                +cleanText('typed-text-classic')
+              a(href=`${CWD}homes/text-left-slider.html`).dropdown-item
+                +cleanText('text-left-slider')
+              a(href=`${CWD}homes/text-left-classic-slider.html`).dropdown-item
+                +cleanText('text-left-classic-slider')
+              a(href=`${CWD}homes/video-background.html`).dropdown-item
+                +cleanText('video-background')
+              a(href=`${CWD}homes/video-classic.html`).dropdown-item
+                +cleanText('video-classic')
+              a(href=`${CWD}homes/gradient-background.html`).dropdown-item
+                +cleanText('gradient-background')
+              a(href=`${CWD}homes/gradient-classic.html`).dropdown-item
+                +cleanText('gradient-classic')
+          li.nav-item.dropdown
+            a.nav-link.dropdown-toggle#navbarDropdownMenuLink2(href='#', data-bs-toggle='dropdown-on-hover', aria-haspopup='true', aria-expanded='false')
+              span.nav-link-text
+                +cleanText('pages')
+            .dropdown-menu.dropdown-menu-end.dropdown-pages.py-3(aria-labelledby='navbarDropdownMenuLink2')
+              .row
+                each page, index in pages
+                  .col-6.col-md-4.px-2
+                    ul.nav.flex-column
+                      each item, index in page
+                        li.nav-item
+                          a.nav-link.fw-medium.px-0.py-2(href=`${CWD}${item.path}.html`)
+                            +cleanText(item.name)
+
+          li.nav-item.dropdown
+            a.nav-link.dropdown-toggle#navbarDropdownMenuLink3(href='#', data-bs-toggle='dropdown-on-hover', aria-haspopup='true', aria-expanded='false')
+              span.nav-link-text
+                +cleanText('components')
+            .dropdown-menu.dropdown-menu-end.dropdown-components.py-3(aria-labelledby='navbarDropdownMenuLink3')
+              .row
+                each component, index in components
+                  .col-6.col-md-3.px-2
+                    ul.nav.flex-column
+                      each item, index in component
+                        li.nav-item
+                          a.nav-link.fw-medium.px-1.py-2(href=`${CWD}${item.path}.html`)
+                            +cleanText(item.name)
+          li.nav-item.dropdown
+            a.nav-link.dropdown-toggle#navbarDropdownMenuLink4(href='#', data-bs-toggle='dropdown-on-hover', aria-haspopup='true', aria-expanded='false') 
+              span.nav-link-text
+                +cleanText('Docs')
+            div.dropdown-menu.dropdown-menu-end(aria-labelledby='navbarDropdownMenuLink4')
+              a(href=`${CWD}docs/getting-started.html`).dropdown-item
+                +cleanText('getting-started')
+              a(href=`${CWD}docs/file-structure.html`).dropdown-item
+                +cleanText('file-structure')
+              a(href=`${CWD}docs/customization.html`).dropdown-item
+                +cleanText('customization')
+              a(href=`${CWD}docs/gulp.html`).dropdown-item
+                +cleanText('gulp')
+              a(href=`${CWD}docs/RTL.html`).dropdown-item
+                +cleanText('RTL')
+              a(href=`${CWD}docs/plugins.html`).dropdown-item
+                +cleanText('plugins')
+              a(href=`${CWD}docs/changelog.html`).dropdown-item
+                +cleanText('changelog')

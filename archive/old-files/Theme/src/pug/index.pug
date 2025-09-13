@@ -1,0 +1,115 @@
+extends layouts/LayoutTheme
+include mixins/headers/Mixin
+include mixins/pages/homes/HeaderShowcase
+include mixins/pages/ShowcaseTestimonial
+
+prepend scripts
+  script(src!=`https://maps.googleapis.com/maps/api/js?key=${API_GMAP}&callback=initMap` async)
+
+append variables
+  -
+    var features= [
+      {
+        feature:`Built With <b> Bootstrap 5.x </b> `,
+      },
+      {
+        feature:`One page template`,
+      },
+      {
+        feature:`<b>40+ unique sections </b> `,
+      },
+      {
+        feature:`13+ headers design`,
+      },
+      {
+        feature:`20+ different pages`,
+      },
+      {
+        feature:`<b>Gulp, Npm, SASS</b> environment`,
+      },
+      {
+        feature:`<b>RTL</b> Support`,
+      },
+      {
+        feature:`Re Usable component system`,
+      },
+    ];
+
+mixin FeaturesList(config) 
+  li.fs-0.mb-2 
+    span.fas.fa-check.me-2
+    !=config.feature
+
+
+append mainContent
+  +HeaderShowcase
+  +Section
+    .row.align-items-center(data-zanim-timeline!={} data-zanim-trigger='scroll')
+      .col-lg-5.px-3
+        .overflow-hidden  
+          h3.fw-medium(data-zanim-xs!={'duration': 1.5, 'delay': 0}) Default Demo
+        .overflow-hidden  
+          p(data-zanim-xs!={'duration': 1.5, 'delay': 0.1}) #{name} is a multi-demo Bootstrap 5 Template that comes packed with endless number of UI component and plugin options. It’s perfectly crafted and optimized with exceptional design and advanced layout features best suited for any small business and agency website.
+        
+        .mt-2(data-zanim-xs!={"from":{"opacity":0,"y":30},"to":{"opacity":1,"y":0},"duration":1.5,"delay":0.5})
+          a(href=`${CWD}homes/header-static.html` target="_blank").btn.btn-dark.hvr-sweep-top.me-2 Preview
+
+          a(href=`${CWD}pages/page-rtl.html` target="_blank").btn.btn-light RTL Version
+        
+      .col-lg-7.mt-5.mt-lg-0.px-3
+        a(href=`${CWD}homes/header-static.html` target="_blank")
+          .card.shadow-md.border-0.hover-shadow-soft.rounded-3
+            .card-img.overflow-hidden.rounded-3
+              img(src=`${CWD}assets/img/screenshots/default.png`, alt="").w-100
+  +Section({
+    image: `${CWD}assets/img/illustration/shape-2.png`,
+    attrs: {
+      style: 'background-attachment: fixed;'
+    }
+  }).text-center(data-zanim-timeline!={} data-zanim-trigger='scroll')
+    .row.justify-content-center
+      .col-lg-7
+        .overflow-hidden
+          h3.fw-medium(data-zanim-xs!={'duration': 1.5, 'delay': 0}) Build Your Next Project with Reign
+        .overflow-hidden
+          p(data-zanim-xs!={'duration': 1.5, 'delay': 0.1}) #{name}'s different header variations and unique sections give you most flexibility to
+            br
+            |  focus your features, services and a lot more.
+    .row.gx-4.gx-md-5.gx-xl-6
+      each page in headers
+        .col-lg-6.mb-6
+          a(href=`${CWD}homes/${page}.html` target="_blank")
+            .shadow-md.hover-shadow-soft.position-relative.rounded-3
+              img.img-fluid(src=`${CWD}assets/img/screenshots/${page}.png` alt="").w-100.rounded-3
+              .hoverbox-background.p-3.d-flex.flex-center.showcase-item-content.rounded-3
+                div
+                  .btn.btn-light.hvr-sweep-top Preview
+
+          h5.mt-3.fw-normal.ls-1.fs-1
+            a(href=`${CWD}homes/${page}.html`).text-900
+              +cleanText(page)
+  +ShowcaseTestimonial
+  +Section
+    .row.justify-content-center
+      .col-lg-8
+        .row.align-items-center
+          .col-md-6.showcase-feature-padding-right.ps-0.ps-md-4.ps-lg-0.text-center
+            img(src=`${CWD}assets/img/illustration/key-features.png`, alt="").w-75.w-sm-100
+          .col-md-6.ps-lg-5.px-4.px-lg-3
+            h3.fw-medium.mt-5.mt-md-0 Key Features
+            ul.list-unstyled
+              each feature in features 
+                +FeaturesList(feature)
+            a(href=`${CWD}docs/getting-started.html` target="_blank").btn.btn-outline-dark.hvr-sweep-top.mt-3 Documentation
+  +Section({
+    image: `${CWD}assets/img/backgrounds/fun-fact.jpg`,
+    className: "overlay overlay-0",
+    attrs: {
+      style: 'background-position: bottom;'
+    }
+  }).text-center.bg-black.py-6(data-zanim-timeline!={} data-zanim-trigger='scroll')
+    .overflow-hidden  
+      h3.text-white.mb-3.font-base(data-zanim-xs!={'duration': 1.5, 'delay': 0}) Excited to start a new project?
+    div(data-zanim-xs!={"from":{"opacity":0,"y":30},"to":{"opacity":1,"y":0},"duration":1.5,"delay":0.5})
+      a(href=`https://themewagon.com/themes/reign-pro-premium-corporate-agency-html5-template/` target="_blank").btn.btn-light.hvr-sweep-top Get it now           
+              

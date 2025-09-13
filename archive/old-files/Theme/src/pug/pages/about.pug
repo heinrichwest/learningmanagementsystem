@@ -1,0 +1,19 @@
+extends ../layouts/LayoutTheme
+include ../mixins/headers/HeaderClassic
+include ../mixins/pages/about/AboutUs
+include ../mixins/pages/about/OurVideo
+include ../mixins/pages/about/Team
+include ../mixins/pages/about/CtaTeam
+
+append variables
+  
+  
+prepend scripts 
+  script(src=`${CWD}vendors/bigpicture/BigPicture.js`)
+
+append mainContent
+  +HeaderClassic('About Us')
+  +AboutUs
+  +OurVideo
+  +Team
+  +CtaTeam.pt-0

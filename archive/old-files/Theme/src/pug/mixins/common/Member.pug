@@ -1,0 +1,10 @@
+mixin Member(config)
+  .card.h-100&attributes(attributes)
+    img(src=`${CWD}assets/img/portrait-${config.img}.jpg` alt=`${config.name}`).card-img-top
+    .card-body(data-zanim-timeline!={} data-zanim-trigger="scroll")
+      .overflow-hidden
+        h5(data-zanim-xs!={delay: 0.0})=config.name
+      .overflow-hidden
+        h6.fw-normal.text-500(data-zanim-xs!={delay: 0.1})=config.designation
+      .overflow-hidden
+        p.py-3.mb-0(data-zanim-xs!={delay: 0.2})=config.desc

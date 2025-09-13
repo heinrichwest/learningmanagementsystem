@@ -1,0 +1,17 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Navbars
+include ../mixins/common/ComponentLink
+
+append variables 
+	- var pageTitle = 'Navbar';
+
+block component
+	+ComponentLink({
+		text:'For detail documentation. ',
+		linkText: 'View Navbar on Bootstrap',
+		link: `https://getbootstrap.com/docs/${bootstrapVersion}/components/navbar/`
+	}) 
+	
+	+NavbarLight
+	+NavbarDark
+	+NavbarPrimary

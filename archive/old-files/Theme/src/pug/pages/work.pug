@@ -1,0 +1,22 @@
+extends ../layouts/LayoutTheme
+include ../mixins/headers/HeaderClassic
+include ../mixins/pages/work/Mixin
+include ../mixins/pages/about/CtaTeam
+
+
+append variables
+
+prepend styles
+	link(href=`${CWD}vendors/glightbox/glightbox.min.css`, rel='stylesheet')
+
+prepend scripts
+	script(src=`${CWD}vendors/glightbox/glightbox.min.js`)
+	script(src=`${CWD}vendors/hover-dir/hoverDir.min.js`)
+	script(src=`${CWD}vendors/isotope-layout/isotope.pkgd.min.js`)
+	script(src=`${CWD}vendors/isotope-packery/packery-mode.pkgd.min.js`)
+
+append mainContent
+	+HeaderClassic('Work')
+	+Section('container px-3').text-center.pb-6
+		+Projects
+	+CtaTeam

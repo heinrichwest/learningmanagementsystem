@@ -1,0 +1,43 @@
+mixin BasicDropdowns 
+	h5 Basic Example
+	+ComponentCard
+		.dropdown
+			button.btn.btn-dark.dropdown-toggle#dropdownMenuButton(type='button' data-bs-toggle='dropdown' aria-expanded='false')
+				| Dropdown button
+				
+			ul.dropdown-menu.dropdown-menu-end(aria-labelledby='dropdownMenuButton')
+				li
+					a.dropdown-item(href='#!') Set status
+				li
+					a.dropdown-item(href='#!') Profile &amp; account
+				li
+					a.dropdown-item(href='#!') Feedback
+				li
+					a.dropdown-item(href='#!') Settings
+				li
+					a.dropdown-item(href='#!') Logout		
+
+mixin DropdownsOnHover
+	h5.mt-4.mb-1 Dropdown on Hover
+	p Add 
+		code dropdown-on-hover 
+		| in 
+		code data-bs-toggle="dropdown-on-hover" 
+		| item to show dropdown menu on mouse hover
+
+	+ComponentCard
+		.dropdown.d-inline-block
+			button.btn.btn-dark.dropdown-toggle#dropdownMenuHoverButton(type='button' data-bs-toggle='dropdown-on-hover' aria-expanded='false')
+				| Dropdown button
+				
+			ul.dropdown-menu.dropdown-menu-end(aria-labelledby='dropdownMenuHoverButton' style="margin-top: 2px;")
+				li
+					a.dropdown-item(href='#!') Set status
+				li
+					a.dropdown-item(href='#!') Profile &amp; account
+				li
+					a.dropdown-item(href='#!') Feedback
+				li
+					a.dropdown-item(href='#!') Settings
+				li
+					a.dropdown-item(href='#!') Logout	

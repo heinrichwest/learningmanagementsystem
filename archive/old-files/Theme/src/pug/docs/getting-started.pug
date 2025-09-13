@@ -1,0 +1,10 @@
+extends ../layouts/LayoutDocumentation 
+include ../mixins/docs/GettingStarted
+include ../mixins/common/Card
+
+append variables 
+  - var pageTitle = 'Getting Started';
+  - var pageDes = 'Head start your stylish website <br> with a gorgeous template';
+
+block content
+  +GettingStarted

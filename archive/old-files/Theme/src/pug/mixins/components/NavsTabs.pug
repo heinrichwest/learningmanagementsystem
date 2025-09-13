@@ -1,0 +1,83 @@
+mixin HorizontalNavs 
+	h5 Horizontal
+	+ComponentCard
+		ul.nav
+			li.nav-item
+				a.nav-link.active(aria-current='page' href='#') Active
+			li.nav-item
+				a.nav-link(href='#') Link
+			li.nav-item
+				a.nav-link(href='#') Link
+			li.nav-item
+				a.nav-link.disabled Disabled
+
+mixin VerticalNavs 
+	h5.mt-4 Vertical
+	+ComponentCard
+		ul.nav.flex-column
+			li.nav-item
+				a.nav-link.active(aria-current='page' href='#') Active
+			li.nav-item
+				a.nav-link(href='#') Link
+			li.nav-item
+				a.nav-link(href='#') Link
+			li.nav-item
+				a.nav-link.disabled Disabled
+
+mixin NavPills
+	h5.mt-4 Pills
+	+ComponentCard
+		ul.nav.nav-pills
+			li.nav-item
+				a.nav-link.active(aria-current='page' href='#') Active
+			li.nav-item
+				a.nav-link(href='#') Link
+			li.nav-item
+				a.nav-link(href='#') Link
+			li.nav-item
+				a.nav-link.disabled Disabled
+
+mixin NavFillJustify
+	h5.mt-4 Fill and justify
+	+ComponentCard
+		ul.nav.nav-pills.nav-fill
+			li.nav-item
+				a.nav-link.active(aria-current='page' href='#') Active
+			li.nav-item
+				a.nav-link(href='#') Much longer nav link
+			li.nav-item
+				a.nav-link(href='#') Link
+			li.nav-item
+				a.nav-link.disabled Disabled
+
+mixin TabsBasic
+	.col-xl-6.pe-xl-3
+		h5.mt-5 Basic Example
+		+ComponentCard
+			ul.nav.nav-tabs#myTab(role='tablist')
+				li.nav-item(role='presentation')
+					button.nav-link.active#home-tab(data-bs-toggle='tab' data-bs-target='#home' type='button' role='tab' aria-controls='home' aria-selected='true') Home
+				li.nav-item(role='presentation')
+					button.nav-link#profile-tab(data-bs-toggle='tab' data-bs-target='#profile' type='button' role='tab' aria-controls='profile' aria-selected='false') Profile
+				li.nav-item(role='presentation')
+					button.nav-link#contact-tab(data-bs-toggle='tab' data-bs-target='#contact' type='button' role='tab' aria-controls='contact' aria-selected='false') Contact
+			.tab-content#myTabContent.border-x.border-bottom.p-3
+				.tab-pane.fade.show.active#home(role='tabpanel' aria-labelledby='home-tab') Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone.
+				.tab-pane.fade#profile(role='tabpanel' aria-labelledby='profile-tab') Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic.
+				.tab-pane.fade#contact(role='tabpanel' aria-labelledby='contact-tab') Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.
+
+mixin TabPills
+	.col-xl-6.pe-xl-3
+		h5.mt-5 Pills
+		+ComponentCard
+			ul.nav.nav-pills.mb-3#pills-tab(role='tablist')
+				li.nav-item(role='presentation')
+					button.nav-link.active#pills-home-tab(data-bs-toggle='pill' data-bs-target='#pills-home' type='button' role='tab' aria-controls='pills-home' aria-selected='true') Home
+				li.nav-item(role='presentation')
+					button.nav-link#pills-profile-tab(data-bs-toggle='pill' data-bs-target='#pills-profile' type='button' role='tab' aria-controls='pills-profile' aria-selected='false') Profile
+				li.nav-item(role='presentation')
+					button.nav-link#pills-contact-tab(data-bs-toggle='pill' data-bs-target='#pills-contact' type='button' role='tab' aria-controls='pills-contact' aria-selected='false') Contact
+			.tab-content#pills-tabContent.border.p-3.mt-3
+				.tab-pane.fade.show.active#pills-home(role='tabpanel' aria-labelledby='pills-home-tab') Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone.
+				.tab-pane.fade#pills-profile(role='tabpanel' aria-labelledby='pills-profile-tab') Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic.
+				.tab-pane.fade#pills-contact(role='tabpanel' aria-labelledby='pills-contact-tab') Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.

@@ -1,0 +1,13 @@
+mixin TopBar
+	.bg-primary.py-3.d-none.d-sm-block.text-white.fw-bold
+		.container
+			.row.align-items-center.gx-4
+				.col-auto.d-none.d-lg-block.fs--1
+					span.fas.fa-map-marker-alt.text-warning.me-2(data-fa-transform="grow-3")
+					| 1010 Avenue, New York, NY 10018 US. 
+				.col-auto.ms-md-auto.order-md-2.d-none.d-sm-flex.fs--1.align-items-center
+					span.fas.fa-clock.text-warning.me-2(data-fa-transform="grow-3")
+					| Mon-Sat, 8.00-18.00. Sunday CLOSED
+				.col-auto
+					span.fas.fa-phone-alt.text-warning(data-fa-transform="shrink-3")
+					a(href="tel:2123865575").ms-2.fs--1.d-inline.text-white.fw-bold 212 386 5575, 212 386 5576

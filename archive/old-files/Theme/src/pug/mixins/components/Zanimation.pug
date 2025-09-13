@@ -1,0 +1,93 @@
+mixin Zanimation
+  p You can add animation to any element using Sparrow's built-in zanimation by adding 
+    code data-zanim-xs!={} 
+    |  and 
+    code data-zanim-trigger='scroll'
+    | . This will add the default animation to an element. Example:
+
+  +ComponentCardLib 
+    div(data-zanim-xs={} data-zanim-trigger="scroll") ...
+
+  p To trigger the animation, we use  
+    code data-zanim-trigger='scroll'
+    |  that checks if the targeted dom element is in the viewport or not. If the element is in the viewport, it triggers the animation.
+
+  h4#predefined-effects.pt-5(data-anchor= true) Predefined effects
+    
+  p You can use from one of Sparrow's predefined animations
+    |  like 
+    code slide-down
+    | , described in 
+    code zanimationEffects 
+    |  variable in 
+    code js/custom/zanimation.js
+    |  file. Example: 
+
+
+  +ComponentCardLib 
+    div(data-zanim-xs!='{"animation": "slide-down"}' data-zanim-trigger="scroll")
+
+  p.mt-4 List of predefined animations are: 
+  - var zanimationEffects = ['default', 'slide-down', 'slide-left', 'slide-right', 'zoom-in', 'zoom-out', 'zoom-out-slide-right', 'zoom-out-slide-left', 'blur-in'];
+  ul
+    each value in zanimationEffects
+      li
+        code=value
+
+  h4#nested-animation.pt-5(data-anchor=true) Nested animation (Grouping)
+    
+  p If you want to animate an element within another animated element, use 
+    code data-zanim-timeline
+    |  and 
+    code data-zanim-trigger='scroll'
+    |  in a parent element. Example: 
+
+  +ComponentCardLib
+    div(data-zanim-timeline={} data-zanim-trigger="scroll")
+      div(data-zanim-md !='{"animation": "slide-left"}')
+        div(data-zanim-xs !='{"animation": "slide-down"}') ...
+
+  h4#zanimation-settings.pt-5(data-anchor=true) Zanimation settings
+    
+  p You can use any css properties along with 
+    a(href='https://greensock.com/docs/TimelineMax/fromTo' target='_blank') GreenSock settings
+    |  to animate an element. Example:  
+ 
+  +ComponentCardLib
+    div(data-zanim-xs!='{"delay": 0.1, "animation": "slide-down"}' data-zanim-trigger="scroll")
+    div(data-zanim-xs!='{"delay": 0.1, {"from": {"opacity": 0, "y": 70}, "to": {"opacity": 1, "y": 0}, "ease": "CubicBezier", "duration": 0.8, "delay": 0}}' data-zanim-trigger="scroll") ...
+
+
+  p See details about how to customize and use GreenSock 
+    a(href='https://greensock.com/' target='_blank') here
+    | .
+  
+  h4#responsive-animation.pt-5(data-anchor=true) Responsive animation
+
+  p
+    | To make the animation responsive, Sparrow uses the 
+    code data-zanim-{size}
+    | , where 
+    code {size} 
+    |  is  
+    code xs
+    | , 
+    code sm
+    | , 
+    code md
+    | , 
+    code lg
+    |  or  
+    code xl
+    | , just like Bootstrap's responsive breakpoints. Each 
+    code data-zanim-{size} 
+    |  can have a different animation settings. Example:
+
+  +ComponentCardLib
+    diV( 
+      data-zanim-xs!='{"animation": "slide-down"}' 
+      data-zanim-sm!='{"animation": "slide-up"}'
+      data-zanim-md!='{"delay": 0.1, "animation": "zoom-in"}'
+      data-zanim-lg!='{"animation": "zoom-out"}'
+      data-zanim-xl!='{"animation": "blur-in"}'
+      data-zanim-trigger="scroll") ...

@@ -1,0 +1,10 @@
+mixin 404
+  +Section({image: `${CWD}assets/img/background-14.jpg`, className: "overlay overlay-elixir"}).text-center.py-0
+    .row.min-vh-100.align-items-center.text-white
+      .col(data-zanim-timeline!={} data-zanim-trigger="scroll")
+        a(href=`${CWD}index.html` data-zanim-xs!={delay: 0.0})
+          img(src=`${CWD}assets/img/logo-light.png` alt="logo" data-zanim-xs!={delay: 0.1})
+        h5.text-uppercase.mt-5.ls.text-white.fs-0.fs-md-1(data-zanim-xs!={delay: 0.2}) oops! page not found
+        h1.fs-4.fs-sm-6.fs-md-8.text-white(data-zanim-xs!={delay: 0.3}) 404
+        div(data-zanim-xs!={delay: 0.4})
+          a(href=`${CWD}index.html`).btn.btn-lg.btn-warning.rounded-pill.mt-4 Take Me Home

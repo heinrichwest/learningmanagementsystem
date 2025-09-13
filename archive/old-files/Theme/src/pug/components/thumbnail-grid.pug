@@ -1,0 +1,11 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/ThumbnailGrid
+include ../mixins/common/ComponentLink
+
+append variables 
+	- var pageTitle = 'Thumbnail Grid';
+
+block component
+	h5 Example
+	+ComponentCard
+		+ThumbnailGrid

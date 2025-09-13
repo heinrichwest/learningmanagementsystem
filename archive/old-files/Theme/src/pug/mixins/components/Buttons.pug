@@ -1,0 +1,297 @@
+mixin SolidButton
+	h5.mb-1 Buttons Colors
+	p Use default Bootstrap markup to display Buttons elements. See the Bootstrap documentation for a full list of options and modifiers.
+	+ComponentCard
+		each color,index in colors
+			button.btn(type='button' class=`btn-${color}`).me-1.mb-1=color
+			= '\n'
+
+mixin OutlineButtons 
+	h5.mt-4 Outline Buttons
+	+ComponentCard
+		each color in colors
+			button(type='button' class=`btn-outline-${color}`).btn.me-1.mb-1=color
+			= '\n'
+
+mixin HoverEffects
+	h5.mt-4 Hover Effects 
+	- var effects = ['left', 'right', 'top', 'bottom', 'collapseX', 'collapseY'];
+	+ComponentCard
+		each effect in effects
+			button(type='button' class=`hvr-sweep-${effect}`).btn.btn-outline-primary.me-1.mb-1=(`Sweep ${effect}`)
+			= '\n'
+		hr
+		= '\n'
+		each effect in effects
+			button(type='button' class=`hvr-sweep-${effect}`).btn.btn-outline-primary.rounded-pill.me-1.mb-1=(`Sweep ${effect}`)
+			= '\n'
+		hr
+		= '\n'
+		each effect in effects
+			button(type='button' class=`hvr-sweep-${effect}`).btn.btn-primary.rounded-pill.me-1.mb-1=(`Sweep ${effect}`)
+			= '\n'
+
+mixin ButtonSizes 
+	h5.mt-4 Button sizes
+	+ComponentCard
+		.btn.btn-dark.btn-sm Small
+		.btn.btn-dark Regular
+		.btn.btn-dark.btn-lg Large
+
+mixin IconButtons 
+	h5.mt-4 Icon Buttons
+	+ComponentCard
+		button(type='button').btn.btn-dark.btn-sm.me-1.mb-1
+			= '\n'
+			span.fas.fa-plus.me-1(data-fa-transform="shrink-3")
+			| Small
+			= '\n'
+		= '\n'
+		button(type='button').btn.btn-dark.me-1.mb-1
+			= '\n'
+			span.fas.fa-plus.me-1(data-fa-transform="shrink-3")
+			| Regular
+			= '\n'
+		= '\n'
+		button(type='button').btn.btn-dark.btn-lg.me-1.mb-1
+			= '\n'
+			span.fas.fa-plus.me-1(data-fa-transform="shrink-3")
+			| Large
+			= '\n'
+		= '\n'
+		hr
+		= '\n'
+
+		button(type='button').btn.btn-primary.me-1.mb-1
+			= '\n'
+			span.fas.fa-plus.me-1(data-fa-transform="shrink-3")
+			| Regular
+			= '\n'
+		= '\n'
+		button(type='button').btn.btn-outline-primary.me-1.mb-1
+			= '\n'
+			span.fas.fa-plus.me-1(data-fa-transform="shrink-3")
+			| Outline
+			= '\n'
+		hr
+		= '\n'       
+		button(type='button').btn.btn-primary.me-1.mb-1
+			= '\n'
+			| Delete
+			span.fas.fa-trash.ms-1(data-fa-transform="shrink-3")
+			= '\n'
+
+mixin ButtonCapsule 
+	h5.mt-4 Button Capsule
+	+ComponentCard
+		button(type='button').btn.btn-dark.rounded-pill.me-1.mb-1 Example
+		= '\n'
+		button(type='button').btn.btn-dark.rounded-pill.me-1.mb-1 
+			= '\n'
+			span.fas.fa-align-left.me-1(data-fa-transform="shrink-3")
+			| Icon Left
+		= '\n'
+		button(type='button').btn.btn-dark.rounded-pill.me-1.mb-1 
+			= '\n'
+			| Icon Right
+			span.fas.fa-align-right.ms-1(data-fa-transform="shrink-3")
+			= '\n'
+		button.ms-1(type='button').btn.btn-outline-primary.rounded-pill.me-1.mb-1 Outline
+		= '\n'
+		hr
+		= '\n'
+		button(type='button').btn.btn-sm.btn-dark.rounded-pill.me-1.mb-1 Capsule Small
+		= '\n'
+		button(type='button').btn.btn-dark.rounded-pill.me-1.mb-1 Capsule Regular
+		= '\n'
+		button(type='button').btn.btn-lg.btn-dark.rounded-pill.me-1.mb-1 Capsule Large	
+
+mixin ButtonGroupDescription
+	h4.mt-6.mb-1 Button Group
+	p Group a series of buttons together on a single line with the button group, and super-power them with JavaScript.				
+
+mixin ButtonGroupBasic 
+	h5.mt-4.mb-1 Basic Example
+	p Wrap a series of buttons with
+		code .btn
+		|  in
+		code .btn-group
+		| . Add on optional JavaScript radio and checkbox style behaviour with
+	+ComponentCard
+		.btn-group(role='group', aria-label='Basic example')
+			= '\n'
+			button.btn.btn-dark(type='button') Left
+			= '\n'
+			button.btn.btn-dark(type='button') Middle
+			= '\n'
+			button.btn.btn-dark(type='button') Right
+			= '\n'
+
+mixin ButtonToolbar
+	h5.mt-4.mb-1 Button Toolbar
+	p Combine sets of button groups into button toolbars for more complex components. Use utility classes as needed to space out groups, buttons, and more.
+	+ComponentCard
+		.btn-toolbar(role='toolbar', aria-label='Toolbar with button groups')
+			.btn-group.me-2.mb-1(role='group', aria-label='First group')
+				= '\n'
+				button.btn.btn-dark(type='button') 1
+				= '\n'
+				button.btn.btn-dark(type='button') 2
+				= '\n'
+				button.btn.btn-dark(type='button') 3
+				= '\n'
+				button.btn.btn-dark(type='button') 4
+				= '\n'
+			.btn-group.me-2.mb-1(role='group', aria-label='Second group')
+				= '\n'
+				button.btn.btn-dark(type='button') 5
+				= '\n'
+				button.btn.btn-dark(type='button') 6
+				= '\n'
+				button.btn.btn-dark(type='button') 7
+				= '\n'
+			.btn-group.mb-1(role='group', aria-label='Third group')
+				= '\n'
+				button.btn.btn-dark(type='button') 8
+				= '\n'
+
+mixin ButtonToolbarInputGroup
+	h5.mt-4.mb-1 Button toolbar with input group
+	p Feel free to mix input groups with button groups in your toolbars. Similar to the example above, you'll likely need some utilities though to space things properly.
+	+ComponentCard
+		.btn-toolbar(role='toolbar', aria-label='Toolbar with button groups')
+			.btn-group.me-2.mb-3(role='group', aria-label='First group')
+				= '\n'
+				button.btn.btn-dark(type='button') 1
+				= '\n'
+				button.btn.btn-dark(type='button') 2
+				= '\n'
+				button.btn.btn-dark(type='button') 3
+				= '\n'
+				button.btn.btn-dark(type='button') 4
+				= '\n'
+			.input-group.mb-3
+				.input-group-prepend
+					#btnGroupAddon.input-group-text @
+				= '\n'
+				input.form-control(type='text', placeholder='Input group example', aria-label='Input group example', aria-describedby='btnGroupAddon')
+		.btn-toolbar.justify-content-between(role='toolbar', aria-label='Toolbar with button groups')
+			.btn-group.mb-3(role='group', aria-label='First group')
+				= '\n'
+				button.btn.btn-dark(type='button') 1
+				= '\n'
+				button.btn.btn-dark(type='button') 2
+				= '\n'
+				button.btn.btn-dark(type='button') 3
+				= '\n'
+				button.btn.btn-dark(type='button') 4
+			.input-group.mb-3
+				.input-group-prepend
+					#btnGroupAddon2.input-group-text @
+				= '\n'
+				input.form-control(type='text', placeholder='Input group example', aria-label='Input group example', aria-describedby='btnGroupAddon2')
+
+mixin Sizing
+	h5.mt-4.mb-1 Sizing
+	p Insteam of aplying button sizing classes to every button in a group, just add
+		code .btn-gorup-*
+		| to each
+		code .btn-group
+		| , including each one when nesting multiple groups.
+	+ComponentCard
+		.btn-group.btn-group-lg(role='group', aria-label='...')
+			= '\n'
+			button.btn.btn-dark(type='button') Left
+			= '\n'
+			button.btn.btn-dark(type='button') Middle
+			= '\n'
+			button.btn.btn-dark.d-none.d-md-inline-block(type='button') Right
+			= '\n'
+		.btn-group.mt-2(role='group', aria-label='...')
+			= '\n'
+			button.btn.btn-dark(type='button') Left
+			= '\n'
+			button.btn.btn-dark(type='button') Middle
+			= '\n'
+			button.btn.btn-dark(type='button') Right
+			= '\n'
+		.btn-group.btn-group-sm.mt-2(role='group', aria-label='...')
+			= '\n'
+			button.btn.btn-dark(type='button') Left
+			= '\n'
+			button.btn.btn-dark(type='button') Middle
+			= '\n'
+			button.btn.btn-dark(type='button') Right
+			= '\n'
+
+mixin VerticalVariation
+	h5.mt-4.mb-1 Vertical variation
+	p Make a set of buttons appear vertically tacked rather than horizontally. Split button dropdowns ae not supported here.
+	+ComponentCard
+		.btn-group-vertical(role='group', aria-label='Vertical button group')
+			= '\n'
+			button.btn.btn-dark(type='button') Button
+			= '\n'
+			button.btn.btn-dark(type='button') Button
+			= '\n'
+			button.btn.btn-dark(type='button') Button
+			= '\n'
+			button.btn.btn-dark(type='button') Button
+			= '\n'
+			button.btn.btn-dark(type='button') Button
+			= '\n'
+			button.btn.btn-dark(type='button') Button
+			= '\n'
+
+mixin VerticalVariationWithDropDowns
+	h5.mt-4 Vertical variation with dropdown
+	+ComponentCard
+		.btn-group-vertical(role='group', aria-label='Vertical button group')
+			= '\n'
+			button.btn.btn-secondary(type='button') Button
+			= '\n'
+			button.btn.btn-secondary(type='button') Button
+			= '\n'
+			.btn-group(role='group')
+				= '\n'
+				button#btnGroupVerticalDrop1.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+					| Dropdown
+				.dropdown-menu(aria-labelledby='btnGroupVerticalDrop1')
+					= '\n'
+					a.dropdown-item(href='#') Dropdown link
+					= '\n'
+					a.dropdown-item(href='#') Dropdown link
+					= '\n'
+			button.btn.btn-secondary(type='button') Button
+			= '\n'
+			button.btn.btn-secondary(type='button') Button
+			= '\n'
+			.btn-group(role='group')
+				= '\n'
+				button#btnGroupVerticalDrop2.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+					| Dropdown
+				.dropdown-menu(aria-labelledby='btnGroupVerticalDrop2')
+					a.dropdown-item(href='#') Dropdown link
+					= '\n'
+					a.dropdown-item(href='#') Dropdown link
+					= '\n'
+			.btn-group(role='group')
+				= '\n'
+				button#btnGroupVerticalDrop3.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+					| Dropdown
+				.dropdown-menu(aria-labelledby='btnGroupVerticalDrop3')
+					= '\n'
+					a.dropdown-item(href='#') Dropdown link
+					= '\n'
+					a.dropdown-item(href='#') Dropdown link
+					= '\n'
+			.btn-group(role='group')
+				= '\n'
+				button#btnGroupVerticalDrop4.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+					| Dropdown
+				.dropdown-menu(aria-labelledby='btnGroupVerticalDrop4')
+					= '\n'
+					a.dropdown-item(href='#') Dropdown link
+					= '\n'
+					a.dropdown-item(href='#') Dropdown link
+					= '\n'

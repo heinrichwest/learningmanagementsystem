@@ -1,0 +1,59 @@
+mixin GoogleMap 
+  +PreviewBlock
+    +Map
+
+  +ComponentCardLib({codeTitle: 'HTML'})
+    +Map
+
+  +ComponentCardLib({codeTitle: 'Javascript'})
+    script(src!="https:maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async)
+  
+mixin Map 
+  .googlemap(data-gmap data-latlng='48.8583701,2.2922873,17' data-scrollwheel='false', data-icon=`${CWD}assets/img/map-marker.png`, data-zoom='17' data-theme='Tripitty')
+    .marker-content.py-3
+      h5 Eiffel Tower
+      p.mb-0
+        | Gustave Eiffel's iconic, wrought-iron 1889 tower,
+        br
+        |  with steps and elevators to observation decks.
+
+mixin MapColorSchemesDemo 
+  h5.mt-5 Map color schemes
+  p Change the value of 
+    code data-theme=''
+    |  to any of the followings
+
+  ul
+    li
+      code Default
+    li
+      code Gray
+    li
+      code Midnight
+    li
+      code Hopper
+    li
+      code Beard
+    li
+      code AssassianCreed
+    li
+      code SubtleGray
+    li
+      code Tripitty 
+
+mixin Example 
+  +PreviewBlock({
+    title: 'Example',
+    desc:"With <code> AssassianCreed </code> scheme",
+    descClass: 'mb-0'
+  })
+    +ExampleMap
+
+mixin ExampleMap
+  .googlemap( data-gmap data-latlng='48.8583701,2.2922873,17' data-scrollwheel='false' data-icon=`${CWD}assets/img/map-marker.png` data-zoom='17' data-theme='AssassianCreed')
+    .marker-content
+      h5 Eiffel Tower
+      p.mb-0
+        | Gustave Eiffel's iconic, wrought-iron 1889 tower,
+        br
+        |  with steps and elevators to observation decks.

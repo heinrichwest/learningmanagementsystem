@@ -1,0 +1,167 @@
+mixin TableSimpleExample
+	.col-xl-6.pe-xl-3
+		h5 Example
+		+ComponentCard 
+			table.table
+				thead
+					tr
+						th(scope='col') #
+						th(scope='col') First
+						th(scope='col') Last
+						th(scope='col') Handle
+				tbody
+					tr
+						th(scope='row') 1
+						td Steven
+						td Speilberg
+						td @mdo
+					tr
+						th(scope='row') 2
+						td Martin
+						td Scorsese
+						td @fat
+					tr
+						th(scope='row') 3
+						td James
+						td Cameron
+						td @twitter
+
+mixin TableDarkExample
+	.col-xl-6.pe-xl-3
+		h5 Dark
+		+ComponentCard 
+			table.table.table-dark
+				thead
+					tr
+						th(scope='col') #
+						th(scope='col') First
+						th(scope='col') Last
+						th(scope='col') Handle
+				tbody
+					tr
+						th(scope='row') 1
+						td Client
+						td Eastwood
+						td @mdo
+					tr
+						th(scope='row') 2
+						td Quentin
+						td Tarantino
+						td @fat
+					tr
+						th(scope='row') 3
+						td Redley
+						td @Scott
+						td @twitter
+
+mixin TableHeaderDark
+	.col-xl-6.pe-xl-3
+		h5.mt-4 Header Dark
+		+ComponentCard 
+			table.table
+				thead.table-dark
+					tr
+						th(scope='col') #
+						th(scope='col') First
+						th(scope='col') Last
+						th(scope='col') Handle
+				tbody
+					tr
+						th(scope='row') 1
+						td Devid
+						td Fincher
+						td @mdo
+					tr
+						th(scope='row') 2
+						td Alfred
+						td Hitchcock
+						td @fat
+					tr
+						th(scope='row') 3
+						td Woodley
+						td Allen
+						td @twitter				
+
+mixin TableHeaderLight
+	.col-xl-6.pe-xl-3
+		h5.mt-4 Header Light
+		+ComponentCard 
+			table.table
+				thead.table-light
+					tr
+						th(scope='col') #
+						th(scope='col') First
+						th(scope='col') Last
+						th(scope='col') Handle
+				tbody
+					tr
+						th(scope='row') 1
+						td Stanley
+						td Kubrick
+						td @mdo
+					tr
+						th(scope='row') 2
+						td Peter
+						td Jackson
+						td @fat
+					tr
+						th(scope='row') 3
+						td Francis
+						td Ford
+						td @twitter
+
+mixin TableStriped
+	.col-xl-6.pe-xl-3
+		h5.mt-4 Table Striped
+		+ComponentCard 
+			table.table.table-striped
+				thead
+					tr
+						th(scope='col') #
+						th(scope='col') First
+						th(scope='col') Last
+						th(scope='col') Handle
+				tbody
+					tr
+						th(scope='row') 1
+						td Bob
+						td Gale
+						td @mdo
+					tr
+						th(scope='row') 2
+						td Wes
+						td Anderson
+						td @fat
+					tr
+						th(scope='row') 3
+						td Billy
+						td Wilder
+						td @twitter
+
+mixin TableHover
+	.col-xl-6.pe-xl-3
+		h5.mt-4 Table Hover
+		+ComponentCard 
+			table.table.table-hover
+				thead
+					tr
+						th(scope='col') #
+						th(scope='col') First
+						th(scope='col') Last
+						th(scope='col') Handle
+				tbody
+					tr
+						th(scope='row') 1
+						td Steven
+						td Soderbergh
+						td @mdo
+					tr
+						th(scope='row') 2
+						td Orson
+						td Welles
+						td @fat
+					tr
+						th(scope='row') 3
+						td Larry the Bird
+						td Allen
+						td @twitter																				

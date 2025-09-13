@@ -1,0 +1,10 @@
+mixin Color(config) 
+  .row.flex-center.g-0
+    .col-auto 
+      .component-example.font-base
+        .border.ms-0.rounded-3.flex-center.fw-semi-bold(class=`bg-${config.name} text-${config.text} ${config.hex.slice(1, 2) === 'f' ? 'border border-1 border-300' : ''}`)
+          span.font-base= config.hex
+    .col
+      code .text-#{config.name}
+      br
+      code .bg-#{config.name}

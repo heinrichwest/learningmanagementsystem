@@ -1,0 +1,198 @@
+mixin BasicCardExample 
+	.col-12
+		h5 Basic Example
+		+ComponentCard
+			.card(style='width: 20rem;')
+				.card-img-top
+					img.img-fluid(src=`${CWD}assets/img/gallery/g1.jpg`, alt='Card image cap')
+				.card-body
+					h5.card-title Card title
+					p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.
+					a.btn.btn-primary.btn-sm(href='#!') Go somewhere
+
+mixin CardTitle
+	.col-12
+		h5.mt-4 Titles, text and links
+		+ComponentCard
+			.card(style='width: 18rem;')
+				.card-body
+					h5.card-title Card title
+					h6.card-subtitle.mb-2.text-muted Card subtitle
+					p.card-text
+						| Some quick example text to build on the card title and make up the bulk of the card's content.
+					a.card-link(href='#') Card link
+					a.card-link(href='#') Another link
+
+mixin ListGroups 
+	.col-12
+		h5.mt-4 List Groups
+		+ComponentCard
+			.card(style="width: 18rem")
+				ul.list-group.list-group-flush
+					li.list-group-item Cras justo odio
+					li.list-group-item Dapibus ac facilisis in
+					li.list-group-item Vestibulum at eros
+
+mixin CardImage 
+	.col-12
+		h5.mt-4 Card with image
+		+ComponentCard
+			.card(style='width: 20rem;')
+				.card-img-top
+					img.img-fluid(src='../assets/img/gallery/g3.jpg', alt='Card image cap')
+				.card-body
+					h5.card-title Card title
+					p.card-text
+						| Some quick example text to build on the card title and make up the bulk of the card's content.
+				ul.list-group.list-group-flush
+					li.list-group-item Cras justo odio
+					li.list-group-item Dapibus ac facilisis in
+					li.list-group-item Vestibulum at eros
+				.card-body
+					a.card-link(href='#!') Card link
+					a.card-link(href='#!') Another link
+
+mixin CardHeaderFooter
+	.col-12
+		h5.mt-4 Header and Fooder
+		+ComponentCard
+			.card
+				.card-header
+					| Featured
+				.card-body
+					h5.card-title Special title treatment
+					p.card-text With supporting text below as a natural lead-in to additional content.
+					a.btn.btn-primary(href='#') Go somewhere
+
+mixin CardOverlay 
+	.col-12
+		h5.mt-4 Card Overlay
+		+ComponentCard
+			.card.text-white(style='max-width: 30rem;')
+				.card-img.overflow-hidden
+					img.img-fluid(src='../assets/img/gallery/g9.jpg', alt='Card image')
+				.card-img-overlay.d-flex.align-items-end
+					div
+						h5.card-title.text-white Card title
+						p.card-text
+							| Some quick example text to build on the card title and make up the bulk of the card's content.
+
+mixin CardGroups
+	.col-12
+		h5.mt-4 Card Groups
+		+ComponentCard
+			.card-group
+				.card
+					.card-img-top
+						img.img-fluid(src=`${CWD}assets/img/gallery/g4.jpg`, alt='Card image cap')
+					.card-body
+						h5.card-title First card title
+						p.card-text
+							| This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+						p.card-text
+							small.text-muted Last updated 45 mins ago
+				.card
+					.card-img-top
+						img.img-fluid(src=`${CWD}assets/img/gallery/g5.jpg`, alt='Card image cap')
+					.card-body
+						h5.card-title Second card title
+						p.card-text This card has supporting text below as a natural lead-in to additional content.
+						p.card-text
+							small.text-muted Last updated an hour ago
+				.card
+					.card-img-top
+						img.img-fluid(src=`${CWD}assets/img/gallery/g6.jpg`, alt='Card image cap')
+					.card-body
+						h5.card-title Yet another card title
+						p.card-text
+							| This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.
+						p.card-text
+							small.text-muted Last updated yesterday												
+mixin CardGroupsFooter
+	.col-12
+		p.mt-6 When using card groups with footers, their content will automatically line up.
+		h5.mt-4 Card Groups
+		+ComponentCard
+			.card-group
+				.card
+					.card-img-top
+						img.img-fluid(src=`${CWD}assets/img/gallery/g4.jpg`, alt='Card image cap')
+					.card-body
+						h5.card-title First card title
+						p.card-text
+							| This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+					.card-footer
+						small.text-muted Last updated 45 mins ago
+				.card
+					.card-img-top
+						img.img-fluid(src=`${CWD}assets/img/gallery/g5.jpg`, alt='Card image cap')
+					.card-body
+						h5.card-title Second card title
+						p.card-text This card has supporting text below as a natural lead-in to additional content.
+					.card-footer
+						small.text-muted Last updated an hour ago
+				.card
+					.card-img-top
+						img.img-fluid(src=`${CWD}assets/img/gallery/g6.jpg`, alt='Card image cap')
+					.card-body
+						h5.card-title Yet another card title
+						p.card-text
+							| This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.
+					.card-footer
+						small.text-muted Last updated yesterday
+
+mixin CardGrid
+	.col-12
+		h5.mt-4 Grid cards
+		+ComponentCard
+			.row.row-cols-1.row-cols-md-3.g-3
+				.col
+					.card
+						img.img-fluid(src=`${CWD}assets/img/gallery/g4.jpg`, alt='...')
+						.card-body
+							h5.card-title First card title
+							p.card-text This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+				.col
+					.card
+						img.img-fluid(src=`${CWD}assets/img/gallery/g5.jpg`, alt='...')
+						.card-body
+							h5.card-title Second card title
+							p.card-text This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+				.col
+					.card
+						img.img-fluid(src=`${CWD}assets/img/gallery/g6.jpg`, alt='...')
+						.card-body
+							h5.card-title Yet another card title
+							p.card-text This is a longer card with supporting text below as a natural lead-in to additional content.
+
+mixin CardGridEqualHeight
+	.col-12
+		h5.mt-4 Grid cards with equal Height 
+		p When you need equal height, add .h-100 to the cards. If you want equal heights by default, you can set $card-height: 100% in Sass. And Just like with card groups, card footers will automatically line up.
+		+ComponentCard
+			.row.row-cols-1.row-cols-md-3.g-3
+				.col
+					.card.h-100
+						img.img-fluid(src=`${CWD}assets/img/gallery/g4.jpg`, alt='...')
+						.card-body
+							h5.card-title First card title
+							p.card-text This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+						.card-footer
+							small.text-muted Last updated 45 mins ago
+				.col
+					.card.h-100
+						img.img-fluid(src=`${CWD}assets/img/gallery/g5.jpg`, alt='...')
+						.card-body
+							h5.card-title Second card title
+							p.card-text This is a longer card with supporting text below as a natural lead-in to additional content.
+						.card-footer
+							small.text-muted Last updated an hour ago
+				.col
+					.card.h-100
+						img.img-fluid(src=`${CWD}assets/img/gallery/g6.jpg`, alt='...')
+						.card-body
+							h5.card-title Yet another card title
+							p.card-text This is a longer card with supporting text below as a natural lead-in to additional content.
+						.card-footer
+							small.text-muted Last updated yesterday
+

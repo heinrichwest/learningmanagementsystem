@@ -1,0 +1,24 @@
+mixin NewsLetter
+	+Section({
+		image: `${CWD}assets/img/backgrounds/newsletter-bg.jpg`,
+		className: "overlay",
+		attrs: {
+			style: "background-position: 63% 26%;"
+		}
+	}).py-6(data-zanim-timeline!={} data-zanim-trigger='scroll')
+		.row.align-items-center
+			.col-md-6.col-lg-4.text-md-end.mb-2.mb-md-0
+				.row.g-0.align-items-center.justify-content-md-end.border-md-end
+					.col-auto.ps-2.ps-md-0.pe-2.text-lg-end.order-1.order-md-0
+						h3.text-white.d-inline-block.fs-4.mb-0.lh-1.mt-1(data-zanim-xs!={"from":{"opacity":1,"x":-30},"to":{"opacity":1,"x":0},'duration': 1.5,"delay":0.2}) Subscribe
+						p.mb-0.text-white(data-zanim-xs!={"from":{"opacity":1,"x":-30},"to":{"opacity":1,"x":0},'duration': 1.5,"delay":0.3}) To join our newsletter
+					.col-auto.ps-lg-1.pe-md-4.pe-lg-3.pe-xl-4.order-0.order-md-1(data-zanim-xs!={"from":{"opacity":1,"x":-30},"to":{"opacity":1,"x":0},'duration': 1.5,"delay":0.1})
+						img(src=`${CWD}assets/img/line-icons/mail-4.svg`, width="65" style="margin-top: 0px;" alt="").opacity-75
+			.col-md-6.col-lg-8.col-xl-6.ps-lg-0.px-xl-3
+				form(data-zanim-xs!={"from":{"opacity":1,"x":30},"to":{"opacity":1,"x":0},'duration': 1.5,"delay":0.1})
+					.form-floating.mb-0
+						input.form-control#floatingInput(type='email' placeholder='Your Email' required)
+						label(for='floatingInput') Your Email
+						button.btn.btn-input-icon(type="submit")
+							span.fas.fa-arrow-right
+

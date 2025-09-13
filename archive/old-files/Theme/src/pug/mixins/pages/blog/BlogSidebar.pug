@@ -1,0 +1,61 @@
+mixin PopularPost(image, title, date)
+	.d-flex&attributes(attributes)
+		a(href=`${CWD}pages/single-post.html`)
+			img(src=`${CWD}assets/img/projects/${image}.jpg`, width="120" alt="").rounded
+		.flex-1.ms-3
+			h5.lh-sm.mt-0.text-transform-none.fs-0.mb-1.fw-semi-bold.font-base
+				a(href=`${CWD}pages/single-post.html`).text-900!=title
+			p.text-600.mb-0=date
+
+mixin BlogSidebar
+	.form-group
+		input(type="text" placeholder="Search...").form-control
+
+	h4.mt-4.mb-3.fw-normal Popular Posts
+	+PopularPost(13, `How to improve your English speaking in just one second?`, '6 March 2019').mb-3
+	+PopularPost(15, `What I Gave My Kid Instead of a Smartphone?`, '25 January 2019').mb-3
+	+PopularPost(16, `It Started With a Jolt: How New York Became a Tech Town?`, '18 December 2018').mb-3
+	+PopularPost(18, `Materials Science May Be The Most Important.`, '23 November 2018')
+
+	h4.mt-5.mb-3.fw-normal Popular Tags
+
+	a(href="#!").btn.btn-dark.btn-sm.hvr-sweep-top.me-1.mb-1 HTML
+	a(href="#!").btn.btn-dark.btn-sm.hvr-sweep-top.me-1.mb-1 CSS
+	a(href="#!").btn.btn-dark.btn-sm.hvr-sweep-top.me-1.mb-1 Bootstrap
+	a(href="#!").btn.btn-dark.btn-sm.hvr-sweep-top.me-1.mb-1 Javascript
+	a(href="#!").btn.btn-dark.btn-sm.hvr-sweep-top.me-1.mb-1 PHP
+	a(href="#!").btn.btn-dark.btn-sm.hvr-sweep-top.me-1.mb-1 Vue
+	a(href="#!").btn.btn-dark.btn-sm.hvr-sweep-top.me-1.mb-1 React
+	a(href="#!").btn.btn-dark.btn-sm.hvr-sweep-top.me-1.mb-1 WordPress
+
+	h4.mt-5.mb-3.fw-normal Categories
+
+	ul.list-unstyled
+		li.mb-2
+			a(href="#!").text-800
+				span.fas.fa-angle-right.me-2(data-fa-transform="shrink-3")
+				| Web Design
+		li.mb-2
+			a(href="#!").text-800
+				span.fas.fa-angle-right.me-2(data-fa-transform="shrink-3")
+				| Web Development
+		li.mb-2
+			a(href="#!").text-800
+				span.fas.fa-angle-right.me-2(data-fa-transform="shrink-3")
+				| Photography
+		li.mb-2
+			a(href="#!").text-800
+				span.fas.fa-angle-right.me-2(data-fa-transform="shrink-3")
+				| Typhograpby
+		li.mb-2
+			a(href="#!").text-800
+				span.fas.fa-angle-right.me-2(data-fa-transform="shrink-3")
+				| Graphic Design
+		li.mb-2
+			a(href="#!").text-800
+				span.fas.fa-angle-right.me-2(data-fa-transform="shrink-3")
+				| Database Design
+		li.mb-2
+			a(href="#!").text-800
+				span.fas.fa-angle-right.me-2(data-fa-transform="shrink-3")
+				| Software Development

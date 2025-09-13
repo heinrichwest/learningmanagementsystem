@@ -1,0 +1,17 @@
+mixin HeaderShowcase
+  +HeaderSection({
+    image: `${CWD}assets/img/backgrounds/header-showcase.jpg`,
+    className: 'overlay parallax',
+    attrs: {
+      'style': 'background-position: 30% 56%;'
+    }
+  }).text-center.overflow-hidden.py-0(data-zanim-timeline!={} data-zanim-trigger='scroll')
+    
+    .d-flex.flex-center.pb-8.mt-4.pt-10
+      .header-text
+        .overflow-hidden
+          h1.display-3.text-white.fs-5.fs-md-7(data-zanim-xs!={'duration': 2, "delay":0}) Introducing Reign
+        .overflow-hidden
+          p.text-uppercase.text-400.ls-3.mt-2(data-zanim-xs!={'duration': 2, "delay":0.1}) One &amp; multi page
+            br.d-block.d-md-none
+            |  multipurpose template

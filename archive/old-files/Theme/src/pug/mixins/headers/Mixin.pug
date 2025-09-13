@@ -1,0 +1,35 @@
+//- ===============================================
+//-    A wireframe for every header section
+//- ===============================================
+mixin HeaderSection(background, container)
+  = '\n\n'
+
+  section&attributes(attributes)
+    = '\n'
+    //- Background
+    - if (typeof(background) === 'object') {
+    +Background(background)
+    - } else if (typeof(background === 'string') && typeof(container) === 'undefined') { container = background }
+    .header-overlay
+    //- Container for content
+    - if (typeof(container) === 'undefined') { container = 'container' }
+    div(class=container)
+      block
+
+mixin HeaderContent(title, subtitle, className)
+  .d-flex(class=className)&attributes(attributes)
+    .header-overlay
+    .header-text
+      .overflow-hidden
+        h1.display-3.text-white.fs-5.fs-md-7(data-zanim-xs!={'duration': 2, "delay":0})!=title
+      .overflow-hidden
+        p.text-uppercase.text-400.ls-3.mt-2(data-zanim-xs!={'duration': 2, "delay":0.1})!=subtitle
+
+      div(data-zanim-xs!={"from":{"opacity":0,"y":30},"to":{"opacity":1,"y":0},"duration":1.5,"delay":0.5})
+        a(href=`${CWD}pages/service.html`).btn.btn-sm.btn-outline-light.hvr-sweep-top.mt-5.px-4 our services
+
+mixin HeaderIndicatorDown
+  .header-indicator-down
+    a.indicator.indicator-down.opacity-75(href='#about-us')
+      span(data-zanim-xs!={"from":{"opacity": 0,"y": 30}, "to":{"opacity":1, "y":0}, "ease": "Back.easeOut", "duration":1, "delay": 1.5}).indicator-arrow.indicator-arrow-one
+

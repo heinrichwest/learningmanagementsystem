@@ -1,0 +1,26 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Cards
+include ../mixins/common/ComponentLink
+
+append variables
+  - var pageTitle = 'Cards';
+  
+block component
+  +ComponentLink({
+    text:'For detail documentation. ',
+    linkText: 'View Cards on Bootstrap ',
+    link: `https://getbootstrap.com/docs/${bootstrapVersion}/components/card/`
+  })
+  .mb-6
+    .row
+      +BasicCardExample
+      +CardTitle
+      +ListGroups
+      +CardImage
+      +CardHeaderFooter
+      +CardOverlay
+      +CardGroups
+      +CardGroupsFooter
+      +CardGrid
+      +CardGridEqualHeight
+

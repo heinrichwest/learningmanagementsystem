@@ -1,0 +1,63 @@
+mixin FaqItem(config)
+  div(data-zanim-timeline!={} data-zanim-trigger='scroll')
+    .overflow-hidden
+      h6.text-transform-none.fs-0.fw-bold(data-zanim-xs!={'duration': 1.5,'delay': 0})=config.question
+    .overflow-hidden
+      p.mb-0(data-zanim-xs!={'duration': 1.5,'delay': 0.1})=config.description
+    .overflow-hidden  
+      hr.my-3.text-200(data-zanim-xs!={'duration': 1.5,'delay': 0.2})
+
+mixin Faq
+  +Section
+    .row.justify-content-center(data-zanim-timeline!={} data-zanim-trigger="scroll")
+      .col-lg-7
+        +FaqItem({
+          question: `How does ${name}'s pricing work?`, 
+          description: `The free version of ${name} is available for teams of up to 15 people. Our ${name} Premium plans of 15 or fewer qualify for a small team discount. As your team grows to 20 users or more and gets more value out of ${name}, you'll get closer to our standard monthly price per seat. The price of a paid ${name} plan is tiered, starting in groups of 5 and 10 users, based on the number of people you have in your Team or Organization`
+        })
+        +FaqItem({
+          question: `What forms of payment do you accept?`, 
+          description: `You can purchase ${name} With any major credit card. For annual subscriptions, we can issue an invoice payable by bank transfer or check. Please contact us to arrange an invoice purchase. Monthly purchases must be paid for by credit card.`
+        })
+        +FaqItem({
+          question: `We need to add more people to our team. How will that be billed?`, 
+          description: `You can add as many new teammates as you need before changing your subscription. We will subsequently ask you to correct your subscription to cover current usage.`
+        })
+        +FaqItem({
+          question: `How secure is ${theme}?`, 
+          description: `Protecting the data you trust to ${theme} is our first priority. ${theme} uses physical, procedural, and technical safeguards to preserve the integrity and security of your information. We regularly back up your data to prevent data loss and aid in recovery. Additionally, we host data in secure SSAE 16 / SOC1 certified data centers, implement firewalls and access restrictions on our servers to better protect your information, and work with third party security researchers to ensure our practices are secure.`
+        })
+        +FaqItem({
+          question: `Will I be charged sales tax?`, 
+          description: `As of May 2016, state and local sales tax will be applied to fees charged to customers with a billing address in the State of New York.`
+        })
+        +FaqItem({
+          question: `Do you offer discounts?`, 
+          description: `We've built in discounts at each tier for teams smaller than 15 members. We also offer two months for free in exchange for an annual subscription.`
+        })
+        +FaqItem({
+          question: `Do you offer academic pricing?`, 
+          description: `We're happy to work with student groups using ${theme}. Contact Us`
+        })
+        +FaqItem({
+          question: `Is there an on-premise version of ${theme}?`, 
+          description: `We are passionate about the web. We don't plan to offer an internally hosted version of ${theme}. We hope you trust us to provide a robust and secure service so you can do the work only your team can do.`
+        })
+        +FaqItem({
+          question: `What is your refund policy?`, 
+          description: `We do not offer refunds apart from exceptions listed below. If you cancel your plan before the next renewal cycle, you will retain access to paid features until the end of your subscription period. When your subscription expires, you will lose access to paid features and all data associated with those features. Exceptions to our refund policy: cancelling within 48 hours of initial charge will result in a full refund. If you cancel within this timeframe, you will lose access to paid features and associated data immediately upon cancelling.`
+        })
+    
+    .row.justify-content-center.mt-5
+      .col-lg-7.text-center
+        form
+          h5 More questions?
+          .form-group.mb-3
+            input.form-control(type='text' placeholder="Your Name")
+          .form-group.mb-3
+            input.form-control(type='email' placeholder="Your Email")
+          .form-group.mb-3
+            textarea.form-control(rows="10" placeholder="Your Question")
+          .d-grid
+            button.btn.btn-dark.btn-block.hvr-sweep-top Ask Now
+                

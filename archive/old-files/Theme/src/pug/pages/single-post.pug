@@ -1,0 +1,17 @@
+extends ../layouts/LayoutTheme
+include ../mixins/headers/HeaderClassic
+include ../mixins/pages/blog/Mixin
+include ../mixins/pages/blog/SinglePost
+include ../mixins/pages/blog/BlogSidebar
+
+
+prepend styles
+  link(href=`${CWD}vendors/glightbox/glightbox.min.css`, rel='stylesheet')
+
+prepend scripts 
+  script(src=`${CWD}vendors/glightbox/glightbox.min.js`) 
+
+
+append mainContent
+  +HeaderClassic('Single Post')
+  +SinglePost

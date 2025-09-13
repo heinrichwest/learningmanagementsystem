@@ -1,0 +1,10 @@
+mixin HeaderImage(image)
+  +HeaderSection({
+    image: `${CWD}assets/img/headers/${image}.jpg`,
+    className: 'overlay overlay-2 parallax',
+    attrs: {
+      'data-rellax-percentage': '0.5'
+    }
+  }).text-center.overflow-hidden.py-0(data-zanim-timeline!={} data-zanim-trigger='scroll')
+    +HeaderContent('To begin begin', ` that's how our life <br class="d-block d-md-none"> rolls everyday`).flex-center.vh-100
+    +HeaderIndicatorDown

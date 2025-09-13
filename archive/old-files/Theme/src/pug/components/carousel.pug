@@ -1,0 +1,19 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Carousel
+include ../mixins/common/ComponentLink
+
+append variables 
+	- var pageTitle = 'Carousel';
+
+block component
+	h5.mb-1 Bootstrap Carousel
+	+ComponentLink({
+		text:'A slideshow component for cycling through elements—images or slides of text—like a carousel. ',
+		linkText: 'View Carousel on Bootstrap ',
+		link: `https://getbootstrap.com/docs/${bootstrapVersion}/components/carousel/`
+	})
+	+BasicExample
+	+WithCaptions
+	+Crossfade
+
+	

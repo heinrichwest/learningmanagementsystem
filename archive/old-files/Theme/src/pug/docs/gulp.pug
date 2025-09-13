@@ -1,0 +1,10 @@
+extends ../layouts/LayoutDocumentation 
+include ../mixins/docs/Gulp
+include ../mixins/common/Card
+
+append variables
+	- var pageTitle = 'Gulp';
+	- var pageDes = 'Build, serve and watch your project';
+
+block content
+	+Gulp

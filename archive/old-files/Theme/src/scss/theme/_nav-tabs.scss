@@ -1,0 +1,29 @@
+
+.nav-tabs {
+  border-bottom: $nav-tabs-border-width solid var(--#{$variable-prefix}800);
+
+  .nav-link {
+    margin-bottom: -$nav-tabs-border-width;
+    border: var(--#{$variable-prefix}border-color);
+    font-size: 0.875rem;
+    @include border-top-radius($nav-tabs-border-radius);
+
+    &:hover,
+    &:focus {
+      border-color: var(--#{$variable-prefix}white);
+    }
+
+    &.disabled {
+      color: var(--#{$variable-prefix}black);
+      background-color: transparent;
+      border-color: transparent;
+    }
+  }
+
+  .nav-link.active,
+  .nav-item.show .nav-link {
+    background-color: transparent;
+    border-bottom: $nav-tabs-border-width solid var(--#{$variable-prefix}white);
+  }
+
+}

@@ -1,0 +1,20 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/ListGroup
+include ../mixins/common/ComponentLink
+
+append variables 
+	- var pageTitle = 'List Group';
+
+block component
+	+ComponentLink({
+		text:'For detail documentation. ',
+		linkText: 'View List Group on Bootstrap',
+		link: `https://getbootstrap.com/docs/${bootstrapVersion}/components/list-group/`
+	})
+	.row.g-0 
+		+ListGroupBasic
+		+ListGroupActive
+		+ListGroupFlush
+		+ListGroupWithBadge
+		+ContextualClasses
+		+CustomContent

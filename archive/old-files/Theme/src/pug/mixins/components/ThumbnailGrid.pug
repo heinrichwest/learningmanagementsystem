@@ -1,0 +1,115 @@
+append variables 
+	-
+		var Thumbnail= [
+			{
+				id:'collapseOne',
+				image:'g1.jpg',
+				title:'GILLIAN WEARING',
+				text:'Since the beginning of her career, Gillian Wearing has drawn from techniques of theatre, reality television, and fly-on-the-wall documentary-making to construct narratives that explore personal fantasies and confessions, individual traumas, cultural histories.',
+				next:'collapseTwo',
+				prev:'!',
+			},
+			{
+				id:'collapseTwo',
+				image:'g2.jpg',
+				title:'CATHERINE OPIE',
+				text:'Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.',
+				next:'collapseThree',
+				prev:'collapseOne',
+			},
+			{
+				id:'collapseThree',
+				image:'g3.jpg',
+				title:'CHRISTOPHER WOOL',
+				text:'Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.',
+				next:'collapseFour',
+				prev:'collapseTwo',
+			},
+			{
+				id:'collapseFour',
+				image:'g4.jpg',
+				title:'CHRISTOPHER WOOL',
+				text:'Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.',
+				next:'collapseFive',
+				prev:'collapseThree',
+			},
+			{
+				id:'collapseFive',
+				image:'g5.jpg',
+				title:'CHRISTOPHER WOOL',
+				text:'Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.',
+				next:'collapseSix',
+				prev:'collapseFour',
+			},
+			{
+				id:'collapseSix',
+				image:'g6.jpg',
+				title:'CHRISTOPHER WOOL',
+				text:'Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.',
+				next:'collapseSeven',
+				prev:'collapseFive',
+			},
+			{
+				id:'collapseSeven',
+				image:'g7.jpg',
+				title:'CHRISTOPHER WOOL',
+				text:'Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.,Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis eaque quisquam perferendis doloremque optio, eligendi deserunt molestiae tenetur dolore rerum aperiam facere rem aspernatur accusamus ratione ut sapiente ipsam voluptate.',
+				next:'collapseEight',
+				prev:'collapseSix',
+			},
+			{
+				id:'collapseEight',
+				image:'g8.jpg',
+				title:'CHRISTOPHER WOOL',
+				text:'Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.',
+				next:'collapseNine',
+				prev:'collapseSeven',
+			}, 
+			{
+				id:'collapseNine',
+				image:'g9.jpg',
+				title:'CHRISTOPHER WOOL',
+				text:'Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.',
+				next:'!',
+				prev:'collapseEight',
+			},
+		];
+
+mixin Gallery(config)
+	.col-12.col-sm-6.col-lg-4.thumbnail-grid-item
+		img(src=`${CWD}assets/img/gallery/${config.image}` alt="" data-bs-toggle='collapse'  data-bs-target=`#${config.id}`  aria-expanded='false' aria-controls=`${config.id}`).w-100.rounded
+		.position-absolute.start-0
+			.collapse.thumbnail-grid-content.position-relative(data-bs-parent="#selector" id=`${config.id}`)
+				.pt-3.pb-2
+					.card.card-body.border-0.bg-100.px-4
+						+GalleryContent(config)
+
+mixin GalleryContent(config)
+	.row.align-items-center
+		.thumbnail-grid-navigation
+			a(href="#!").thumbnail-close
+				i.fas.fa-times
+			a(href='#!' data-grid-target=`#${config.prev}` data-thumbnail-grid-nav).thumbnail-grid-nav.prev
+				i.fas.fa-angle-left
+			a(href='#!' data-grid-target=`#${config.next}` data-thumbnail-grid-nav).thumbnail-grid-nav.next
+				i.fas.fa-angle-right
+		.col-7
+			.d-none.d-lg-block.p-0
+				img(src=`${CWD}assets/img/gallery/${config.image}` alt='').w-100.img-fluid.rounded
+		.col-lg-5
+			h5.ls-1=config.title
+			p=config.text
+			a(href="#!").btn.btn-outline-dark.btn-sm.hvr-sweep-top.hover-color-white.mt-2 Visit Website
+
+
+mixin ThumbnailGrid
+	.row.g-2.position-relative.thumbnail-grid-container#selector
+		+Gallery(Thumbnail[0])
+		+Gallery(Thumbnail[1])
+		+Gallery(Thumbnail[2])
+		+Gallery(Thumbnail[3])
+		+Gallery(Thumbnail[4])
+		+Gallery(Thumbnail[5])
+		+Gallery(Thumbnail[6])
+		+Gallery(Thumbnail[7])
+		+Gallery(Thumbnail[8])

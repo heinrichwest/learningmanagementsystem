@@ -1,0 +1,21 @@
+extends ../layouts/LayoutDocumentation 
+include ../mixins/common/Card
+
+append variables 
+	- var pageTitle = 'RTL';
+	- var pageDes = 'Working with right to left';
+
+block content
+	h5(data-anchor) Setting up HTML 
+	p Your theme comes with a built-in automated rtl feature. 
+		a(href=`${CWD}pages/page-rtl.html`) Here
+		|  is the example. To use rtl, set the 
+		code dir='rtl'
+		|  in your html like:
+	pre
+		code.lang-html.
+			#{'<html dir=\'rtl\'>...</html>'}
+
+	p.mt-4 And use the rtl stylesheet instead of 
+	+ComponentCardLib 
+		link(href='assets/css/theme-rtl.css' rel='stylesheet')

@@ -1,0 +1,24 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Progressbar
+include ../mixins/common/ComponentLink
+
+prepend scripts
+	script(src=`${CWD}vendors/progressbar/progressbar.min.js`)
+	
+append variables
+	- var pageTitle = 'Progress';
+
+block component
+	+ProgressbarAdvance
+	+ComponentLink({
+		text:'For detail documentation. ',
+		linkText: 'View Progress on Bootstrap ',
+		link: `https://getbootstrap.com/docs/${bootstrapVersion}/components/progress/`
+	}).mt-4
+	.row.g-0
+		.col-xl-6.pe-xl-2
+			+ComponentCard({
+				title: 'Basic Example',
+				anchor: true,
+			}).mb-3
+				+ProgressbarDemo

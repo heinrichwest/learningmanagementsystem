@@ -1,0 +1,27 @@
+mixin HeaderSlider
+	section.py-0.overflow-hidden
+		.swiper.theme-slider(data-swiper!={
+			autoplay: true,
+			loop: true,
+			loopedSlides: 5,
+			slideToClickedSlide: true,
+		})
+			.swiper-wrapper
+				.swiper-slide
+					img(src=`${CWD}assets/img/headers/header-1.jpg` alt="image").header-slider
+					.header-overlay.text-center(data-zanim-timeline!={delay: 0.1})
+						+HeaderContent('To begin begin',` that's how our life <br class="d-block d-md-none"> rolls everyday`).flex-center.vh-100
+						+HeaderIndicatorDown
+				.swiper-slide
+					img(src=`${CWD}assets/img/headers/header-6.jpg` alt="image").header-slider
+					.header-overlay.text-center(data-zanim-timeline!={delay: 0.1})
+						+HeaderContent('We are awesome',` that's how we live life <br class="d-block d-md-none"> fullest`).flex-center.vh-100
+						+HeaderIndicatorDown
+				.swiper-slide  
+					img(src=`${CWD}assets/img/headers/header-5.jpg` alt="image").header-slider
+					.header-overlay.text-center(data-zanim-timeline!={delay: 0.1})
+						+HeaderContent('Future is here',`Take action and be a <br class="d-block d-md-none"> part of it`).flex-center.vh-100
+						+HeaderIndicatorDown
+			.swiper-nav
+				.swiper-button-prev
+				.swiper-button-next

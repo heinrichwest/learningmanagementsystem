@@ -1,0 +1,14 @@
+mixin CtaStartNewProject
+  +Section({
+    image: `${CWD}assets/img/backgrounds/fun-fact.jpg`,
+    className: "overlay overlay-0",
+    attrs: {
+      style: 'background-position: bottom;'
+    }
+  }).py-6.text-center.bg-1100(data-zanim-timeline!={} data-zanim-trigger="scroll") 
+    .overflow-hidden    
+      h3.font-base.text-white(data-zanim-xs!={'duration': 1.5, 'delay': 0}) Excited To Start 
+        br.d-block.d-sm-none
+        | Your Next Project?
+    div(data-zanim-xs!={"from":{"opacity":0,"y":30},"to":{"opacity":1,"y":0},"duration":1.5,"delay":0.1})
+      a(href="#").btn.btn-sm.btn-outline-light.hvr-sweep-top.mt-3 Let's get started 

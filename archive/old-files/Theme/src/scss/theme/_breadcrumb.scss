@@ -1,0 +1,13 @@
+.breadcrumb {
+  font-size: $navbar-font-size; 
+  padding:.75rem 0;
+}
+
+.breadcrumb-item {
+  + .breadcrumb-item {
+    &:before {
+      position: relative;
+      top: -0.0625rem;
+    }
+  }
+}

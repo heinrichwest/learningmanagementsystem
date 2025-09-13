@@ -1,0 +1,33 @@
+mixin Masonary(filter)
+  if filter
+    ul.nav.font-sans-serif.mb-3.justify-content-center(data-filter-nav)&attributes(attributes)
+      li.nav-item
+        a.isotope-nav.active(href ='#!' data-filter='*') all
+      li.nav-item 
+        a.isotope-nav(href ='#!' data-filter='.small') small
+      li.nav-item 
+        a.isotope-nav(href ='#!' data-filter='.medium') medium
+      li.nav-item 
+        a.isotope-nav(href ='#!' data-filter='.large') large
+     
+
+  .row.g-3.mt-3(data-rp-isotope!={
+    layoutMode: 'packery',   
+  })
+    .col-6.col-md-4.isotope-item.small
+      img(src=`${CWD}assets/img/masonary/07.jpg` alt='' data-zanim-xs!={
+        animation: 'zoom-in',
+        delay: 0
+      }).img-fluid.rounded.w-100
+    .col-6.col-md-8.isotope-item.large
+      img(src=`${CWD}assets/img/masonary/11.jpg` alt='').img-fluid.rounded.w-100
+    .col-6.col-md-4.isotope-item.medium
+      img(src=`${CWD}assets/img/masonary/03.jpg` alt='').img-fluid.rounded.w-100
+    .col-6.col-md-4.isotope-item.medium
+      img(src=`${CWD}assets/img/masonary/09.jpg` alt='').img-fluid.rounded.w-100
+    .col-6.col-md-4.isotope-item.small
+      img(src=`${CWD}assets/img/masonary/06.jpg` alt='').img-fluid.rounded.w-100
+    .col-6.col-md-8.isotope-item.large
+      img(src=`${CWD}assets/img/masonary/12.jpg` alt='').img-fluid.rounded.w-100
+    .col-6.col-md-4.isotope-item.small
+      img(src=`${CWD}assets/img/masonary/01.jpg` alt='').img-fluid.rounded.w-100

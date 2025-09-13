@@ -1,0 +1,20 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Grid
+include ../mixins/common/ComponentLink
+
+append variables 
+  - var pageTitle = 'Grid';
+
+block component
+  - var grids = [ 2, 3, 4, 6, 12] 
+  
+  +ComponentLink({
+    text:'For detail documentation. ',
+    linkText: 'View Grid on Bootstrap ',
+    link: `https://getbootstrap.com/docs/${bootstrapVersion}/layout/grid/`,
+  })
+  h5 Example
+  each grid in grids 
+    +Grid(grid)
+  +ResponsiveGrid  
+

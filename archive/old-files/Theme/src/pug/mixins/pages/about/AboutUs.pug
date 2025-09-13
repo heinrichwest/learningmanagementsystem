@@ -1,0 +1,37 @@
+mixin AboutUs(title)
+  +Section.pt-3.pt-lg-5.pb-6.pb-lg-8.text-center(style="scroll-margin-top:-25px")&attributes(attributes)
+    if title
+      .row.mb-4(data-zanim-timeline!={} data-zanim-trigger='scroll')
+        .col
+          .overflow-hidden
+            h2.fs-sm-5.mb-2(data-zanim-xs!={'duration': 1.5, 'delay': 0}) about us
+          .overflow-hidden
+            p.text-uppercase.fs--1.text-black.ls-1.mb-0(data-zanim-xs!={'duration': 1.5, 'delay': 0.1}) Our company, in the simplest terms
+          .overflow-hidden  
+            hr.hr-short.border-black(data-zanim-xs!={'duration': 1.5, 'delay': 0.2})
+    
+    .row.align-items-center
+      .col-md-4.text-md-end
+        h5.ls-2.mb-3 we're creative
+        p.mb-0 We are full-service digital marketing agency
+          br.d-none.d-xl-block
+          |  in Atlanta, and we’re also one of the top
+          br.d-none.d-xl-block
+          | graphic design firms because we
+          br.d-none.d-xl-block
+          |  draw to projects that challenge
+          br.d-none.d-sm-block
+          |  our creative work.
+      .col-md-4.px-lg-4.my-4.my-md-0
+        img(src=`${CWD}assets/img/about-us-5.jpg` alt='').rounded.w-100.w-sm-75.w-md-100
+      .col-md-4.text-md-start
+        h5.ls-2.mb-3 We're friendly
+        p.mb-0 We’re proud of our work to accomplish and
+          br.d-none.d-xl-block
+          |  much of the credit goes to our amazing
+          br.d-none.d-xl-block
+          |  and unique culture which helps us to
+          br.d-none.d-xl-block
+          |  come together to overcome all of
+          br.d-none.d-xl-block
+          |   our challanging times.

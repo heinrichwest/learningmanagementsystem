@@ -1,0 +1,61 @@
+mixin BootstrapNav(logo, btnclass, navId, dropdownId)
+	= '\n'
+	if logo
+		a.navbar-brand.fw-normal.ls-2(href='/')
+			| RE
+			span.navbar-brand-i !
+			| GN
+	else
+		a.navbar-brand(href="#")
+			| Navbar
+		= '\n'
+	= '\n'
+	button.navbar-toggler(type="button" data-bs-toggle="collapse" data-bs-target=`#${navId}` aria-controls=navId aria-expanded="false" aria-label="Toggle navigation")
+		= '\n'
+		span.navbar-toggler-icon
+		= '\n'
+	.collapse.navbar-collapse(id=navId)
+		ul.navbar-nav.me-auto
+			li.nav-item
+				a.nav-link.active(href="#")
+					| Home 
+					span.sr-only (current)
+			li.nav-item.dropdown
+				= '\n'
+				a.nav-link.dropdown-toggle(href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id=dropdownId)
+					| Dropdown
+				.dropdown-menu(aria-labelledby=dropdownId)
+					= '\n'
+					a.dropdown-item(href="#") Action
+					= '\n'
+					a.dropdown-item(href="#") Another action
+					= '\n'
+					a.dropdown-item(href="#") Something else here
+					= '\n'
+		form.d-flex
+			= '\n'
+			input.form-control.form-control-sm.me-sm-2(type='search' placeholder='Search' aria-label='Search')
+			= '\n'
+			button.btn.btn-sm.my-2.my-sm-0(type='submit' class=btnclass) Search
+			= '\n'
+			
+mixin NavbarLight
+	h5 Navbar Light
+	+ComponentCard
+		nav.navbar.navbar-expand-xl.navbar-light.bg-light.py-0
+			.container-fluid
+				+BootstrapNav(false, 'btn-outline-secondary', 'nav1', 'dropdown1')
+
+mixin NavbarDark
+	h5.mt-4 Navbar Dark
+	+ComponentCard
+		nav.navbar.navbar-expand-xl.navbar-dark.bg-dark.py-0
+			.container-fluid
+				+BootstrapNav(true, 'btn-outline-secondary', 'nav2', 'dropdown2')
+
+mixin NavbarPrimary
+	h5.mt-4 Navbar Primary
+	+ComponentCard
+		nav.navbar.navbar-expand-xl.navbar-dark.bg-primary.py-0
+			.container-fluid
+				+BootstrapNav(true, 'btn-outline-light', 'nav3', 'dropdown3')

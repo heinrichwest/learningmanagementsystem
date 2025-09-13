@@ -1,0 +1,24 @@
+mixin HeaderClassicSlider
+	section.py-0.overflow-hidden
+		.swiper.theme-slider(data-swiper!={
+			autoplay: true,
+			loop: true,
+			loopedSlides: 5,
+			slideToClickedSlide: true,
+		})
+			.swiper-wrapper
+				.swiper-slide
+					img(src=`${CWD}assets/img/headers/header-3.jpg` alt="image" style="object-position: center 77%;").w-100.vh-50.fit-cover.slider-classic
+					.header-overlay.text-center(data-zanim-timeline!={delay: 0.1})
+						+HeaderContent('Future is here', `Take action and be a <br class="d-block d-md-none"> part of it`).flex-center.pt-10.pb-8
+				.swiper-slide
+					img(src=`${CWD}assets/img/headers/header-6.jpg` alt="image" style="object-position: center 83%;").w-100.vh-50.fit-cover.slider-classic
+					.header-overlay.text-center(data-zanim-timeline!={delay: 0.1})
+						+HeaderContent('We are awesome', ` that's how we live life <br class="d-block d-md-none"> fullest`).flex-center.pt-10.pb-8
+				.swiper-slide  
+					img(src=`${CWD}assets/img/headers/header-4.jpg` alt="image" style="object-position: center 15%;").w-100.vh-50.fit-cover.slider-classic
+					.header-overlay.text-center(data-zanim-timeline!={delay: 0.1})
+						+HeaderContent('We are smart', ` that's how we live life <br class="d-block d-md-none"> fullest`).flex-center.pt-10.pb-8
+			.swiper-nav
+				.swiper-button-prev
+				.swiper-button-next

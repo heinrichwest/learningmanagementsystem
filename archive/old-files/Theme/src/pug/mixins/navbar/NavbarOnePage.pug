@@ -1,0 +1,39 @@
+mixin NavbarOnePage
+  nav.navbar.navbar-expand-lg.navbar-dark.navbar-theme.fixed-top.py-0(data-navbar-on-scroll)
+    .container
+      a.navbar-brand.fw-normal.ls-2(href=`${CWD}index.html`)
+        | RE
+        span.navbar-brand-i !
+        | GN
+      button.navbar-toggler.collapsed(type='button', data-bs-toggle='collapse', data-bs-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      .collapse.navbar-collapse(id="navbarSupportedContent")
+        ul.navbar-nav.ms-auto#navbar-one-page
+          li.nav-item
+            a.nav-link(href="#about-us") 
+              span.nav-link-text
+                +cleanText('About')
+          li.nav-item
+            a.nav-link(href="#services") 
+              span.nav-link-text
+                +cleanText('Services')
+          li.nav-item
+            a.nav-link(href="#portfolio") 
+              span.nav-link-text
+                +cleanText('Portfolio')
+          li.nav-item
+            a.nav-link(href="#team")
+              span.nav-link-text
+                +cleanText('Team')
+          li.nav-item
+            a.nav-link(href="#pricing")
+              span.nav-link-text
+                +cleanText('Pricing')
+          li.nav-item
+            a.nav-link(href="#blog")
+              span.nav-link-text
+                +cleanText('Blog')
+          li.nav-item
+            a.nav-link(href="#contact")
+              span.nav-link-text
+                +cleanText('Contact')

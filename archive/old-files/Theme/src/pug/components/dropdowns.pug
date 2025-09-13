@@ -1,0 +1,18 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Dropdowns
+include ../mixins/common/ComponentLink
+
+append variables 
+  - var pageTitle = 'Dropdowns';
+
+block component
+
+  +ComponentLink({
+    text:'For detail documentation. ',
+    linkText: 'View Dropdowns on Bootstrap ',
+    link: `https://getbootstrap.com/docs/${bootstrapVersion}/components/dropdowns/`,
+  })
+
+  +BasicDropdowns
+  +DropdownsOnHover
+

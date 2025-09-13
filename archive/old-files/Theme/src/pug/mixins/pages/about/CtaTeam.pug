@@ -1,0 +1,8 @@
+mixin CtaTeam
+  +Section.text-center(data-zanim-timeline!={} data-zanim-trigger='scroll')&attributes(attributes)
+    .overflow-hidden
+      h4.fw-medium.mb-1(data-zanim-xs!={'duration': 1.5, "delay":0}) Make a project With Us
+    .overflow-hidden
+      p(data-zanim-xs!={'duration': 1.5, "delay":0.1}) Our Team is always ready to help you
+    div(data-zanim-xs!={"from":{"opacity":0,"y":30},"to":{"opacity":1,"y":0},"duration":1.5,"delay":0.3})
+      a(href="#!").btn.btn-dark.btn-sm.hvr-sweep-top.mt-2 Start Now

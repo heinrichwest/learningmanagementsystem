@@ -1,0 +1,17 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Collapse
+include ../mixins/common/ComponentLink
+
+append variables
+	- var pageTitle = 'Collapse';
+
+block component
+	+ComponentLink({
+		text:'For detail documentation. ',
+		linkText: 'View Collapse on Bootstrap ',
+		link: `https://getbootstrap.com/docs/${bootstrapVersion}/components/collapse/`
+	})
+
+	+SimpleCollapseExample
+	+HorizontalCollapseExample
+	+MultipleTargetsExample

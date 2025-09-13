@@ -1,0 +1,20 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Borders
+include ../mixins/common/ComponentLink
+
+append variables 
+	- var pageTitle = 'Borders';
+
+block component
+	+ComponentLink({
+		text:'For detail documentation. ',
+		linkText: 'View Borders on Bootstrap',
+		link: `https://getbootstrap.com/docs/${bootstrapVersion}/utilities/borders/`
+	})
+	+BorderDoc
+	+BorderAdditive
+	+BorderSubtractive
+	+DashedBorders
+	+BorderColorWidth
+	+BorderRounded
+	

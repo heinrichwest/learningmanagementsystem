@@ -1,0 +1,47 @@
+mixin Process
+	+Section
+		.row
+			.col.mb-4.text-center(data-zanim-timeline!={} data-zanim-trigger='scroll')
+				.overflow-hidden
+					h2.fs-md-5(data-zanim-xs!={'duration': 1.5,'delay': 0}) how we did it
+				.overflow-hidden
+					p.fs--1.text-uppercase.text-black.ls-1.mb-0(data-zanim-xs!={'duration': 1.5,'delay': 0.1}) working together to achieve great results
+				.overflow-hidden
+					hr.hr-short.bg-black(data-zanim-xs!={'duration': 1.5,'delay': 0.2})
+		.row.justify-content-center
+			.col-lg-9.px-5
+				.d-flex.process-item.border-dashed-start.border-600.pb-5(data-zanim-timeline!={} data-zanim-trigger="scroll")
+					.process-icon-circle
+						img(src=`${CWD}assets/img/line-icons/medical-result.svg`, alt="").process-icon
+					.flex-1.ms-4.ms-sm-5
+						h5.ls-2
+							span.bg-white.pe-3 analysis &amp; planning
+						p.mb-0.pe-lg-5(data-zanim-xs!={"from":{"opacity":0},"to":{"opacity":1},'duration': 1,"delay":0.2}) At first, we will analyze the product and planning then convert to a full specification document that explains exactly what we will deliver to you. This process will include the technical &amp; functional requirements captured along with your branding and styling guidelines.
+
+				.d-flex.process-item.border-dashed-start.border-600.border-md-start-0.border-md-dashed-end.pb-5(data-zanim-timeline!={} data-zanim-trigger="scroll")
+					.flex-1.position-relative.ms-4.ms-sm-5.ms-md-0.me-md-5
+						h5.text-md-end
+							span.bg-white.ps-md-3 Design &amp; Development
+							span.process-devider.border-end-0.start-0
+						p.mb-0.text-md-end.ps-lg-6(data-zanim-xs!={"from":{"opacity":0},"to":{"opacity":1},'duration': 1,"delay":0.3})  This is the main production phase where we build the functionalities of your product. Once created, your product must pass through our quality assurance phase before you are finally presented with the finished deliverable.
+
+					.process-icon-circle
+						img(src=`${CWD}assets/img/line-icons/web-programming.svg`, alt="").process-icon
+
+				.d-flex.process-item.border-dashed-start.border-600.pb-5(data-zanim-timeline!={} data-zanim-trigger="scroll")
+					.process-icon-circle
+						img(src=`${CWD}assets/img/line-icons/technical-support.svg`, alt="").process-icon
+					.flex-1.position-relative.ms-4.ms-sm-5
+						span.process-devider.border-start-0.end-0
+						h5.ls-2
+							span.bg-white.pe-3 Testing &amp; Fixing
+						p.mb-0.pe-lg-5(data-zanim-xs!={"from":{"opacity":0},"to":{"opacity":1},'duration': 1,"delay":0.2}) After building your product, we will review your product with our talented testing team. In these steps, we will test your product with different data set and conditions. Also, this phase is essential for fixing design and development issues.		
+
+				.d-flex.process-item(data-zanim-timeline!={} data-zanim-trigger="scroll")
+					.flex-1.position-relative.ms-4.ms-sm-5.ms-md-0.me-md-5
+						h5.text-md-end
+							span.bg-white.ps-md-3 LAUNCH &amp; GROW
+							span.process-devider.border-end-0.start-0
+						p.mb-0.text-md-end.ps-lg-5(data-zanim-xs!={"from":{"opacity":0},"to":{"opacity":1},'duration': 1,"delay":0.3})  The final step is where we launch your product to the production server. Here we consider components such as cloud architecture, performance, and cybersecurity if that is within that scope of your project. At this point, you are officially live!
+					.process-icon-circle
+						img(src=`${CWD}assets/img/line-icons/server.svg`, alt="").process-icon

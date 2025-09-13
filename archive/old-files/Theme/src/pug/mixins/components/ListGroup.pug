@@ -1,0 +1,88 @@
+mixin ListGroupBasic 
+	.col-xl-6.pe-xl-3
+		h5 Basic Example	
+		+ComponentCard
+			ul.list-group
+				li.list-group-item Cras justo odio
+				li.list-group-item Dapibus ac facilisis in
+				li.list-group-item Morbi leo risus
+				li.list-group-item Porta ac consectetur ac
+				li.list-group-item Vestibulum at eros
+
+mixin ListGroupActive
+	.col-xl-6.pe-xl-3
+		h5 ACtive Item
+		+ComponentCard
+			ul.list-group
+				li.list-group-item.active(aria-current='true') Cras justo odio
+				li.list-group-item Dapibus ac facilisis in
+				li.list-group-item Morbi leo risus
+				li.list-group-item Porta ac consectetur ac
+				li.list-group-item Vestibulum at eros
+
+mixin ListGroupFlush
+	.col-xl-6.pe-xl-3
+		h5.mt-4 List Group Flush		
+		+ComponentCard
+			ul.list-group.list-group-flus
+				li.list-group-item Cras justo odio
+				li.list-group-item Dapibus ac facilisis in
+				li.list-group-item Morbi leo risus
+				li.list-group-item Porta ac consectetur ac
+
+mixin ListGroupWithBadge
+	.col-xl-6.pe-xl-3
+		h5.mt-4 List Group Flush	
+		+ComponentCard
+			ul.list-group
+				li.list-group-item.d-flex.justify-content-between.align-items-center
+					| Cras justo odio
+					span.badge.bg-primary.rounded-pill 14
+				li.list-group-item.d-flex.justify-content-between.align-items-center
+					| Dapibus ac facilisis in
+					span.badge.bg-primary.rounded-pill 2
+				li.list-group-item.d-flex.justify-content-between.align-items-center
+					| Morbi leo risus
+					span.badge.bg-primary.rounded-pill 1
+				li.list-group-item.d-flex.justify-content-between.align-items-center
+					| Dapibus ac facilisis in
+					span.badge.bg-primary.rounded-pill 9	
+
+mixin ContextualClasses
+	.col-xl-6.pe-xl-3
+		h5.mt-4 Contextual Classes
+		+ComponentCard
+			ul.list-group
+				li.list-group-item A simple default list group item
+				li.list-group-item.list-group-item-primary A simple primary list group item
+				li.list-group-item.list-group-item-secondary A simple secondary list group item
+				li.list-group-item.list-group-item-success A simple success list group item
+				li.list-group-item.list-group-item-danger A simple danger list group item
+				li.list-group-item.list-group-item-warning A simple warning list group item
+				li.list-group-item.list-group-item-info A simple info list group item
+				li.list-group-item.list-group-item-light A simple light list group item
+				li.list-group-item.list-group-item-dark A simple dark list group item
+
+mixin CustomContent
+	.col-xl-6.pe-xl-3
+		h5.mt-4 Custom Content
+		+ComponentCard
+			.list-group
+				a.list-group-item.list-group-item-action.active(href='#' aria-current='true')
+					.d-flex.w-100.justify-content-between
+						h5.mb-1.text-white List group item heading
+						small 3 days ago
+					p.mb-1 Some placeholder content in a paragraph.
+					small And some small print.
+				a.list-group-item.list-group-item-action(href='#')
+					.d-flex.w-100.justify-content-between
+						h5.mb-1 List group item heading
+						small.text-muted 3 days ago
+					p.mb-1 Some placeholder content in a paragraph.
+					small.text-muted And some muted small print.
+				a.list-group-item.list-group-item-action(href='#')
+					.d-flex.w-100.justify-content-between
+						h5.mb-1 List group item heading
+						small.text-muted 3 days ago
+					p.mb-1 Some placeholder content in a paragraph.
+					small.text-muted And some muted small print.	

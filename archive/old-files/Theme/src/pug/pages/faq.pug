@@ -1,0 +1,13 @@
+extends ../layouts/LayoutTheme
+include ../mixins/headers/HeaderClassic
+include ../mixins/pages/Faq
+
+append variables
+
+prepend styles 
+
+prepend scripts 
+
+append mainContent
+	+HeaderClassic('FAQ')
+	+Faq

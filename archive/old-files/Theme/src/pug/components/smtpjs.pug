@@ -1,0 +1,17 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Smtpjs
+include ../mixins/common/ComponentLink
+
+prepend scripts 
+	script(src=`https://smtpjs.com/v3/smtp.js`)
+
+append variables 
+	- var pageTitle = 'Smtpjs';
+
+block component
+	+ComponentLink({
+		text:'For more detail see, ',
+		linkText: 'Smtpjs Documentation',
+		link: `https://smtpjs.com/`
+	})
+	+Smtpjs

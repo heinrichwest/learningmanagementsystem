@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Integration | TAP - Technical Assessment Portal</title>
+    <meta name="description" content="Complete shopping cart, payment processing, billing management, and transaction history for course purchases with secure e-commerce integration in TAP LMS.">
+    <meta name="keywords" content="e-commerce integration, shopping cart, payment processing, billing management, transaction history, course purchases, secure payments, TAP LMS">
+    <meta name="author" content="TAP Systems">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="E-Commerce Integration | TAP LMS">
+    <meta property="og:description" content="Complete e-commerce solution with shopping cart, payment processing, and billing management for course purchases.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="../Images/Logo.png">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="E-Commerce Integration | TAP LMS">
+    <meta name="twitter:description" content="Complete e-commerce solution with shopping cart and secure payment processing.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../Documents/tap-text-styles.css">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/images/logo/Logo.png">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "E-Commerce Integration - TAP LMS",
+        "url": "https://tap-lms.com/features/e-commerce-integration.html",
+        "description": "Complete shopping cart, payment processing, billing management, and transaction history for course purchases.",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "TAP - Technical Assessment Portal",
+            "url": "https://tap-lms.com"
+        },
+        "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://tap-lms.com"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Features",
+                    "item": "https://tap-lms.com/#features"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "E-Commerce Integration"
+                }
+            ]
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="../../index.html" class="nav-logo">
+                    <img src="../../assets/images/logo/Logo.png" alt="TAP Logo" width="40" height="40">
+                    <span>TAP</span>
+                </a>
+                
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="../index.html#features" class="nav-link">Features</a></li>
+                        <li class="nav-item"><a href="../index.html#solutions" class="nav-link">Solutions</a></li>
+                        <li class="nav-item"><a href="../index.html#courses" class="nav-link">Courses</a></li>
+                        <li class="nav-item"><a href="../index.html#academy" class="nav-link">Academy</a></li>
+                        <li class="nav-item"><a href="../index.html#pricing" class="nav-link">Pricing</a></li>
+                        <li class="nav-item"><a href="../index.html#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-actions">
+                    <a href="#login" class="btn btn-outline">Login</a>
+                    <a href="#signup" class="btn btn-primary">Get Started</a>
+                </div>
+                
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="hamburger"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Breadcrumb -->
+        <section class="breadcrumb">
+            <div class="container">
+                <nav aria-label="Breadcrumb">
+                    <ol class="breadcrumb-list">
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="../index.html#features">Features</a></li>
+                        <li aria-current="page">E-Commerce Integration</li>
+                    </ol>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Hero Section -->
+        <section class="feature-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <div class="feature-icon-large">
+                            <svg width="48" height="48" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V7h10v2z"/>
+                            </svg>
+                        </div>
+                        <h1>E-Commerce Integration</h1>
+                        <p class="lead">Complete shopping cart, payment processing, billing management, and transaction history for seamless course purchases with enterprise-grade security and multiple payment options.</p>
+                        <div class="hero-actions">
+                            <a href="#demo" class="btn btn-primary btn-large">Request Demo</a>
+                            <a href="#trial" class="btn btn-outline btn-large">Start Free Trial</a>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="ecommerce-interface">
+                            <div class="cart-preview">
+                                <div class="cart-header">
+                                    <div class="cart-title">Shopping Cart</div>
+                                    <div class="cart-count">3 items</div>
+                                </div>
+                                <div class="cart-items">
+                                    <div class="cart-item">
+                                        <div class="item-icon">📊</div>
+                                        <div class="item-details">
+                                            <div class="item-name">Data Analytics Fundamentals</div>
+                                            <div class="item-price">$199.00</div>
+                                        </div>
+                                    </div>
+                                    <div class="cart-item">
+                                        <div class="item-icon">💼</div>
+                                        <div class="item-details">
+                                            <div class="item-name">Leadership Mastery</div>
+                                            <div class="item-price">$149.00</div>
+                                        </div>
+                                    </div>
+                                    <div class="cart-item">
+                                        <div class="item-icon">🖥️</div>
+                                        <div class="item-details">
+                                            <div class="item-name">Excel Advanced</div>
+                                            <div class="item-price">$99.00</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cart-summary">
+                                    <div class="summary-line">
+                                        <span>Subtotal:</span>
+                                        <span>$447.00</span>
+                                    </div>
+                                    <div class="summary-line discount">
+                                        <span>Discount:</span>
+                                        <span>-$47.00</span>
+                                    </div>
+                                    <div class="summary-total">
+                                        <span>Total:</span>
+                                        <span>$400.00</span>
+                                    </div>
+                                </div>
+                                <div class="payment-methods">
+                                    <div class="payment-option">💳</div>
+                                    <div class="payment-option">🅿️</div>
+                                    <div class="payment-option">🍎</div>
+                                    <div class="payment-option">📱</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Overview -->
+        <section class="feature-overview">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Seamless Commerce Experience</h2>
+                    <p class="lead">Transform course purchasing with a complete e-commerce solution that handles everything from cart management to payment processing and beyond.</p>
+                </div>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M7 4V2C7 1.45 7.45 1 8 1h8c.55 0 1 .45 1 1v2h4c.55 0 1 .45 1 1s-.45 1-1 1H1c-.55 0-1-.45-1-1s.45-1 1-1h4zm2 0h6V3H9v1z"/>
+                            </svg>
+                        </div>
+                        <h3>Intelligent Shopping Cart</h3>
+                        <p>Advanced cart management with course bundling, discount codes, bulk purchasing options, and persistent cart storage across sessions.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                            </svg>
+                        </div>
+                        <h3>Secure Payment Processing</h3>
+                        <p>Enterprise-grade security with PCI DSS compliance, encrypted transactions, and support for multiple payment gateways and methods.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
+                            </svg>
+                        </div>
+                        <h3>Automated Billing</h3>
+                        <p>Comprehensive billing management with automated invoice generation, recurring payments, tax calculations, and financial reporting.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </div>
+                        <h3>Transaction Analytics</h3>
+                        <p>Detailed transaction history, sales analytics, revenue reporting, and financial insights to optimize your course pricing and sales strategy.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Payment Methods -->
+        <section class="payment-methods-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Multiple Payment Options</h2>
+                    <p class="lead">Accept payments from customers worldwide with support for all major payment methods and currencies.</p>
+                </div>
+                
+                <div class="payment-showcase">
+                    <div class="payment-category">
+                        <h3>Credit & Debit Cards</h3>
+                        <div class="payment-logos">
+                            <div class="payment-logo">
+                                <div class="logo-placeholder">VISA</div>
+                            </div>
+                            <div class="payment-logo">
+                                <div class="logo-placeholder">MC</div>
+                            </div>
+                            <div class="payment-logo">
+                                <div class="logo-placeholder">AMEX</div>
+                            </div>
+                            <div class="payment-logo">
+                                <div class="logo-placeholder">DISC</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-category">
+                        <h3>Digital Wallets</h3>
+                        <div class="payment-logos">
+                            <div class="payment-logo">
+                                <div class="logo-placeholder">PayPal</div>
+                            </div>
+                            <div class="payment-logo">
+                                <div class="logo-placeholder">Apple Pay</div>
+                            </div>
+                            <div class="payment-logo">
+                                <div class="logo-placeholder">Google Pay</div>
+                            </div>
+                            <div class="payment-logo">
+                                <div class="logo-placeholder">Samsung Pay</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-category">
+                        <h3>Alternative Methods</h3>
+                        <div class="payment-logos">
+                            <div class="payment-logo">
+                                <div class="logo-placeholder">Bank Transfer</div>
+                            </div>
+                            <div class="payment-logo">
+                                <div class="logo-placeholder">Cryptocurrency</div>
+                            </div>
+                            <div class="payment-logo">
+                                <div class="logo-placeholder">Buy Now Pay Later</div>
+                            </div>
+                            <div class="payment-logo">
+                                <div class="logo-placeholder">Corporate Billing</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Screenshots Section -->
+        <section class="feature-screenshots">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Streamlined Purchase Experience</h2>
+                    <p class="lead">Experience our intuitive e-commerce interface designed for optimal conversion and user satisfaction.</p>
+                </div>
+                
+                <div class="screenshots-grid">
+                    <div class="screenshot-placeholder">
+                        <div class="placeholder-content">
+                            <svg width="64" height="64" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                            </svg>
+                            <h3>Course Catalog Store</h3>
+                            <p>Browse and purchase courses with detailed descriptions, previews, and pricing options</p>
+                        </div>
+                    </div>
+                    
+                    <div class="screenshot-placeholder">
+                        <div class="placeholder-content">
+                            <svg width="64" height="64" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                            </svg>
+                            <h3>Checkout Process</h3>
+                            <p>Secure and streamlined checkout with multiple payment options and instant confirmation</p>
+                        </div>
+                    </div>
+                    
+                    <div class="screenshot-placeholder">
+                        <div class="placeholder-content">
+                            <svg width="64" height="64" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                            </svg>
+                            <h3>Order Management</h3>
+                            <p>Comprehensive order history, invoices, and purchase management dashboard</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Specifications -->
+        <section class="feature-specs">
+            <div class="container">
+                <div class="specs-content">
+                    <div class="specs-text">
+                        <h2>Enterprise E-Commerce Capabilities</h2>
+                        <p class="lead">Built with enterprise-grade security and scalability to handle high-volume transactions and complex billing scenarios.</p>
+                        
+                        <div class="specs-list">
+                            <div class="spec-category">
+                                <h3>Shopping Cart Features</h3>
+                                <ul>
+                                    <li>Persistent cart across sessions and devices</li>
+                                    <li>Course bundling and package deals</li>
+                                    <li>Dynamic pricing and discount codes</li>
+                                    <li>Bulk purchasing for organizations</li>
+                                    <li>Wishlist and save-for-later functionality</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="spec-category">
+                                <h3>Payment & Security</h3>
+                                <ul>
+                                    <li>PCI DSS Level 1 compliance</li>
+                                    <li>SSL encryption and fraud protection</li>
+                                    <li>Multiple payment gateway support</li>
+                                    <li>Recurring billing and subscriptions</li>
+                                    <li>Multi-currency support</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="spec-category">
+                                <h3>Billing & Reporting</h3>
+                                <ul>
+                                    <li>Automated invoice generation</li>
+                                    <li>Tax calculation and compliance</li>
+                                    <li>Financial reporting and analytics</li>
+                                    <li>Refund and chargeback management</li>
+                                    <li>Revenue tracking and forecasting</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="specs-visual">
+                        <div class="security-badges">
+                            <h4>Security & Compliance</h4>
+                            <div class="badge-item">
+                                <div class="badge-icon">🔒</div>
+                                <div class="badge-text">
+                                    <div class="badge-title">PCI DSS Compliant</div>
+                                    <div class="badge-desc">Level 1 Security</div>
+                                </div>
+                            </div>
+                            <div class="badge-item">
+                                <div class="badge-icon">🛡️</div>
+                                <div class="badge-text">
+                                    <div class="badge-title">SSL Encryption</div>
+                                    <div class="badge-desc">256-bit Security</div>
+                                </div>
+                            </div>
+                            <div class="badge-item">
+                                <div class="badge-icon">🔍</div>
+                                <div class="badge-text">
+                                    <div class="badge-title">Fraud Detection</div>
+                                    <div class="badge-desc">AI-Powered</div>
+                                </div>
+                            </div>
+                            <div class="badge-item">
+                                <div class="badge-icon">💳</div>
+                                <div class="badge-text">
+                                    <div class="badge-title">Payment Gateway</div>
+                                    <div class="badge-desc">Multiple Options</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Features -->
+        <section class="related-features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Related Features</h2>
+                    <p class="lead">Enhance your e-commerce experience with these complementary TAP platform features.</p>
+                </div>
+                
+                <div class="related-grid">
+                    <div class="related-card">
+                        <div class="related-icon">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                            </svg>
+                        </div>
+                        <h3>Academy Learning System</h3>
+                        <p>Seamlessly purchase and access 300+ courses with instant enrollment after payment completion.</p>
+                        <a href="academy-learning-system.html" class="btn btn-outline btn-small">Learn More</a>
+                    </div>
+                    
+                    <div class="related-card">
+                        <div class="related-icon">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                            </svg>
+                        </div>
+                        <h3>Interactive Dashboards</h3>
+                        <p>Monitor sales performance, revenue trends, and customer purchasing patterns with comprehensive analytics.</p>
+                        <a href="interactive-dashboards.html" class="btn btn-outline btn-small">Learn More</a>
+                    </div>
+                    
+                    <div class="related-card">
+                        <div class="related-icon">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                            </svg>
+                        </div>
+                        <h3>White Labeling</h3>
+                        <p>Customize the e-commerce experience with your brand colors, logos, and payment page designs.</p>
+                        <a href="white-labeling.html" class="btn btn-outline btn-small">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="feature-cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Start Selling Courses?</h2>
+                    <p>Launch your e-commerce platform with enterprise-grade security, multiple payment options, and comprehensive analytics.</p>
+                    <div class="cta-actions">
+                        <a href="#demo" class="btn btn-primary btn-large">Schedule Demo</a>
+                        <a href="#trial" class="btn btn-outline btn-large">Start Free Trial</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="../../index.html" class="footer-logo">
+                        <img src="../../assets/images/logo/Logo.png" alt="TAP Logo" width="32" height="32">
+                        <span>TAP</span>
+                    </a>
+                    <p>Technical Assessment Portal - Transforming organizations through advanced learning management and workforce analytics.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Features</h4>
+                        <ul>
+                            <li><a href="interactive-dashboards.html">Interactive Dashboards</a></li>
+                            <li><a href="employment-equity-management.html">Employment Equity</a></li>
+                            <li><a href="academy-learning-system.html">Academy System</a></li>
+                            <li><a href="team-management.html">Team Management</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Solutions</h4>
+                        <ul>
+                            <li><a href="../index.html#solutions">Corporate Training</a></li>
+                            <li><a href="../index.html#solutions">Employment Equity</a></li>
+                            <li><a href="../index.html#solutions">Education</a></li>
+                            <li><a href="../index.html#solutions">Compliance</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="#help">Documentation</a></li>
+                            <li><a href="#support">Support</a></li>
+                            <li><a href="#api">API</a></li>
+                            <li><a href="#status">Status</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#careers">Careers</a></li>
+                            <li><a href="#privacy">Privacy Policy</a></li>
+                            <li><a href="#terms">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 TAP Systems. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#twitter" aria-label="Twitter">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                        </svg>
+                    </a>
+                    <a href="#linkedin" aria-label="LinkedIn">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                            <rect x="2" y="9" width="4" height="12"/>
+                            <circle cx="4" cy="4" r="2"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/script.js"></script>
+</body>
+</html>

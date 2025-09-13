@@ -1,0 +1,17 @@
+extends ../layouts/LayoutTheme
+include ../mixins/headers/HeaderClassic
+
+append variables
+  - var Navbar = true;
+
+append variables 
+  
+append mainContent
+  +HeaderClassic('Starter')
+  +Section.text-center(data-zanim-timeline!={} data-zanim-trigger='scroll')
+    .overflow-hidden
+      h3.fw-normal.mb-1(data-zanim-xs!={'duration': 1.5, 'delay': 0}) It's empty here!
+    .overflow-hidden
+      p.text-uppercase(data-zanim-xs!={'duration': 1.5, 'delay': 0.1}) Create Something new
+    div(data-zanim-xs!={"from":{"opacity":0,"y":30},"to":{"opacity":1,"y":0},"duration":1.5,"delay":0.3})
+      a(href="#!").btn.btn-dark.btn-sm.hvr-sweep-top Edit Me

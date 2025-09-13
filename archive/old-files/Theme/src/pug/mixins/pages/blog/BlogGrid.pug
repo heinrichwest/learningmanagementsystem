@@ -1,0 +1,68 @@
+mixin BlogGrid(title)
+	+Section&attributes(attributes)#blog
+		if title
+			.row
+				.col.text-center.mb-4(data-zanim-timeline!={} data-zanim-trigger='scroll')
+					.overflow-hidden
+						h2.fs-md-5(data-zanim-xs!={'duration': 1.5, 'delay': 0}) From the blog
+					.overflow-hidden
+						p.fs--1.text-uppercase.text-black.ls-1.mb-0(data-zanim-xs!={'duration': 1.5, 'delay': 0.1}) Awesome articles from the blog
+					.overflow-hidden
+						hr.hr-short.bg-black(data-zanim-xs!={'duration': 1.5, 'delay': 0.2})
+		.row
+			+BlogItem({
+				img: 1,
+				title: '23 Top HTML Landing Page Templates 2019.',
+				avatar: 1,
+				author: 'Kit Harington',
+				date: '6 Feb, 2019',
+				comment: 86,
+				description: 'Landing pages are the essential part of an online marketing campaign. A landing page is a page where a visitor comes to a ...'
+			}).mb-4
+			+BlogItem({
+				img: 2,
+				title: 'Testing Working Robots at the Canadian Agency.',
+				avatar: 2,
+				author: 'Emilla Clarke',
+				date: '4 Feb, 2019',
+				comment: 45,
+				description: 'Burgas was the first city in Bulgaria funded by the European Union on the program called “Regional development 2019 ...'
+				}).mb-4
+			+BlogItem({
+				img: 3,
+				title: 'Why does every website need to be accessible?',
+				avatar: 7,
+				author: 'Alfie Allen',
+				date: '1 Feb, 2019',
+				comment: 73,
+				description: 'Maybe I should introduce myself first to give my words that bit of credibility a self-published article on the internet can have ...'
+				}).mb-4
+			+BlogItem({
+				img: 4,
+				title: 'We Are Figuring Out How to Make Google Sweat?',
+				avatar: 4,
+				author: 'Peter Parker',
+				date: '25 Jan, 2019',
+				comment: 43,
+				description: 'The Wild West era may be drawing to a close for tech corporations like Facebook and Google. New scrutiny from New York ...'
+				}).mb-4.mb-md-0
+			+BlogItem({
+				img: 5,
+				title: 'I Don’t Care What Marie Kondo Thinks of My Space.',
+				avatar: 5,
+				author: 'John Bradley',
+				date: '17 Jan, 2019',
+				comment: 13,
+				description: 'Staring out from behind my laptop perched atop a small table in the middle of my studio apartment, I can show you where ...'
+				}).mb-4.mb-md-0
+			+BlogItem({
+				img: 6,
+				title: 'What Your Microbiome Really Needs Is Fiber!',
+				avatar: 6,
+				author: 'Peter Jackson',
+				date: '1 Jan, 2019',
+				comment: 13,
+				description: 'In recent years, we’ve begun to learn that most everything we eat — from probiotic yogurt to a serving of asparagus to a pork ...'
+				})
+		.text-center
+			a(href="#!").btn.btn-sm.btn-outline-dark.hvr-sweep-top.mt-5 Load More

@@ -1,0 +1,8 @@
+mixin NavbarDocs
+  ul#components-nav.components-nav.list-unstyled
+    li
+      h4.text-uppercase Components
+    each value, index in sitemap[3].pages
+      li
+        a(href=`${CWD}${value.path}.html` class=pathName === value.path ? 'text-black' : '') 
+          =value.name

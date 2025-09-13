@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Implementing and Maintaining Information Systems | TAP</title>
+
+    <!-- Favicons & Theme CSS (match homepage) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../archive/old-files/Theme/public/assets/img/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../archive/old-files/Theme/public/assets/img/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../archive/old-files/Theme/public/assets/img/favicons/favicon-16x16.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../../archive/old-files/Theme/public/assets/img/favicons/favicon.ico" />
+    <link rel="manifest" href="../../../archive/old-files/Theme/public/assets/img/favicons/manifest.json" />
+    <meta name="msapplication-TileImage" content="../../../archive/old-files/Theme/public/assets/img/favicons/mstile-150x150.png" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <script src="../../../archive/old-files/Theme/public/vendors/overlayscrollbars/OverlayScrollbars.min.js"></script>
+    <link href="../../../archive/old-files/Theme/public/vendors/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <link href="../../../archive/old-files/Theme/public/assets/css/theme.css" rel="stylesheet" />
+    <link href="../../../assets/css/white-navbar.css" rel="stylesheet" />
+
+    <style>
+      /* Lightweight styles specific to the course template */
+      .course-header-title { color: #fff; white-space: nowrap; }
+      .course-meta { color: #e5e7eb; font-size: 0.95rem; }
+      .accordion { max-width: 920px; margin: 0 auto; }
+      .accordion-item { border: 1px solid rgba(0,0,0,0.1); border-radius: 10px; margin-bottom: 12px; background: #fff; }
+      .accordion-header { cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 16px 18px; }
+      .accordion-title { margin: 0; font-size: 1rem; color: #111827; }
+      .accordion-toggle { color: #6b7280; transition: transform 0.2s ease; }
+      .accordion-content { display: none; padding: 0 18px 14px 18px; }
+      .accordion-content ul { margin: 0; padding-left: 1.1rem; }
+      .accordion-content li { margin: 6px 0; color: #4b5563; }
+      .accordion-item.open .accordion-content { display: block; }
+      .accordion-item.open .accordion-toggle { transform: rotate(45deg); }
+      .badge { display: inline-block; font-size: .75rem; padding: .25rem .5rem; border-radius: .5rem; background: #111827; color: #fff; margin-right: .35rem; }
+    </style>
+    <style>/* collapse hero bottom spacing */ .py-8.py-md-10.text-center{padding-bottom:0!important} .py-8.py-md-10.text-center+section.py-6{padding-top:0!important;margin-top:0!important} .py-8.py-md-10.text-center+section.py-6>*:first-child{margin-top:0!important}</style>
+
+    
+    <style>
+      .course-banner { display: flex; align-items: center; min-height: 200px; }
+    </style>
+</head>
+  <body>
+    <!-- Header (copied structure from homepage) -->
+    <nav class="navbar navbar-expand-lg navbar-light navbar-theme fixed-top" data-navbar-on-scroll="data-navbar-on-scroll">
+      <div class="container">
+        <a class="navbar-brand fw-normal ls-2" href="../../../index.html"><img src="../../../assets/images/logo/Logo.png" alt="TAP Logo" width="40" height="40" /></a>
+        <button class="navbar-toggler p-0" type="button" data-bs-toggle="collapse" data-bs-target="#primaryNavbarCollapse" aria-controls="primaryNavbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="primaryNavbarCollapse">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" href="#" data-bs-toggle="dropdown-on-hover" aria-haspopup="true" aria-expanded="false"><span class="nav-link-text">Features</span></a>
+              <div class="dropdown-menu dropdown-menu-end py-0 overflow-hidden" aria-labelledby="navbarDropdownMenuLink1">
+                <a class="dropdown-item" href="../../../pages/features/300-courses.html">300 Courses</a>
+                <a class="dropdown-item" href="../../../pages/features/dashboard-reporting.html">Dashboard reporting</a>
+                <a class="dropdown-item" href="../../../pages/features/course-management-and-creations.html">Course management and creations</a>
+                <a class="dropdown-item" href="../../../pages/features/employment-equity-system.html">Employment Equity System</a>
+                <a class="dropdown-item" href="../../../pages/features/work-based-assessments.html">Work Based Assessments</a>
+                <a class="dropdown-item" href="../../../pages/features/while-labelling.html">While Labelling</a>
+                <a class="dropdown-item" href="../../../pages/features/team-management.html">Team Management</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink2" href="#" data-bs-toggle="dropdown-on-hover" aria-haspopup="true" aria-expanded="false"><span class="nav-link-text">Courses</span></a>
+              <div class="dropdown-menu dropdown-menu-end dropdown-pages py-3" aria-labelledby="navbarDropdownMenuLink2">
+                <div class="row">
+                  <div class="col-6 col-md-4 px-2">
+                    <ul class="nav flex-column">
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="../../../pages/courses/categories/administration-and-office-skills.html">Administration and Office Skills</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="../../../pages/courses/categories/assessments-and-skills-testing.html">Assessments and Skills Testing</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="../../../pages/courses/categories/business-analysis-and-data-skills.html">Business Analysis and Data Skills</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="../../../pages/courses/categories/communication-and-interpersonal-skills.html">Communication and Interpersonal Skills</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="../../../pages/courses/categories/compliance-law-and-governance.html">Compliance, Law and Governance</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="../../../pages/courses/categories/health-and-safety-compliance.html">Health and Safety Compliance</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-6 col-md-4 px-2">
+                    <ul class="nav flex-column">
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="../../../pages/courses/categories/personal-development.html">Personal Development</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="../../../pages/courses/categories/computer-and-digital-skills.html">Computer and Digital Skills</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="../../../pages/courses/categories/customer-service-and-contact-centre.html">Customer Service and Contact Centre</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="../../../pages/courses/categories/finance-and-accounting.html">Finance and Accounting</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="../../../pages/courses/categories/entrepreneurship-and-new-ventures.html">Entrepreneurship and New Ventures</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="../../../pages/courses/categories/human-resources-and-people-management.html">Human Resources and People Management</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-6 col-md-4 px-2">
+                    <ul class="nav flex-column">
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="../../../pages/courses/categories/information-technology.html">Information Technology</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="../../../pages/courses/categories/leadership-and-management.html">Leadership and Management</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="../../../pages/courses/categories/project-management.html">Project Management</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="../../../pages/courses/categories/retail-sales-and-marketing.html">Retail, Sales and Marketing</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="../../../pages/courses/categories/automotive-industry.html">Automotive Industry</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="../../../pages/courses/categories/security-and-risk-management.html">Security and Risk Management</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="../../../pages/courses/categories/supply-chain-and-logistics.html">Supply Chain and Logistics</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="../../../pages/about.html"><span class="nav-link-text">About us</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="../../../index.html#pricing"><span class="nav-link-text">Pricing</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="../../../index.html#testimonial"><span class="nav-link-text">Success Stories</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="../../../index.html#contact"><span class="nav-link-text">Contact us</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="main" id="top">
+      <!-- Hero with video (match homepage pattern) -->
+      <section class="py-8 py-md-10 d-flex align-items-center">
+        <div class="bg-holder" style="background-image:url(../../../archive/old-files/Theme/public/assets/img/headers/header-12.jpg);background-position: 63% 50%;"></div>
+        <div class="container course-banner">
+          <div class="row justify-content-center" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+            <div class="col-lg-8">
+              <div class="row justify-content-center">
+                <div class="col-lg-8 col-xl-6">
+                  <h1 class="course-header-title mb-0 fs-3 lh-1 text-center">Implementing and Maintaining Information Systems</h1>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Course information as collapsible (Features-like block) -->
+      <section class="py-6">
+        <div class="container">
+          <div class="row text-center mb-4" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+            <div class="col">
+              <div class="overflow-hidden">
+                <h2 class="fs-sm-5 mb-2">Course Information</h2>
+              </div>
+              <div class="overflow-hidden"><hr class="hr-short bg-black" /></div>
+              <p class="text-700 mb-0">People credited with this unit standard are able to describe and participate in the study, acquisition, implementation and maintenance information systems in an accounting environment.</p>
+              <div class="mt-2">
+                <span class="badge">Level: All Levels</span>
+                <span class="badge">Duration: 4h 40m</span>
+                <span class="badge">Mode: Online</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion" id="course-outline">
+            <div class="accordion-item">
+              <div class="accordion-header" onclick="toggleItem(this)">
+                <h3 class="accordion-title">Unit 1:  Describe the basic concepts of information systems</h3>
+                <span class="accordion-toggle">+</span>
+              </div>
+              <div class="accordion-content">
+                <ul>
+                <li>The concepts of &quot;systems&quot; and &quot;systems thinking&quot; are explained and the types of systems (e.g.</li>
+                <li>stable</li>
+                <li>simple</li>
+                <li>open</li>
+                <li>closed) are named</li>
+                <li>The common characteristics of systems (e.g.</li>
+                <li>subsystems</li>
+                <li>system boundaries</li>
+                <li>redundancy</li>
+                <li>entropy) are named and illustrated</li>
+                <li>The elements of a control/feedback system and the function of each element (e.g.</li>
+                <li>input</li>
+                <li>process</li>
+                <li>output</li>
+                <li>sensor</li>
+                <li>criteria</li>
+                <li>activator) are described</li>
+                <li>The nature</li>
+                <li>types</li>
+                <li>sources and characteristics of information are compared</li>
+                <li>The relationship between data and information are described</li>
+                <li>The uses</li>
+                <li>significance and competitive advantage of information are defined</li>
+                <li>The characteristics of each category of the system which can be identified by who in an organisation uses the output from the system (e.g.</li>
+                <li>transaction processing</li>
+                <li>MIS) are described</li>
+                <li>The characteristics of each category of the system which can be identified by where and when the processing is done (e.g.</li>
+                <li>batch</li>
+                <li>on-line</li>
+                <li>centralised</li>
+                <li>distributed</li>
+                <li>client-server) are described</li>
+                <li>The phases in the systems development life cycle and the deliverables from each phase are described and the roles and responsibilities of the people involved in developing or maintaining systems.</li>
+                <li>The diagrammatic representation of systems (e.g.</li>
+                <li>data flow</li>
+                <li>diagrams</li>
+                <li>hierarchical charts) is explained.</li>
+                <li>An individual&#39;s right to privacy and the possible conflicts between these rights and the use of information systems (e.g.</li>
+                <li>unwanted consequences of sharing information (junk mail) are described</li>
+                </ul>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header" onclick="toggleItem(this)">
+                <h3 class="accordion-title">Unit 2:  Identify basic issues that determine the way computer-based information systems are implemented</h3>
+                <span class="accordion-toggle">+</span>
+              </div>
+              <div class="accordion-content">
+                <ul>
+                <li>The opportunities</li>
+                <li>advantages and risks of using computers in business are discussed.</li>
+                <li>The advantages and disadvantages of purchasing versus developing application software are contrasted</li>
+                <li>The methods</li>
+                <li>advantages and disadvantages of developing an information system (e.g.</li>
+                <li>end-user computing</li>
+                <li>in-house development</li>
+                <li>prototyping</li>
+                <li>application development tools) are described.</li>
+                <li>The procedures for determining the advantages and disadvantages of using software houses/bureaus to develop information systems (e.g.</li>
+                <li>a request for quotation) are described.</li>
+                <li>The changing role of the user in systems implementation (e.g.</li>
+                <li>from a passive spectator to end-user computing and joint application development sessions) is described.</li>
+                <li>The impact of computer/information technology on society (e.g.</li>
+                <li>ethics</li>
+                <li>privacy</li>
+                <li>property rights/intellectual property) is described.</li>
+                <li>The impact of computers/information technology on organisations and the work environments (e.g.</li>
+                <li>change of culture</li>
+                <li>computer crime</li>
+                <li>human error and computer malfunction</li>
+                <li>quality of work life) is described.</li>
+                <li>The impact of computers/information technology on information systems (e.g.</li>
+                <li>increased value of information</li>
+                <li>risks</li>
+                <li>controls) is described.</li>
+                <li>The impact of computers/information technology on current legislation (e.g.</li>
+                <li>copyright and privacy laws) is described.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header" onclick="toggleItem(this)">
+                <h3 class="accordion-title">Unit 3:  Participate in conducting feasibility studies</h3>
+                <span class="accordion-toggle">+</span>
+              </div>
+              <div class="accordion-content">
+                <ul>
+                <li>The categories of systems feasibility (e.g.</li>
+                <li>technical</li>
+                <li>economic</li>
+                <li>operational</li>
+                <li>schedule</li>
+                <li>legal) are named.</li>
+                <li>Cost/benefit analyses of information systems are prepared.</li>
+                <li>Using common techniques to make system selection evaluations (e.g.</li>
+                <li>bench-mark tests</li>
+                <li>volume sizing</li>
+                <li>systems sizing) are assisted.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header" onclick="toggleItem(this)">
+                <h3 class="accordion-title">Unit 4:  Specify user information systems requirements</h3>
+                <span class="accordion-toggle">+</span>
+              </div>
+              <div class="accordion-content">
+                <ul>
+                <li>The functions of</li>
+                <li>and information required from a system which is to be implemented are specified.</li>
+                <li>The characteristics required of the system which is to be implemented (e.g.</li>
+                <li>availability</li>
+                <li>maintainability</li>
+                <li>usability) are suggested.</li>
+                <li>The appropriate person-machine interfaces of the system are specified.</li>
+                <li>The corporate information required for the company&#39;s database which the system must provide is identified.</li>
+                <li>The systems control requirements enabling the system to be audited (e.g.</li>
+                <li>audit trail</li>
+                <li>levels/types of security) are suggested.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header" onclick="toggleItem(this)">
+                <h3 class="accordion-title">Unit 5:  Contribute to the implementation of information systems</h3>
+                <span class="accordion-toggle">+</span>
+              </div>
+              <div class="accordion-content">
+                <ul>
+                <li>Project team contribution in system implementation is conducted in a participative manner</li>
+                <li>End-user computing facilities (associated with an information centre) are utilised to implement systems</li>
+                <li>The types of testing and the goal of each type</li>
+                <li>which should be concluded before a system is installed is described</li>
+                <li>Appropriate test data and test procedures which should be performed successfully before the user accepts a system are identified</li>
+                <li>The steps in installing information systems</li>
+                <li>and who is responsible for each step (e.g.</li>
+                <li>hardware acquisition</li>
+                <li>staff training</li>
+                <li>site preparation) are named</li>
+                <li>The advantages and disadvantages of the types of systems conversion/methods of changeover (e.g.</li>
+                <li>direct conversion</li>
+                <li>phased conversion</li>
+                <li>parallel conversion</li>
+                <li>pilot conversion) are named</li>
+                </ul>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header" onclick="toggleItem(this)">
+                <h3 class="accordion-title">Unit 6:  Conduct post-implementation reviews of information systems</h3>
+                <span class="accordion-toggle">+</span>
+              </div>
+              <div class="accordion-content">
+                <ul>
+                <li>Appropriate timeframes to follow different types of post-implementation review procedures (e.g.</li>
+                <li>event-driven reviews</li>
+                <li>time-driven reviews) are determined</li>
+                <li>The factors which must be considered during a post-implementation review (e.g.</li>
+                <li>link between organization&#39;s mission and the system</li>
+                <li>system&#39;s performance</li>
+                <li>implementation costs) are named</li>
+                <li>The actual performance of all system components with their expected performance (e.g.</li>
+                <li>hardware</li>
+                <li>software</li>
+                <li>networks</li>
+                <li>procedures</li>
+                <li>personnel) are compared</li>
+                <li>The success of the system (e.g.</li>
+                <li>extent to which documented user requirements met) is measured</li>
+                <li>A system&#39;s benefits and costs are determined</li>
+                </ul>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header" onclick="toggleItem(this)">
+                <h3 class="accordion-title">Unit 7:  Identify types of system maintenance and describe techniques for maintaining and upgrading systems</h3>
+                <span class="accordion-toggle">+</span>
+              </div>
+              <div class="accordion-content">
+                <ul>
+                <li>The causes of changes which may need to be made to installed systems (e.g.</li>
+                <li>new user request</li>
+                <li>technical enhancements</li>
+                <li>errors in design) are named</li>
+                <li>The types of maintenance</li>
+                <li>and when each type is appropriate (e.g.</li>
+                <li>patch</li>
+                <li>release) are identified and described</li>
+                <li>The relationship between maintenance and design (e.g.</li>
+                <li>good design</li>
+                <li>less expensive maintenance) is defined</li>
+                <li>The financial implication of maintenance (e.g.</li>
+                <li>increase in system&#39;s age increases maintenance costs) is determined and described</li>
+                </ul>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header" onclick="toggleItem(this)">
+                <h3 class="accordion-title">Unit 8:  Establish and evaluate procedure for acquiring information system components</h3>
+                <span class="accordion-toggle">+</span>
+              </div>
+              <div class="accordion-content">
+                <ul>
+                <li>The advantages and disadvantages of purchasing</li>
+                <li>leasing</li>
+                <li>or renting hardware are named</li>
+                <li>The advantages and disadvantages of building or buying application software are named</li>
+                <li>The steps which should be followed when selecting system components (e.g.</li>
+                <li>document user requirements</li>
+                <li>document request for proposal</li>
+                <li>select appropriate software</li>
+                <li>evaluate possible hardware options) are described</li>
+                <li>The factors which should be considered when selecting application software (e.g.</li>
+                <li>functionality</li>
+                <li>quality cost</li>
+                <li>vendor support</li>
+                <li>hardware platform required) are listed</li>
+                <li>The factors which should be considered when evaluating hardware options (e.g.</li>
+                <li>performance</li>
+                <li>cost</li>
+                <li>vendor support) are listed</li>
+                <li>The factors to consider when selecting a vendor (e.g.</li>
+                <li>financial availability</li>
+                <li>quality of after-sales service</li>
+                <li>extent of user training offered) are listed</li>
+                </ul>
+              </div>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+          </div></section>
+    </main>
+
+    <script>
+      function toggleItem(el){
+        var item = el.parentElement;
+        item.classList.toggle('open');
+      }
+    </script>
+    <script src="../../../archive/old-files/Theme/public/vendors/overlayscrollbars/OverlayScrollbars.min.js"></script>
+    <script src="../../../archive/old-files/Theme/public/vendors/popper/popper.min.js"></script>
+    <script src="../../../archive/old-files/Theme/public/vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="../../../archive/old-files/Theme/public/vendors/anchorjs/anchor.min.js"></script>
+    <script src="../../../archive/old-files/Theme/public/vendors/is/is.min.js"></script>
+    <script src="../../../archive/old-files/Theme/public/vendors/bigpicture/BigPicture.js"></script>
+    <script src="../../../archive/old-files/Theme/public/vendors/countup/countUp.umd.js"></script>
+    <script src="../../../archive/old-files/Theme/public/vendors/progressbar/progressbar.min.js"></script>
+    <script src="../../../archive/old-files/Theme/public/vendors/hover-dir/hoverDir.min.js"></script>
+    <script src="../../../archive/old-files/Theme/public/vendors/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="../../../archive/old-files/Theme/public/vendors/isotope-packery/packery-mode.pkgd.min.js"></script>
+    <script src="../../../archive/old-files/Theme/public/vendors/swiper/swiper-bundle.min.js"></script>
+    <script src="../../../archive/old-files/Theme/public/vendors/fontawesome/all.min.js"></script>
+    <script src="../../../archive/old-files/Theme/public/vendors/lodash/lodash.min.js"></script>
+    <script src="../../../archive/old-files/Theme/public/vendors/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../archive/old-files/Theme/public/vendors/gsap/gsap.js"></script>
+    <script src="../../../archive/old-files/Theme/public/vendors/gsap/customEase.js"></script>
+    <script src="../../../archive/old-files/Theme/public/assets/js/theme.js"></script>
+    <script src="../../../assets/js/reorder-units.js"></script>
+  </body>
+</html>
+
+

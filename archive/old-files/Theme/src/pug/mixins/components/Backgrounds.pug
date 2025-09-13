@@ -1,0 +1,93 @@
+mixin ImageBackground 
+  h5 Image Background
+  +ComponentCard
+    .position-relative.py-6.py-lg-8
+      +Background({image: `${CWD}assets/img/gallery/g2.jpg`, className: 'rounded overlay overlay-0'})
+      .position-relative.text-center
+        h4.text-white Image Background
+
+mixin ParallaxBackgrounds 
+  h5.mt-4.mb-1 Parallax Backgrounds
+  p
+    | Use 
+    code .parallax 
+    | class with 
+    code .bg-holder
+    |  class and 
+    code .has-parallax
+    |  to it's parent for effect.
+
+  +ComponentCard
+    section.overflow-hidden.rounded.has-parallax
+      .bg-holder.overlay.overlay-2.parallax.rounded(style='background-image:url(../assets/img/gallery/g3.jpg);' data-parallax data-rellax-speed="1") 
+      .text-center.position-relative
+        h5.text-white Image Background Parallax
+
+mixin VideoBackgrounds    
+  h5.mt-4 HTML5 Video Background
+  +ComponentCard
+    section.py-0
+      .bg-holder.overlay.rounded(style=`background-image:url(${CWD}assets/img/headers/header-coming-soon.png);`)
+        video.bg-video(autoplay='autoplay', loop='loop', muted='muted')
+          source(src=`${CWD}assets/video/shoes.mp4`, type='video/mp4')
+      .position-relative.vh-50.d-flex.flex-center
+        h4.text-white Video Background
+
+mixin YoutubeVideo 
+  h5.mt-4.mb-1 Youtube video
+  +ComponentCard
+    section.py-0
+      +Background({
+        image: `${CWD}assets/img/headers/header-12.jpg`,
+        youtube: {
+          videoId:'BYK1bkSO61c', 
+          startSeconds: 7, 
+          endSeconds: 58, 
+        },
+      })
+      .position-relative.vh-25.d-flex.flex-center
+        h4.text-white Youtube Video Background
+
+mixin ShadesOverlay 
+  h5.mt-4.mb-1 Shades of overlay
+  p
+    | Use following classess with 
+    code .overlay
+    |  class for different shades.
+  .row
+    .col-lg-6
+      +ComponentCard
+        section.text-center.py-7
+          +Background({image: `${CWD}assets/img/headers/header-1.jpg`, className: 'overlay'})
+          .position-relative.text-center
+            h5.text-white Image Background
+            p.text-white.fs-1 (.overlay)
+    .col-lg-6.mt-4.mt-lg-0
+      +ComponentCard
+        section.text-center.py-7
+          +Background({image: `${CWD}assets/img/headers/header-2.jpg`, className: 'overlay overlay-0 rounded'})
+          .position-relative.text-center
+            h5.text-white Image Background
+            p.text-white.fs-1 (.overlay-0)
+
+    .col-lg-6.mt-4
+      +ComponentCard
+        section.text-center.py-7
+          +Background({image: `${CWD}assets/img/headers/header-3.jpg`, className: 'overlay overlay-1 rounded'})
+          .position-relative.text-center
+            h5.text-white Image Background
+            p.text-white.fs-1 (.overlay-1)
+    .col-lg-6.mt-4
+      +ComponentCard
+        section.py-3
+          +Background({
+            image: `${CWD}assets/img/headers/header-12.jpg`,
+            youtube: {
+              videoId:'BYK1bkSO61c', 
+              startSeconds: 7, 
+              endSeconds: 58, 
+            },
+          })
+          .position-relative.vh-25.d-flex.flex-center.flex-column
+            h5.text-white Youtube Background
+            p.text-white.fs-1 (.overlay-2)

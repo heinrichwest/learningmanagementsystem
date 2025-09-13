@@ -1,0 +1,30 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Typography
+include ../mixins/common/ComponentLink
+
+append variables 
+  - var pageTitle = 'Typography';
+
+block component
+  +ComponentLink({
+		text:'For detail documentation. ',
+		linkText: 'View Typography on Bootstrap',
+		link: `https://getbootstrap.com/docs/${bootstrapVersion}/content/typography/`
+	})
+  +TypographyFontFamily
+  +TypographyHeading
+  +TypographyParagraph
+  +TypographyFontWeights
+  +TypographyFontColors
+  +TypographyFontsSizes
+  +TypographyDisplayHeadings
+  .row
+    +TypographyAlignment
+    +TypographyTransformation
+    +Blockquotes
+    +TypographyInlineStyles
+    +UnorderList
+    +OrderList
+    +UnStyledList
+    +CheckmarkedList
+  

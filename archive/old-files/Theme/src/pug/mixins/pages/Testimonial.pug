@@ -1,0 +1,68 @@
+mixin TestimonialContent(config)
+	.item.px-2(data-avatar=`${CWD}assets/img/team/${config.img}.jpg`)
+		p.text-white.font-base.mt-4.mt-md-0!=config.description
+		.row.g-0.justify-content-between.align-items-end
+			.col-12.col-md.mb-3.mb-md-0
+				h4.text-white.fw-normal.mb-0.fs-1.ls-1!=config.name
+				p.fs--1.text-uppercase.text-500.mb-0.ls-2=config.designation
+			.col-12.col-md-4.text-center.text-md-end
+				img(src=`${CWD}assets/img/logo/b&w/${config.company}.png`, alt="").testimonial-company-logo
+
+mixin Testimonial
+	+Section({
+		image: `${CWD}assets/img/backgrounds/testimonial.jpg`,
+		className: "overlay overlay-0",
+	}).testimonial
+		.row.justify-content-center
+			.col-12.mb-4.text-center(data-zanim-timeline!={} data-zanim-trigger='scroll')
+				.overflow-hidden
+					h2.fs-md-5.text-white.mb-2(data-zanim-xs!={'duration':1.5, 'delay': 0}) Client's testimonial
+				.overflow-hidden
+					p.fs--1.text-uppercase.text-white.ls-1.mb-0(data-zanim-xs!={'duration':1.5, 'delay': 0.1}) see what our top valuable clients say about us
+				.overflow-hidden
+					hr.hr-short.bg-white(data-zanim-xs!={'duration':1.5, 'delay': 0.2})
+			.col-sm-10.col-lg-8.text-center.text-md-start.px-sm-0
+				.border.rounded.px-3.px-sm-4.px-md-6.py-5.mt-5
+					.testimonial-quote
+					.rounded-circle.testimonial-avatar
+					.swiper-testimonial-container
+						.swiper-nav.d-none.d-lg-block
+							.swiper-button-prev
+							.swiper-button-next
+						.swiper.testimonial-slider(data-swiper!={
+							navigation: {
+								nextEl:".swiper-testimonial-container .swiper-button-next",
+								prevEl:".swiper-testimonial-container .swiper-button-prev",
+							},
+							spaceBetween: 5,
+							loop: true,
+							loopedSlides: 5,
+							slideToClickedSlide: true,
+						})
+							.swiper-wrapper
+								.swiper-slide
+									+TestimonialContent({
+										img: '9', 
+										description: ` ${name} superbly blends all the best elements. It offers the power of bootstrap with useful blocks and extensions. It also includes the most elegant typographic features and unique sections which makes our developers incredibly happy.`, 
+										name: "Peter Gregory", 
+										designation: "CEO & Founder", 
+										company: 1
+									})
+									
+								.swiper-slide  
+									+TestimonialContent({
+										img: '10', 
+										description: `${name} template is an indispensable collection of powerful tools to do just that. I’m a long-time customer of ${name} template and highly recommend it to anyone who is serious about to grow his/her company through web all over the world.`, 
+										name: "Lily Rose", 
+										designation: "Customer Support",
+										company: 7
+									})
+								.swiper-slide  
+									+TestimonialContent({
+										img: '13', 
+										description: `The team behind ${name} sure know what they are doing and their responsibility! If you’re looking for managed hosting, you’ll find  a stable, secure and so well optimized option in ${name} sites and all other products  price range.`, 
+										name: "Richard Mark", 
+										designation: "Marketing Manager", 
+										company: 4
+									})
+							.swiper-pagination.d-block.d-lg-none

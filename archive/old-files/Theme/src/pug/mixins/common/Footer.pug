@@ -1,0 +1,17 @@
+mixin Footer
+  - var copyrightYear = new Date().getFullYear()
+  footer.footer.text-center.bg-black.py-3.position-absolute.w-100.bottom-0&attributes(attributes)
+    .container
+      .row.justify-content-between
+        .col-12.col-md-auto.mb-1.mb-md-0
+          p.mb-0
+            | Thank you for creating with #{name} &copy; #{copyrightYear}
+            span.mx-2 |
+            span.text-900.hover-color-white 
+              | #{(version)}
+
+        .col-12.col-md-auto
+          p.mb-0 Made with
+            span.fas.fa-heart.mx-2
+            | by 
+            a(href="https://themewagon.com/" target="_blank").footer-link Themewagon

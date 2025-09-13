@@ -1,0 +1,83 @@
+mixin Blog
+	+Section
+		.row
+			.col-lg-7
+				.mb-6
+					a(href=`${CWD}pages/single-post.html`) 
+						img(src=`${CWD}assets/img/blogs/s-1.jpg`, alt="").img-fluid.rounded
+					
+					h4.font-base.text-transform-none.fw-medium.lh-2.mt-3
+						a(href=`${CWD}pages/single-post.html`).text-black 23 Top HTML Landing Page Templates 2019.
+					.mb-3 By 
+						a(href="#!").text-700 Kit Harington
+						span.mx-2.text-700 |
+						a(href="#!").text-700 25 Feb, 2019
+						span.mx-2.text-700 |
+						a(href="#!").text-700 3 Comments
+						span.mx-2.text-700 |
+						a(href="#!").text-700 Web Design
+					p The free market has managed to create an unprecedented level of economic mobility. It is based on the principle of economic autonomy, and that everyone can act as their own economic agent. You get a voice, and a right to form your own company. However, so many voices can easily create noise. In the online world, you are literally competing with hundreds of thousands of companies ...  
+					a(href=`${CWD}pages/single-post.html`).text-dark.fw-semi-bold Read more
+						span.fas.fa-angle-right.ms-1.text-900(data-fa-transform="down-2")
+
+
+				.mb-6
+					a(href=`${CWD}pages/single-post.html`) 
+						img(src=`${CWD}assets/img/blogs/s-2.jpg`, alt="").img-fluid.rounded
+					
+					h4.font-base.text-transform-none.fw-medium.lh-1.mt-3
+						a(href=`${CWD}pages/single-post.html`).text-black Testing Robots at the Canadian Space Agency 
+					.mb-3 By 
+						a(href="#!").text-700 Emilla Clarke
+						span.mx-2.text-700 |
+						a(href="#!").text-700 17 Feb, 2019
+						span.mx-2.text-700 |
+						a(href="#!").text-700 13 Comments
+						span.mx-2.text-700 |
+						a(href="#!").text-700 Web Development
+					p In November, I had the amazing opportunity to bring my robots to the Canadian Space Agency for a Field Test on their Mars Emulation Analogue Terrain. This terrain is about 1/4 the size of a soccer pitch, and has challenging hills, caves, rock obstacles, rock stairs with varying grades, rock patches, and even three craters. Yes, three craters! For a roboticist designing and making robots, this place is awesome! ...  
+					a(href=`${CWD}pages/single-post.html`).text-dark.fw-semi-bold Read more
+						span.fas.fa-angle-right.ms-1.text-900(data-fa-transform="down-2")
+
+
+				div
+					a(href=`${CWD}pages/single-post.html`) 
+						img(src=`${CWD}assets/img/blogs/s-3.jpg`, alt="").img-fluid.rounded
+					
+					h4.font-base.text-transform-none.fw-medium.lh-1.mt-3
+						a(href=`${CWD}pages/single-post.html`).text-black We Are Figuring Out How to Make Google Sweat?
+					.mb-3 By 
+						a(href="#!").text-700 Alfie Allen
+						span.mx-2.text-700 |
+						a(href="#!").text-700 1 Feb, 2019
+						span.mx-2.text-700 |
+						a(href="#!").text-700 9 Comments
+						span.mx-2.text-700 |
+						a(href="#!").text-700 Web Design
+					p In November, I had the amazing opportunity to bring my robots to the Canadian Space Agency for a Field Test on their Mars Emulation Analogue Terrain. This terrain is about 1/4 the size of a soccer pitch, and has challenging hills, caves, rock obstacles, rock stairs with varying grades, rock patches, and even three craters. Yes, three craters! For a roboticist designing and making robots, this place is awesome! ...  
+					a(href=`${CWD}pages/single-post.html`).text-dark.fw-semi-bold Read more
+						span.fas.fa-angle-right.ms-1.text-900(data-fa-transform="down-2")
+
+				.col-12.p-0
+					.d-flex.mt-7
+						nav(aria-label='Page navigation example')
+							ul.pagination.pagination-rounded
+								li.page-item.disabled.ms-0
+									a.page-link(href='#')
+										span.fas.fa-angle-left
+								li.page-item.active
+									a.page-link(href='#') 1
+								li.page-item
+									a.page-link(href='#') 2
+								li.page-item
+									a.page-link(href='#') 3
+								li.page-item
+									a.page-link(href='#') 4
+								li.page-item
+									a.page-link(href='#') 5
+								li.page-item
+									a.page-link(href='#')
+										span.fas.fa-angle-right
+
+			.col-lg-5.ps-lg-7
+				+BlogSidebar

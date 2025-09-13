@@ -1,0 +1,26 @@
+mixin Grid(col)
+  - var colCount = 12/col
+  +PreviewBlock 
+    .row.g-0
+      while 0 < colCount 
+        div(class=`col-${col}`)
+          .py-1.border.border-400.text-700.text-center= `col -${col}`
+            - colCount--
+
+
+mixin ResponsiveGrid 
+  h5.mt-4 Responsive grid
+
+  .row.g-0.grid-component
+    .col-sm-6.col-md-4.col-lg-3 col-sm-6 col-md-4 col-lg-4
+    .col-sm-6.col-md-4.col-lg-3 col-sm-6 col-md-4 col-lg-4
+    .col-sm-6.col-md-4.col-lg-3 col-sm-6 col-md-4 col-lg-4
+    .col-sm-6.col-md-4.col-lg-3 col-sm-6 col-md-4 col-lg-4
+  .row.g-0.grid-component
+    .col-6.col-sm-4.col-md-3 col-6 col-sm-4 col-md-3
+    .col-6.col-sm-4.col-md-3 col-6 col-sm-4 col-md-3
+    .col-6.col-sm-4.col-md-3 col-6 col-sm-4 col-md-3
+    .col-6.col-sm-4.col-md-3 col-6 col-sm-4 col-md-3
+
+
+

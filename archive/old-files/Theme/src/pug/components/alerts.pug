@@ -1,0 +1,19 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Alerts
+include ../mixins/common/ComponentLink
+
+append variables 
+	- var pageTitle = 'Alerts'
+
+block component
+	+ComponentLink({
+		text:'For detail documentation. ',
+		linkText: 'View Alerts on Bootstrap',
+		link: `https://getbootstrap.com/docs/${bootstrapVersion}/components/alerts/`
+	})
+	.row 
+		.col-lg-12.mb-4.mb-lg-0
+			+BasicExample 
+			+AdditionalContent
+			+Icons
+			+Dismissing

@@ -1,0 +1,44 @@
+/*-----------------------------------------------
+|   Prism
+-----------------------------------------------*/
+
+
+:not(pre) > code[class*='language-'], pre[class*='language-'] {
+  background-color: $gray-100;
+  border: $border-width solid $gray-100;
+  // border-radius: $border-radius;
+}
+
+code[class*='language-'], pre[class*='language-'] { font-family: $font-family-monospace; }
+.contains-anchor{
+  a{
+    opacity: 0;
+    transition-property: opacity;
+  }
+  @include hover-focus{
+    a{
+      opacity: 1;
+      text-decoration: none;
+    }
+  }
+}
+
+.token.property, .token.tag, .token.boolean, .token.number, .token.constant, .token.symbol, .token.deleted{
+  color: #2f6f9f;
+}
+.token.selector, .token.attr-name, .token.string, .token.char, .token.builtin, .token.inserted{
+  color: #4f9fcf;
+}
+// .token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string,
+.token.atrule, .token.attr-value, .token.keyword{
+  color: #d44950;
+}
+.token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string{
+  background: transparent;
+}
+
+// :not(pre) > code[class*="language-"], pre[class*="language-"]{
+//   background-color: map-get($grays, '100');
+//   border: 1px solid map-get($grays, '300');
+// }
+

@@ -1,0 +1,17 @@
+mixin HeaderClassic(title)
+  +Section({
+    image: `${CWD}assets/img/headers/header-9.jpg`,
+    className: 'overlay  parallax',
+  }, 'container-fluid').text-center.overflow-hidden.py-0(data-zanim-timeline!={} data-zanim-trigger='scroll')
+    .header-overlay
+    .position-relative.pt-10.pb-8
+      .header-text
+        .overflow-hidden
+          h1.display-3.fs-7.text-white.fw-lighter.ls-2(data-zanim-xs!={'duration': 2, "delay":0})=title
+        .overflow-hidden
+          .d-flex.justify-content-center(data-zanim-xs!={'duration': 2, "delay":0.1})
+            nav(aria-label='breadcrumb')
+              ol.breadcrumb.text-uppercase.ls-2
+                li.breadcrumb-item
+                  a(href=`${CWD}homes/header-static.html`).text-400.hover-color-white Home
+                li.breadcrumb-item.active(aria-current='page')=title

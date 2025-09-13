@@ -1,0 +1,61 @@
+mixin ServiceItem(config)
+  .col-sm-6.col-lg-4.mb-3(data-zanim-timeline!={} data-zanim-trigger="scroll")
+    .overflow-hidden
+      .service-item.p-3.p-md-4.h-100
+        .overflow-hidden
+          .px-4(data-zanim-xs!={'duration': 1.5,'delay': `${config.delay}`})
+            img(src=`${CWD}assets/img/line-icons/icons/${config.img}.svg` alt='').service-icon
+        .overflow-hidden
+          h5.fw-normal.ls-3.mb-2(data-zanim-xs!={'duration': 1.5,'delay': `${config.delay + 0.1}`})=config.title
+        .overflow-hidden
+          p.fw-normal(data-zanim-xs!={'duration': 1.5,'delay': `${config.delay + 0.2}`})!=config.description
+              
+mixin Services(title)
+  +Section.text-center&attributes(attributes)
+    if title
+      .row.mb-4(data-zanim-timeline!={} data-zanim-trigger='scroll')
+        .col
+          .overflow-hidden
+            h2.fs-md-5(data-zanim-xs!={'duration': 1.5,'delay': 0}) our services
+          .overflow-hidden
+            p.fs--1.text-uppercase.text-black.ls-1.mb-0(data-zanim-xs!={'duration': 1.5,'delay': 0.1}) we plan, design, build and market high quality products
+          .overflow-hidden
+            hr.hr-short.bg-black.opacity-100(data-zanim-xs!={'duration': 1.5,'delay': 0.2})
+    .row
+      +ServiceItem({
+        img: "fountain-pen", 
+        title: "Graphic design", 
+        description: 'We have a graphic design team with <br class="d-block d-sm-none"> a good  name in the industry for our <br class="d-block d-sm-none"> unique and modern graphic designs.', 
+        delay: 0
+      })
+      +ServiceItem({
+        img: "pear", 
+        title: "brand identity", 
+        description: "We will create your brand identity with <br class='d-block d-sm-none'> our dedication and hard work. Our team <br class='d-block d-sm-none'> is always ready to take the challenge.", 
+        delay: 0.2
+      })
+      +ServiceItem({
+        img: "export", 
+        title: "Cloud Storage", 
+        description: "We have developed a cutting edge <br class='d-block d-sm-none'> system that automates our tasks that <br class='d-block d-sm-none'> often get put on the back-burner.",
+        delay: 0.3
+      })
+      +ServiceItem({
+        img: "light-bulb", 
+        title: "creative theme", 
+        description: "We build outstanding and user-friendly <br class='d-block d-sm-none'> bootstrap themes with best UX which <br class='d-block d-sm-none'> works in all platforms and browsers.", 
+        delay: 0.3
+      })
+      +ServiceItem({
+        img: "pie-chart", 
+        title: "making strategy", 
+        description: "Our strategy making process is <br class='d-block d-sm-none'> efficient by which we can create <br class='d-block d-sm-none'> businesses that will sustain in the future.", 
+        delay: 0.4
+      })
+      +ServiceItem({
+        img: "wifi", 
+        title: "Network Setup", 
+        description: `We provide the latest secured network <br class='d-block d-sm-none'> solutions to our all customers using <br class='d-block d-sm-none'> service from proven technology.`, 
+        delay: 0.5
+      })
+      

@@ -1,0 +1,15 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Backgrounds
+
+prepend scripts 
+	script(src=`${CWD}vendors/rellax/rellax.min.js`)
+
+append variables 
+	- var pageTitle = 'Backgrounds';
+
+block component
+	+ImageBackground 
+	+ParallaxBackgrounds 
+	+VideoBackgrounds
+	+YoutubeVideo 
+	+ShadesOverlay 

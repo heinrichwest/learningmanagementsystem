@@ -1,0 +1,55 @@
+extends ../layouts/LayoutTheme
+include ../mixins/headers/HeaderGradientBackground
+include ../mixins/headers/Mixin
+include ../mixins/pages/about/AboutUs
+include ../mixins/pages/about/OurVideo
+include ../mixins/pages/WhyChooseUs
+include ../mixins/pages/FunFact
+include ../mixins/pages/service/Services
+include ../mixins/pages/service/Performance
+include ../mixins/pages/service/Process
+include ../mixins/pages/CtaStartNewProject
+include ../mixins/pages/work/Mixin
+include ../mixins/pages/CtaWorks
+include ../mixins/pages/about/Team
+include ../mixins/pages/Testimonial
+include ../mixins/pages/Pricing
+include ../mixins/pages/Clients
+include ../mixins/pages/blog/BlogGrid
+include ../mixins/pages/blog/Mixin
+include ../mixins/pages/NewsLetter
+include ../mixins/pages/Contact
+
+prepend styles
+  link(href=`${CWD}vendors/swiper/swiper-bundle.min.css`, rel='stylesheet')
+
+prepend scripts 
+  script(src=`${CWD}vendors/bigpicture/BigPicture.js`)
+  script(src=`${CWD}vendors/countup/countUp.umd.js`)
+  script(src=`${CWD}vendors/progressbar/progressbar.min.js`)
+  script(src=`${CWD}vendors/hover-dir/hoverDir.min.js`)
+  script(src=`${CWD}vendors/isotope-layout/isotope.pkgd.min.js`)
+  script(src=`${CWD}vendors/isotope-packery/packery-mode.pkgd.min.js`)
+  script(src=`${CWD}vendors/swiper/swiper-bundle.min.js`)
+  script(src!=`https://maps.googleapis.com/maps/api/js?key=${APIGmap}&callback=initMap` async)
+
+
+append mainContent
+  +HeaderGradientBackground('vh-100')
+  +AboutUs('About Us')#about-us
+  +OurVideo
+  +WhyChooseUs
+  +FunFact
+  +Services('Our Services')#services
+  +Performance
+  +Process
+  +CtaStartNewProject
+  +RecentProjects(true, 'container-fluid')
+  +CtaWorks
+  +Team#team
+  +Testimonial
+  +Pricing('Our Pricing')#pricing
+  +Clients
+  +BlogGrid(true)#blog
+  +NewsLetter
+  +Contact('Drop Us A Line')#contact

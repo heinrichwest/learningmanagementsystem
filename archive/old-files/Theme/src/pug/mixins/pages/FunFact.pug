@@ -1,0 +1,42 @@
+mixin Countup(config)
+  .overflow-hidden
+    img(src=`${CWD}assets/img/line-icons/icons/${config.img}.svg` alt='').fun-fact-icon.mb-2
+  .overflow-hidden
+    h3(data-countup!={endValue: config.countTo}).text-white.font-base.fw-normal.mb-1 0
+  .overflow-hidden
+    p.text-uppercase.text-white.fw-semi-bold.ls-2.mb-0=config.title
+        
+mixin FunFact
+  +Section({
+    image: `${CWD}assets/img/backgrounds/fun-fact.jpg`,
+    className: "overlay"
+  }).py-7.text-center(data-zanim-timeline!={} data-zanim-trigger='scroll')
+    .row.mb-4
+      .col
+        .overflow-hidden
+          h2.fs-sm-5.text-white.mb-1.mb-lg-2(data-zanim-xs!={'duration': 1.5, 'delay': 0}) do you know
+        .overflow-hidden
+          p.fs--1.text-uppercase.text-white.ls-1.mb-0(data-zanim-xs!={'duration': 1.5, 'delay': 0.1}) some cool facts about our company
+        .overflow-hidden
+          hr.hr-short.bg-white(data-zanim-xs!={'duration': 1.5, 'delay': 0.2})
+    .row.justify-content-center
+      .col-lg-8
+        .row
+          .col-md-4.mb-4.mb-lg-0
+            +Countup({
+              img: "download",
+              title: "total downloads",
+              countTo: 7781914
+            })
+          .col-md-4.mb-4.mb-lg-0
+            +Countup({
+              img: "clock",
+              title: "minutes well spent",
+              countTo: 370704
+            })
+          .col-md-4
+            +Countup({
+              img: "battery",
+              title: "coffees consumed",
+              countTo: 12599
+            })

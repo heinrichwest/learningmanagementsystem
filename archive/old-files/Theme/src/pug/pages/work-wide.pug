@@ -1,0 +1,25 @@
+extends ../layouts/LayoutTheme
+include ../mixins/headers/HeaderClassic
+include ../mixins/pages/work/Mixin
+include ../mixins/pages/Testimonial
+include ../mixins/pages/Clients
+include ../mixins/pages/about/CtaTeam
+
+
+append variables
+
+prepend styles
+	link(href=`${CWD}vendors/swiper/swiper-bundle.min.css`, rel='stylesheet')
+
+prepend scripts
+	script(src=`${CWD}vendors/hover-dir/hoverDir.min.js`)
+	script(src=`${CWD}vendors/isotope-layout/isotope.pkgd.min.js`)
+	script(src=`${CWD}vendors/isotope-packery/packery-mode.pkgd.min.js`)
+	script(src=`${CWD}vendors/swiper/swiper-bundle.min.js`)
+
+append mainContent
+	+HeaderClassic('Work Wide')
+	+RecentProjects(false, 'container-fluid').pb-3
+	+Testimonial
+	+Clients
+	+CtaTeam

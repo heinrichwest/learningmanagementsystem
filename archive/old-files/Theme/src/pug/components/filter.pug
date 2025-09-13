@@ -1,0 +1,23 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Masonary
+include ../mixins/common/ComponentLink
+
+prepend scripts 
+	script(src=`${CWD}vendors/isotope-layout/isotope.pkgd.min.js`) 
+	script(src=`${CWD}vendors/isotope-packery/packery-mode.pkgd.min.js`) 
+
+append variables
+	- var pageTitle = 'Isotope';
+	
+block component
+	+ComponentLink({
+		text:'For more detail see, ',
+		linkText: 'Isotope Documentation ',
+		link: `https://isotope.metafizzy.co/filtering.html`,
+	})
+	h5.mt-4 Example
+	+Masonary(true)
+	h5.mt-4 Javascript
+	+ComponentCardLib
+		script(src=`vendors/isotope-layout/isotope.pkgd.min.js`)
+		script(src=`vendors/isotope-packery/packery-mode.pkgd.min.js`)

@@ -1,0 +1,25 @@
+extends ../layouts/LayoutComponent
+include ../mixins/common/ComponentLink
+
+append variables 
+	- var pageTitle = 'Modal';
+
+block component
+	+ComponentLink({
+		text:'For detail documentation. ',
+		linkText: 'View Modal on Bootstrap',
+		link: `https://getbootstrap.com/docs/${bootstrapVersion}/components/modal/`
+	})
+	+ComponentCard 
+		button.btn.btn-dark(type='button' data-bs-toggle='modal' data-bs-target='#exampleModal') Launch demo modal
+		.modal.fade#exampleModal(tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true')
+			.modal-dialog
+				.modal-content
+					.modal-header
+						h5.modal-title#exampleModalLabel Modal title
+						button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+					.modal-body
+						p Woohoo, you're reading this text in a modal!
+					.modal-footer
+						button.btn.btn-secondary.btn-sm(type='button' data-bs-dismiss='modal') Close
+						button.btn.btn-primary.btn-sm(type='button') Save changes	

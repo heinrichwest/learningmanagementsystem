@@ -1,0 +1,97 @@
+mixin Pricing(title)
+	+Section.text-center&attributes(attributes)#pricing
+		.row(data-zanim-timeline!={} data-zanim-trigger="scroll")
+			if title
+				.col.mb-4
+					.overflow-hidden
+						h2.fs-md-5(data-zanim-xs!={'duration': 1.5, 'delay': 0}) Our Pricing
+					.overflow-hidden
+						p.fs--1.text-uppercase.text-black.ls-1.mb-0(data-zanim-xs!={'duration': 1.5, 'delay': 0.1}) Amazing services at affordable price
+					.overflow-hidden
+						hr.hr-short.bg-black(data-zanim-xs!={'duration': 1.5, 'delay': 0.2})
+			else
+				.col.mb-6
+					.overflow-hidden
+						h3.fw-normal.mb-1(data-zanim-xs!={'duration': 1.5, 'delay': 0}) Get the right plan for you
+					.overflow-hidden
+						p.mb-0.ls-1.text-uppercase(data-zanim-xs!={'duration': 1.5, 'delay': 0.1}) 100% No-risk money back guarantee!
+					.overflow-hidden
+						hr.hr-short.bg-black(data-zanim-xs!={'duration': 1.5, 'delay': 0.2})
+		.row(data-zanim-timeline!={} data-zanim-trigger="scroll")
+			.col-sm-6.col-lg-3.mb-4.mb-lg-0.h-100
+				.border.border-200.rounded.p-4.mx-auto(style="max-width: 300px;")
+					img(src=`${CWD}assets/img/line-icons/helicopter.svg`, width="56" alt="")
+					h5.mt-3 standard
+					h2.fw-bold.fs-5
+						sup.fs-1 $
+						span.font-base 199
+						small.fs-0.text-lowercase / m
+					hr
+					ul.list-unstyled
+						li.py-2 Up to 5 Pages
+						li.py-2 1 Year Hosting
+						li.py-2 3 Months Support
+						li.py-2.text-400 SEO
+						li.py-2.text-400 Security &amp; Backups
+						li.py-2.text-400 24/7 Support
+					.d-grid
+						a(href="#!").btn.btn-sm.btn-outline-secondary.mt-5.hvr-sweep-top get started
+			.col-sm-6.col-lg-3.mb-4.mb-lg-0
+				.border.border-200.rounded.p-4.mx-auto(style="max-width: 300px;")
+					.text-center
+						img(src=`${CWD}assets/img/line-icons/helicopter.svg`, width="56" alt="")
+					h5.mt-3 standard
+					h2.fw-bold.fs-5
+						sup.fs-1 $
+						span.font-base 499
+						small.fs-0.text-lowercase / m
+					hr
+					ul.list-unstyled
+						li.py-2 Up to 5 Pages
+						li.py-2 1 Year Hosting
+						li.py-2 3 Months Support
+						li.py-2 SEO
+						li.py-2.text-400 Security &amp; Backups
+						li.py-2.text-400 24/7 Support
+					.d-grid
+						a(href="#!").btn.btn-sm.btn-outline-secondary.mt-5.hvr-sweep-top get started
+
+			.col-sm-6.col-lg-3.mb-4.mb-sm-0
+				.border.border-black.rounded.p-4.mx-auto(style="max-width: 300px;" data-zanim-xs!={"from":{"opacity":0,"y":20},"to":{"opacity":1,"y":0},'duration': 1.5,"delay":0})
+					.text-center
+						img(src=`${CWD}assets/img/line-icons/airplane.svg`, width="56" alt="")
+					h5.mt-3.ls-3 premium
+					h2.fw-bold.fs-5
+						sup.fs-1 $
+						span.font-base 799
+						small.fs-0.text-lowercase / m
+					hr.bg-black.opacity-100
+					ul.list-unstyled
+						li.py-2 Up to 5 Pages
+						li.py-2 1 Year Hosting
+						li.py-2 3 Months Support
+						li.py-2 SEO
+						li.py-2 Security &amp; Backups
+						li.py-2.text-400 24/7 Support
+					.d-grid
+						a(href="#!").btn.btn-sm.btn-dark.mt-5.hvr-sweep-top get started
+
+			.col-sm-6.col-lg-3.mb-4.mb-sm-0
+				.border.border-200.rounded.p-4.mx-auto(style="max-width: 300px;")
+					img(src=`${CWD}assets/img/line-icons/pricing-rocket.svg`, width="56" alt="")
+					h5.mt-3 ultimate
+					h2.fw-bold.fs-5
+						sup.fs-1 $
+						span.font-base 999
+						small.fs-0.text-lowercase / m
+					hr
+					ul.list-unstyled
+						li.py-2 Up to 5 Pages
+						li.py-2 1 Year Hosting
+						li.py-2 3 Months Support
+						li.py-2 SEO
+						li.py-2 Security &amp; Backups
+						li.py-2 24/7 Support
+					.d-grid
+						a(href="#!").btn.btn-sm.btn-outline-secondary.mt-5.hvr-sweep-top get started
+

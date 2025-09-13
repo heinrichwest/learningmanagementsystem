@@ -1,0 +1,17 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/badges
+include ../mixins/common/ComponentLink
+
+append variables 
+	- var pageTitle = 'Badges';
+
+block component
+	+ComponentLink({
+		text:'For detail documentation.',
+		linkText: 'View Badges on Bootstrap',
+		link: `https://getbootstrap.com/docs/${bootstrapVersion}/components/badge/`
+	})
+	+BackgroundColors 
+	+PillBadge 
+	+SoftBadge
+	+SoftPillBadge

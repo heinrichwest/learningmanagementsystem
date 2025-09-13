@@ -1,0 +1,77 @@
+mixin TeamItem(config)
+  .col-6.col-md-3.col-lg-3.px-2.team-item&attributes(attributes)
+    .hoverbox.w-75.rounded-circle.overflow-hidden.mx-auto
+      img(src=`${CWD}assets/img/team/${config.img}.jpg` alt='').img-fluid
+      .hoverbox-content
+        .d-flex.align-items-end.justify-content-center.h-100
+          ul.list-inline.team-item-social-icons
+            each icon, index in config.icons
+              li.list-inline-item
+                a(href="#!").text-white
+                  span.fab(class=`fa-${index}` data-fa-transform="grow-3")
+    h6.fw-bold.mt-2.mb-1
+      a(href=`#!`).text-black=config.name
+    h6.ls-1=config.designation
+
+mixin Team
+  +Section.text-center&attributes(attributes)#team
+    .row
+     .col.mb-4(data-zanim-timeline!={} data-zanim-trigger='scroll')
+       .overflow-hidden
+        h2.fs-md-5(data-zanim-xs!={'delay': 0}) meet the team
+       .overflow-hidden
+        p.fs--1.text-uppercase.text-black.ls-1.mb-0(data-zanim-xs!={'delay': 0.1}) meet the reign team
+       .overflow-hidden
+        hr.hr-short.bg-black(data-zanim-xs!={'delay': 0.2})
+    .row.justify-content-center
+      .col-lg-10
+        .row
+          +TeamItem({
+            img: 1,
+            name: 'Kit Harington', 
+            designation: 'CEO & Founder', 
+            icons: {"facebook-f": '#!', twitter: '#!'}
+          }).mb-4
+          +TeamItem({
+            img: 2,
+            name: 'Emilla Clarke', 
+            designation: 'CTO', 
+            icons: {"google-plus-g": '#!'}
+          }).mb-4
+          +TeamItem({
+            img: 4,
+            name: 'Perter Dinklage', 
+            designation: 'Designer', 
+            icons: {'linkedin-in': '#!'}
+          }).mb-4
+          +TeamItem({
+            img: 3,
+            name: 'Tim Burton', 
+            designation: 'Executive', 
+            icons: {"facebook-f": '#!'}
+          }).mb-4
+          +TeamItem({
+            img: 12,
+            name:  'John Bradley', 
+            designation: 'Developer', 
+            icons: {twitter: '#!', 'instagram': '#!'}
+          }).mb-4.mb-lg-0
+          +TeamItem({
+            img: 5,
+            name: 'Peter Jackson', 
+            designation: 'Software Engineer', 
+            icons: {instagram: '#!'}
+          }).mb-4.mb-lg-0
+          +TeamItem({
+            img: 7,
+            name: 'Alfie Allen', 
+            designation: 'Web Designer', 
+            icons: {twitter: '#!'}
+          }).mb-4.mb-lg-0
+          +TeamItem({
+            img: 10,
+            name: 'Gemma Whelan', 
+            designation: 'Software Engineer', 
+            icons: {"linkedin-in": '#!', 'youtube': '#!'}
+          }).mb-4.mb-lg-0
+           

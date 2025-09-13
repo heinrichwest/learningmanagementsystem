@@ -1,0 +1,12 @@
+extends ../layouts/LayoutTheme
+include ../mixins/headers/HeaderClassic
+include ../mixins/pages/blog/Mixin
+include ../mixins/pages/blog/BlogGrid
+
+append variables
+  
+prepend scripts 
+
+append mainContent
+  +HeaderClassic('Blog Grid')
+  +BlogGrid

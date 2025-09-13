@@ -1,0 +1,25 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Sizing
+include ../mixins/common/ComponentLink
+
+append variables 
+	- var pageTitle = 'Sizing';
+
+block component
+	+ComponentLink({
+		text:'For detail documentation. ',
+		linkText: 'View Sizing on Bootstrap',
+		link: `https://getbootstrap.com/docs/${bootstrapVersion}/utilities/sizing/`
+	})
+	p Easily make an element as wide or as tall (relative to its parent) with our width and height utilities. Includes support for
+		code 25%
+		|  ,
+		code 50%
+		|  ,
+		code 75%
+		|  , and
+		code 100%
+		|   by default.
+	+Width
+	+Height
+	+SpecialHeightClasses

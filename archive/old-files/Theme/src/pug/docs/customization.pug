@@ -1,0 +1,35 @@
+extends ../layouts/LayoutDocumentation 
+include ../mixins/common/Card
+
+append variables 
+	- var pageTitle = 'Customization';
+	- var pageDes = 'Because you are unique';
+
+block content
+	p We recommend you customize your theme styles using the user style files. You can customize the theme’s styles with the following approaches:
+
+	h5.mt-2(data-anchor) Gulp based workflow
+
+	h5.mt-2 
+		code _user.scss
+	p You can add your own SCSS and override the theme style in the 
+		code src/scss/user.scss
+		|  file
+
+	h5.mt-2 
+		code _user-variables.scss
+	p To make broader changes to the design of the theme, such as changing the color scheme or font sizes, use 
+		code scss/_user-variables.scss
+		| . Any variable from 
+		code scss/bootstrap/_variables.scss 
+		|  or 
+		code scss/custom/_variables.scss
+		|  can be overridden with your own value.
+
+	h5.mt-2(data-anchor) If you are not using Gulp based workflow
+
+	h4.mt-2 
+		code user.css
+	p You can add your own SCSS and override the theme style in the 
+		code public/assets/css/user.css
+		|  file

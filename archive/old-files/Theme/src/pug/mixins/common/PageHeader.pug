@@ -1,0 +1,13 @@
+mixin PageHeader(config)
+	+Section(
+		{ image: `${CWD}assets/img/${config.img || 'background-2.jpg'}`, className: "overlay", attrs: {style: {'background-position': 'center bottom'}}}
+	)
+		.row.pt-6(data-inertia!={weight: 1.5})
+			.col-md-8.text-white(data-zanim-timeline!={} data-zanim-trigger="scroll")
+				.overflow-hidden
+					h1.text-white.fs-4.fs-md-5.mb-0.lh-1(data-zanim-xs!={ delay:0.0 })= config.title
+					.nav(aria-label="breadcrumb" role="navigation" data-zanim-xs!={delay:0.1})
+						ol.breadcrumb.fs-1.ps-0.fw-bold
+							li.breadcrumb-item
+								a(href="#!").text-white Home
+							li.breadcrumb-item.active(aria-current="page")= config.title

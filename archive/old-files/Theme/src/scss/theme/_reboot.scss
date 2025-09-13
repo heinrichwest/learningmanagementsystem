@@ -1,0 +1,88 @@
+/*-----------------------------------------------
+|   Reboot
+-----------------------------------------------*/
+::placeholder {
+  opacity: 1;
+  color: var(--#{$variable-prefix}400);
+}
+
+::selection {
+  background-color: map_get($theme-colors, danger);
+  color: $white;
+}
+
+html {
+  scroll-padding-top: $top-nav-height;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  min-height: 100vh;
+}
+
+pre,
+code {
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+
+section {
+  position: relative;
+  padding-top: map_get($spacers, 6);
+  padding-bottom: map_get($spacers, 6);
+  scroll-margin-top: -1.5625rem;
+
+  @include media-breakpoint-up(md) {
+    padding-top: map_get($spacers, 8);
+    padding-bottom: map_get($spacers, 8);
+  }
+}
+
+//setting up font family for bootstrap components
+input,
+button,
+select,
+optgroup,
+textarea,
+label,
+.alert,
+.badge,
+.blockquote-footer,
+.btn,
+.navbar,
+.pagination,
+.valid-feedback,
+.invalid-feedback {
+  font-family: $font-family-base;
+}
+
+pre{
+  margin: 0;
+  transform: translate3d(0, 0, 0);
+}
+
+strong {
+  font-weight: $font-weight-semi-bold;
+}
+
+label {
+  font-weight: $font-weight-medium !important;
+  margin-bottom: map-get($spacers, 2);
+}
+
+pre,
+code,
+kbd,
+samp {
+  font-size: $font-size-base !important;
+}
+
+ol{
+  padding-left: $spacer * 2.5;
+}
+
+small{
+  font-weight: $font-weight-light !important;
+}

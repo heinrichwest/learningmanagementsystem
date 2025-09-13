@@ -1,0 +1,24 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/InlinePlayer
+include ../mixins/common/ComponentLink
+
+prepend styles
+	link(href=`${CWD}vendors/plyr/plyr.css`, rel='stylesheet')
+
+prepend scripts 
+	script(src=`${CWD}vendors/plyr/plyr.polyfilled.min.js`) 
+
+append variables
+	- var pageTitle = 'Inline Player';
+
+block component
+	+ComponentLink({
+		text:'For more detail see, ',
+		linkText: 'Plyr Documentation ',
+		link: `https://plyr.io/`,
+	})
+	.row 
+		+YoutubePlayer
+		+VimeoPlayer
+		+StyleSheet
+		+Javascript

@@ -1,0 +1,29 @@
+mixin Countup 
+	h5.mb-1 Example
+	p CountUp.js is a dependency-free, lightweight JavaScript class that can be used to quickly create animations that display numerical data in a more interesting way.
+	+ComponentCard
+		.row
+			.col-6.col-md-4.col-xl.mb-2.mb-lg-0.text-center
+				='\n'
+				span.fs-3.fw-medium(data-countup!={endValue: 36487}) 0
+				h6 (Default) 
+			.col-6.col-md-4.col-xl.mb-2.mb-lg-0.text-center
+				='\n'
+				span.fs-3.fw-medium(data-countup!={endValue: 23542, duration: 10}) 0
+				h6 (Duration 10s) 
+			.col-6.col-md-4.col-xl.mb-2.mb-lg-0.text-center
+				='\n'
+				span.fs-3.fw-medium(data-countup!={endValue: 36487, separator: '' }) 0
+				h6 (Comma) 
+			.col-6.col-md-4.col-xl.mb-2.mb-lg-0.text-center
+				='\n'
+				span.fs-3.fw-medium(data-countup!={endValue: 36487, separator : ' ' }) 0
+				h6 (Space) 
+			.col-6.col-md-4.col-xl.mb-2.mb-lg-0.text-center
+				='\n'
+				span.fs-3.fw-medium(data-countup!={endValue: 36.487, decimalPlaces: 2, suffix : 'k' }) 0
+				h6 (suffix) 
+			.col-6.col-md-4.col-xl.mb-2.mb-lg-0.text-center
+				='\n'
+				span.fs-3.fw-medium(data-countup!={endValue: 36487, prefix: '$' }) 0
+				h6 (Prefix)

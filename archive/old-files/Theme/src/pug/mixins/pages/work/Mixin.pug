@@ -1,0 +1,278 @@
+mixin ProjectItemLightbox(config)
+	.hoverdir-item.my-0(data-zanim-xs!={'duration': 1.5, 'animation': 'zoom-in', 'delay': 0})
+		.hoverdir-item-content
+			a(href=`${CWD}assets/img/projects/${config.img}.jpg` data-gallery="gallery-1").d-block
+				img(src=`${CWD}assets/img/projects/${config.img}.jpg`, alt="" ).img-fluid.rounded
+				.hoverdir-text 
+					h3.text-white.lh-1.fs-2!=config.title
+					p.ls-1.mb-0.text-700!=config.description
+
+mixin ProjectItem(config)
+	.hoverdir-item.my-0(data-zanim-xs!={'duration': 1.5, 'animation': 'zoom-in', 'delay': 0})
+		.hoverdir-item-content
+			a(href=`${CWD}pages/work-single.html`).d-block
+				img(src=`${CWD}assets/img/projects/${config.img}.jpg`, alt="").img-fluid.rounded
+				.hoverdir-text 
+					h3.text-white.lh-1.fs-2!=config.title
+					p.ls-1.mb-0.text-700!=config.description
+
+mixin Projects
+	ul.nav.font-sans-serif.mb-3.justify-content-center(data-filter-nav)&attributes(attributes)
+		li.nav-item
+			a.isotope-nav.text-uppercase.active(href ='#!' data-filter='*') all
+		li.nav-item 
+			a.isotope-nav.text-uppercase(href ='#!' data-filter='.photography') Photography
+		li.nav-item 
+			a.isotope-nav.text-uppercase(href ='#!' data-filter='.design') Design
+		li.nav-item 
+			a.isotope-nav.text-uppercase(href ='#!' data-filter='.mobile') Mobile
+		li.nav-item 
+			a.isotope-nav.text-uppercase(href ='#!' data-filter='.marketing') Marketing	
+	.row.g-3.mt-3(data-rp-isotope!={
+		layoutMode: 'packery',   
+	})
+		.col-sm-6.col-lg-4.px-2.isotope-item.design(data-zanim-xs!={'delay': 0})
+			+ProjectItemLightbox({
+				img: 1, 
+				title: `Website Design`, 
+				description: `Multipurpose HTML template <br> with bootstrap 5`, 
+			}) 
+		.col-sm-6.col-lg-4.px-2.isotope-item.design(data-zanim-xs!={'delay': 0.1})
+			+ProjectItemLightbox({
+				img: 2, 
+				title: `UI/UX Design`, 
+				description: `Most user friendly user <br> interface design`, 
+			}) 
+		.col-sm-6.col-lg-4.px-2.isotope-item.mobile(data-zanim-xs!={'delay': 0.2})
+			+ProjectItemLightbox({
+				img: 3, 
+				title: `Mobile Accessories`, 
+				description: `Popular mobile accessories <br> in 2021`, 
+			}) 
+		.col-sm-6.col-lg-4.px-2.isotope-item.photography(data-zanim-xs!={'delay': 0.3})
+			+ProjectItemLightbox({
+				img: 4, 
+				title: `Interior Photography`, 
+				description: `More than 50K happy <br> real state clients`, 
+			})
+		.col-sm-6.col-lg-4.px-2.isotope-item.mobile(data-zanim-xs!={'delay': 0.4})
+			+ProjectItemLightbox({
+				img: 5, 
+				title: `App Development`, 
+				description: `Most secured and optimized <br> mobile app development`, 
+			})
+		.col-sm-6.col-lg-4.px-2.isotope-item.marketing(data-zanim-xs!={'delay': 0.5})
+			+ProjectItemLightbox({
+				img: 6, 
+				title: `Content Writing`, 
+				description: ` More than 50K blog posts <br> on different subjects`, 
+			})
+		.col-sm-6.col-lg-4.px-2.isotope-item.design(data-zanim-xs!={'delay': 0.6})
+			+ProjectItemLightbox({
+				img: 7, 
+				title: `Packaging Designing`, 
+				description: `Beautiful packaging design done <br> by our designers`, 
+			})
+		.col-sm-6.col-lg-4.px-2.isotope-item.photography(data-zanim-xs!={'delay': 0.35})
+			+ProjectItemLightbox({
+				img: 8, 
+				title: `Model Photography`, 
+				description: `Exclusive model photography by <br> award winning photographers`, 
+			})
+		.col-sm-6.col-lg-4.px-2.isotope-item.design(data-zanim-xs!={'delay': 0.4})
+			+ProjectItemLightbox({
+				img: 9, 
+				title: `Digital Marketing`, 
+				description: `We spread your digital products <br> all over the world`, 
+			})
+
+mixin RecentProjects(title, containerClass)
+	+Section(`${containerClass ? containerClass : 'container'}`).text-center.pb-3&attributes(attributes)#portfolio
+		if title
+			.row.justify-content-center(data-zanim-timeline!={} data-zanim-trigger='scroll')
+				.col-12.mb-4
+					.overflow-hidden
+						h2.fs-md-5.mb-2(data-zanim-xs!={'duration': 1.5,'delay': 0}) recent projects
+					.overflow-hidden
+						p.fs--1.text-uppercase.text-black.ls-1.mb-0(data-zanim-xs!={'duration': 1.5,'delay': 0.1}) successful projects, happy clients, great results
+					.overflow-hidden
+						hr.hr-short.bg-black.opacity-100(data-zanim-xs!={'duration': 1.5,'delay': 0.2})
+		ul.nav.font-sans-serif.mb-3.justify-content-center(data-filter-nav)&attributes(attributes)
+			li.nav-item
+				a.isotope-nav.text-uppercase.font-base.active(href ='#!' data-filter='*') all
+			li.nav-item 
+				a.isotope-nav.text-uppercase.font-base(href ='#!' data-filter='.photography') Photography
+			li.nav-item 
+				a.isotope-nav.text-uppercase.font-base(href ='#!' data-filter='.design') Design
+			li.nav-item 
+				a.isotope-nav.text-uppercase.font-base(href ='#!' data-filter='.mobile') Mobile
+			li.nav-item 
+				a.isotope-nav.text-uppercase.font-base(href ='#!' data-filter='.marketing') Marketing	
+		.row.g-3.mt-3(data-rp-isotope!={
+			layoutMode: 'packery',   
+		})
+			.col-sm-6.col-lg-4.px-2.isotope-item.design(data-zanim-xs!={'delay': 0})
+				+ProjectItem({
+					img: 1, 
+					title: `Website Design`, 
+					description: `Multipurpose HTML template <br> with bootstrap 5`, 
+				}) 
+			.col-sm-6.col-lg-4.px-2.isotope-item.design(data-zanim-xs!={'delay': 0.1})
+				+ProjectItem({
+					img: 2, 
+					title: `UI/UX Design`, 
+					description: `Most user friendly user <br> interface design`, 
+				}) 
+			.col-sm-6.col-lg-4.px-2.isotope-item.mobile(data-zanim-xs!={'delay': 0.2})
+				+ProjectItem({
+					img: 3, 
+					title: `Mobile Accessories`, 
+					description: `Popular mobile accessories <br> in 2021`, 
+				}) 
+			.col-sm-6.col-lg-4.px-2.isotope-item.photography(data-zanim-xs!={'delay': 0.3})
+				+ProjectItem({
+					img: 4, 
+					title: `Interior Photography`, 
+					description: `More than 50K happy <br> real state clients`, 
+				})
+			.col-sm-6.col-lg-4.px-2.isotope-item.mobile(data-zanim-xs!={'delay': 0.4})
+				+ProjectItem({
+					img: 5, 
+					title: `App Development`, 
+					description: `Most secured and optimized <br> mobile app development`, 
+				})
+			.col-sm-6.col-lg-4.px-2.isotope-item.marketing(data-zanim-xs!={'delay': 0.5})
+				+ProjectItem({
+					img: 6, 
+					title: `Content Writing`, 
+					description: ` More than 50K blog posts <br> on different subjects`, 
+				})
+			.col-sm-6.col-lg-4.px-2.isotope-item.design(data-zanim-xs!={'delay': 0.6})
+				+ProjectItem({
+					img: 7, 
+					title: `Packaging Designing`, 
+					description: `Beautiful packaging design done <br> by our designers`, 
+				})
+			.col-sm-6.col-lg-4.px-2.isotope-item.photography(data-zanim-xs!={'delay': 0.35})
+				+ProjectItem({
+					img: 8, 
+					title: `Model Photography`, 
+					description: `Exclusive model photography by <br> award winning photographers`, 
+				})
+			.col-sm-6.col-lg-4.px-2.isotope-item.design(data-zanim-xs!={'delay': 0.4})
+				+ProjectItem({
+					img: 9, 
+					title: `Digital Marketing`, 
+					description: `We spread your digital products <br> all over the world`, 
+				})
+
+mixin WorkSingleCarousel
+	.col-12.mb-4
+		.swiper.theme-slider(data-swiper!={
+			autoplay: true,
+			spaceBetween: 5,
+			loop: true,
+			loopedSlides: 5,
+			slideToClickedSlide: true,
+			})
+				.swiper-wrapper
+					.swiper-slide
+						img(src=`${CWD}assets/img/projects/11.jpg` alt="image").img-fluid
+					.swiper-slide  
+						img(src=`${CWD}assets/img/projects/10.jpg` alt="image").img-fluid
+					.swiper-slide  
+						img(src=`${CWD}assets/img/projects/16.jpg` alt="image").img-fluid
+				<div class="swiper-pagination"></div>		
+				.swiper-nav
+					.swiper-button-prev
+					.swiper-button-next
+				.swiper-pagination
+	.col-lg.pe-lg-5.mb-4.mb-lg-0.position-relative
+		h4.fw-normal.font-base Bootstrap 5 Template Design
+		p As I went on, still gaining velocity, the palpitation of night and day merged into one continuous greyness; the sky took on a wonderful deepness of blue, a splendid luminous color like that of early twilight; the jerking sun became a streak of fire, a brilliant arch, in space; the moon a fainter fluctuating band; and I could see nothing of the stars, save now and then a brighter circle flickering in the blue.
+		p A peep at some distant orb has power to raise and purify our thoughts like a strain of sacred music, or a noble picture, or a passage from the grander poets. It always does one good.
+		.vertical-line
+	.col-lg-auto.ps-lg-5
+		h5.fw-normal.mb-1 Informations
+		table.table.table-borderless.mb-0
+			tr
+				td.py-1.ps-0.text-dark Developer:
+				td.py-1.text-600 Reign Studio
+			tr
+				td.py-1.ps-0.text-dark Live Demo: 
+				td.py-1
+					a(href="#!").text-600 www.reigndemo.com
+			tr
+				td.py-1.ps-0.text-dark Category:
+				td.py-1.text-600 Web Designer
+			tr
+				td.py-1.ps-0.text-dark Skill:
+				td.py-1.text-600 Html5, Bootstrap 5, CSS3
+			tr
+				td.py-1.ps-0.text-dark Date Post:
+				td.py-1.text-600 05 Jan, 2022
+			tr 
+				td.py-1.ps-0.text-dark Tags:
+				td.py-1.text-600 Portfolio, Blogs, Theme, Responsive
+
+mixin WorkSigletext
+	.col-12
+		hr.mt-5.mb-4
+		h4.fw-normal.mb-3 Related Projects
+	.col-sm-6.col-lg-3.mb-4.mb-lg-0
+		.card.border.border-light.h-100
+			.overflow-hidden
+				a(href=`${CWD}pages/work-single.html`)
+					img(src=`${CWD}assets/img/projects/13.jpg`, alt="").card-img-top
+			.card-body.bg-light
+				h5.card-title.mb-2.fs-0.text-transform-none.font-base.lh-sm.fw-medium
+					a(href=`${CWD}pages/work-single.html`).text-900 Premium corporate agency html5 template design
+				p.mb-0 
+					a(href=`${CWD}pages/work.html`).text-700 Html5
+					| , 
+					a(href=`${CWD}pages/work.html`).text-700 Bootstrap 5
+					| , 
+					a(href=`${CWD}pages/work.html`).text-700 CSS3
+
+	.col-sm-6.col-lg-3.mb-4.mb-lg-0
+		.card.border.border-light.h-100
+			.overflow-hidden 
+				a(href=`${CWD}pages/work-single.html`)
+					img(src=`${CWD}assets/img/projects/15.jpg`, alt="").card-img-top
+			.card-body.bg-light
+				h5.card-title.mb-2.fs-0.text-transform-none.font-base.lh-sm.fw-medium
+					a(href=`${CWD}pages/work-single.html`).text-900 Multipurpose bootstrap 5 business template
+				p.mb-0 
+					a(href=`${CWD}pages/work.html`).text-700 Bootstrap 5
+					| , 
+					a(href=`${CWD}pages/work.html`).text-700 Html5
+					| , 
+					a(href=`${CWD}pages/work.html`).text-700 Javascript
+
+	.col-sm-6.col-lg-3.mb-4.mb-sm-0
+		.card.border.border-light.h-100
+			.overflow-hidden 
+				a(href=`${CWD}pages/work-single.html`)
+					img(src=`${CWD}assets/img/projects/12.jpg`, alt="").card-img-top
+			.card-body.bg-light
+				h5.card-title.mb-2.fs-0.text-transform-none.font-base.lh-sm.fw-medium
+					a(href=`${CWD}pages/work-single.html`).text-900 Responsive event planning html5 one-page template
+				p.mb-0 
+					a(href=`${CWD}pages/work.html`).text-700 Jquery
+					| , 
+					a(href=`${CWD}pages/work.html`).text-700 Bootstrap 5
+					| , 
+					a(href=`${CWD}pages/work.html`).text-700 CSS3
+
+	.col-sm-6.col-lg-3
+		.card.border.border-light.h-100
+			.overflow-hidden 
+				a(href=`${CWD}pages/work-single.html`)
+					img(src=`${CWD}assets/img/projects/18.jpg`, alt="").card-img-top
+			.card-body.bg-light
+				h5.card-title.mb-2.fs-0.text-transform-none.font-base.lh-sm.fw-medium
+					a(href=`${CWD}pages/work-single.html`).text-900 Animated material dashboard design for web app
+				p.mb-0 
+					a(href=`${CWD}pages/work.html`).text-700 Material Design
+					| , 
+					a(href=`${CWD}pages/work.html`).text-700 Bootstrap 5

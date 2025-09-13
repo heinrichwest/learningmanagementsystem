@@ -1,0 +1,24 @@
+mixin HoverboxExample 
+	.col-xl-6
+		h5 Example
+		+ComponentCard
+			.hoverbox.rounded.text-center
+				= '\n'
+				img(src=`${CWD}assets/img/gallery/g3.jpg` alt="").img-fluid
+				.hoverbox-content.bg-dark.p-3.d-flex.flex-center
+					div
+						p.lead.text-white Style your card with different design using theme Hoverbox
+						= '\n'
+						a(href='#!').btn.btn-light.btn-sm.mt-1 Learn more 
+
+mixin ChangeImage 
+	.col-xl-6
+		h5.mt-4.mt-xl-0 Change Image
+		+ComponentCard
+			a.color-white(href='#!')
+				.hoverbox.rounded
+					= '\n'
+					img.img-fluid(src=`${CWD}assets/img/gallery/g8.jpg` alt="")
+					.hoverbox-content
+						= '\n'
+						img.img-fluid(src=`${CWD}assets/img/gallery/g7.jpg` alt="")

@@ -1,0 +1,18 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Accordion
+include ../mixins/common/ComponentLink
+
+append variables 
+  - var pageTitle = 'Accordion';
+
+block component
+
+  +ComponentLink({
+    text:'An accordion allows users to toggle the display of sections of content. ',
+    linkText: 'View Accordion on Bootstrap ',
+    link: `https://getbootstrap.com/docs/${bootstrapVersion}/components/accordion/`,
+  })
+  .row 
+    .col-lg-12.mb-4.mb-lg-0
+      h5 Example
+      +AccordionDemo

@@ -1,0 +1,21 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/NavsTabs
+include ../mixins/common/ComponentLink
+
+append variables 
+	- var pageTitle = 'Navs and Tabs';
+
+block component
+	+ComponentLink({
+		text:'For detail documentation. ',
+		linkText: 'View Navs and Tabs on Bootstrap',
+		link: `https://getbootstrap.com/docs/${bootstrapVersion}/components/navs-tabs/`
+	})
+	+HorizontalNavs
+	+VerticalNavs
+	+NavPills
+	+NavFillJustify
+	.row.g-0 
+		+TabsBasic
+		+TabPills
+	

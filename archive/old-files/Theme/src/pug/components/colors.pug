@@ -1,0 +1,128 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Colors
+include ../mixins/common/ComponentLink
+
+append variables
+  - var pageTitle = 'Colors';
+
+block component
+  - 
+    var colors = [
+      {
+        name: 'primary',
+        hex: '#007bff',
+        text: 'white'
+      },
+      {
+        name: 'secondary',
+        hex: '#7f7f7f',
+        text: 'white'
+      },
+      {
+        name: 'success',
+        hex: '#28a745',
+        text: 'white'
+      },
+      {
+        name: 'info',
+        hex: '#17a2b8',
+        text: 'white'
+      },
+      {
+        name: 'warning',
+        hex: '#ffc107',
+        text: 'white'
+      },
+      {
+        name: 'danger',
+        hex: '#dc3545',
+        text: 'white'
+      },
+      {
+        name: 'light',
+        hex: '#fafafa',
+        text: 'dark'
+      },
+      {
+        name: 'dark',
+        hex: '#000000',
+        text: 'white'
+      },
+      {
+        name: 'black',
+        hex: '#000',
+        text: 'white'
+      },
+      {
+        name: '1100',
+        hex: '#17191b',
+        text: 'white'
+      },
+      {
+        name: '1000',
+        hex: '#373b3f',
+        text: 'white'
+      },
+      {
+        name: '900',
+        hex: '#4f545a',
+        text: 'white'
+      },
+      {
+        name: '800',
+        hex: '#5f656c',
+        text: 'white'
+      },
+      {
+        name: '700',
+        hex: '#777e87',
+        text: 'white'
+      },
+      {
+        name: '600',
+        hex: '#9ba0a7',
+        text: 'white'
+      },
+      {
+        name: '500',
+        hex: '#b6babf',
+        text: 'white'
+      },
+      {
+        name: '400',
+        hex: '#c8cbcf',
+        text: 'white'
+      },
+      {
+        name: '300',
+        hex: '#dadcdf',
+        text: 'black'
+      },
+      {
+        name: '200',
+        hex: '#ecedee',
+        text: 'black'
+      },
+      {
+        name: '100',
+        hex: '#f5f5f5',
+        text: 'black'
+      },
+      {
+        name: 'white',
+        hex: '#fff',
+        text: 'black'
+      }
+    ]
+
+  .row 
+    h5 Theme colors
+    each color in colors.slice(0,(colors.length - 13) ) 
+      .col-md-5.mb-4
+        +Color(color)   
+    
+  .row.mt-2 
+    h5 Gray shades
+    each color in colors.slice(colors.length - 13)
+      .col-md-5.mb-4
+        +Color(color)   

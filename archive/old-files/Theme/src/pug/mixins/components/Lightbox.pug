@@ -1,0 +1,53 @@
+mixin SimpleImage
+	.col-12
+		h5.mt-4 Example		  
+		+ComponentCard({
+			title: 'Simple Image',
+			anchor: true,
+		}).mb-3
+			a(href=`${CWD}assets/img/gallery/g7.jpg` data-gallery="gallery-2")
+				= '\n'
+				img(src=`${CWD}assets/img/gallery/g7.jpg` alt='').img-fluid.rounded
+				= '\n'
+
+mixin Gallery 
+	+ComponentCard({
+		title: 'Gallery',
+		anchor: true,
+	}).mb-3
+		.row
+			.col-sm-4.mb-4.mb-lg-0
+				= '\n'
+				a(href=`${CWD}assets/img/gallery/g1.jpg` data-gallery="gallery-1")
+					= '\n'
+					img(src=`${CWD}assets/img/gallery/g1.jpg` alt='').img-fluid.rounded  
+					= '\n'
+				= '\n'
+			.col-sm-4.mb-4.mb-lg-0
+				= '\n'
+				a.post1(href=`${CWD}assets/img/gallery/g2.jpg` data-gallery="gallery-1")
+					= '\n'
+					img(src=`${CWD}assets/img/gallery/g2.jpg` alt='').img-fluid.rounded   
+					= '\n'
+				= '\n'
+			.col-sm-4.mb-4.mb-lg-0
+				= '\n'
+				a.post1(href=`${CWD}assets/img/gallery/g3.jpg` data-gallery="gallery-1")
+					= '\n'
+					img(src=`${CWD}assets/img/gallery/g3.jpg` alt='').img-fluid.rounded  
+					= '\n' 
+				= '\n'
+			//- .col-4.p-1
+			//- 	= '\n'
+			//- 	a.post1(href=`${CWD}assets/img/gallery/5.jpg` data-gallery="gallery-1")
+			//- 		= '\n'
+			//- 		img(src=`${CWD}assets/img/gallery/5.jpg` alt='').img-fluid.rounded
+			//- 		= '\n'  
+			//- 	= '\n'
+			//- .col-4.p-1
+			//- 	= '\n'
+			//- 	a.post1(href=`${CWD}assets/img/gallery/3.jpg` data-gallery="gallery-1")
+			//- 		= '\n'
+			//- 		img(src=`${CWD}assets/img/gallery/3.jpg` alt='').img-fluid.rounded    
+			//- 		= '\n' 
+			//- 	= '\n'

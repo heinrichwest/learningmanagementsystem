@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>R E ! G N</title>
+
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="./Theme/public/assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./Theme/public/assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./Theme/public/assets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="./Theme/public/assets/img/favicons/favicon.ico">
+    <link rel="manifest" href="./Theme/public/assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="./Theme/public/assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+    <script src="./Theme/public/vendors/overlayscrollbars/OverlayScrollbars.min.js"></script>
+
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="./Theme/public/vendors/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="./Theme/public/assets/css/theme.css" rel="stylesheet" />
+    <link href="./white-navbar.css" rel="stylesheet" />
+  </head>
+
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-theme fixed-top" data-navbar-on-scroll="data-navbar-on-scroll">
+      <div class="container"><a class="navbar-brand fw-normal ls-2" href="./index.html"><img src="./Images/Logo.png" alt="TAP Logo" width="40" height="40"></a>
+        <button class="navbar-toggler p-0" type="button" data-bs-toggle="collapse" data-bs-target="#primaryNavbarCollapse" aria-controls="primaryNavbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="primaryNavbarCollapse">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" href="#" data-bs-toggle="dropdown-on-hover" aria-haspopup="true" aria-expanded="false"><span class="nav-link-text">Features</span></a>
+              <div class="dropdown-menu dropdown-menu-end py-0 overflow-hidden" aria-labelledby="navbarDropdownMenuLink1">
+                <a class="dropdown-item" href="./features/300-courses.html">300 Courses</a>
+                <a class="dropdown-item" href="./features/dashboard-reporting.html">Dashboard reporting</a>
+                <a class="dropdown-item" href="./features/course-management-and-creations.html">Course management and creations</a>
+                <a class="dropdown-item" href="./features/employment-equity-system.html">Employment Equity System</a>
+                <a class="dropdown-item" href="./features/work-based-assessments.html">Work Based Assessments</a>
+                <a class="dropdown-item" href="./features/while-labelling.html">While Labelling</a>
+                <a class="dropdown-item" href="./features/team-management.html">Team Management</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink2" href="#" data-bs-toggle="dropdown-on-hover" aria-haspopup="true" aria-expanded="false"><span class="nav-link-text">Courses</span></a>
+              <div class="dropdown-menu dropdown-menu-end dropdown-pages py-3" aria-labelledby="navbarDropdownMenuLink2">
+                <div class="row">
+                  <div class="col-6 col-md-4 px-2">
+                    <ul class="nav flex-column">
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./courses/administration-and-office-skills.html">Administration and Office Skills</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./courses/assessments-and-skills-testing.html">Assessments and Skills Testing</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./courses/business-analysis-and-data-skills.html">Business Analysis and Data Skills</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./courses/communication-and-interpersonal-skills.html">Communication and Interpersonal Skills</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./courses/compliance-law-and-governance.html">Compliance, Law and Governance</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./courses/health-and-safety-compliance.html">Health and Safety Compliance</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-6 col-md-4 px-2">
+                    <ul class="nav flex-column">
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./courses/personal-development.html">Personal Development</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./courses/computer-and-digital-skills.html">Computer and Digital Skills</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./courses/customer-service-and-contact-centre.html">Customer Service and Contact Centre</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./courses/finance-and-accounting.html">Finance and Accounting</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./courses/entrepreneurship-and-new-ventures.html">Entrepreneurship and New Ventures</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./courses/human-resources-and-people-management.html">Human Resources and People Management</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-6 col-md-4 px-2">
+                    <ul class="nav flex-column">
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./courses/information-technology.html">Information Technology</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./courses/leadership-and-management.html">Leadership and Management</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./courses/project-management.html">Project Management</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./courses/retail-sales-and-marketing.html">Retail, Sales and Marketing</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./courses/automotive-industry.html">Automotive Industry</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./courses/security-and-risk-management.html">Security and Risk Management</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./courses/supply-chain-and-logistics.html">Supply Chain and Logistics</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="./pages/about.html"><span class="nav-link-text">About us</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="#pricing"><span class="nav-link-text">Pricing</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="#testimonial"><span class="nav-link-text">Success Stories</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact"><span class="nav-link-text">Contact us</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+      <div class="preloader" id="preloader" data-preloader>
+        <div class="preloader-wrapper big active" data-preloader>
+          <div class="spinner-layer spinner-white-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+              <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="py-0 text-center">

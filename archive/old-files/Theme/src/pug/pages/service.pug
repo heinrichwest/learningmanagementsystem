@@ -1,0 +1,24 @@
+extends ../layouts/LayoutTheme
+include ../mixins/headers/HeaderClassic
+include ../mixins/pages/service/Services
+include ../mixins/pages/service/Performance
+include ../mixins/pages/service/Process
+include ../mixins/pages/CtaStartNewProject
+include ../mixins/pages/Pricing
+
+prepend styles
+
+
+prepend scripts
+  script(src=`${CWD}vendors/progressbar/progressbar.min.js`)
+
+append variables
+
+
+append mainContent
+  +HeaderClassic('Services')
+  +Services
+  +Performance
+  +Process
+  +CtaStartNewProject
+  +Pricing

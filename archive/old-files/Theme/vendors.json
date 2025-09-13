@@ -1,0 +1,88 @@
+{
+  "bootstrap": {
+    "src": ["dist/js/bootstrap.min.js", "dist/js/bootstrap.min.js.map"],
+    "dest": "bootstrap"
+  },
+  "prismjs": {
+    "src": ["prism.js", "themes/prism.css"],
+    "dest": "prism"
+  },
+  "is_js": {
+    "src": "is.min.js",
+    "dest": "is"
+  },
+  "anchor-js": {
+    "src": "anchor.min.js",
+    "dest": "anchorjs"
+  },
+  "@fortawesome/fontawesome-free": {
+    "src": "js/all.min.js",
+    "dest": "fontawesome"
+  },
+  "isotope-layout": {
+    "src": ["dist/isotope.pkgd.min.js"],
+    "dest": "isotope-layout"
+  },
+
+  "isotope-packery": {
+    "src": ["packery-mode.pkgd.min.js"],
+    "dest": "isotope-packery"
+  },
+  "glightbox": {
+    "src": ["dist/js/glightbox.min.js", "dist/css/glightbox.min.css"],
+    "dest": "glightbox"
+  },
+  "plyr": {
+    "src": [
+      "dist/plyr.polyfilled.min.js",
+      "dist/plyr.polyfilled.min.js.map",
+      "dist/plyr.css"
+    ],
+    "dest": "plyr"
+  },
+  "countup.js": {
+    "src": "dist/countUp.umd.js",
+    "dest": "countup"
+  },
+  "@popperjs/core": {
+    "src": ["dist/umd/popper.min.js", "dist/umd/popper.min.js.map"],
+    "dest": "popper"
+  },
+  "swiper": {
+    "src": ["swiper-bundle.min.js", "swiper-bundle.min.css"],
+    "dest": "swiper"
+  },
+  "rellax": {
+    "src": ["rellax.min.js"],
+    "dest": "rellax"
+  },
+  "overlayscrollbars": {
+    "src": ["js/OverlayScrollbars.min.js", "css/OverlayScrollbars.min.css"],
+    "dest": "overlayscrollbars"
+  },
+  "bigpicture": {
+    "src": "dist/BigPicture.js",
+    "dest": "bigpicture"
+  },
+
+  "imagesloaded": {
+    "src": "imagesloaded.pkgd.min.js",
+    "dest": "imagesloaded"
+  },
+  "typed.js": {
+    "src": "lib/typed.js",
+    "dest": "typed.js"
+  },
+  "lodash": {
+    "src": "lodash.min.js",
+    "dest": "lodash"
+  },
+  "progressbar.js": {
+    "src": ["dist/progressbar.min.js", "dist/progressbar.min.js.map"],
+    "dest": "progressbar"
+  },
+  "hover-dir": {
+    "src": ["dist/hoverDir.min.js"],
+    "dest": "hover-dir"
+  }
+}

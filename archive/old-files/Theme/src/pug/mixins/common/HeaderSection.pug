@@ -1,0 +1,18 @@
+//- ===============================================
+//-    A wireframe for every header section
+//- ===============================================
+
+mixin HeaderSection(background, container)
+  = '\n\n'
+
+  section&attributes(attributes)
+    = '\n'
+    //- Background
+    - if (typeof(background) === 'object') {
+    +Background(background)
+    - } else if (typeof(background === 'string') && typeof(container) === 'undefined') { container = background }
+    .header-overlay
+    //- Container for content
+    - if (typeof(container) === 'undefined') { container = 'container' }
+    div(class=container)
+      block

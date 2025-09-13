@@ -1,0 +1,19 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Countup
+include ../mixins/common/ComponentLink
+
+prepend scripts 
+	script(src=`${CWD}vendors/countup/countUp.umd.js`)
+
+append variables 
+	- var pageTitle = 'Count up';
+
+block component
+	+ComponentLink({
+		text:'For more detail see, ',
+		linkText: 'CountUP Documentation ',
+		link: `https://inorganik.github.io/countUp.js/`,
+	})
+	+Countup
+
+

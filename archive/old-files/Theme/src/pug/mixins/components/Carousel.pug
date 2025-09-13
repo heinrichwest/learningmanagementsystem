@@ -1,0 +1,94 @@
+mixin BasicExample 
+	h5.mt-4.fw-lighter Basic Example
+	+ComponentCard
+		#carouselExampleIndicatorsOne.carousel.slide(data-bs-ride='carousel')
+			.carousel-indicators
+				button.active(type='button' data-bs-target='#carouselExampleIndicatorsOne' data-bs-slide-to='0' aria-current='true' aria-label='Slide 1')
+				button(type='button' data-bs-target='#carouselExampleIndicatorsOne' data-bs-slide-to='1' aria-label='Slide 2')
+				button(type='button' data-bs-target='#carouselExampleIndicatorsOne' data-bs-slide-to='2' aria-label='Slide 3')
+			.carousel-inner
+				.carousel-item.active
+					img.d-block.w-100(src=`${CWD}assets/img/gallery/g4.jpg`, alt='First slide')
+				.carousel-item
+					img.d-block.w-100(src=`${CWD}assets/img/gallery/g5.jpg`, alt='Second slide')
+				.carousel-item
+					img.d-block.w-100(src=`${CWD}assets/img/gallery/g6.jpg`, alt='Third slide')
+			= '\n'		
+			button.carousel-control-prev(type='button' data-bs-target='#carouselExampleIndicatorsOne' data-bs-slide='prev')
+				= '\n'
+				span.carousel-control-prev-icon(aria-hidden='true')
+				= '\n'
+				span.visually-hidden Previous
+				= '\n'
+			= '\n'	
+			button.carousel-control-next(type='button' data-bs-target='#carouselExampleIndicatorsOne' data-bs-slide='next')
+				= '\n'
+				span.carousel-control-next-icon(aria-hidden='true')
+				= '\n'
+				span.visually-hidden Next
+				= '\n'
+
+mixin WithCaptions 
+	h5.mt-4.fw-lighter With Captions
+	+ComponentCard
+		#carouselExampleIndicators.carousel.slide(data-bs-ride='carousel')
+			.carousel-indicators
+				button.active(type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='0' aria-current='true' aria-label='Slide 1')
+				button(type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='1' aria-label='Slide 2')
+				button(type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='2' aria-label='Slide 3')
+			.carousel-inner
+				.carousel-item.active
+					img.d-block.w-100(src=`${CWD}assets/img/gallery/g7.jpg`, alt='First slide')
+					.carousel-caption.d-none.d-md-block
+						h5.text-white First Slide Heading
+						p Lorem ipsum dolor sit amet consectetur adipisicing elit.
+				.carousel-item
+					img.d-block.w-100(src=`${CWD}assets/img/gallery/g8.jpg`, alt='Second slide')
+					.carousel-caption.d-none.d-md-block
+						.carousel-caption.d-none.d-md-block
+							h5.text-white First Slide Heading
+							p Lorem ipsum dolor sit amet consectetur adipisicing elit.
+				.carousel-item
+					img.d-block.w-100(src=`${CWD}assets/img/gallery/g9.jpg`, alt='Third slide')
+					.carousel-caption.d-none.d-md-block
+						h5.text-white First Slide Heading
+						p Lorem ipsum dolor sit amet consectetur adipisicing elit.
+			= '\n'		
+			button.carousel-control-prev(type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide='prev')
+				= '\n'
+				span.carousel-control-prev-icon(aria-hidden='true')
+				= '\n'
+				span.visually-hidden Previous
+				= '\n'
+			= '\n'	
+			button.carousel-control-next(type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide='next')
+				= '\n'
+				span.carousel-control-next-icon(aria-hidden='true')
+				= '\n'
+				span.visually-hidden Next
+				= '\n'	
+
+mixin Crossfade
+	h5.mt-4.fw-extra-light Crossfade Example
+	+ComponentCard
+		#carouselExampleFade.carousel.slide.carousel-fade(data-bs-ride='carousel')
+			.carousel-inner
+				.carousel-item.active
+					img.d-block.w-100(src=`${CWD}assets/img/gallery/g1.jpg`, alt='First slide')
+				.carousel-item
+					img.d-block.w-100(src=`${CWD}assets/img/gallery/g4.jpg`, alt='Second slide')
+				.carousel-item
+					img.d-block.w-100(src=`${CWD}assets/img/gallery/g8.jpg`, alt='Third slide')
+			= '\n'		
+			button.carousel-control-prev(type='button' data-bs-target='#carouselExampleFade' data-bs-slide='prev')
+				= '\n'
+				span.carousel-control-prev-icon(aria-hidden='true')
+				= '\n'
+				span.visually-hidden Previous
+				= '\n'
+			button.carousel-control-next(type='button' data-bs-target='#carouselExampleFade' data-bs-slide='next')
+				= '\n'
+				span.carousel-control-next-icon(aria-hidden='true')
+				= '\n'
+				span.visually-hidden Next
+				= '\n'

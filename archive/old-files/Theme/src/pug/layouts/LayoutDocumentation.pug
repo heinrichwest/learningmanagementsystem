@@ -1,0 +1,32 @@
+extends LayoutTheme
+include ../mixins/navbar/NavbarDocs
+
+append variables
+  - var preFooter = false;
+
+prepend styles
+  link(href=`${CWD}vendors/prism/prism.css`, rel='stylesheet')
+
+prepend scripts
+  script(src=`${CWD}vendors/prism/prism.js`)
+
+append mainContent
+  +Section({
+    image: `${CWD}assets/img/headers/header-3.jpg`,
+    className: 'overlay parallax',
+    attrs: {
+      style: 'background-position: center 82%;'
+    }
+  },'container-fluid').text-center.overflow-hidden.py-0
+    .header-overlay
+    .position-relative.d-flex.justify-content-center.align-items-center.pt-10.pb-7
+      .header-text
+        h1.display-3.text-white.fs-4.fs-md-5 #{pageTitle || 'Documentation'}
+        p.text-uppercase.text-400.ls-3.mt-2!=pageDes
+  +Section.pt-0.pb-5
+    .row.justify-content-between
+      .d-none.d-lg-block.col-auto.mb-5
+        .sticky-sidebar.mt-6
+          +NavbarDocs
+      .col-lg-9.col-xl-9.py-6
+        block content

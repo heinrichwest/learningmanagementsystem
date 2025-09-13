@@ -1,0 +1,5 @@
+mixin BlockHeader(config) 
+  div(class=`${attributes.class ? attributes.class : 'mb-5'}`)
+    h4(class=`${config.titleClass || 'mb-3 pb-1'}`)= config.title 
+    if config.desc 
+      p.mb-0!= config.desc

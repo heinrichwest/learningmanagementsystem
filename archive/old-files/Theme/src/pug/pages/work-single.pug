@@ -1,0 +1,22 @@
+extends ../layouts/LayoutTheme
+include ../mixins/headers/HeaderClassic
+include ../mixins/pages/work/Mixin
+include ../mixins/pages/about/CtaTeam
+
+
+append variables
+
+prepend styles
+	link(href=`${CWD}vendors/swiper/swiper-bundle.min.css`, rel='stylesheet')
+
+prepend scripts
+	script(src=`${CWD}vendors/swiper/swiper-bundle.min.js`)
+
+append mainContent
+	+HeaderClassic('Work Single')
+	+Section('container')
+		.row
+			+WorkSingleCarousel
+		.row 
+			+WorkSigletext
+			

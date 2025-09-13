@@ -1,0 +1,88 @@
+mixin SwiperCarousel
+  +ComponentCard({combine: true})
+    .swiper.theme-slider(data-swiper!={
+      autoplay: true,
+      spaceBetween: 30,
+      loop: true,
+      slidesPerView: 1,
+      breakpoints: {
+        670: {
+          slidesPerView: 2,
+        },
+        1200: {
+          slidesPerView: 3
+        },
+      }
+    })
+      .swiper-wrapper
+        .swiper-slide
+          img(src=`${CWD}assets/img/portrait-1.jpg` alt="image").w-100
+        .swiper-slide
+          img(src=`${CWD}assets/img/portrait-7.jpg` alt="image").w-100
+        .swiper-slide
+          img(src=`${CWD}assets/img/portrait-3.jpg` alt="image").w-100
+        .swiper-slide
+          img(src=`${CWD}assets/img/portrait-4.jpg` alt="image").w-100 
+        .swiper-slide
+          img(src=`${CWD}assets/img/portrait-5.jpg` alt="image").w-100 
+        .swiper-slide
+          img(src=`${CWD}assets/img/portrait-6.jpg` alt="image").w-100   
+      .swiper-nav
+        .swiper-button-prev
+        .swiper-button-next
+         
+mixin SwiperWithoutThumbnail 
+  h5.mt-4 Swiper without thumbnail
+  +ComponentCard
+    .swiper.theme-slider(data-swiper!={
+      autoplay: true,
+      spaceBetween: 5,
+      loop: true,
+      loopedSlides: 5,
+      slideToClickedSlide: true,
+    })
+      .swiper-wrapper
+        .swiper-slide
+          img(src=`${CWD}assets/img/gallery/06-f.jpg` alt="image").img-fluid
+        .swiper-slide  
+          img(src=`${CWD}assets/img/gallery/07-f.jpg` alt="image").img-fluid
+        .swiper-slide  
+          img(src=`${CWD}assets/img/gallery/09-f.jpg` alt="image").img-fluid
+        .swiper-slide  
+          img(src=`${CWD}assets/img/gallery/10-f.jpg` alt="image").img-fluid
+      .swiper-nav
+        .swiper-button-prev
+        .swiper-button-next
+
+mixin SwiperWithThumbnail
+  h5.mt-4 Swiper with thumbnail
+  +ComponentCard
+    .swiper.theme-slider(data-swiper!={
+      spaceBetween: 5,
+      loop: true,
+      loopedSlides: 5,
+      thumb: {
+        spaceBetween: 5,
+        slidesPerView: 5,
+        loop: true,
+        freeMode: true,
+        grabCursor: true,
+        loopedSlides: 5, 
+        centeredSlides: true,
+        slideToClickedSlide: true,
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
+      },
+      slideToClickedSlide: true,
+    })
+      .swiper-wrapper
+        .swiper-slide
+          img(src=`${CWD}assets/img/interior-1.jpg` alt="image").img-fluid
+        .swiper-slide  
+          img(src=`${CWD}assets/img/interior-4.jpg` alt="image").img-fluid
+        .swiper-slide  
+          img(src=`${CWD}assets/img/interior-6.jpg` alt="image").img-fluid
+
+      .swiper-nav
+        .swiper-button-prev
+        .swiper-button-next

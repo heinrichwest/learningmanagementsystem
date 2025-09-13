@@ -1,0 +1,11 @@
+extends ../layouts/LayoutDocumentation 
+include ../mixins/docs/Plugins
+include ../mixins/common/Card
+
+append variables 
+  - var pageTitle = 'Plugins';
+  - var pageDes = 'Giving your reign power ups';
+
+block content
+  each plugin, index in plugins
+    +Plugins(plugin,index)

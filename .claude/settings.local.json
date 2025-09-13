@@ -37,7 +37,19 @@
       "Bash(powershell:*)",
       "Bash(cmd /c:*)",
       "Bash(start-server.bat)",
-      "Bash(./start-server.bat)"
+      "Bash(./start-server.bat)",
+      "Bash(findstr:*)",
+      "Bash(netstat:*)",
+      "Bash(copy index.html.bak index.html)",
+      "Bash(claude-code login)",
+      "Bash(claude login)",
+      "Bash(claude config set model claude-3-5-sonnet-20241022)",
+      "Bash(claude config set --global model claude-3-5-sonnet-20241022)",
+      "Bash(mkdir:*)",
+      "Bash(mv:*)",
+      "Bash(rmdir:*)",
+      "Bash(set PORT=5000)",
+      "Bash(start http://localhost:5002/)"
     ],
     "deny": [],
     "ask": []

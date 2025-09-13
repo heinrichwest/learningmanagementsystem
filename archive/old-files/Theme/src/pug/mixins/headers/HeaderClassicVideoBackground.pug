@@ -1,0 +1,11 @@
+mixin HeaderClassicVideoBackground
+  +HeaderSection({
+    image: `${CWD}assets/img/headers/header-12.jpg`,
+    youtube: {
+      videoId: "BYK1bkSO61c",
+      startSeconds: 7, 
+      endSeconds: 57, 
+    },
+    className: "overlay overlay-z-index-1",
+  }).py-0.text-center(data-zanim-timeline!={} data-zanim-trigger='scroll')
+    +HeaderContent('To begin begin', ` that's how our life <br class="d-block d-md-none"> rolls everyday`).flex-center.pt-10.pb-8

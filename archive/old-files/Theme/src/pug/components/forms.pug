@@ -1,0 +1,38 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Forms
+include ../mixins/common/ComponentLink
+
+append variables 
+  - var pageTitle = 'Forms';
+
+block component
+
+  +ComponentLink({
+    text:'For detail documentation. ',
+    linkText: 'View Forms on Bootstrap ',
+    link: `https://getbootstrap.com/docs/${bootstrapVersion}/forms/overview/`,
+  })
+  .row.g-0
+    .col-12
+     +BasicForm
+     +FormControlExample
+  .row   
+    .col-6 
+      +FormSelect
+    .col-6
+      +FormMultipleSelect
+    .col-6
+      +Checkboxes 
+    .col-6 
+      +Radios 
+    .col-6 
+      +InlineRadios  
+    .col-6 
+      +Disabled
+    .col-6
+      +Switches
+    .col-6 
+      +Range
+    .col-12
+      +FileBrowser          
+

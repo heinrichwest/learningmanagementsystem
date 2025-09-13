@@ -1,0 +1,15 @@
+extends ../layouts/LayoutTheme
+include ../mixins/headers/HeaderClassic
+include ../mixins/pages/Contact
+
+append variables
+  - var Navbar = true;
+
+prepend scripts
+  script(src!=`https://maps.googleapis.com/maps/api/js?key=${APIGmap}&callback=initMap` async)
+
+append variables 
+  
+append mainContent
+  +HeaderClassic('Contact Us')
+  +Contact

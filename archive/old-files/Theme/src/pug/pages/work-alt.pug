@@ -1,0 +1,104 @@
+extends ../layouts/LayoutTheme
+include ../mixins/headers/HeaderClassic
+include ../mixins/pages/work/Mixin
+
+append variables
+
+prepend styles
+	link(href=`${CWD}vendors/glightbox/glightbox.min.css`, rel='stylesheet')
+
+prepend scripts
+	script(src=`${CWD}vendors/glightbox/glightbox.min.js`)
+	script(src=`${CWD}vendors/hover-dir/hoverDir.min.js`)
+	script(src=`${CWD}vendors/isotope-layout/isotope.pkgd.min.js`)
+	script(src=`${CWD}vendors/isotope-packery/packery-mode.pkgd.min.js`)
+
+append mainContent
+	+HeaderClassic('Work Alt')
+	+Section.text-center.pb-6
+		.row
+			.col-12.mb-5(data-zanim-timeline!={} data-zanim-trigger='scroll') 
+				.overflow-hidden
+					h3.fw-normal.mb-1(data-zanim-xs!={'duration': 1.5, 'delay': 0}) When great minds collide
+				.overflow-hidden
+					p.mb-0.ls-1.text-uppercase(data-zanim-xs!={'duration': 1.5, 'delay': 0.1}) We help ambitious teams do amazing things
+				.overflow-hidden
+					hr.hr-short.bg-black.opacity-100(data-zanim-xs!={'duration': 1.5, 'delay': 0.2})
+			.col-12
+				.row.sortable.sortable-container-gutter-fix(data-rp-isotope!={layoutMode: 'packery'})
+					.col-lg-10.order-1.order-lg-0.position-relative
+						.row.gx-3
+							.col-6.mb-3.isotope-item.design(data-zanim-xs!={'delay': 0})
+								+ProjectItemLightbox({
+									img: 1, 
+									title: `Website Design`, 
+									description: `Multipurpose HTML template <br> with bootstrap 5`, 
+								})
+							.col-6.mb-3.isotope-item.photography(data-zanim-xs!={'delay': 0.3})
+								+ProjectItemLightbox({
+									img: 2, 
+									title: `UI/UX Design`, 
+									description: `Most user friendly user <br> interface design`,
+								})
+							.col-6.mb-3.isotope-item.mobile(data-zanim-xs!={'delay': 0.2})
+								+ProjectItemLightbox({
+									img: 3, 
+									title: `Mobile Accessories`, 
+									description: `Popular mobile accessories <br> in 2021`,  
+								})
+							.col-6.mb-3.isotope-item.photography(data-zanim-xs!={'delay': 0.3})
+								+ProjectItem({
+									img: 4, 
+									title: `Interior Photography`,
+									description: `More than 50K happy <br> real state clients`, 
+								})
+							.col-6.mb-3.isotope-item.mobile(data-zanim-xs!={'delay': 0.4})
+								+ProjectItem({
+									img: 5, 
+									title: `App Development`, 
+									description: `Most secured and optimized <br> mobile app development`, 
+								})
+							.col-6.mb-3.isotope-item.marketing(data-zanim-xs!={'delay': 0.5})
+								+ProjectItem({
+									img: 6, 
+									title: `Content Writing`, 
+									description: ` More than 50K blog posts <br> on different subjects`, 
+								})
+							.col-6.mb-3.isotope-item.design(data-zanim-xs!={'delay': 0.6})
+								+ProjectItem({
+									img: 7,
+									title: `Packaging Designing`,
+									description: `Beautiful packaging design done <br> by our designers`,
+								})
+							.col-6.mb-3.isotope-item.photography(data-zanim-xs!={'delay': 0.35})
+								+ProjectItem({
+									img: 8, 
+									title: `Model Photography`, 
+									description: `Exclusive model photography by <br> award winning photographers`, 
+								})
+							.col-6.mb-3.isotope-item.design(data-zanim-xs!={'delay': 0.4})
+								+ProjectItem({
+									img: 9, 
+									title: `Digital Marketing`, 
+									description: `We spread your digital products <br> all over the world`, 
+								})
+					.col-lg-2.order-0.order-lg-1.position-relative
+						.menu.mb-3.flex-lg-column.text-start.justify-content-center.sticky-top.work-alt-sticky-nav(data-filter-nav)&attributes(attributes)
+							a.isotope-nav.text-uppercase.active(href="#work-alt" data-filter='*') all
+							a.isotope-nav.text-uppercase(href="#work-alt" data-filter='.photography') Photography
+							a.isotope-nav.text-uppercase(href="#work-alt" data-filter='.design') Design
+							a.isotope-nav.text-uppercase(href="#work-alt" data-filter='.mobile') Mobile
+							a.isotope-nav.text-uppercase(href="#work-alt" data-filter='.marketing') Marketing
+	+Section({
+		image: `${CWD}assets/img/backgrounds/fun-fact.jpg`,
+		className: 'overlay overlay-0',
+		attrs: {
+			style: "background-position: bottom;"
+		}
+	}).text-center.py-6.bg-dark(data-zanim-timeline!={} data-zanim-trigger='scroll')
+		.overflow-hidden
+			h4.fw-medium.mb-1.text-white(data-zanim-xs!={'duration': 1.5, 'delay': 0})  Make a project With Us
+		.overflow-hidden
+			p.text-white(data-zanim-xs!={'duration': 1.5, 'delay': 0.1})  Our Team is always ready to help you
+		div(data-zanim-xs!={"from":{"opacity":0,"y":30},"to":{"opacity":1,"y":0},"duration":1.5,"delay":0.2})
+			a(href="#!").btn.btn-light.btn-sm.hvr-sweep-top.mt-2 Start Now

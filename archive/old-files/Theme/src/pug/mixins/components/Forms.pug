@@ -1,0 +1,170 @@
+mixin BasicForm 
+	h5 Basic Form
+	+ComponentCard
+		form
+			.mb-3
+				label.form-label(for='exampleInputEmail1') Email address
+				input.form-control#exampleInputEmail1(type='email' aria-describedby='emailHelp')
+				#emailHelp.form-text We'll never share your email with anyone else.
+			.mb-3
+				label.form-label(for='exampleInputPassword1') Password
+				input.form-control#exampleInputPassword1(type='password')
+			.mb-3.form-check
+				input.form-check-input#exampleCheck1(type='checkbox')
+				label.form-check-label(for='exampleCheck1') Check me out
+			button.btn.btn-dark(type='submit') Submit
+
+mixin FormControl 
+	h5 Basic Form
+	+ComponentCard
+		form
+			.mb-3
+				label.form-label(for='exampleInputEmail1') Email address
+				input.form-control#exampleInputEmail1(type='email' aria-describedby='emailHelp')
+				#emailHelp.form-text We'll never share your email with anyone else.
+			.mb-3
+				label.form-label(for='exampleInputPassword1') Password
+				input.form-control#exampleInputPassword1(type='password')
+			.mb-3.form-check
+				input.form-check-input#exampleCheck1(type='checkbox')
+				label.form-check-label(for='exampleCheck1') Check me out
+			button.btn.btn-dark(type='submit') Submit 
+
+mixin FormControlExample 
+	h5.mt-4 Form Controls
+	+ComponentCard
+		.mb-3
+			label.form-label(for='exampleFormControlInput1') Email address
+			input.form-control#exampleFormControlInput1(type='email' placeholder='name@example.com')
+		.mb-3
+			label.form-label(for='exampleFormControlTextarea1') Example textarea
+			textarea.form-control#exampleFormControlTextarea1(rows='3')
+
+mixin FormSelect
+	h5.mt-4 Form Select
+	+ComponentCard
+		select.form-select.form-select-lg.mb-3(aria-label='.form-select-lg example')
+			option(selected) Open this select menu
+			option(value='1') One
+			option(value='2') Two
+			option(value='3') Three
+		select.form-select.mb-3(aria-label='.form-select-lg example')
+			option(selected) Open this select menu
+			option(value='1') One
+			option(value='2') Two
+			option(value='3') Three	
+		select.form-select.form-select-sm(aria-label='.form-select-sm example')
+			option(selected) Open this select menu
+			option(value='1') One
+			option(value='2') Two
+			option(value='3') Three
+
+mixin FormMultipleSelect
+	h5.mt-4 Form Multiple Select
+	+ComponentCard
+		select.form-select.mb-3(multiple aria-label='multiple select example')
+			option(selected) Open this select menu
+			option(value='1') One
+			option(value='2') Two
+			option(value='3') Three
+			option(value='4') Four
+			option(value='5') Five
+		select.form-select(size='3' aria-label='size 3 select example')
+			option(selected) Open this select menu
+			option(value='1') One
+			option(value='2') Two
+			option(value='3') Three	
+			option(value='4') Four
+			option(value='5') Five
+
+mixin Checkboxes
+	h5.mt-4 Checkboxes
+	+ComponentCard
+		.form-check
+			input.form-check-input#flexCheckDefault(type='checkbox')
+			label.form-check-label(for='flexCheckDefault')
+				| Default checkbox
+		.form-check
+			input.form-check-input#flexCheckChecked(type='checkbox')
+			label.form-check-label(for='flexCheckChecked')
+				| Checked checkbox
+				
+mixin Radios
+	h5.mt-4 Radios
+	+ComponentCard
+		.form-check
+			input.form-check-input#flexRadioDefault1(type='radio' name='flexRadioDefault')
+			label.form-check-label(for='flexRadioDefault1')
+				| Default radio
+		.form-check
+			input.form-check-input#flexRadioDefault2(type='radio' name='flexRadioDefault')
+			label.form-check-label(for='flexRadioDefault2')
+				| Default checked radio
+
+mixin InlineRadios
+	h5.mt-4 Inline Radios
+	+ComponentCard
+		.form-check.form-check-inline
+			input.form-check-input#inlineRadio1(type='radio' name='inlineRadioOptions' value='option1')
+			label.form-check-label(for='inlineRadio1') 1
+		.form-check.form-check-inline
+			input.form-check-input#inlineRadio2(type='radio' name='inlineRadioOptions' value='option2')
+			label.form-check-label(for='inlineRadio2') 2
+		.form-check.form-check-inline
+			input.form-check-input#inlineRadio3(type='radio' name='inlineRadioOptions' value='option3' disabled)
+			label.form-check-label(for='inlineRadio3') 3 (disabled)
+
+mixin Disabled
+	h5.mt-4 Disabled
+	+ComponentCard
+		.form-check
+			input.form-check-input#flexCheckDisabled(type='checkbox' disabled)
+			label.form-check-label(for='flexCheckDisabled')
+				| Disabled checkbox
+			
+		.form-check
+			input.form-check-input#flexCheckCheckedDisabled(type='checkbox' checked disabled)
+			label.form-check-label(for='flexCheckCheckedDisabled')
+				| Disabled checked checkbox
+			
+mixin Switches
+	h5.mt-4 Switches
+	+ComponentCard
+		.form-check.form-switch
+			input.form-check-input#flexSwitchCheckDefault(type='checkbox' role='switch')
+			label.form-check-label(for='flexSwitchCheckDefault') Default switch checkbox input
+
+mixin Switches
+	h5.mt-4 Disabled Switches
+	+ComponentCard
+		.form-check.form-switch
+			input.form-check-input#flexSwitchCheckDisabled(type='checkbox' role='switch' disabled)
+			label.form-check-label(for='flexSwitchCheckDisabled') Disabled switch checkbox input
+		.form-check.form-switch
+			input.form-check-input#flexSwitchCheckCheckedDisabled(type='checkbox' role='switch' checked disabled)
+			label.form-check-label(for='flexSwitchCheckCheckedDisabled') Disabled checked switch checkbox input
+
+mixin Range
+	h5.mt-4 Range Input
+	+ComponentCard
+		label.form-label(for='customRange1') Example range
+		input.form-range#customRange1(type='range')
+
+mixin FileBrowser
+	h5.mt-4 File Browser
+	+ComponentCard
+		.mb-3
+			label.form-label(for='formFile') Default file input example
+			input.form-control#formFile(type='file')
+		.mb-3
+			label.form-label(for='formFileMultiple') Multiple files input example
+			input.form-control#formFileMultiple(type='file' multiple)
+		.mb-3
+			label.form-label(for='formFileDisabled') Disabled file input example
+			input.form-control#formFileDisabled(type='file' disabled)
+		.mb-3
+			label.form-label(for='formFileSm') Small file input example
+			input.form-control.form-control-sm#formFileSm(type='file')
+		div
+			label.form-label(for='formFileLg') Large file input example
+			input.form-control.form-control-lg#formFileLg(type='file')

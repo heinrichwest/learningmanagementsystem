@@ -1,591 +1,861 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TAP - Technical Assessment Portal | Learning Management System</title>
-    <meta name="description" content="TAP (Technical Assessment Portal) - Advanced Learning Management System with comprehensive workforce analytics, employment equity management, academy courses, and business intelligence reporting.">
-    <meta name="keywords" content="learning management system, LMS, technical assessment, workforce analytics, employment equity, online courses, business intelligence, dashboard, e-learning, training portal">
-    <meta name="author" content="TAP Systems">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="TAP - Technical Assessment Portal | LMS">
-    <meta property="og:description" content="Advanced Learning Management System with workforce analytics, employment equity management, and comprehensive course library.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="./Images/Logo.png">
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="TAP - Technical Assessment Portal">
-    <meta name="twitter:description" content="Advanced Learning Management System with workforce analytics and employment equity management.">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="./Documents/tap-text-styles.css">
-    <link rel="stylesheet" href="styles.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="./Images/Logo.png">
-    
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "TAP - Technical Assessment Portal",
-        "url": "https://tap-lms.com",
-        "description": "Advanced Learning Management System with workforce analytics, employment equity management, and comprehensive course library.",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://tap-lms.com/search?q={search_term_string}",
-            "query-input": "required name=search_term_string"
-        }
-    }
-    </script>
-</head>
-<body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="navbar">
-            <div class="nav-container">
-                <a href="#home" class="nav-logo">
-                    <img src="./Images/Logo.png" alt="TAP Logo" width="40" height="40">
-                    <span>TAP</span>
-                </a>
-                
-                <div class="nav-menu" id="nav-menu">
-                    <ul class="nav-list">
-                        <li class="nav-item"><a href="features.html" class="nav-link">Features</a></li>
-                        <li class="nav-item"><a href="solutions.html" class="nav-link">Solutions</a></li>
-                        <li class="nav-item"><a href="courses.html" class="nav-link">Courses</a></li>
-                        <li class="nav-item"><a href="#academy" class="nav-link">Academy</a></li>
-                        <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
-                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+<html lang="en-US" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>LMS</title>
+
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="icon" type="image/png" href="./assets/images/logo/Logo.png">
+    <meta name="theme-color" content="#ffffff">
+    <script src="./archive/old-files/Theme/public/vendors/overlayscrollbars/OverlayScrollbars.min.js"></script>
+
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="./archive/old-files/Theme/public/vendors/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="./archive/old-files/Theme/public/assets/css/theme.css" rel="stylesheet" />
+    <link href="./assets/css/white-navbar.css" rel="stylesheet" />
+  </head>
+
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-theme fixed-top" data-navbar-on-scroll="data-navbar-on-scroll">
+      <div class="container"><a class="navbar-brand fw-normal ls-2" href="./index.html"><img src="./assets/images/logo/Logo.png" alt="TAP Logo" width="40" height="40"></a>
+        <button class="navbar-toggler p-0" type="button" data-bs-toggle="collapse" data-bs-target="#primaryNavbarCollapse" aria-controls="primaryNavbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="primaryNavbarCollapse">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" href="#" data-bs-toggle="dropdown-on-hover" aria-haspopup="true" aria-expanded="false"><span class="nav-link-text">Features</span></a>
+              <div class="dropdown-menu dropdown-menu-end py-0 overflow-hidden" aria-labelledby="navbarDropdownMenuLink1">
+                <a class="dropdown-item" href="./pages/features/300-courses.html">300 Courses</a>
+                <a class="dropdown-item" href="./pages/features/dashboard-reporting.html">Dashboard reporting</a>
+                <a class="dropdown-item" href="./pages/features/course-management-and-creations.html">Course management and creations</a>
+                <a class="dropdown-item" href="./pages/features/employment-equity-system.html">Employment Equity System</a>
+                <a class="dropdown-item" href="./pages/features/work-based-assessments.html">Work Based Assessments</a>
+                <a class="dropdown-item" href="./pages/features/while-labelling.html">While Labelling</a>
+                <a class="dropdown-item" href="./pages/features/team-management.html">Team Management</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink2" href="#" data-bs-toggle="dropdown-on-hover" aria-haspopup="true" aria-expanded="false"><span class="nav-link-text">Courses</span></a>
+              <div class="dropdown-menu dropdown-menu-end dropdown-pages py-3" aria-labelledby="navbarDropdownMenuLink2">
+                <div class="row">
+                  <div class="col-6 col-md-4 px-2">
+                    <ul class="nav flex-column">
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./pages/courses/categories/administration-and-office-skills.html">Administration and Office Skills</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./pages/courses/categories/assessments-and-skills-testing.html">Assessments and Skills Testing</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./pages/courses/categories/business-analysis-and-data-skills.html">Business Analysis and Data Skills</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./pages/courses/categories/communication-and-interpersonal-skills.html">Communication and Interpersonal Skills</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./pages/courses/categories/compliance-law-and-governance.html">Compliance, Law and Governance</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./pages/courses/categories/health-and-safety-compliance.html">Health and Safety Compliance</a></li>
                     </ul>
+                  </div>
+                  <div class="col-6 col-md-4 px-2">
+                    <ul class="nav flex-column">
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./pages/courses/categories/personal-development.html">Personal Development</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./pages/courses/categories/computer-and-digital-skills.html">Computer and Digital Skills</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./pages/courses/categories/customer-service-and-contact-centre.html">Customer Service and Contact Centre</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./pages/courses/categories/finance-and-accounting.html">Finance and Accounting</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./pages/courses/categories/entrepreneurship-and-new-ventures.html">Entrepreneurship and New Ventures</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./pages/courses/categories/human-resources-and-people-management.html">Human Resources and People Management</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-6 col-md-4 px-2">
+                    <ul class="nav flex-column">
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./pages/courses/categories/information-technology.html">Information Technology</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./pages/courses/categories/leadership-and-management.html">Leadership and Management</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./pages/courses/categories/project-management.html">Project Management</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./pages/courses/categories/retail-sales-and-marketing.html">Retail, Sales and Marketing</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./pages/courses/categories/automotive-industry.html">Automotive Industry</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./pages/courses/categories/security-and-risk-management.html">Security and Risk Management</a></li>
+                      <li class="nav-item"><a class="nav-link fw-medium px-0 py-2" href="./pages/courses/categories/supply-chain-and-logistics.html">Supply Chain and Logistics</a></li>
+                    </ul>
+                  </div>
                 </div>
-                
-                <div class="nav-actions">
-                    <a href="#login" class="btn btn-outline">Login</a>
-                    <a href="#signup" class="btn btn-primary">Get Started</a>
-                </div>
-                
-                <div class="nav-toggle" id="nav-toggle">
-                    <span class="hamburger"></span>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Main Content -->
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <p class="kicker">Advanced Learning Management System</p>
-                        <h1 class="hero-title">Transform Your Organization with <span class="text-gradient">TAP</span></h1>
-                        <p class="lead">The comprehensive LMS solution featuring workforce analytics, employment equity management, business intelligence reporting, and a complete academy ecosystem.</p>
-                        <div class="hero-actions">
-                            <a href="#signup" class="btn btn-primary btn-large">Start Free Trial</a>
-                            <a href="#demo" class="btn btn-outline btn-large">Request Demo</a>
-                        </div>
-                        <div class="hero-stats">
-                            <div class="stat">
-                                <h3>50,000+</h3>
-                                <p>Active Learners</p>
-                            </div>
-                            <div class="stat">
-                                <h3>300+</h3>
-                                <p>Courses Available</p>
-                            </div>
-                            <div class="stat">
-                                <h3>98%</h3>
-                                <p>Satisfaction Rate</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hero-image">
-                        <img src="./Images/TAP.png" alt="TAP Dashboard Preview" class="dashboard-preview" style="width: 100%; height: auto;">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Features Section -->
-        <section id="features" class="features">
-            <div class="container">
-                <div class="section-header">
-                    <p class="kicker">Comprehensive Platform</p>
-                    <h2>Everything You Need in One Platform</h2>
-                    <p class="lead">TAP combines learning management, workforce analytics, and business intelligence into a single, powerful solution.</p>
-                </div>
-                
-                <div class="features-grid">
-                    <a href="features/interactive-dashboards.html" class="feature-card-link">
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
-                                </svg>
-                            </div>
-                            <h3>Interactive Dashboards</h3>
-                            <p>Comprehensive BI reporting with DevExpress Dashboard components, real-time analytics, and customizable widgets for data visualization.</p>
-                            <ul>
-                                <li>Real-time data visualization</li>
-                                <li>Customizable dashboard widgets</li>
-                                <li>Advanced filtering and sorting</li>
-                                <li>Export to Excel</li>
-                            </ul>
-                        </div>
-                    </a>
-                    
-                    <a href="features/employment-equity-management.html" class="feature-card-link">
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                                </svg>
-                            </div>
-                            <h3>Employment Equity Management</h3>
-                            <p>Complete employment equity planning, workforce analysis, barrier identification, and compliance reporting system.</p>
-                            <ul>
-                                <li>Workforce profile management</li>
-                                <li>Barrier analysis and reporting</li>
-                                <li>Occupational level tracking</li>
-                                <li>Compliance notifications</li>
-                            </ul>
-                        </div>
-                    </a>
-                    
-                    <a href="features/academy-learning-system.html" class="feature-card-link">
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
-                                </svg>
-                            </div>
-                            <h3>Academy Learning System</h3>
-                            <p>Full-featured learning management with course library, assessments, student profiles, analytics, and payment processing.</p>
-                            <ul>
-                                <li>300+ courses available</li>
-                                <li>Advanced assessment system</li>
-                                <li>Student progress tracking</li>
-                                <li>Certificate generation</li>
-                            </ul>
-                        </div>
-                    </a>
-                    
-                    <a href="features/team-management.html" class="feature-card-link">
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
-                                </svg>
-                            </div>
-                            <h3>Team Management</h3>
-                            <p>Comprehensive team collaboration tools with leaderboards, course assignments, performance tracking, and member management.</p>
-                            <ul>
-                                <li>Team creation and editing</li>
-                                <li>Performance leaderboards</li>
-                                <li>Predefined course assignments</li>
-                                <li>Collaboration tools</li>
-                            </ul>
-                        </div>
-                    </a>
-                    
-                    <a href="features/e-commerce-integration.html" class="feature-card-link">
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V7h10v2z"/>
-                                </svg>
-                            </div>
-                            <h3>E-Commerce Integration</h3>
-                            <p>Complete shopping cart, payment processing, billing management, and transaction history for course purchases.</p>
-                            <ul>
-                                <li>Shopping cart management</li>
-                                <li>Secure payment processing</li>
-                                <li>Invoice generation</li>
-                                <li>Payment history tracking</li>
-                            </ul>
-                        </div>
-                    </a>
-                    
-                    <a href="features/white-labeling.html" class="feature-card-link">
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
-                                </svg>
-                            </div>
-                            <h3>White Labeling</h3>
-                            <p>Customize the platform with your brand including themes, banners, broadcasts, and complete visual identity customization.</p>
-                            <ul>
-                                <li>Custom theme configuration</li>
-                                <li>Brand logo integration</li>
-                                <li>Custom banner management</li>
-                                <li>Personalized messaging</li>
-                            </ul>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Solutions Section -->
-        <section id="solutions" class="solutions">
-            <div class="container">
-                <div class="section-header">
-                    <p class="kicker">Industry Solutions</p>
-                    <h2>Tailored for Your Industry</h2>
-                    <p class="lead">TAP adapts to various industries with specialized features and compliance requirements.</p>
-                </div>
-                
-                <div class="solutions-grid">
-                    <div class="solution-card">
-                        <h3>Corporate Training</h3>
-                        <p>Employee development, workforce analytics, and compliance management for large organizations.</p>
-                        <div class="solution-features">
-                            <span>Workforce Profile Management</span>
-                            <span>Employment Equity Compliance</span>
-                            <span>Advanced Analytics</span>
-                        </div>
-                    </div>
-                    
-                    <div class="solution-card">
-                        <h3>Educational Institutions</h3>
-                        <p>Complete academy system with student management, assessments, and performance tracking.</p>
-                        <div class="solution-features">
-                            <span>Student Profiles</span>
-                            <span>Assessment Management</span>
-                            <span>Progress Tracking</span>
-                        </div>
-                    </div>
-                    
-                    <div class="solution-card">
-                        <h3>Compliance & Reporting</h3>
-                        <p>Specialized tools for employment equity, workforce analysis, and regulatory compliance.</p>
-                        <div class="solution-features">
-                            <span>Compliance Reporting</span>
-                            <span>Barrier Analysis</span>
-                            <span>Automated Notifications</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Courses Section -->
-        <section id="courses" class="courses">
-            <div class="container">
-                <div class="section-header">
-                    <p class="kicker">Course Catalog</p>
-                    <h2>Courses</h2>
-                    <p class="lead">Explore our comprehensive library of professional development courses across different categories.</p>
-                </div>
-
-                <!-- Course Categories View -->
-                <div id="categories-view" class="categories-view">
-                    <div class="categories-grid">
-                        <div class="category-card" data-category="computer">
-                            <div class="category-image">
-                                <img src="./Images/computer-courses.svg" alt="Computer Courses" width="80" height="80">
-                            </div>
-                            <h3>Computer Courses</h3>
-                            <p>Master essential computer skills with our comprehensive Microsoft Office suite and technology courses.</p>
-                            <div class="category-stats">
-                                <span class="course-count">11 Courses</span>
-                            </div>
-                        </div>
-                        
-                        <div class="category-card" data-category="leadership">
-                            <div class="category-image">
-                                <img src="./Images/leadership-courses.svg" alt="Leadership Courses" width="80" height="80">
-                            </div>
-                            <h3>Leadership Courses</h3>
-                            <p>Develop your leadership capabilities with courses on management, strategy, and team building.</p>
-                            <div class="category-stats">
-                                <span class="course-count">22 Courses</span>
-                            </div>
-                        </div>
-                        
-                        <div class="category-card" data-category="soft-skills">
-                            <div class="category-image">
-                                <img src="./Images/soft-skills-courses.svg" alt="Soft Skills Courses" width="80" height="80">
-                            </div>
-                            <h3>Soft Skills Courses</h3>
-                            <p>Enhance your professional effectiveness with courses on communication, time management, and personal development.</p>
-                            <div class="category-stats">
-                                <span class="course-count">6 Courses</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Course Listing View (Hidden by default) -->
-                <div id="course-listing" class="course-listing" style="display: none;">
-                    <div class="course-header">
-                        <button id="back-to-categories" class="btn btn-outline">← Back to Categories</button>
-                        <h3 id="category-title"></h3>
-                    </div>
-                    <div id="courses-grid" class="courses-grid"></div>
-                </div>
-
-                <!-- Course Detail View (Hidden by default) -->
-                <div id="course-detail" class="course-detail" style="display: none;">
-                    <div class="course-detail-header">
-                        <button id="back-to-courses" class="btn btn-outline">← Back to Courses</button>
-                    </div>
-                    <div id="course-detail-content" class="course-detail-content"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Academy Section -->
-        <section id="academy" class="academy">
-            <div class="container">
-                <div class="academy-content">
-                    <div class="academy-text">
-                        <p class="kicker">TAP Academy</p>
-                        <h2>Comprehensive Learning Ecosystem</h2>
-                        <p class="lead">Access over 300 courses with advanced assessment systems, student profiles, and detailed analytics.</p>
-                        
-                        <div class="academy-features">
-                            <div class="academy-feature">
-                                <h4>Course Library</h4>
-                                <p>Extensive catalog with advanced filtering by tags, type, level, price, and duration.</p>
-                            </div>
-                            <div class="academy-feature">
-                                <h4>Assessment System</h4>
-                                <p>Comprehensive testing and evaluation with automated scoring and certificate generation.</p>
-                            </div>
-                            <div class="academy-feature">
-                                <h4>Student Analytics</h4>
-                                <p>Detailed progress tracking, performance analytics, and personalized learning paths.</p>
-                            </div>
-                        </div>
-                        
-                        <a href="courses.html" class="btn btn-primary">Explore Academy</a>
-                    </div>
-                    <div class="academy-visual">
-                        <div class="course-cards">
-                            <div class="course-card">
-                                <div class="course-header">React Development</div>
-                                <div class="course-progress">
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 75%"></div>
-                                    </div>
-                                    <span>75% Complete</span>
-                                </div>
-                            </div>
-                            <div class="course-card">
-                                <div class="course-header">Data Analytics</div>
-                                <div class="course-progress">
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 45%"></div>
-                                    </div>
-                                    <span>45% Complete</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Pricing Section -->
-        <section id="pricing" class="pricing">
-            <div class="container">
-                <div class="section-header">
-                    <p class="kicker">Flexible Pricing</p>
-                    <h2>Choose Your Plan</h2>
-                    <p class="lead">Scalable pricing options to fit organizations of any size.</p>
-                </div>
-                
-                <div class="pricing-grid">
-                    <div class="pricing-card">
-                        <h3>Starter</h3>
-                        <div class="price">
-                            <span class="currency">$</span>
-                            <span class="amount">29</span>
-                            <span class="period">/month</span>
-                        </div>
-                        <p>Perfect for small teams getting started</p>
-                        <ul class="pricing-features">
-                            <li>Up to 50 users</li>
-                            <li>Basic dashboard</li>
-                            <li>Course library access</li>
-                            <li>Email support</li>
-                        </ul>
-                        <a href="#signup" class="btn btn-outline">Get Started</a>
-                    </div>
-                    
-                    <div class="pricing-card featured">
-                        <div class="popular-badge">Most Popular</div>
-                        <h3>Professional</h3>
-                        <div class="price">
-                            <span class="currency">$</span>
-                            <span class="amount">99</span>
-                            <span class="period">/month</span>
-                        </div>
-                        <p>Advanced features for growing organizations</p>
-                        <ul class="pricing-features">
-                            <li>Up to 500 users</li>
-                            <li>Advanced analytics</li>
-                            <li>Employment equity tools</li>
-                            <li>Team management</li>
-                            <li>Priority support</li>
-                        </ul>
-                        <a href="#signup" class="btn btn-primary">Get Started</a>
-                    </div>
-                    
-                    <div class="pricing-card">
-                        <h3>Enterprise</h3>
-                        <div class="price">
-                            <span class="currency">$</span>
-                            <span class="amount">299</span>
-                            <span class="period">/month</span>
-                        </div>
-                        <p>Complete solution for large enterprises</p>
-                        <ul class="pricing-features">
-                            <li>Unlimited users</li>
-                            <li>White labeling</li>
-                            <li>Custom integrations</li>
-                            <li>Dedicated support</li>
-                            <li>Advanced reporting</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-outline">Contact Sales</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact">
-            <div class="container">
-                <div class="contact-content">
-                    <div class="contact-text">
-                        <p class="kicker">Get In Touch</p>
-                        <h2>Ready to Transform Your Organization?</h2>
-                        <p class="lead">Contact our team to learn more about TAP and schedule a personalized demo.</p>
-                        
-                        <div class="contact-info">
-                            <div class="contact-item">
-                                <strong>Email:</strong>
-                                <a href="mailto:hello@tap-lms.com">hello@tap-lms.com</a>
-                            </div>
-                            <div class="contact-item">
-                                <strong>Phone:</strong>
-                                <a href="tel:+1234567890">+1 (234) 567-8900</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <form class="contact-form">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="company">Company</label>
-                            <input type="text" id="company" name="company" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="4" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <a href="#home" class="footer-logo">
-                        <img src="./Images/Logo.png" alt="TAP Logo" width="32" height="32">
-                        <span>TAP</span>
-                    </a>
-                    <p>Technical Assessment Portal - Transforming organizations through advanced learning management and workforce analytics.</p>
-                </div>
-                
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>Platform</h4>
-                        <ul>
-                            <li><a href="features.html">Dashboard</a></li>
-                            <li><a href="courses.html">Academy</a></li>
-                            <li><a href="solutions.html">Analytics</a></li>
-                            <li><a href="features.html">Teams</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h4>Solutions</h4>
-                        <ul>
-                            <li><a href="solutions.html">Corporate Training</a></li>
-                            <li><a href="solutions.html">Employment Equity</a></li>
-                            <li><a href="solutions.html">Education</a></li>
-                            <li><a href="solutions.html">Compliance</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h4>Resources</h4>
-                        <ul>
-                            <li><a href="#help">Documentation</a></li>
-                            <li><a href="#support">Support</a></li>
-                            <li><a href="#api">API</a></li>
-                            <li><a href="#status">Status</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h4>Company</h4>
-                        <ul>
-                            <li><a href="#about">About Us</a></li>
-                            <li><a href="#careers">Careers</a></li>
-                            <li><a href="#privacy">Privacy Policy</a></li>
-                            <li><a href="#terms">Terms of Service</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 TAP Systems. All rights reserved.</p>
-                <div class="footer-social">
-                    <a href="#twitter" aria-label="Twitter">
-                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
-                        </svg>
-                    </a>
-                    <a href="#linkedin" aria-label="LinkedIn">
-                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                            <rect x="2" y="9" width="4" height="12"/>
-                            <circle cx="4" cy="4" r="2"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
+              </div>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="./pages/about.html"><span class="nav-link-text">About us</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="#pricing"><span class="nav-link-text">Pricing</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="#testimonial"><span class="nav-link-text">Success Stories</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact"><span class="nav-link-text">Contact us</span></a></li>
+          </ul>
         </div>
-    </footer>
+      </div>
+    </nav>
 
-    <!-- Scripts -->
-    <script src="script.js"></script>
-</body>
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+      <div class="preloader" id="preloader" data-preloader>
+        <div class="preloader-wrapper big active" data-preloader>
+          <div class="spinner-layer spinner-white-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+              <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="py-0 text-center">
+        <div class="bg-holder overlay overlay-z-index-1" style="background-image:url(./Theme/public/assets/img/headers/header-12.jpg);">
+          <video class="bg-video" autoplay muted loop playsinline preload="auto" poster="./Theme/public/assets/img/headers/header-12.jpg">
+            <source src="./assets/videos/1422633-hd_1920_810_24fps.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <!--/.bg-holder-->
+
+        <div class="header-overlay"></div>
+        <div class="container">
+          <div class="d-flex flex-center pt-10 pb-8">
+            <div class="header-overlay"></div>
+            <div class="header-text">
+              <div class="overflow-hidden">
+                <h1 class="display-3 text-white fs-5 fs-md-7" data-zanim-xs='{"duration":2,"delay":0}'>Transform Your Organization with <span class="text-gradient">TAP</span></h1>
+              </div>
+              <div class="overflow-hidden">
+                <p class="text-uppercase text-400 ls-3 mt-2" data-zanim-xs='{"duration":2,"delay":0.1}'> The comprehensive LMS solution featuring workforce analytics, employment equity management, business intelligence reporting, and a complete academy ecosystem.</p>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      
+
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section id="features">
+
+        <div class="container">
+          <div class="row text-center mb-4" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+            <div class="col">
+              <div class="overflow-hidden">
+                <h2 class="fs-sm-5 mb-2" data-zanim-xs='{"duration":1.5,"delay":0}'>Features</h2>
+              </div>
+              <div class="overflow-hidden">
+                <p class="fs--1 text-uppercase text-black ls-1 mb-0" data-zanim-xs='{"duration":1.5,"delay":0.1}'>Our Core Features</p>
+              </div>
+              <div class="overflow-hidden">
+                <hr class="hr-short bg-black" data-zanim-xs='{"duration":1.5,"delay":0.2}' />
+              </div>
+            </div>
+          </div>
+          <div class="features-grid">
+            <a href="#portfolio" class="feature-card-link">
+              <div class="feature-card">
+                <h3>&gt;300 Courses</h3>
+                <ul class="feature-list">
+                  <li>Extensive professional library</li>
+                  <li>Regularly updated content</li>
+                  <li>Certificates on completion</li>
+                </ul>
+              </div>
+            </a>
+            <a href="./pages/features/dashboard-reporting.html" class="feature-card-link">
+              <div class="feature-card">
+                <h3>Dashboard Reporting</h3>
+                <ul class="feature-list">
+                  <li>Real-time progress analytics</li>
+                  <li>Customizable dashboards</li>
+                  <li>Exportable reports</li>
+                </ul>
+              </div>
+            </a>
+            <a href="./pages/features/course-management-and-creations.html" class="feature-card-link">
+              <div class="feature-card">
+                <h3>Course Management &amp; Creation</h3>
+                <ul class="feature-list">
+                  <li>Create and organize courses</li>
+                  <li>Assignments and quizzes</li>
+                  <li>Track learner progress</li>
+                </ul>
+              </div>
+            </a>
+            <a href="./pages/features/employment-equity-system.html" class="feature-card-link">
+              <div class="feature-card">
+                <h3>Employment Equity System</h3>
+                <ul class="feature-list">
+                  <li>Compliance tracking</li>
+                  <li>Workforce analytics</li>
+                  <li>Structured reporting</li>
+                </ul>
+              </div>
+            </a>
+            <a href="./pages/features/work-based-assessments.html" class="feature-card-link">
+              <div class="feature-card">
+                <h3>Work Based Assessments</h3>
+                <ul class="feature-list">
+                  <li>Practical, on-the-job tasks</li>
+                  <li>Supervisor feedback</li>
+                  <li>Clear scoring rubrics</li>
+                </ul>
+              </div>
+            </a>
+            <a href="./pages/features/while-labelling.html" class="feature-card-link">
+              <div class="feature-card">
+                <h3>White Labelling</h3>
+                <ul class="feature-list">
+                  <li>Custom branding</li>
+                  <li>Domain and theme control</li>
+                  <li>Client-specific configuration</li>
+                </ul>
+              </div>
+            </a>
+            <a href="./pages/features/team-management.html" class="feature-card-link">
+              <div class="feature-card">
+                <h3>Team Management</h3>
+                <ul class="feature-list">
+                  <li>Roles and permissions</li>
+                  <li>Groups and cohorts</li>
+                  <li>Bulk enrollment tools</li>
+                </ul>
+              </div>
+            </a>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="text-center py-5" style="background:#000;">
+
+        <div class="container">
+          <div class="row justify-content-center" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+            <div class="col-lg-8">
+              <h2 class="font-base text-white mb-3 fs-3 lh-1 text-center"><span class="d-block" data-zanim-xs='{"from":{"opacity":0,"x":-30},"to":{"opacity":1,"x":0},"duration":1.5,"delay":0}'>Watch the demo</span></h2>
+              <div style="position:relative;overflow:hidden;padding-top:56.25%;max-width:900px;margin:0 auto;"><iframe src="https://share.synthesia.io/embeds/videos/ef75d2c4-8167-4c55-ad17-9e8c9ac67e11" loading="lazy" title="Synthesia video player - (SpecCon) TAP Business - Intro" allowfullscreen allow="encrypted-media; fullscreen;" style="position:absolute;width:100%;height:100%;top:0;left:0;border:none;padding:0;margin:0;overflow:hidden;"></iframe></div>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+
+      <!-- ============================================-->
+      <!-- (Removed: How we did it section) -->
+
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <!-- (Removed: Excited to start your next project section) -->
+      <!-- ============================================-->
+
+
+
+
+      <!-- ============================================-->
+      <!-- (Removed: empty section placeholder) -->
+      <!-- <section> begin ============================-->
+      <section class="text-center pb-3" id="portfolio">
+
+        <div class="container-fluid">
+          <div class="row justify-content-center" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+            <div class="col-12 mb-4">
+              <div class="overflow-hidden">
+                <h2 class="fs-md-5 mb-2" data-zanim-xs='{"duration":1.5,"delay":0}'>Course Categories</h2>
+              </div>
+              <div class="overflow-hidden">
+                <p class="fs--1 text-uppercase text-black ls-1 mb-0" data-zanim-xs='{"duration":1.5,"delay":0.1}'>Browse our course categories</p>
+              </div>
+              <div class="overflow-hidden">
+                <hr class="hr-short bg-black opacity-100" data-zanim-xs='{"duration":1.5,"delay":0.2}' />
+              </div>
+            </div>
+          </div>
+                                        <div class="row g-3 mt-3" data-rp-isotope='{"layoutMode":"packery"}'>
+            <div class="col-sm-6 col-lg-4 col-five px-2 isotope-item design" data-zanim-xs='{"delay":0}'>
+              <div class="hoverdir-item my-0" data-zanim-xs='{"duration":1.5,"animation":"zoom-in","delay":0}'>
+                <div class="hoverdir-item-content"><a class="d-block" href="./pages/courses/categories/administration-and-office-skills.html"><img class="img-fluid rounded" src="./assets/images/categories/Administration_and_Office_Skills.jpg" alt="Administration and Office Skills" />
+                  <div class="hoverdir-text">
+                    <h3 class="text-white lh-1 fs-2">Administration and Office Skills</h3>
+                    <p class="ls-1 mb-0 text-700">20 Courses</p>
+                  </div>
+                </a></div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4 col-five px-2 isotope-item design" data-zanim-xs='{"delay":0.1}'>
+              <div class="hoverdir-item my-0" data-zanim-xs='{"duration":1.5,"animation":"zoom-in","delay":0}'>
+                <div class="hoverdir-item-content"><a class="d-block" href="./pages/courses/categories/assessments-and-skills-testing.html"><img class="img-fluid rounded" src="./assets/images/categories/Assessments_and_Skills_Testing.jpg" alt="Assessments and Skills Testing" />
+                  <div class="hoverdir-text">
+                    <h3 class="text-white lh-1 fs-2">Assessments and Skills Testing</h3>
+                    <p class="ls-1 mb-0 text-700">15 Courses</p>
+                  </div>
+                </a></div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4 col-five px-2 isotope-item design" data-zanim-xs='{"delay":0.2}'>
+              <div class="hoverdir-item my-0" data-zanim-xs='{"duration":1.5,"animation":"zoom-in","delay":0}'>
+                <div class="hoverdir-item-content"><a class="d-block" href="./pages/courses/categories/business-analysis-and-data-skills.html"><img class="img-fluid rounded" src="./assets/images/categories/Business_Analysis_and_Data_Skills.jpg" alt="Business Analysis and Data Skills" />
+                  <div class="hoverdir-text">
+                    <h3 class="text-white lh-1 fs-2">Business Analysis and Data Skills</h3>
+                    <p class="ls-1 mb-0 text-700">14 Courses</p>
+                  </div>
+                </a></div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4 col-five px-2 isotope-item design" data-zanim-xs='{"delay":0.3}'>
+              <div class="hoverdir-item my-0" data-zanim-xs='{"duration":1.5,"animation":"zoom-in","delay":0}'>
+                <div class="hoverdir-item-content"><a class="d-block" href="./pages/courses/categories/communication-and-interpersonal-skills.html"><img class="img-fluid rounded" src="./assets/images/categories/Communication_and_Interpersonal_Skills.jpg" alt="Communication and Interpersonal Skills" />
+                  <div class="hoverdir-text">
+                    <h3 class="text-white lh-1 fs-2">Communication and Interpersonal Skills</h3>
+                    <p class="ls-1 mb-0 text-700">21 Courses</p>
+                  </div>
+                </a></div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4 col-five px-2 isotope-item design" data-zanim-xs='{"delay":0.4}'>
+              <div class="hoverdir-item my-0" data-zanim-xs='{"duration":1.5,"animation":"zoom-in","delay":0}'>
+                <div class="hoverdir-item-content"><a class="d-block" href="./pages/courses/categories/compliance-law-and-governance.html"><img class="img-fluid rounded" src="./assets/images/categories/Compliance_Law_and_Governance.jpg" alt="Compliance, Law and Governance" />
+                  <div class="hoverdir-text">
+                    <h3 class="text-white lh-1 fs-2">Compliance, Law and Governance</h3>
+                    <p class="ls-1 mb-0 text-700">13 Courses</p>
+                  </div>
+                </a></div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4 col-five px-2 isotope-item design" data-zanim-xs='{"delay":0.5}'>
+              <div class="hoverdir-item my-0" data-zanim-xs='{"duration":1.5,"animation":"zoom-in","delay":0}'>
+                <div class="hoverdir-item-content"><a class="d-block" href="./pages/courses/categories/health-and-safety-compliance.html"><img class="img-fluid rounded" src="./assets/images/categories/Health_and_Safety_Compliance.jpg" alt="Health and Safety Compliance" />
+                  <div class="hoverdir-text">
+                    <h3 class="text-white lh-1 fs-2">Health and Safety Compliance</h3>
+                    <p class="ls-1 mb-0 text-700">5 Courses</p>
+                  </div>
+                </a></div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4 col-five px-2 isotope-item design" data-zanim-xs='{"delay":0}'>
+              <div class="hoverdir-item my-0" data-zanim-xs='{"duration":1.5,"animation":"zoom-in","delay":0}'>
+                <div class="hoverdir-item-content"><a class="d-block" href="./pages/courses/categories/personal-development.html"><img class="img-fluid rounded" src="./assets/images/categories/Personal_Development.jpg" alt="Personal Development" />
+                  <div class="hoverdir-text">
+                    <h3 class="text-white lh-1 fs-2">Personal Development</h3>
+                    <p class="ls-1 mb-0 text-700">13 Courses</p>
+                  </div>
+                </a></div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4 col-five px-2 isotope-item design" data-zanim-xs='{"delay":0.1}'>
+              <div class="hoverdir-item my-0" data-zanim-xs='{"duration":1.5,"animation":"zoom-in","delay":0}'>
+                <div class="hoverdir-item-content"><a class="d-block" href="./pages/courses/categories/computer-and-digital-skills.html"><img class="img-fluid rounded" src="./assets/images/categories/Computer_and_Digital_Skills.jpg" alt="Computer and Digital Skills" />
+                  <div class="hoverdir-text">
+                    <h3 class="text-white lh-1 fs-2">Computer and Digital Skills</h3>
+                    <p class="ls-1 mb-0 text-700">13 Courses</p>
+                  </div>
+                </a></div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4 col-five px-2 isotope-item design" data-zanim-xs='{"delay":0.2}'>
+              <div class="hoverdir-item my-0" data-zanim-xs='{"duration":1.5,"animation":"zoom-in","delay":0}'>
+                <div class="hoverdir-item-content"><a class="d-block" href="./pages/courses/categories/customer-service-and-contact-centre.html"><img class="img-fluid rounded" src="./assets/images/categories/Customer_Service_and_Contact_Centre.jpg" alt="Customer Service and Contact Centre" />
+                  <div class="hoverdir-text">
+                    <h3 class="text-white lh-1 fs-2">Customer Service and Contact Centre</h3>
+                    <p class="ls-1 mb-0 text-700">27 Courses</p>
+                  </div>
+                </a></div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4 col-five px-2 isotope-item design" data-zanim-xs='{"delay":0.3}'>
+              <div class="hoverdir-item my-0" data-zanim-xs='{"duration":1.5,"animation":"zoom-in","delay":0}'>
+                <div class="hoverdir-item-content"><a class="d-block" href="./pages/courses/categories/finance-and-accounting.html"><img class="img-fluid rounded" src="./assets/images/categories/Finance_and_Accounting.jpg" alt="Finance and Accounting" />
+                  <div class="hoverdir-text">
+                    <h3 class="text-white lh-1 fs-2">Finance and Accounting</h3>
+                    <p class="ls-1 mb-0 text-700">5 Courses</p>
+                  </div>
+                </a></div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4 col-five px-2 isotope-item design" data-zanim-xs='{"delay":0.4}'>
+              <div class="hoverdir-item my-0" data-zanim-xs='{"duration":1.5,"animation":"zoom-in","delay":0}'>
+                <div class="hoverdir-item-content"><a class="d-block" href="./pages/courses/categories/entrepreneurship-and-new-ventures.html"><img class="img-fluid rounded" src="./assets/images/categories/Entrepreneurship_and_New_Ventures.jpg" alt="Entrepreneurship and New Ventures" />
+                  <div class="hoverdir-text">
+                    <h3 class="text-white lh-1 fs-2">Entrepreneurship and New Ventures</h3>
+                    <p class="ls-1 mb-0 text-700">17 Courses</p>
+                  </div>
+                </a></div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4 col-five px-2 isotope-item design" data-zanim-xs='{"delay":0.5}'>
+              <div class="hoverdir-item my-0" data-zanim-xs='{"duration":1.5,"animation":"zoom-in","delay":0}'>
+                <div class="hoverdir-item-content"><a class="d-block" href="./pages/courses/categories/human-resources-and-people-management.html"><img class="img-fluid rounded" src="./assets/images/categories/Human_Resources_and_People_Management.jpg" alt="Human Resources and People Management" />
+                  <div class="hoverdir-text">
+                    <h3 class="text-white lh-1 fs-2">Human Resources and People Management</h3>
+                    <p class="ls-1 mb-0 text-700">18 Courses</p>
+                  </div>
+                </a></div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4 col-five px-2 isotope-item design" data-zanim-xs='{"delay":0}'>
+              <div class="hoverdir-item my-0" data-zanim-xs='{"duration":1.5,"animation":"zoom-in","delay":0}'>
+                <div class="hoverdir-item-content"><a class="d-block" href="./pages/courses/categories/information-technology.html"><img class="img-fluid rounded" src="./assets/images/categories/Information_Technology.jpg" alt="Information Technology" />
+                  <div class="hoverdir-text">
+                    <h3 class="text-white lh-1 fs-2">Information Technology</h3>
+                    <p class="ls-1 mb-0 text-700">29 Courses</p>
+                  </div>
+                </a></div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4 col-five px-2 isotope-item design" data-zanim-xs='{"delay":0.1}'>
+              <div class="hoverdir-item my-0" data-zanim-xs='{"duration":1.5,"animation":"zoom-in","delay":0}'>
+                <div class="hoverdir-item-content"><a class="d-block" href="./pages/courses/categories/leadership-and-management.html"><img class="img-fluid rounded" src="./assets/images/categories/Leadership_and_Management.jpg" alt="Leadership and Management" />
+                  <div class="hoverdir-text">
+                    <h3 class="text-white lh-1 fs-2">Leadership and Management</h3>
+                    <p class="ls-1 mb-0 text-700">24 Courses</p>
+                  </div>
+                </a></div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4 col-five px-2 isotope-item design" data-zanim-xs='{"delay":0.2}'>
+              <div class="hoverdir-item my-0" data-zanim-xs='{"duration":1.5,"animation":"zoom-in","delay":0}'>
+                <div class="hoverdir-item-content"><a class="d-block" href="./pages/courses/categories/project-management.html"><img class="img-fluid rounded" src="./assets/images/categories/Project_Management.jpg" alt="Project Management" />
+                  <div class="hoverdir-text">
+                    <h3 class="text-white lh-1 fs-2">Project Management</h3>
+                    <p class="ls-1 mb-0 text-700">13 Courses</p>
+                  </div>
+                </a></div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4 col-five px-2 isotope-item design" data-zanim-xs='{"delay":0.3}'>
+              <div class="hoverdir-item my-0" data-zanim-xs='{"duration":1.5,"animation":"zoom-in","delay":0}'>
+                <div class="hoverdir-item-content"><a class="d-block" href="./pages/courses/categories/retail-sales-and-marketing.html"><img class="img-fluid rounded" src="./assets/images/categories/Retail_Sales_and_Marketing.jpg" alt="Retail, Sales and Marketing" />
+                  <div class="hoverdir-text">
+                    <h3 class="text-white lh-1 fs-2">Retail, Sales and Marketing</h3>
+                    <p class="ls-1 mb-0 text-700">13 Courses</p>
+                  </div>
+                </a></div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4 col-five px-2 isotope-item design" data-zanim-xs='{"delay":0.4}'>
+              <div class="hoverdir-item my-0" data-zanim-xs='{"duration":1.5,"animation":"zoom-in","delay":0}'>
+                <div class="hoverdir-item-content"><a class="d-block" href="./pages/courses/categories/automotive-industry.html"><img class="img-fluid rounded" src="./assets/images/categories/Automotive_Industry.jpg" alt="Automotive Industry" />
+                  <div class="hoverdir-text">
+                    <h3 class="text-white lh-1 fs-2">Automotive Industry</h3>
+                    <p class="ls-1 mb-0 text-700">12 Courses</p>
+                  </div>
+                </a></div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4 col-five px-2 isotope-item design" data-zanim-xs='{"delay":0.5}'>
+              <div class="hoverdir-item my-0" data-zanim-xs='{"duration":1.5,"animation":"zoom-in","delay":0}'>
+                <div class="hoverdir-item-content"><a class="d-block" href="./pages/courses/categories/security-and-risk-management.html"><img class="img-fluid rounded" src="./assets/images/categories/Security_and_Risk_Management.jpg" alt="Security and Risk Management" />
+                  <div class="hoverdir-text">
+                    <h3 class="text-white lh-1 fs-2">Security and Risk Management</h3>
+                    <p class="ls-1 mb-0 text-700">8 Courses</p>
+                  </div>
+                </a></div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4 col-five px-2 isotope-item design" data-zanim-xs='{"delay":0}'>
+              <div class="hoverdir-item my-0" data-zanim-xs='{"duration":1.5,"animation":"zoom-in","delay":0}'>
+                <div class="hoverdir-item-content"><a class="d-block" href="./pages/courses/categories/supply-chain-and-logistics.html"><img class="img-fluid rounded" src="./assets/images/categories/Supply_Chain_and_Logistics.jpg" alt="Supply Chain and Logistics" />
+                  <div class="hoverdir-text">
+                    <h3 class="text-white lh-1 fs-2">Supply Chain and Logistics</h3>
+                    <p class="ls-1 mb-0 text-700">21 Courses</p>
+                  </div>
+                </a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="testimonial" id="testimonial">
+
+        <div class="bg-holder overlay overlay-0" style="background-image:url(./Theme/public/assets/img/backgrounds/testimonial.jpg);">
+        </div>
+        <!--/.bg-holder-->
+
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 mb-4 text-center" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+              <div class="overflow-hidden">
+                <h2 class="fs-md-5 text-white mb-2" data-zanim-xs='{"duration":1.5,"delay":0}'>Success Stories</h2>
+              </div>
+              <div class="overflow-hidden">
+                <p class="fs--1 text-uppercase text-white ls-1 mb-0" data-zanim-xs='{"duration":1.5,"delay":0.1}'>see what our top valuable clients say about us</p>
+              </div>
+              <div class="overflow-hidden">
+                <hr class="hr-short bg-white" data-zanim-xs='{"duration":1.5,"delay":0.2}' />
+              </div>
+            </div>
+            <div class="col-sm-10 col-lg-8 text-center text-md-start px-sm-0">
+              <div class="border rounded px-3 px-sm-4 px-md-6 py-5 mt-5">
+                <div class="testimonial-quote"></div>
+                <div class="rounded-circle testimonial-avatar"></div>
+                <div class="swiper-testimonial-container">
+                  <div class="swiper-nav d-none d-lg-block">
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                  </div>
+                  <div class="swiper testimonial-slider" data-swiper='{"navigation":{"nextEl":".swiper-testimonial-container .swiper-button-next","prevEl":".swiper-testimonial-container .swiper-button-prev"},"spaceBetween":5,"loop":true,"loopedSlides":5,"slideToClickedSlide":true}'>
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <div class="item px-2" data-avatar="./Theme/public/assets/img/team/9.jpg">
+                          <p class="text-white font-base mt-4 mt-md-0"> Reign superbly blends all the best elements. It offers the power of bootstrap with useful blocks and extensions. It also includes the most elegant typographic features and unique sections which makes our developers incredibly happy.</p>
+                          <div class="row g-0 justify-content-between align-items-end">
+                            <div class="col-12 col-md mb-3 mb-md-0">
+                              <h4 class="text-white fw-normal mb-0 fs-1 ls-1">Peter Gregory</h4>
+                              <p class="fs--1 text-uppercase text-500 mb-0 ls-2">CEO &amp; Founder</p>
+                            </div>
+                            <div class="col-12 col-md-4 text-center text-md-end"><img class="testimonial-company-logo" src="./archive/old-files/Theme/public/assets/img/logo/b&amp;w/1.png" alt="" /></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="item px-2" data-avatar="./Theme/public/assets/img/team/10.jpg">
+                          <p class="text-white font-base mt-4 mt-md-0">Reign template is an indispensable collection of powerful tools to do just that. I’m a long-time customer of Reign template and highly recommend it to anyone who is serious about to grow his/her company through web all over the world.</p>
+                          <div class="row g-0 justify-content-between align-items-end">
+                            <div class="col-12 col-md mb-3 mb-md-0">
+                              <h4 class="text-white fw-normal mb-0 fs-1 ls-1">Lily Rose</h4>
+                              <p class="fs--1 text-uppercase text-500 mb-0 ls-2">Customer Support</p>
+                            </div>
+                            <div class="col-12 col-md-4 text-center text-md-end"><img class="testimonial-company-logo" src="./archive/old-files/Theme/public/assets/img/logo/b&amp;w/7.png" alt="" /></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="item px-2" data-avatar="./Theme/public/assets/img/team/13.jpg">
+                          <p class="text-white font-base mt-4 mt-md-0">The team behind Reign sure know what they are doing and their responsibility! If you’re looking for managed hosting, you’ll find a stable, secure and so well optimized option in Reign sites and all other products price range.</p>
+                          <div class="row g-0 justify-content-between align-items-end">
+                            <div class="col-12 col-md mb-3 mb-md-0">
+                              <h4 class="text-white fw-normal mb-0 fs-1 ls-1">Richard Mark</h4>
+                              <p class="fs--1 text-uppercase text-500 mb-0 ls-2">Marketing Manager</p>
+                            </div>
+                            <div class="col-12 col-md-4 text-center text-md-end"><img class="testimonial-company-logo" src="./archive/old-files/Theme/public/assets/img/logo/b&amp;w/4.png" alt="" /></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-pagination d-block d-lg-none"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      
+
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+
+      
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="text-center" id="pricing">
+
+        <div class="container">
+          <div class="row" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+            <div class="col mb-4">
+              <div class="overflow-hidden">
+                <h2 class="fs-md-5" data-zanim-xs='{"duration":1.5,"delay":0}'>Pricing</h2>
+              </div>
+              <div class="overflow-hidden">
+                <p class="fs--1 text-uppercase text-black ls-1 mb-0" data-zanim-xs='{"duration":1.5,"delay":0.1}'>Simple, transparent pricing for your organization</p>
+              </div>
+              <div class="overflow-hidden">
+                <hr class="hr-short bg-black" data-zanim-xs='{"duration":1.5,"delay":0.2}' />
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+            <div class="col-sm-10 col-md-8 col-lg-6">
+              <div class="border border-black rounded p-4 mx-auto" style="max-width: 520px;" data-zanim-xs='{"from":{"opacity":0,"y":20},"to":{"opacity":1,"y":0},"duration":1.0,"delay":0}'>
+                <div class="text-center"><img src="./archive/old-files/Theme/public/assets/img/line-icons/pricing-rocket.svg" width="56" alt="" /></div>
+                <h5 class="mt-3 ls-3">Simple Pricing</h5>
+                <h2 class="fw-bold fs-5">R1,000 <small class="fs-0 text-lowercase">/ month</small></h2>
+                <hr class="bg-black opacity-100" />
+                <ul class="list-unstyled">
+                  <li class="py-2">Up to 200 users included</li>
+                  <li class="py-2">Unlimited access for all users</li>
+                  <li class="py-2">After 200 users: R10 per user/month</li>
+                </ul>
+                <div class="d-grid"><a class="btn btn-sm btn-dark mt-4 hvr-sweep-top" href="#contact">Get started</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="bg-black py-6 clients">
+
+        <div class="container">
+          <div class="swiper-container swiper-clients">
+            <div class="swiper-nav d-none d-lg-block">
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+            </div>
+            <div class="swiper" data-swiper='{"navigation":{"nextEl":".swiper-container .swiper-button-next","prevEl":".swiper-container .swiper-button-prev"},"autoplay":true,"loop":true,"slidesPerView":2,"grabCursor":true,"breakpoints":{"576":{"slidesPerView":3},"768":{"slidesPerView":3},"992":{"slidesPerView":4},"1200":{"slidesPerView":6}}}'>
+              <div class="swiper-wrapper">
+                <div class="swiper-slide d-flex justify-content-center" style="width:140px"><img class="opacity-50" src="./archive/old-files/Theme/public/assets/img/logo/b&amp;w/1.png" alt="" width="130" /></div>
+                <div class="swiper-slide d-flex justify-content-center" style="width:140px"><img class="opacity-50" src="./archive/old-files/Theme/public/assets/img/logo/b&amp;w/4.png" alt="" width="130" /></div>
+                <div class="swiper-slide d-flex justify-content-center" style="width:140px"><img class="opacity-50" src="./archive/old-files/Theme/public/assets/img/logo/b&amp;w/6.png" alt="" width="130" /></div>
+                <div class="swiper-slide d-flex justify-content-center" style="width:140px"><img class="opacity-50" src="./archive/old-files/Theme/public/assets/img/logo/b&amp;w/7.png" alt="" width="130" /></div>
+                <div class="swiper-slide d-flex justify-content-center" style="width:140px"><img class="opacity-50" src="./archive/old-files/Theme/public/assets/img/logo/b&amp;w/8.png" alt="" width="130" /></div>
+                <div class="swiper-slide d-flex justify-content-center" style="width:140px"><img class="opacity-50" src="./archive/old-files/Theme/public/assets/img/logo/b&amp;w/9.png" alt="" width="130" /></div>
+                <div class="swiper-slide d-flex justify-content-center" style="width:140px"><img class="opacity-50" src="./archive/old-files/Theme/public/assets/img/logo/b&amp;w/4.png" alt="" width="130" /></div>
+              </div>
+              <div class="swiper-pagination d-block d-lg-none"></div>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <!-- (Removed: Subscribe/newsletter section) -->
+
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section id="contact">
+
+        <div class="container">
+          <div class="row">
+            <div class="col text-center mb-4" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+              <div class="overflow-hidden">
+                <h2 class="fs-md-5" data-zanim-xs='{"duration":1.5,"delay":0}'>Contact</h2>
+              </div>
+              <div class="overflow-hidden">
+                <p class="fs--1 text-uppercase text-black ls-1 mb-0" data-zanim-xs='{"duration":1.5,"delay":0.1}'>Ready to Transform Your Organization?</p>
+              </div>
+              <div class="overflow-hidden">
+                <hr class="hr-short border-black" data-zanim-xs='{"duration":1.5,"delay":0.2}' />
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-lg-8 col-xl-6 mx-auto">
+              <h5 class="mb-3">Get in touch</h5>
+              <div class="text-center" style="position:relative;max-width:100%;">
+                <iframe class="ms-form-embed" width="640px" height="480px" src="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAANAAbvy8_pUMjdBRlA5MTdUNjdWU0NMV1NTQ0xKSjNDUy4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none;" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+
+    <!--===============================================-->
+    <!--    Footer-->
+    <!--===============================================-->
+
+
+    <!-- ============================================-->
+    <!-- <section> begin ============================-->
+    <section class="bg-1100 py-6 pb-9 px-3 px-lg-0">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 pe-lg-4 mb-4 mb-lg-0">
+            <h5 class="text-white mb-3">TAP</h5>
+            <p class="text-700">Technical Assessment Portal - Transforming organizations through advanced learning management and workforce analytics.</p>
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item me-0"><a class="text-900 hover-color-white pe-2" href="#!"><span class="fab fa-facebook-f"></span></a></li>
+              <li class="list-inline-item me-0"><a class="text-900 hover-color-white px-2" href="#!"><span class="fab fa-twitter"></span></a></li>
+              <li class="list-inline-item me-0"><a class="text-900 hover-color-white px-2" href="#!"><span class="fab fa-linkedin-in"></span></a></li>
+              <li class="list-inline-item me-0"><a class="text-900 hover-color-white px-2" href="#!"><span class="fab fa-google-plus-g"></span></a></li>
+            </ul>
+          </div>
+          <div class="col-lg-8">
+            <div class="row">
+              <div class="col-6 col-md-3 ps-lg-4 mb-4 mb-lg-0">
+                <h5 class="text-white mb-3">Platform</h5>
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-1"><a class="text-700 hover-color-white" href="features.html">Dashboard</a></li>
+                  <li class="mb-1"><a class="text-700 hover-color-white" href="courses.html">Academy</a></li>
+                  <li class="mb-1"><a class="text-700 hover-color-white" href="solutions.html">Analytics</a></li>
+                  <li class="mb-1"><a class="text-700 hover-color-white" href="features.html">Teams</a></li>
+                </ul>
+              </div>
+              <div class="col-6 col-md-3 ps-4 mb-4 mb-lg-0">
+                <h5 class="text-white mb-3">Solutions</h5>
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-1"><a class="text-700 hover-color-white" href="solutions.html">Corporate Training</a></li>
+                  <li class="mb-1"><a class="text-700 hover-color-white" href="solutions.html">Employment Equity</a></li>
+                  <li class="mb-1"><a class="text-700 hover-color-white" href="solutions.html">Education</a></li>
+                  <li class="mb-1"><a class="text-700 hover-color-white" href="solutions.html">Compliance</a></li>
+                </ul>
+              </div>
+              <div class="col-md-6 ps-md-4">
+                <h5 class="text-white mb-3">Resources</h5>
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-1"><a class="text-700 hover-color-white" href="#help">Documentation</a></li>
+                  <li class="mb-1"><a class="text-700 hover-color-white" href="#support">Support</a></li>
+                  <li class="mb-1"><a class="text-700 hover-color-white" href="#api">API</a></li>
+                  <li class="mb-1"><a class="text-700 hover-color-white" href="#status">Status</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end of .container-->
+
+    </section>
+    <!-- <section> close ============================-->
+    <!-- ============================================-->
+
+
+    <footer class="footer text-center bg-black py-3 position-absolute w-100 bottom-0">
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col-12 col-md-auto mb-1 mb-md-0">
+            <p class="mb-0">&copy; 2024 TAP Systems. All rights reserved.</p>
+          </div>
+          <div class="col-12 col-md-auto">
+            <p class="mb-0">Made with<span class="fas fa-heart mx-2"></span>by <a class="footer-link" href="https://themewagon.com/" target="_blank">Themewagon</a></p>
+          </div>
+        </div>
+      </div>
+    </footer><a class="btn-back-to-top" href="#top"><img src="./archive/old-files/Theme/public/assets/img/line-icons/upload-arrow.svg" width="8" alt=""></a>
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="./archive/old-files/Theme/public/vendors/popper/popper.min.js"></script>
+    <script src="./archive/old-files/Theme/public/vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="./archive/old-files/Theme/public/vendors/anchorjs/anchor.min.js"></script>
+    <script src="./archive/old-files/Theme/public/vendors/is/is.min.js"></script>
+    <script src="./archive/old-files/Theme/public/vendors/bigpicture/BigPicture.js"></script>
+    <script src="./archive/old-files/Theme/public/vendors/countup/countUp.umd.js"></script>
+    <script src="./archive/old-files/Theme/public/vendors/progressbar/progressbar.min.js"></script>
+    <script src="./archive/old-files/Theme/public/vendors/hover-dir/hoverDir.min.js"></script>
+    <script src="./archive/old-files/Theme/public/vendors/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="./archive/old-files/Theme/public/vendors/isotope-packery/packery-mode.pkgd.min.js"></script>
+    <script src="./archive/old-files/Theme/public/vendors/swiper/swiper-bundle.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARdVcREeBK44lIWnv5-iPijKqvlSAVwbw&callback=initMap" async></script>
+    <script src="./archive/old-files/Theme/public/vendors/fontawesome/all.min.js"></script>
+    <script src="./archive/old-files/Theme/public/vendors/lodash/lodash.min.js"></script>
+    <script src="./archive/old-files/Theme/public/vendors/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="./archive/old-files/Theme/public/vendors/gsap/gsap.js"></script>
+    <script src="./archive/old-files/Theme/public/vendors/gsap/customEase.js"></script>
+    <script src="./archive/old-files/Theme/public/assets/js/theme.js"></script>
+
+  </body>
+
 </html>
+
+
+
+

@@ -1,0 +1,30 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Lightbox
+include ../mixins/common/ComponentLink
+
+prepend styles
+	link(href=`${CWD}vendors/glightbox/glightbox.min.css`, rel='stylesheet')
+
+prepend scripts 
+	script(src=`${CWD}vendors/glightbox/glightbox.min.js`) 
+
+append variables 
+	- var pageTitle = 'Lightbox';
+
+block component
+
+	+ComponentLink({
+		text:'For more detail see, ',
+		linkText: 'Glightbox Documentation ',
+		link: `https://github.com/biati-digital/glightbox`,
+	})
+	h5 Stylesheet
+	+ComponentCardLib
+		link(href=`assets/lib/lightbox2/css/lightbox.min.css`, rel='stylesheet')
+	h5.mt-4 Javascript
+	+ComponentCardLib
+		script(src=`assets/lib/lightbox2/js/lightbox.min.js`)
+	.row
+		+SimpleImage
+		+Gallery 
+

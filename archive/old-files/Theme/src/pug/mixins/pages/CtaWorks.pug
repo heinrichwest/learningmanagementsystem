@@ -1,0 +1,11 @@
+mixin CtaWorks
+  +Section.py-5.text-center.bg-black.text-white(data-zanim-timeline!={} data-zanim-trigger="scroll")
+    .overflow-hidden
+      h4.fw-normal.text-white.mb-1(data-zanim-xs!={'duration': 1.5, 'delay': 0}) Want To See More
+        br.d-block.d-sm-none
+        |  From Our Works?
+    .overflow-hidden
+      p(data-zanim-xs!={'duration': 1.5, 'delay': 0.1}) Our Team is always ready to help you
+
+    div(data-zanim-xs!={"from":{"opacity":0,"y":30},"to":{"opacity":1,"y":0},"duration":1.5,"delay":0.5})
+      a(href=`${CWD}pages/work-alt.html`).btn.btn-outline-light.btn-sm.hvr-sweep-top.mt-2 View All

@@ -1,0 +1,23 @@
+mixin YoutubePlayer 
+	.col-xl-6
+		h5 Youtube Player
+		+ComponentCard
+			.rounded.overflow-hidden
+				.player(data-plyr-provider='youtube' data-plyr-embed-id='bTqVqk7FSmY')
+
+mixin VimeoPlayer
+	.col-xl-6  
+		h5.mt-4.mt-xl-0 Vimeo Player
+		+ComponentCard
+			.rounded.overflow-hidden
+				.player(data-plyr-provider='vimeo' data-plyr-embed-id='76979871')
+
+mixin StyleSheet 
+	.col-lg-12
+		+ComponentCardLib({codeTitle: 'Stylesheet'})
+			link(href=`assets/lib/plyr/plyr.css`, rel='stylesheet')
+
+mixin Javascript
+	.col-lg-12
+		+ComponentCardLib({codeTitle: 'Javascript'})
+			script(src=`assets/lib/plyr/plyr.polyfilled.min.js`)

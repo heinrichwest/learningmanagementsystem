@@ -1,0 +1,31 @@
+mixin BackgroundColors 
+	h5 Background colors
+	+ComponentCard
+		each value in colors
+			span.badge(class=`bg-${value}${value === 'light' ? ' text-dark' : ''}${value === 'dark' ? ' dark__bg-dark' : '' }`)
+				+cleanText(value)
+			= '\n'
+
+mixin PillBadge 
+	h5.mt-4 Pill Badges
+	+ComponentCard
+		each value in colors
+			span.badge.rounded-pill(class=`bg-${value}${value === 'light' ? ' text-dark' : ''}${value === 'dark' ? ' dark__bg-dark' : '' }`)
+				+cleanText(value)
+			= '\n'
+
+mixin SoftBadge 
+	h5.mt-4 Soft Badges
+	+ComponentCard
+		each value in colors
+			span.badge(class=`badge-soft-${value}`)
+				+cleanText(value)
+			= '\n'
+
+mixin SoftPillBadge 
+	h5.mt-4 Soft Pill Badges
+	+ComponentCard
+		each value in colors
+			span.badge.rounded-pill(class=`badge-soft-${value}`)
+				+cleanText(value)
+			= '\n'

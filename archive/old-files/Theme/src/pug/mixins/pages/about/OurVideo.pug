@@ -1,0 +1,25 @@
+mixin OurVideo
+  +Section({
+    image: `${CWD}assets/img/backgrounds/our-video-bg.jpg`,
+    attrs: {
+      style: "background-position: 63% 50%;"
+    }
+  }).py-8.py-md-10.text-center
+    .row.justify-content-center(data-zanim-timeline!={} data-zanim-trigger='scroll')
+      .col-lg-8
+        .row.align-items-center
+          .col-md-5.text-md-end
+            h2.font-base.text-white.mb-0.fs-3.lh-1
+              span.d-block(data-zanim-xs!={"from":{"opacity":0,"x":-30},"to":{"opacity":1,"x":0},'duration': 1.5,"delay":0}) Watch our
+              span.d-block(data-zanim-xs!={"from":{"opacity":0,"x":-30},"to":{"opacity":1,"x":0},'duration': 1.5,"delay":0.1}) video
+          .col-md-2.my-3.my-md-0
+            a(href="#!" data-bigpicture='{"ytSrc":"jlWMTNZNOc0"}').video-modal.btn.btn-outline-white.hvr-sweep-top.rounded-circle.p-0.btn-play.mx-auto
+              span.fas.fa-play(data-fa-transform="grow-1 right-2")
+
+          .col-md-5.text-md-start
+            .overflow-hidden
+              p.text-white.mb-0(data-zanim-xs!={"from":{"opacity":0,"x":30},"to":{"opacity":1,"x":0},'duration': 1.5,"delay":0.1}) Promote your company
+                br
+                | Creating your own 
+                br
+                | slogan here

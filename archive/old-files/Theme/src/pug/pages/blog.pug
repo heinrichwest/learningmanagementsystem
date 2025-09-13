@@ -1,0 +1,15 @@
+extends ../layouts/LayoutTheme
+include ../mixins/headers/HeaderClassic
+include ../mixins/pages/blog/Mixin
+include ../mixins/pages/blog/Blog
+include ../mixins/pages/blog/BlogSidebar
+
+append variables
+  
+  
+prepend scripts
+
+
+append mainContent
+  +HeaderClassic('Blog')
+  +Blog

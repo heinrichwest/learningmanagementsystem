@@ -1,0 +1,10 @@
+mixin HeaderClassicTypedText
+  +HeaderSection({
+    image: `${CWD}assets/img/headers/header-10.jpg`,
+    className: 'overlay parallax',
+    attrs: {
+      style: 'background-position: center 42%;'
+    }
+  }).overflow-hidden.py-0(data-zanim-timeline!={} data-zanim-trigger='scroll')
+    +HeaderContent(`Grow your <br class="d-block d-sm-none"> <span class="typed-text" data-typed-text='["life", "roots", "mind"]'></span>`, `Take every chance you get in life, because <br class="d-none d-sm-block"> some things only happen once`).align-items-center.pt-10.pb-8
+

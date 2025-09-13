@@ -1,0 +1,242 @@
+mixin TypographyFontFamily 
+  h5.mb-1 Font Family
+  p
+    | You have three sets of 
+    code font-family
+    |  available to use.
+  +ComponentCard
+    div.font-sans-serif Raleway
+    div.font-base Roboto
+    div 
+      code Monospace
+  
+mixin TypographyHeading 
+  h5.mt-4.mb-1 Headings
+  p
+    strong #{name}
+    |  has all the html headings, 
+    code #{'<h1>'}
+    |  through 
+    code #{'<h6>'}
+    | , styled for you. Also you can use 
+    code .h1
+    |   through 
+    code .h6
+    |   classes when you want to match the font styling of a heading but still want your text to be displayed inline.
+  +ComponentCard
+    h1 Heading 1
+    h2 Heading 2
+    h3 Heading 3
+    h4 Heading 4
+    h5 Heading 5
+    h6 Heading 6
+
+
+mixin TypographyParagraph
+  h5.mt-4 Paragraphs
+  +ComponentCard
+    p This is a paragraph text. Following text are dummy copy text. Donec feugiat lorem dolor, eu fringilla urna tincidunt quis.
+
+  h5.mt-4.mb-1 Lead Paragraph and Drop cap
+  p
+    | Make a paragraph stand out by adding 
+    code .lead
+    |  and for drop cap, use 
+    code .dropcap
+    |  class.
+  +ComponentCard
+    p.dropcap.lead Morem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus at cumque deleniti dolores, est fugiat harum impedit ipsam, itaque iusto magnam natus neque, nulla placeat quis quod recusandae sapiente. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto atque consectetur culpa eos est exercitationem harum impedit iusto magnam molestiae neque non officia, pariatur possimus rem sapiente, sequi! Beatae, quae.
+   
+mixin TypographyFontWeights
+  h5.mt-4 Font Weights
+  +ComponentCardLib
+    .font-weight-thin {font-weight: 100 !important;}
+    .font-weight-lighter {font-weight: 200 !important;}
+    .font-weight-light {font-weight: 300 !important;}
+    .font-weight-normal {font-weight: 400 !important;}
+    .font-weight-medium {font-weight: 500 !important;}
+    .font-weight-semi-bold {font-weight: 600 !important;}
+    .font-weight-bold {font-weight: 700 !important;}
+    .font-weight-bolder {font-weight: 800 !important;}
+    .font-weight-black {font-weight: 900 !important;}
+
+mixin TypographyFontColors
+  h5.mt-4.mb-1 Colors
+  p Use the following colors to change the text color
+  +ComponentCard
+    h5.text-primary .text-primary
+    h5.text-info .text-info
+    h5.text-success .text-success
+    h5.text-warning .text-warning
+    h5.text-danger .text-danger
+    h5.text-black .text-black
+    h5.text-dark .text-dark
+    h5.text-1000 .text-1000
+    h5.text-900 .text-900
+    h5.text-800 .text-800
+    h5.text-700 .text-700
+    h5.text-600 .text-600
+    h5.text-500 .text-500
+    h5.text-400 .text-400
+    h5.text-300
+      span.bg-black .text-300
+    h5.text-200
+      span.bg-dark .text-200
+    h5.text-light
+      span.bg-1000 .text-light
+    h5.text-white
+      span.bg-900 .text-white
+
+mixin TypographyFontsSizes
+  h5.mt-4.mb-1 Sizes
+  p If you want different sizes of fonts, you may use the following classes.
+  +ComponentCard
+    p.fs--2 .fs--2
+    p.fs--1 .fs--1
+    p.fs-0 .fs-0
+    p.fs-1 .fs-1
+    p.fs-2 .fs-2
+    p.fs-4 .fs-4
+    p.fs-5 .fs-5
+    p.fs-6 .fs-6
+    p.fs-7 .fs-7
+    p.fs-8 .fs-8
+
+mixin TypographyDisplayHeadings
+  h5.mt-4.mb-1 Display Headings
+  p Traditional heading elements are designed to work best in the meat of your page content
+  +ComponentCard
+    h2.display-1 Display 1
+    h2.display-2 Display 2
+    h2.display-3 Display 3
+    h2.display-4 Display 4    
+
+mixin TypographyAlignment
+  .col-sm-6
+    h5.mt-4 Left Alignment
+    +ComponentCard
+      .text-start
+        | Pellentesque cursus placerat hendrerit. Donec sed erat nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce vitae consequat erat. Quisque faucibus felis et fringilla imperdiet. Etiam at porttitor elit, quis convallis massa. Ut id risus sapien. Praesent sit amet arcu a eros laoreet facilisis id eget risus.
+  .col-sm-6
+    h5.mt-4 Right Alignment
+    +ComponentCard
+      .text-end Pellentesque cursus placerat hendrerit. Donec sed erat nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce vitae consequat erat. Quisque faucibus felis et fringilla imperdiet. Etiam at porttitor elit, quis convallis massa. Ut id risus sapien. Praesent sit amet arcu a eros laoreet facilisis id eget risus.
+  .col-sm-6
+    h5.mt-4 Center Aligned
+    +ComponentCard
+      .text-center Pellentesque cursus placerat hendrerit. Donec sed erat nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce vitae consequat erat. Quisque faucibus felis et fringilla imperdiet. Etiam at porttitor elit, quis convallis massa. Ut id risus sapien. Praesent sit amet arcu a eros laoreet facilisis id eget risus.
+  .col-sm-6
+    h5.mt-4 Justified
+    +ComponentCard
+      .text-justify Pellentesque cursus placerat hendrerit. Donec sed erat nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce vitae consequat erat. Quisque faucibus felis et fringilla imperdiet. Etiam at porttitor elit, quis convallis massa. Ut id risus sapien. Praesent sit amet arcu a eros laoreet facilisis id eget risus.
+
+mixin TypographyTransformation
+  .col-sm-6
+    h5.mt-4 Transformation
+    +ComponentCard
+      .text-lowercase Lowercased text
+      .text-uppercase Uppercased text
+      .text-capitalize Capitalized text
+
+mixin TypographyInlineStyles
+  .col-12
+    h5.mt-4 Inline styles
+    p 
+      | Use these tags for inline styling. Feel free to use 
+      code #{'<b>'}
+      |  and 
+      code #{'<em>'}
+      |  tags insted of
+      code #{'<strong>'}
+      |  and 
+      code #{'<i>'}
+      |  tags.
+    +ComponentCard
+      p
+        mark Highlight text
+      p
+        del Deleted text
+      p
+        u Underlined text
+      p
+        small Small text
+      p
+        strong Bold text
+      p
+        i Italic text
+
+mixin Blockquotes 
+  .col-sm-6
+    h5.mt-4 Blockquotes
+    +ComponentCard
+      blockquote.blockquote
+        p.fs-2.text-800.fst-italic Racing is life, everything before or after is just waiting.”
+        footer.blockquote-footer Frank Zappa        
+
+mixin UnorderList 
+  .col-lg-6
+    h5.mt-4 Unordered List
+    p A list of items in which the order does not explicitly matter.
+    +ComponentCard
+      ul
+        li Lorem ipsum dolor sit amet
+        li Consectetur adipiscing elit
+        li Nulla volutpat aliquam velit
+          ul
+            li Phasellus iaculis neque
+            li Purus sodales ultricies
+        li Faucibus porta lacus fringilla vel     
+
+mixin OrderList 
+  .col-lg-6
+    h5.mt-4 Ordered List
+    p A list of items in which the order does explicitly matter.
+    +ComponentCard
+      ol
+        li Lorem ipsum dolor sit amet
+        li Consectetur adipiscing elit
+        li Nulla volutpat aliquam velit
+          ol
+            li Phasellus iaculis neque
+            li Purus sodales ultricies
+        li Faucibus porta lacus fringilla vel   
+
+mixin UnStyledList 
+  .col-lg-6
+    h5.mt-4 Unstyled List
+    p Adding 
+      code list-unstyled
+      |  class to  
+      code ul
+      |  element will produce the following list style:
+    +ComponentCard
+      ul.list-unstyled
+        li Lorem ipsum dolor sit amet
+        li Consectetur adipiscing elit
+        li Nulla volutpat aliquam velit
+          = '\n'
+          ul.list-unstyled.ps-4
+            li Phasellus iaculis neque
+            li Purus sodales ultricies
+        li Faucibus porta lacus fringilla vel
+
+mixin CheckmarkedList    
+  .col-lg-6
+    h5.mt-4 Checkmarked List
+    p Adding 
+      code style-check
+      |  class to  
+      code ul
+      |  element will produce the following list style:
+
+    +ComponentCard
+      ul.style-check
+        li Lorem ipsum dolor sit amet
+        li Consectetur adipiscing elit
+        li Nulla volutpat aliquam velit
+          = '\n'
+          ul
+            li Phasellus iaculis neque
+            li Purus sodales ultricies
+        li Faucibus porta lacus fringilla vel 
+

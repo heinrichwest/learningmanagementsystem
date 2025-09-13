@@ -1,0 +1,12 @@
+mixin HeaderGradientBackground(contentClassName, isClassic)
+	+HeaderSection({
+		image: `${CWD}assets/img/headers/header-4.jpg`,
+		className: 'overlay parallax overlay-gradient',
+		attrs: {
+			'data-rellax-percentage': '0.5',
+			style: `background-position: center ${isClassic ? '18%' : '34%'};`
+		}
+	},'container-fluid').text-center.overflow-hidden.py-0(data-zanim-timeline!={} data-zanim-trigger='scroll')
+		+HeaderContent('Future is here', `Take action and be a <br class="d-block d-md-none"> part of it`, contentClassName).flex-center&attributes(attributes)
+		if !isClassic
+			+HeaderIndicatorDown
